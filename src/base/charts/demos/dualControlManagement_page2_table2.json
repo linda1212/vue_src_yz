@@ -1,0 +1,46 @@
+{
+    "code": 0,
+    "msg": "ok",
+    "total": 5,
+    "rows": [
+    {
+        "id": 1,
+        "industry_name": "钢铁",
+        "totalEnergyConsumption": 200,
+        "total_earlyWarningPercent": "-13.8%",
+        "energyIntensity": 20,
+        "intensity_earlyWarningPercent": "-13.1%"
+    },
+    {
+        "id": 2,
+        "industry_name": "水泥",
+        "totalEnergyConsumption": 202.9,
+        "total_earlyWarningPercent": "+10.5%",
+        "energyIntensity": 23,
+        "intensity_earlyWarningPercent": "+15%"
+    },
+    {
+        "id": 3,
+        "industry_name": "机械",
+        "totalEnergyConsumption": 178.6,
+        "total_earlyWarningPercent": "-10.1%",
+        "energyIntensity": 17,
+        "intensity_earlyWarningPercent": "-15%"
+    },
+    {
+        "id": 4,
+        "industry_name": "建材",
+        "totalEnergyConsumption": 160,
+        "total_earlyWarningPercent": "+5.2%",
+        "energyIntensity": 17,
+        "intensity_earlyWarningPercent": "+13.3%"
+    },
+    {
+        "id": 5,
+        "industry_name": "电子",
+        "totalEnergyConsumption": 160.1,
+        "total_earlyWarningPercent": "+14.2%",
+        "energyIntensity": 17,
+        "intensity_earlyWarningPercent": "+21.4%"
+    }]
+}

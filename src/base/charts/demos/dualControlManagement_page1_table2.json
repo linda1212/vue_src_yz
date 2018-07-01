@@ -1,0 +1,56 @@
+{
+    "code": 0,
+    "msg": "ok",
+    "total": 5,
+    "rows": [
+    {
+        "id": 1,
+        "industry_name": "钢铁",
+        "year": "2018年",
+        "totalEnergyConsumptionIndex": 232.6,
+        "totalRelativeToLastyear": 1,
+        "energyIntensityIndex": 23,
+        "energyRelativeToLastyear": 1,
+        "auditStatus": 1
+    },
+    {
+        "id": 2,
+        "industry_name": "水泥",
+        "year": "2018年",
+        "totalEnergyConsumptionIndex": 185.4,
+        "totalRelativeToLastyear": 1,
+        "energyIntensityIndex": 19,
+        "energyRelativeToLastyear": 1,
+        "auditStatus": 0
+    },
+    {
+        "id": 3,
+        "industry_name": "机械",
+        "year": "2017年",
+        "totalEnergyConsumptionIndex": 196.8,
+        "totalRelativeToLastyear": 1,
+        "energyIntensityIndex": 20,
+        "energyRelativeToLastyear": 1,
+        "auditStatus": 0
+    },
+    {
+        "id": 4,
+        "industry_name": "建材",
+        "year": "2016年",
+        "totalEnergyConsumptionIndex": 152.4,
+        "totalRelativeToLastyear": 0,
+        "energyIntensityIndex": 15,
+        "energyRelativeToLastyear": 0,
+        "auditStatus": 0
+    },
+    {
+        "id": 5,
+        "industry_name": "电子",
+        "year": "2018年",
+        "totalEnergyConsumptionIndex": 140.6,
+        "totalRelativeToLastyear": 1,
+        "energyIntensityIndex": 14,
+        "energyRelativeToLastyear": 0,
+        "auditStatus": 0
+    }]
+}

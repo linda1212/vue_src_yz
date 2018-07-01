@@ -1,0 +1,46 @@
+{
+    "code": 0,
+    "msg": "ok",
+    "total": 5,
+    "rows": [
+    {
+        "id": 1,
+        "company_name": "扬州市文化中心",
+        "totalEnergyConsumption": 80,
+        "total_earlyWarningPercent": "-5.6%",
+        "energyIntensity": 15,
+        "intensity_earlyWarningPercent": "-7.1%"
+    },
+    {
+        "id": 2,
+        "company_name": "扬州电力",
+        "totalEnergyConsumption": 82,
+        "total_earlyWarningPercent": "+10.8%",
+        "energyIntensity": 2,
+        "intensity_earlyWarningPercent": "+20%"
+    },
+    {
+        "id": 3,
+        "company_name": "扬州市中级法院",
+        "totalEnergyConsumption": 79,
+        "total_earlyWarningPercent": "+23.4%",
+        "energyIntensity": 8,
+        "intensity_earlyWarningPercent": "+16.7%"
+    },
+    {
+        "id": 4,
+        "company_name": "扬州大学",
+        "totalEnergyConsumption": 55,
+        "total_earlyWarningPercent": "-8.3%",
+        "energyIntensity": 5,
+        "intensity_earlyWarningPercent": "-16.7%"
+    },
+    {
+        "id": 5,
+        "company_name": "新华中学",
+        "totalEnergyConsumption": 72,
+        "total_earlyWarningPercent": "+4.3%",
+        "energyIntensity": 9,
+        "intensity_earlyWarningPercent": "+12.5%"
+    }]
+}

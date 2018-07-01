@@ -1,0 +1,79 @@
+{
+    "code": 0,
+    "msg": "ok",
+    "total": 9,
+    "title": "固原市能耗详情",
+    "rows": [
+    {
+        "name": "宁夏瀛海天池建材有限公司",
+        "total": "3866.4948",
+        "power": "9666237",
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "宁夏建成建材有限责任公司",
+        "total": "2035.5008",
+        "power": "5088752",
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "宁夏宝兰德化工有限公司",
+        "total": null,
+        "power": null,
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "宁夏长城水务有限责任公司",
+        "total": null,
+        "power": null,
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "宁夏领航保温材料有限公司",
+        "total": null,
+        "power": null,
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "宁夏瀛海灵武特种水泥有限公司",
+        "total": null,
+        "power": null,
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "宁夏中银绒业股份有限公司",
+        "total": "4566.0888",
+        "power": "11415222",
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "宁夏恒有能源化工科技有限公司",
+        "total": "7307.3056",
+        "power": "18268264",
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "宁夏太阳山水务有限责任公司",
+        "total": null,
+        "power": null,
+        "water": null,
+        "gas": null,
+        "steam": null
+    }]
+}

@@ -1,0 +1,44 @@
+{
+    "data":
+    {
+        "key": "the_id_from_params",
+        "chartData":
+        {
+            "seriesData": [
+            {
+                "id": 640100,
+                "name": "银川市",
+                "value": 2092
+            },
+            {
+                "id": 640200,
+                "name": "石嘴山市",
+                "value": 247177
+            },
+            {
+                "id": 640300,
+                "name": "吴忠市",
+                "value": 67605
+            },
+            {
+                "id": 640400,
+                "name": "固原市",
+                "value": 17774
+            },
+            {
+                "id": 640500,
+                "name": "中卫市",
+                "value": 0
+            },
+            {
+                "id": 640600,
+                "name": "宁东",
+                "value": 216
+            }],
+            "title": "能耗总量",
+            "yzTitle": "吨标准煤"
+        }
+    },
+    "msg": "ok",
+    "code": 0
+}

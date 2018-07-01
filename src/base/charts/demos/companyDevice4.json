@@ -1,0 +1,14 @@
+{
+    "code": 0,
+    "msg": "ok",
+    "total": 5,
+    "rows": [
+    {
+        "field0": 1,
+        "field1": "设备1"
+    },
+    {
+        "field0": 2,
+        "field1": "设备2"
+    }]
+}

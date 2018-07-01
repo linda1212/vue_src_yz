@@ -1,0 +1,103 @@
+{
+    "code": 0,
+    "msg": "ok",
+    "total": 12,
+    "title": "宁夏回族自治区能耗详情",
+    "rows": [
+    {
+        "name": "宁夏疾病预防控制中心",
+        "total": null,
+        "power": null,
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "银川中铁水务集团有限公司一厂",
+        "total": null,
+        "power": null,
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "银川中铁水务集团有限公司二厂",
+        "total": "1183.6152",
+        "power": "2959038",
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "银川中铁水务集团有限公司三厂",
+        "total": null,
+        "power": null,
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "银川中铁水务集团有限公司四厂",
+        "total": null,
+        "power": null,
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "银川中铁水务集团有限公司五厂",
+        "total": null,
+        "power": null,
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "银川中铁水务集团有限公司六厂",
+        "total": null,
+        "power": null,
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "银川中铁水务集团有限公司灵武厂",
+        "total": null,
+        "power": null,
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "银川中铁水务集团有限公司贺兰水厂",
+        "total": null,
+        "power": null,
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "银川中铁水务集团有限公司河东水厂",
+        "total": null,
+        "power": null,
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "宁夏银川市第九中学",
+        "total": "303.0464",
+        "power": "757616",
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "宁夏瀛海银川建材有限公司",
+        "total": "606.766",
+        "power": "1516915",
+        "water": null,
+        "gas": null,
+        "steam": null
+    }]
+}

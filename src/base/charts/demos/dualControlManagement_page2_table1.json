@@ -1,0 +1,46 @@
+{
+    "code": 0,
+    "msg": "ok",
+    "total": 5,
+    "rows": [
+    {
+        "id": 1,
+        "area_name": "邗江区",       
+        "totalEnergyConsumption": 300,
+        "total_earlyWarningPercent": "-3%",
+        "energyIntensity": 15,
+        "intensity_earlyWarningPercent": "-21%"
+    },
+    {
+        "id": 2,
+        "area_name": "仪征市",
+        "totalEnergyConsumption": 271,
+        "total_earlyWarningPercent": "+7.5%",
+        "energyIntensity": 20,
+        "intensity_earlyWarningPercent": "+22%"
+    },
+    {
+        "id": 3,
+        "area_name": "高邮市",
+        "totalEnergyConsumption": 140,
+        "total_earlyWarningPercent": "-8.2%",
+        "energyIntensity": 16,
+        "intensity_earlyWarningPercent": "+15%"
+    },
+    {
+        "id": 4,
+        "area_name": "江都区",
+        "totalEnergyConsumption": 181.3,
+        "total_earlyWarningPercent": "+11.6%",
+        "energyIntensity": 14,
+        "intensity_earlyWarningPercent": "+15%"
+    },
+    {
+        "id": 5,
+        "area_name": "广陵区",
+        "totalEnergyConsumption": 160.4,
+        "total_earlyWarningPercent": "+15%",
+        "energyIntensity": 16,
+        "intensity_earlyWarningPercent": "+15%"
+    }]
+}

@@ -1,0 +1,35 @@
+{
+    "code": 0,
+    "msg": "ok",
+    "data": [
+    {
+        "uuid": "1",
+        "text": "电压表",
+        "nodes": [
+        {
+            "uuid": "2",
+            "text": "电压表1",
+            "icon": "tree-icon menu-device"
+        }]
+    },
+    {
+        "uuid": "7",
+        "text": "电流表",
+        "nodes": [
+        {
+            "uuid": "81",
+            "text": "电流表",
+            "icon": "tree-icon menu-device"
+        }]
+    },
+    {
+        "uuid": "13",
+        "text": "压力计",
+        "nodes": [
+        {
+            "uuid": "14",
+            "text": "压力计1",
+            "icon": "tree-icon menu-device"
+        }]
+    }]
+}

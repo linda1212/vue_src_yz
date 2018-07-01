@@ -1,0 +1,41 @@
+{
+    "code": 0,
+    "msg": "ok",
+    "total": 11,
+    "rows": [
+    {
+        "id": 1,
+        "name": "扬州市文化中心",
+        "ele_this_month": "1220",
+        "ele_this_season": "2000",
+        "ele_this_season_pred": "2100"
+    },
+    {
+        "id": 2,
+        "name": "扬州电力",
+        "ele_this_month": "1350",
+        "ele_this_season": "2133",
+        "ele_this_season_pred": "2300"
+    },
+    {
+        "id": 3,
+        "name": "扬州市中级法院",
+        "ele_this_month": "1248",
+        "ele_this_season": "2048",
+        "ele_this_season_pred": "2200"
+    },
+    {
+        "id": 4,
+        "name": "扬州大学",
+        "ele_this_month": "1165",
+        "ele_this_season": "2095",
+        "ele_this_season_pred": "2000"
+    },
+    {
+        "id": 5,
+        "name": "新华中学",
+        "ele_this_month": "1498",
+        "ele_this_season": "2188",
+        "ele_this_season_pred": "2400"
+    }]
+}

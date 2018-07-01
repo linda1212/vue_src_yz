@@ -1,0 +1,34 @@
+{
+    "data":
+    {
+        "key": "the_id_from_params",
+        "chartData":
+        {
+            "seriesData": [
+            {
+                "name": "电",
+                "value": 30
+            },
+            {
+                "name": "煤",
+                "value": 15
+            },
+            {
+                "name": "气",
+                "value": 15
+            },
+            {
+                "name": "水",
+                "value": 15
+            },
+            {
+                "name": "其他",
+                "value": 10
+            }],
+            "title": "总量消费结构",
+            "yzTitle": "万吨标准煤"
+        }
+    },
+    "msg": "ok",
+    "code": 0
+}

@@ -1,0 +1,87 @@
+{
+    "code": 0,
+    "msg": "ok",
+    "total": 10,
+    "title": "宁夏回族自治区能耗详情",
+    "rows": [
+    {
+        "name": "石嘴山市霖达工贸有限公司",
+        "total": null,
+        "power": null,
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "石嘴山市鼎源工贸有限公司",
+        "total": null,
+        "power": null,
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "石嘴山市鸿基工贸有限公司",
+        "total": "2154.7148",
+        "power": "5386787",
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "石嘴山林清工贸有限责任公司",
+        "total": "2220.39092",
+        "power": "5550977.3",
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "石嘴山市华旺碳素制品有限公司",
+        "total": null,
+        "power": null,
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "石嘴山市焱鑫工贸有限公司",
+        "total": "3342.1928",
+        "power": "8355482",
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "酒钢集团石嘴山钢铁有限公司",
+        "total": "239461.376",
+        "power": "598653440",
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "平罗县祥盛炭素有限公司",
+        "total": null,
+        "power": null,
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "宁夏平罗恒达水泥有限责任公司",
+        "total": null,
+        "power": null,
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "石嘴山市盛港煤焦化有限公司",
+        "total": null,
+        "power": null,
+        "water": null,
+        "gas": null,
+        "steam": null
+    }]
+}

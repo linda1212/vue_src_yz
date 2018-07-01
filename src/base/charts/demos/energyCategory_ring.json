@@ -1,0 +1,38 @@
+{
+    "data":
+    {
+        "key": "the_id_from_params",
+        "chartData":
+        {
+            "seriesData": [
+            {
+                "name": "商场建筑",
+                "value": 3000
+            },
+            {
+                "name": "体育建筑",
+                "value": 1500
+            },
+            {
+                "name": "综合建筑",
+                "value": 1500
+            },
+            {
+                "name": "办公建筑",
+                "value": 1500
+            },
+            {
+                "name": "医疗卫生",
+                "value": 2600
+            },
+            {
+                "name": "宾馆饭店",
+                "value": 1300
+            }],
+            "title": "",
+            "yzTitle": ""
+        }
+    },
+    "msg": "ok",
+    "code": 0
+}

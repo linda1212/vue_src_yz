@@ -1,0 +1,111 @@
+{
+    "code": 0,
+    "msg": "ok",
+    "total": 13,
+    "title": "吴忠市能耗详情",
+    "rows": [
+    {
+        "name": "宁夏瑞科新源化工有限公司",
+        "total": "20870.1696",
+        "power": "52175424",
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "宁夏盐池县恒汇丰煤化工有限公司",
+        "total": null,
+        "power": null,
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "盐池县人民医院",
+        "total": null,
+        "power": null,
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "宁夏天利丰能源利用有限公司",
+        "total": "22327.968",
+        "power": "55819920",
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "宁夏金裕海化工有限公司",
+        "total": null,
+        "power": null,
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "宁夏神瑞工贸有限责任公司",
+        "total": "866.192",
+        "power": "2165480",
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "宁夏佳能创科化工有限公司",
+        "total": "309.730704",
+        "power": "774326.76",
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "宁夏维尔铸造有限责任公司",
+        "total": null,
+        "power": null,
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "宁夏鑫鼎工贸有限公司",
+        "total": null,
+        "power": null,
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "宁夏华丰达炭素实业有限公司",
+        "total": "4343.4592",
+        "power": "10858648",
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "宁夏中炭冶金有限公司",
+        "total": "2086.0476",
+        "power": "5215119",
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "宁夏天福活性炭有限公司",
+        "total": null,
+        "power": null,
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "宁夏明盛染化有限公司",
+        "total": "16804.212",
+        "power": "42010530",
+        "water": null,
+        "gas": null,
+        "steam": null
+    }]
+}

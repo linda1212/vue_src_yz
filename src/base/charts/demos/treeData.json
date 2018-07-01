@@ -1,0 +1,95 @@
+{
+    "code": 0,
+    "msg": "ok",
+    "treeData": [
+    {
+        "uuid": "1",
+        "text": "高炉工序",
+        "nodes": [
+        {
+            "uuid": "2",
+            "text": "立式破碎机",
+            "icon": "tree-icon menu-device"
+        },
+        {
+            "uuid": "3",
+            "text": "动力电力变压器",
+            "icon": "tree-icon menu-device"
+        },
+        {
+            "uuid": "4",
+            "text": "转炉二次除尘风机",
+            "icon": "tree-icon menu-device"
+        },
+        {
+            "uuid": "5",
+            "text": "连铸中间包烘烤器",
+            "icon": "tree-icon menu-device"
+        },
+        {
+            "uuid": "6",
+            "text": "轴流压缩机(GBPRT)",
+            "icon": "tree-icon menu-device"
+        }]
+    },
+    {
+        "uuid": "7",
+        "text": "烧结工序",
+        "nodes": [
+        {
+            "uuid": "8",
+            "text": "除尘风机",
+            "icon": "tree-icon menu-device"
+        },
+        {
+            "uuid": "9",
+            "text": "引风机",
+            "icon": "tree-icon menu-device"
+        },
+        {
+            "uuid": "10",
+            "text": "转炉一次除尘风机",
+            "icon": "tree-icon menu-device"
+        },
+        {
+            "uuid": "11",
+            "text": "连铸二冷水水泵",
+            "icon": "tree-icon menu-device"
+        },
+        {
+            "uuid": "12",
+            "text": "循环水泵电机",
+            "icon": "tree-icon menu-device"
+        }]
+    },
+    {
+        "uuid": "13",
+        "text": "转炉工序",
+        "nodes": [
+        {
+            "uuid": "14",
+            "text": "螺杆式压缩机",
+            "icon": "tree-icon menu-device"
+        },
+        {
+            "uuid": "15",
+            "text": "单螺杆空压机",
+            "icon": "tree-icon menu-device"
+        },
+        {
+            "uuid": "16",
+            "text": "给水泵电机",
+            "icon": "tree-icon menu-device"
+        },
+        {
+            "uuid": "17",
+            "text": "送风机电机",
+            "icon": "tree-icon menu-device"
+        },
+        {
+            "uuid": "18",
+            "text": "煤气加压机电机",
+            "icon": "tree-icon menu-device"
+        }]
+    }]
+}

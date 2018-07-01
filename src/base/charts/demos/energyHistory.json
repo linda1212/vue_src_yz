@@ -1,0 +1,138 @@
+{
+    "code": 0,
+    "msg": "ok",
+    "total": 11,
+    "rows": [
+    {
+        "id": 1,
+        "name": "扬州市文化中心",
+        "area_name": "扬州市",
+        "industry_name": "钢铁",
+        "energy_month": 1446,
+        "energy_year": 1200,
+        "energy_ele": 456456,
+        "energy_water": 5545,
+        "energy_gas": 6447,
+        "energy_coal": 18996
+    },
+    {
+        "id": 2,
+        "name": "扬州电力",
+        "area_name": "扬州市",
+        "industry_name": "电子",
+        "energy_month": 1348,
+        "energy_year": 1100,
+        "energy_ele": 451233,
+        "energy_water": 5468,
+        "energy_gas": 6548,
+        "energy_coal": 18641
+    },
+    {
+        "id": 3,
+        "name": "扬州市中级法院",
+        "area_name": "扬州市",
+        "industry_name": "建材",
+        "energy_month": 1523,
+        "energy_year": 1150,
+        "energy_ele": 342344,
+        "energy_water": 5213,
+        "energy_gas": 6423,
+        "energy_coal": 17234
+    },
+    {
+        "id": 4,
+        "name": "扬州大学",
+        "area_name": "扬州市",
+        "industry_name": "水泥",
+        "energy_month": 1633,
+        "energy_year": 1340,
+        "energy_ele": 443273,
+        "energy_water": 5871,
+        "energy_gas": 6225,
+        "energy_coal": 17524
+    },
+    {
+        "id": 5,
+        "name": "新华中学",
+        "area_name": "扬州市",
+        "industry_name": "石化",
+        "energy_month": 1559,
+        "energy_year": 1142,
+        "energy_ele": 453344,
+        "energy_water": 4653,
+        "energy_gas": 5483,
+        "energy_coal": 16546
+    },
+    {
+        "id": 6,
+        "name": "国网扬州供电公司",
+        "area_name": "扬州市",
+        "industry_name": "电子",
+        "energy_month": 1493,
+        "energy_year": 1102,
+        "energy_ele": 486400,
+        "energy_water": 4652,
+        "energy_gas": 5964,
+        "energy_coal": 18465
+    },
+    {
+        "id": 7,
+        "name": "棠湖酒店",
+        "area_name": "扬州市",
+        "industry_name": "机械",
+        "energy_month": 1446,
+        "energy_year": 1062,
+        "energy_ele": 468655,
+        "energy_water": 4784,
+        "energy_gas": 5889,
+        "energy_coal": 17564
+    },
+    {
+        "id": 8,
+        "name": "美琪学习会所",
+        "area_name": "扬州市",
+        "industry_name": "纺织",
+        "energy_month": 1655,
+        "energy_year": 1090,
+        "energy_ele": 358948,
+        "energy_water": 4465,
+        "energy_gas": 5648,
+        "energy_coal": 18894
+    },
+    {
+        "id": 9,
+        "name": "东方百合园商务楼",
+        "area_name": "扬州市",
+        "industry_name": "建材",
+        "energy_month": 1186,
+        "energy_year": 1154,
+        "energy_ele": 552514,
+        "energy_water": 4668,
+        "energy_gas": 6447,
+        "energy_coal": 16555
+    },
+    {
+        "id": 10,
+        "name": "扬州友好医院",
+        "area_name": "扬州市",
+        "industry_name": "机械",
+        "energy_month": 1385,
+        "energy_year": 1225,
+        "energy_ele": 422212,
+        "energy_water": 4100,
+        "energy_gas": 6327,
+        "energy_coal": 19854
+    },
+    {
+        "id": 11,
+        "name": "中国移动集团扬州分公司",
+        "area_name": "扬州市",
+        "industry_name": "钢铁",
+        "energy_month": 1348,
+        "energy_year": 1352,
+        "energy_ele": 436158,
+        "energy_water": 4985,
+        "energy_gas": 6528,
+        "energy_coal": 16584
+    }]
+}

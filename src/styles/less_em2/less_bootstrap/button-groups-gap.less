@@ -1,0 +1,130 @@
+//
+// Button groups
+// --------------------------------------------------
+// Make the div behave like a button
+.gap-btn-group,
+.gap-btn-group-vertical {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle; // match .btn alignment given font-size hack above
+    >.selectpicker,
+    >.btn,
+    >.form-control {
+        position: relative;
+        float: left!important; // Bring the "active" button to the front
+        &:hover,
+        &:focus,
+        &:active,
+        &.active {
+            z-index: 2;
+        }
+    }
+}
+
+// Prevent double borders when buttons are next to each other
+.gap-btn-group {
+    .btn+.btn,
+    .btn+.btn-group,
+    .btn+.gap-btn-group,
+    .btn-group+.btn,
+    .form-control+.btn,
+    .form-control+.btn-group,
+    .btn-group+.btn-group,
+    .btn-group+.form-control {
+        margin-left: @btn-group-gap;
+    }
+    >.btn-group {
+        .btn+.btn,
+        .btn+.btn-group,
+        .btn-group+.btn,
+        .btn-group+.btn-group {
+            margin-left: -1px;
+        }
+    }
+}
+
+.gap-btn-group {
+    .form-control {
+        max-width: @form-control-max-width;
+    }
+}
+
+.gap-btn-group {
+    .compact+.form-control {
+        margin-left: 2px;
+    }
+}
+
+// Optional: Group multiple button groups together for a toolbar
+.btn-toolbar {
+    margin-left: -5px; // Offset the first child's margin
+    &:extend(.clearfix all);
+
+    .btn,
+    .btn-group,
+    .input-group {
+        float: left;
+    }
+    >.btn,
+    >.btn-group,
+    >.input-group {
+        margin-left: 5px;
+    }
+}
+
+// Set corners individual because sometimes a single button can be in a .btn-group and we need :first-child and :last-child to both match
+.gap-btn-group>.btn:first-child {
+    margin-left: 0;
+}
+
+// Custom edits for including btn-groups within btn-groups (useful for including dropdown buttons within a btn-group)
+.gap-btn-group>.btn-group,
+.gap-btn-group>.gap-btn-group {
+    float: left;
+}
+
+
+// On active and open, don't show outline
+.gap-btn-group .dropdown-toggle:active,
+.gap-btn-group.open .dropdown-toggle {
+    outline: 0;
+}
+
+
+// Sizing
+//
+// Remix the default button sizing classes into new ones for easier manipulation.
+.gap-btn-group-xs>.btn {
+    &:extend(.btn-xs);
+}
+
+.gap-btn-group-sm>.btn {
+    &:extend(.btn-sm);
+}
+
+.gap-btn-group-lg>.btn {
+    &:extend(.btn-lg);
+}
+
+
+// Split button dropdowns
+// ----------------------
+// Give the line between buttons some depth
+.gap-btn-group>.btn+.dropdown-toggle {
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.gap-btn-group>.btn-lg+.dropdown-toggle {
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+// The clickable button for toggling the menu
+// Remove the gradient and set the same inset shadow as the :active state
+.gap-btn-group.open .dropdown-toggle {
+    .box-shadow(inset 0 3px 5px rgba(0, 0, 0, .125)); // Show no shadow for `.btn-link` since it has no other button styles.
+    &.btn-link {
+        .box-shadow(none);
+    }
+}

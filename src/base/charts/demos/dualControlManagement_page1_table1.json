@@ -1,0 +1,56 @@
+{
+    "code": 0,
+    "msg": "ok",
+    "total": 5,
+    "rows": [
+    {
+        "id": 1,
+        "area_name": "邗江区",
+        "year": "2018年",
+        "totalEnergyConsumptionIndex": 309.7,
+        "totalRelativeToLastyear": 1,
+        "energyIntensityIndex": 19,
+        "energyRelativeToLastyearToLastyear": 1,
+        "auditStatus": 0
+    },
+    {
+        "id": 2,
+        "area_name": "仪征市",
+        "year": "2018年",
+        "totalEnergyConsumptionIndex": 252.1,
+        "totalRelativeToLastyear": 0,
+        "energyIntensityIndex": 18,
+        "energyRelativeToLastyear": 0,
+        "auditStatus": 0
+    },
+    {
+        "id": 3,
+        "area_name": "高邮市",
+        "year": "2017年",
+        "totalEnergyConsumptionIndex": 152.6,
+        "totalRelativeToLastyear": 1,
+        "energyIntensityIndex": 16,
+        "energyRelativeToLastyear": 1,
+        "auditStatus": 0
+    },
+    {
+        "id": 4,
+        "area_name": "江都区",
+        "year": "2016年",
+        "totalEnergyConsumptionIndex": 128.6,
+        "totalRelativeToLastyear": 1,
+        "energyIntensityIndex": 15,
+        "energyRelativeToLastyear": 0,
+        "auditStatus": 0
+    },
+    {
+        "id": 5,
+        "area_name": "广陵区",
+        "year": "2018年",
+        "totalEnergyConsumptionIndex": 163.2,
+        "totalRelativeToLastyear": 0,
+        "energyIntensityIndex": 16,
+        "energyRelativeToLastyear": 1,
+        "auditStatus": 0
+    }]
+}

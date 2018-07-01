@@ -1,0 +1,42 @@
+{
+    "data":
+    {
+        "key": "the_id_from_params",
+        "chartData":
+        {
+            "seriesData": [
+            {
+                "name": "原煤",
+                "value": 3000
+            },
+            {
+                "name": "原油",
+                "value": 1500
+            },
+            {
+                "name": "电力",
+                "value": 1500
+            },
+            {
+                "name": "热力",
+                "value": 1500
+            },
+            {
+                "name": "煤炭",
+                "value": 2600
+            },
+            {
+                "name": "天然气",
+                "value": 1300
+            },
+            {
+                "name": "其他",
+                "value": 1000
+            }],
+            "title": "能源消费结构分析",
+            "yzTitle": "万吨标准煤"
+        }
+    },
+    "msg": "ok",
+    "code": 0
+}

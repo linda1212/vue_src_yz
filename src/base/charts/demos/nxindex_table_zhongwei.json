@@ -1,0 +1,23 @@
+{
+    "code": 0,
+    "msg": "ok",
+    "total": 2,
+    "title": "宁夏回族自治区能耗详情",
+    "rows": [
+    {
+        "name": "中卫市银阳新能源有限公司",
+        "total": null,
+        "power": null,
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "中宁县隆盛废旧物资回收有限公司",
+        "total": null,
+        "power": null,
+        "water": null,
+        "gas": null,
+        "steam": null
+    }]
+}

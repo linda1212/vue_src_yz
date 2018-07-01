@@ -1,0 +1,78 @@
+{
+    "code": 0,
+    "msg": "ok",
+    "total": 11,
+    "rows": [
+    {
+        "id": 1,
+        "name": "扬州市文化中心",
+        "energy_total": "8754",
+        "ele_total": "1520",
+        "water_total": "2048",
+        "gas_total": "136000",
+        "coal_total": "8400"
+    },
+    {
+        "id": 2,
+        "name": "扬州电力",
+        "energy_total": "8500",
+        "ele_total": "1330",
+        "water_total": "1990",
+        "gas_total": "134500",
+        "coal_total": "8105"
+    },
+    {
+        "id": 3,
+        "name": "扬州市中级法院",
+        "energy_total": "8420",
+        "ele_total": "1150",
+        "water_total": "1920",
+        "gas_total": "129700",
+        "coal_total": "7760"
+    },
+    {
+        "id": 4,
+        "name": "扬州大学",
+        "energy_total": "8205",
+        "ele_total": "1060",
+        "water_total": "1760",
+        "gas_total": "125600",
+        "coal_total": "7528"
+    },
+    {
+        "id": 5,
+        "name": "新华中学",
+        "energy_total": "7800",
+        "ele_total": "1000",
+        "water_total": "1560",
+        "gas_total": "117880",
+        "coal_total": "7364"
+    },
+    {
+        "id": 6,
+        "name": "国网扬州供电公司",
+        "energy_total": "7760",
+        "ele_total": "985",
+        "water_total": "1500",
+        "gas_total": "112100",
+        "coal_total": "7115"
+    },
+    {
+        "id": 7,
+        "name": "棠湖酒店",
+        "energy_total": "7420",
+        "ele_total": "964",
+        "water_total": "1470",
+        "gas_total": "108980",
+        "coal_total": "7080"
+    },
+    {
+        "id": 8,
+        "name": "美琪学习会所",
+        "energy_total": "7290",
+        "ele_total": "1000",
+        "water_total": "1357",
+        "gas_total": "105550",
+        "coal_total": "6970"
+    }]
+}

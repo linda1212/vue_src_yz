@@ -1,0 +1,36 @@
+{
+    "data": {
+        "key": "the_id_from_params",
+        "chartData": {
+            "seriesData": [{
+                    "name": "机械",
+                    "value": 30
+                },
+                {
+                    "name": "纺织",
+                    "value": 15
+                },
+                {
+                    "name": "医药",
+                    "value": 15
+                },
+                {
+                    "name": "石化",
+                    "value": 15
+                },
+                {
+                    "name": "建材",
+                    "value": 10
+                },
+                {
+                    "name": "其他",
+                    "value": 45
+                }
+            ],
+            "title": "总量消费结构",
+            "yzTitle": "万吨标准煤"
+        }
+    },
+    "msg": "ok",
+    "code": 0
+}

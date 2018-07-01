@@ -1,0 +1,39 @@
+{
+	"code":0,
+	"msg":"ok",
+	"rows":[
+	{
+		"id":1,
+		"status":"正常",
+		"upload_type":"日报",
+		"upload_date":"2018-03-16 10:12:00",
+		"resend_count":0,
+		"resend_flag":"NO"
+	},
+	{
+		"id":2,
+		"status":"补报",
+		"upload_type":"日报",
+		"upload_date":"2018-03-16 10:12:10",
+		"resend_count":0,
+		"resend_flag":"NO"
+	},
+	{
+		"id":3,
+		"status":"正常",
+		"upload_type":"月报",
+		"upload_date":"2018-03-16 10:12:12",
+		"resend_count":1,
+		"resend_flag":"YES"
+	},
+	{
+		"id":4,
+		"status":"正常",
+		"upload_type":"月报",
+		"upload_date":"2018-03-16 10:12:15",
+		"resend_count":2,
+		"resend_flag":"YES"
+	}
+	],
+	"total":4
+}

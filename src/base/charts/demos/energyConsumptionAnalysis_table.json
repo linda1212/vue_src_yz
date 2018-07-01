@@ -1,0 +1,54 @@
+{
+    "code": 0,
+    "msg": "ok",
+    "total": 6,
+    "rows": [
+    {
+        "id": 1,
+        "name": "综合能源消费量",
+        "energy_total": 45000,
+        "energy_this_month": 23455,
+        "energy_last_month": 23857,
+        "persent": "10%"
+    },
+    {
+        "id": 2,
+        "name": "电",
+        "energy_total": 22220,
+        "energy_this_month": 11155.43,
+        "energy_last_month": 11155.43,
+        "persent": "25%"
+    },
+    {
+        "id": 3,
+        "name": "水",
+        "energy_total": 6420,
+        "energy_this_month": 3214.17,
+        "energy_last_month": 3294.2,
+        "persent": "13%"
+    },
+    {
+        "id": 4,
+        "name": "气",
+        "energy_total": 6637,
+        "energy_this_month": 3865.17,
+        "energy_last_month": 2877.2,
+        "persent": "13%"
+    },
+    {
+        "id": 5,
+        "name": "煤",
+        "energy_total": 14000,
+        "energy_this_month": 6354.17,
+        "energy_last_month": 7788.2,
+        "persent": "26%"
+    },
+    {
+        "id": 6,
+        "name": "油",
+        "energy_total": 8800,
+        "energy_this_month": 3214.17,
+        "energy_last_month": 5612.2,
+        "persent": "32%"
+    }]
+}

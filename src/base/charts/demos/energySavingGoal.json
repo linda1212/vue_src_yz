@@ -1,0 +1,52 @@
+{
+    "code": 0,
+    "msg": "ok",
+    "total": 8,
+    "rows": [
+    {
+        "id": 1,
+        "area": "高邮市",
+        "year": "2017",
+        "goal": "15000",
+        "completion_amount": "10000",
+        "completion_rate": "10%",
+        "company_name": "扬州市尚龙铝业有限公司"
+
+    },
+    {
+        "id": 2,
+        "area": "仪征市",
+        "year": "2017",
+        "goal": "15000",
+        "completion_amount": "10000",
+        "completion_rate": "10%",
+        "company_name": "扬州鼎铄金属材料有限公司"
+    },
+    {
+        "id": 3,
+        "area": "宝应市",
+        "year": "2017",
+        "goal": "15000",
+        "completion_amount": "10000",
+        "completion_rate": "10%",
+        "company_name": "扬州市洪基钢管有限公司"
+    },
+    {
+        "id": 4,
+        "area": "开发区",
+        "year": "2017",
+        "goal": "15000",
+        "completion_amount": "10000",
+        "completion_rate": "10%",
+        "company_name": "扬州市铁源钢铁有限公司"
+    },
+    {
+        "id": 5,
+        "area": "邢江区",
+        "year": "2017",
+        "goal": "15000",
+        "completion_amount": "10000",
+        "completion_rate": "10%",
+        "company_name": "扬州荣卓物资有限公司"
+    }]
+}

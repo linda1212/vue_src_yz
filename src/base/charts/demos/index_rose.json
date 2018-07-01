@@ -1,0 +1,50 @@
+{
+    "data":
+    {
+        "key": "the_id_from_params",
+        "chartData":
+        {
+            "seriesData": [
+                {
+                    "name": "机械",
+                    "value": 40000
+                },
+                {
+                    "name": "电子",
+                    "value": 36000
+                },
+                {
+                    "name": "石化",
+                    "value": 35000
+                },
+                {
+                    "name": "医药",
+                    "value": 30000
+                },
+                {
+                    "name": "轻工",
+                    "value": 60000
+                },
+                {
+                    "name": "纺织",
+                    "value": 46000
+                },
+                {
+                    "name": "冶金",
+                    "value": 32000
+                },
+                {
+                    "name": "建材",
+                    "value": 41000
+                },
+                {
+                    "name": "其他",
+                    "value": 38000
+                }],
+            "title": "行业能耗分析",
+            "yzTitle": "万吨标准煤"
+        }
+    },
+    "msg": "ok",
+    "code": 0
+}

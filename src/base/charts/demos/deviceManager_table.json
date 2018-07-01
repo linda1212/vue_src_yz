@@ -1,0 +1,136 @@
+{
+    "code": 0,
+    "msg": "ok",
+    "total": 11,
+    "rows": [
+    {
+        "field0": 1,
+        "field1": "除尘风机",
+        "field2": "4-73NO20D",
+        "field3": "500",
+        "field4": "气",
+        "field5": 2,
+        "field6": "正常",
+        "field7": "扬州"
+    },
+    {
+        "field0": 2,
+        "field1": "石灰窑",
+        "field2": "140m3",
+        "field3": "400",
+        "field4": "煤",
+        "field5": 1,
+        "field6": "故障",
+        "field7": "扬州"
+    },
+    {
+        "field0": 3,
+        "field1": "动力电力变压器",
+        "field2": "S11-1000/10",
+        "field3": "10KV 57.7A",
+        "field4": "煤",
+        "field5": 1,
+        "field6": "正常",
+        "field7": "扬州"
+    },
+    {
+        "field0": 4,
+        "field1": "变电配电设备",
+        "field2": "S11-1000/10",
+        "field3": "10KV 57.7A",
+        "field4": "煤",
+        "field5": 1,
+        "field6": "正常",
+        "field7": "扬州"
+    },
+    {
+        "field0": 5,
+       	"field1": "立式破碎机",
+        "field2": "PEL1500III",
+        "field3": "Y2-315L2-6",
+        "field4": "煤",
+        "field5": 1,
+        "field6": "正常",
+        "field7": "扬州"
+    },
+    {
+        "field0": 6,
+        "field1": "螺杆式压缩机",
+        "field2": "375W-50.7/7",
+        "field3": "280",
+        "field4": "煤",
+        "field5": 1,
+        "field6": "正常",
+        "field7": "扬州"
+    },
+    {
+        "field0": 7,
+        "field1": "单螺杆空压机",
+        "field2": "OGLC-185W",
+        "field3": "185",
+        "field4": "电",
+        "field5": 1,
+        "field6": "正常",
+        "field7": "扬州"
+    },
+    {
+        "field0": 8,
+        "field1": "1#、2#高压泵",
+        "field2": "KQSN300-N4/638",
+        "field3": "355",
+        "field4": "煤",
+        "field5": 1,
+        "field6": "正常",
+        "field7": "扬州"
+    },
+    {
+        "field0": 9,
+        "field1": "助燃风机",
+        "field2": "S11-1000/10",
+        "field3": "9-9NO22D",
+        "field4": "煤",
+        "field5": 1,
+        "field6": "正常",
+        "field7": "扬州"
+    },
+    {
+        "field0": 10,
+        "field1": "料车卷扬机",
+        "field2": "JY410120",
+        "field3": "400",
+        "field4": "煤",
+        "field5": 1,
+        "field6": "正常",
+        "field7": "扬州"
+    },
+    {
+        "field0": 11,
+        "field1": "轴流压缩机(GBPRT)",
+        "field2": "AV56-13",
+        "field3": "13000",
+        "field4": "煤",
+        "field5": 1,
+        "field6": "正常",
+        "field7": "扬州"
+    },
+    {
+        "field0": 12,
+       	"field1": "空压机",
+        "field2": "OG-150W",
+        "field3": "110",
+        "field4": "煤",
+        "field5": 1,
+        "field6": "正常",
+        "field7": "扬州"
+    },
+    {
+        "field0": 13,
+        "field1": "桥式起重机",
+        "field2": "100t/20t",
+        "field3": "185kW",
+        "field4": "煤",
+        "field5": 1,
+        "field6": "正常",
+        "field7": "扬州"
+    }]
+}

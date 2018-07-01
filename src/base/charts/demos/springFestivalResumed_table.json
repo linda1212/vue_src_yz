@@ -1,0 +1,20 @@
+{
+    "code": 0,
+    "msg": "ok",
+    "total": 1,
+    "rows": [
+    {
+        "id": 1,
+        "field0": 2017,
+        "field1": 5584,
+        "field2": 4678,
+        "field3": 4650,
+        "field4": 4545,
+        "field5": 5415,
+        "field6": 4841,
+        "field7": 4465,
+        "field8": 5645,
+        "field9": 5320,
+        "field10": 5441
+    }]
+}

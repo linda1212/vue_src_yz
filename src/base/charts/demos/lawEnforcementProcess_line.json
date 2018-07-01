@@ -1,0 +1,19 @@
+{
+    "data":
+    {
+        "key": "the_id_from_params",
+        "chartData":
+        {
+            "categories": ["任务下发", "现场监察", "整改", "处罚", "结案"],
+            "series": [
+            {
+                "data": [500, 200, 700, 800, 1200],
+                "name": "任务状态"
+            }],
+            "title": "节能监察任务状态",
+            "yzTitle": "单位：个数"
+        }
+    },
+    "msg": "ok",
+    "code": 0
+}

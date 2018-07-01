@@ -1,0 +1,375 @@
+{
+    "code": 0,
+    "msg": "ok",
+    "total": 46,
+    "title": "宁夏回族自治区能耗详情",
+    "rows": [
+    {
+        "name": "银川中铁水务集团有限公司一厂",
+        "total": null,
+        "power": null,
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "银川中铁水务集团有限公司二厂",
+        "total": "1183.6152",
+        "power": "2959038",
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "银川中铁水务集团有限公司三厂",
+        "total": null,
+        "power": null,
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "银川中铁水务集团有限公司四厂",
+        "total": null,
+        "power": null,
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "银川中铁水务集团有限公司五厂",
+        "total": null,
+        "power": null,
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "银川中铁水务集团有限公司六厂",
+        "total": null,
+        "power": null,
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "银川中铁水务集团有限公司灵武厂",
+        "total": null,
+        "power": null,
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "银川中铁水务集团有限公司贺兰水厂",
+        "total": null,
+        "power": null,
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "银川中铁水务集团有限公司河东水厂",
+        "total": null,
+        "power": null,
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "宁夏疾病预防控制中心",
+        "total": null,
+        "power": null,
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "宁夏银川市第九中学",
+        "total": "303.0464",
+        "power": "757616",
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "宁夏瀛海天池建材有限公司",
+        "total": "3866.4948",
+        "power": "9666237",
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "宁夏瀛海银川建材有限公司",
+        "total": "606.766",
+        "power": "1516915",
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "宁夏建成建材有限责任公司",
+        "total": "2035.5008",
+        "power": "5088752",
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "宁夏宝兰德化工有限公司",
+        "total": null,
+        "power": null,
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "宁夏长城水务有限责任公司",
+        "total": null,
+        "power": null,
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "宁夏领航保温材料有限公司",
+        "total": null,
+        "power": null,
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "宁夏瀛海灵武特种水泥有限公司",
+        "total": null,
+        "power": null,
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "宁夏中银绒业股份有限公司",
+        "total": "4566.0888",
+        "power": "11415222",
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "宁夏恒有能源化工科技有限公司",
+        "total": "7307.3056",
+        "power": "18268264",
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "宁夏太阳山水务有限责任公司",
+        "total": null,
+        "power": null,
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "宁夏瑞科新源化工有限公司",
+        "total": "20870.1696",
+        "power": "52175424",
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "宁夏盐池县恒汇丰煤化工有限公司",
+        "total": null,
+        "power": null,
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "盐池县人民医院",
+        "total": null,
+        "power": null,
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "宁夏天利丰能源利用有限公司",
+        "total": "22327.968",
+        "power": "55819920",
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "宁夏金裕海化工有限公司",
+        "total": null,
+        "power": null,
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "宁夏神瑞工贸有限责任公司",
+        "total": "866.192",
+        "power": "2165480",
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "宁夏佳能创科化工有限公司",
+        "total": "309.730704",
+        "power": "774326.76",
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "宁夏维尔铸造有限责任公司",
+        "total": null,
+        "power": null,
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "石嘴山市霖达工贸有限公司",
+        "total": null,
+        "power": null,
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "石嘴山市鼎源工贸有限公司",
+        "total": null,
+        "power": null,
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "宁夏鑫鼎工贸有限公司",
+        "total": null,
+        "power": null,
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "宁夏华丰达炭素实业有限公司",
+        "total": "4343.4592",
+        "power": "10858648",
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "宁夏中炭冶金有限公司",
+        "total": "2086.0476",
+        "power": "5215119",
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "石嘴山市鸿基工贸有限公司",
+        "total": "2154.7148",
+        "power": "5386787",
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "石嘴山林清工贸有限责任公司",
+        "total": "2220.39092",
+        "power": "5550977.3",
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "石嘴山市华旺碳素制品有限公司",
+        "total": null,
+        "power": null,
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "石嘴山市焱鑫工贸有限公司",
+        "total": "3342.1928",
+        "power": "8355482",
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "酒钢集团石嘴山钢铁有限公司",
+        "total": "239461.376",
+        "power": "598653440",
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "石嘴山市盛港煤焦化有限公司",
+        "total": null,
+        "power": null,
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "平罗县祥盛炭素有限公司",
+        "total": null,
+        "power": null,
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "宁夏平罗恒达水泥有限责任公司",
+        "total": null,
+        "power": null,
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "宁夏天福活性炭有限公司",
+        "total": null,
+        "power": null,
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "宁夏明盛染化有限公司",
+        "total": "16804.212",
+        "power": "42010530",
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "中卫市银阳新能源有限公司",
+        "total": null,
+        "power": null,
+        "water": null,
+        "gas": null,
+        "steam": null
+    },
+    {
+        "name": "中宁县隆盛废旧物资回收有限公司",
+        "total": null,
+        "power": null,
+        "water": null,
+        "gas": null,
+        "steam": null
+    }]
+}

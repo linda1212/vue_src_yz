@@ -1,0 +1,45 @@
+{
+    "code": 0,
+    "msg": "ok",
+    "treeData": [
+    {
+        "uuid": "1",
+        "text": "办公建筑",
+        "nodes": [
+        {
+            "uuid": "2",
+            "text": "建筑名称1",
+            "icon": "tree-icon menu-device"
+        },
+        {
+            "uuid": "3",
+            "text": "建筑名称2",
+            "icon": "tree-icon menu-device"
+        },
+        {
+            "uuid": "4",
+            "text": "建筑名称3",
+            "icon": "tree-icon menu-device"
+        }]
+    },
+    {
+        "uuid": "5",
+        "text": "商场建筑",
+        "nodes": [
+        {
+            "uuid": "6",
+            "text": "建筑名称1",
+            "icon": "tree-icon menu-device"
+        }]
+    },
+    {
+        "uuid": "7",
+        "text": "宾馆饭店建筑",
+        "nodes": [
+        {
+            "uuid": "8",
+            "text": "建筑名称1",
+            "icon": "tree-icon menu-device"
+        }]
+    }]
+}
