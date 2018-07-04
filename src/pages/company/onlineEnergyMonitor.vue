@@ -92,7 +92,8 @@
                     </div>
                     <div class="iPanel single_table_panel">
                         <div class="content">
-                            <table id="TContact" data-height="559" data-mobile-responsive="true">
+                          <CURDTable :rows='rows'></CURDTable>
+                            <!-- <table id="TContact" data-height="559" data-mobile-responsive="true">
                                 <thead>
                                     <tr class="hidden-em">
                                         <th data-formatter="IndexFormatter">排名</th>
@@ -104,7 +105,7 @@
                                         <th data-field="steam_total" data-align="right">天然气总量<span class="st">(立方米)</span></th>
                                     </tr>
                                 </thead>
-                            </table>
+                            </table> -->
                         </div>
                     </div>
                 </div>
@@ -115,30 +116,49 @@
 </template>
 <script>
 import global_config from '@/base/config.js'
+import CURDTable from '@/components/CURDTable/CURDTable.vue'
+
+// C:\Users\ZL\Desktop\vue_src_yz\src\components\CURDTable\CURDTable.vue
 
 export default {
   name: 'BackToTop',
+  components: { CURDTable },
   data() {
     return {
       infoData: {
-        'energy_title_label':'',
+        'energy_title_label': '',
         'energy': '',
         'energy_title': '',
-        'power_title_label':'',
-        'power':'',
+        'power_title_label': '',
+        'power': '',
         'power_title': '',
-        'water_title_label':'',
-        'water':'',
+        'water_title_label': '',
+        'water': '',
         'water_title': '',
-        'steam_title_label':'',
+        'steam_title_label': '',
         'steam': '',
         'steam_title': '',
-        'gas_title_label':'',
+        'gas_title_label': '',
         'gas': '',
         'gas_title': '',
-        'enterpriseSize_title_label':'',
+        'enterpriseSize_title_label': '',
         'enterpriseSize': ''
-      }
+      },
+      rows:[{
+        name: 'fruit-1',
+        apple: 'apple-10',
+        banana: 'banana-10',
+        orange: 'orange-10'
+      },
+      {
+        name: 'fruit-2',
+        apple: 'apple-20',
+        banana: 'banana-20',
+        orange: 'orange-20'
+      }],
+      columns:[
+        'name','apple','banana','orange'
+      ]
     }
   },
   mounted() {
