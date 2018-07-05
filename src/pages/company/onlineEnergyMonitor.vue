@@ -92,7 +92,7 @@
                     </div>
                     <div class="iPanel single_table_panel">
                         <div class="content">
-                          <CURDTable :rows='rows'></CURDTable>
+                          <CURDTable :rows='rows'  :columns='columns'></CURDTable>
                             <!-- <table id="TContact" data-height="559" data-mobile-responsive="true">
                                 <thead>
                                     <tr class="hidden-em">
@@ -156,9 +156,21 @@ export default {
         banana: 'banana-20',
         orange: 'orange-20'
       }],
-      columns:[
-        'name','apple','banana','orange'
-      ]
+      columns:[{
+        title:'姓名',
+        field:'name'
+      },
+      {
+        title:'苹果',
+        field:'apple'
+      },{
+        title:'香蕉',
+        field:'banana'
+      },
+      {
+        title:'橙子',
+        field:'orange'
+      }]
     }
   },
   mounted() {
