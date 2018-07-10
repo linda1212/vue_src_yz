@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>数据查询</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" id='theme' href="css/theme-dark-blue.css" />
+</head>
+
+<body>
+    <div class="page-container">
+        <a href="# " class="x-navigation-minimize menu_minimalize"><span class="arrow arrow-shrink "></span></a>
+        <div class="page-sidebar page-sidebar-fixed scroll">
+            <ul id='menu' class="x-navigation">
+                <li class="xn-logo">
+                    <a href="index.html"></a>
+                    <a href='#' class="x-navigation-control "></a>
+                </li>
+            </ul>
+        </div>
+        <div class="page-content ">
+            <h3 class="page-title">
+                <ul class="x-navigation x-navigation-horizontal log-out pull-right">
+                    <li class="xn-icon-button last ">
+                        <a href="# "><span class="fa fa-power-off "></span></a>
+                        <ul class="xn-drop-left animated zoomIn ">
+                            <li><a href="# " class="mb-control " data-box="#mb-signout "><span class="fa fa-sign-out "></span> 登出</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                数据查询</h3>
+            <div class="page-content-wrap ">
+                <div class="page-content-box gap24 table-header-twoRow">
+                    <div class="clearfix mytbar">
+                        <div class="gap-btn-group" role="group">
+                            <input id="dateRange" type="text" name="name" class="w240 form-control laydate-icon layer-date">
+                            <div class="btn-group">
+                                <select id="area" class="w140 form-control select iselect">
+                                </select>
+                            </div>
+                            <div class="btn-group" role="group">
+                                <select id="industry" class="form-control select iselect w140">
+                                </select>
+                            </div>
+                            <input type="text" id="companyName" data-field='name' class="form-control" placeholder="请输入单位名称" />
+                            <button id="search" type="button" title="搜索" class="btn btn-outline btn-primary">
+                                <span>查询</span>
+                            </button>
+                        </div>
+                    </div>
+                    <table id="TContact" data-height="708" data-mobile-responsive="true">
+                        <thead>
+                            <tr class="hidden-em">
+                                <th data-field="name" data-valign="middle">单位名称</th>
+                                <th data-field="city_name" data-valign="middle">市</th>
+                                <th data-field="district_name" data-valign="middle">区</th>
+                                <th data-field="industry_name" data-valign="middle">所属行业</th>
+                                <!-- <th data-field="energy_month" data-align="right" data-valign="middle">本月综合能耗<span class="unit">(吨标准煤)</span></th> -->
+                                <!-- <th data-field="energy_year" data-align="right" data-valign="middle">本年累计<span class="unit">(吨标准煤)</span></th> -->
+                                <th data-field="energy_power" data-align="right" data-valign="middle">电<span class="unit">(千瓦时)</span></th>
+                                <th data-field="energy_gas" data-align="right" data-valign="middle">天然气<span class="unit">(立方米)</span></th>
+                                <th data-field="energy_coal" data-align="right" data-valign="middle">煤<span class="unit">(吨)</span></th>
+                                <th data-field="energy_steam" data-align="right" data-valign="middle">蒸汽<span class="unit">(万千焦耳)</span></th>
+                                <th data-field="energy_water" data-align="right" data-valign="middle">水<span class="unit">(吨)</span></th>
+
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="message-box animated fadeIn" data-sound="alert " id='mb-signout'>
+        <div class="mb-container ">
+            <div class="mb-middle ">
+                <div class="mb-title"><span class="fa fa-sign-out "></span> Log <strong>Out</strong> ?</div>
+                <div class="mb-content ">
+                    <p>确定登出?</p>
+                    <p>如果您想继续留在此页面，请点击"否"</p>
+                </div>
+                <div class="mb-footer ">
+                    <div class="pull-right ">
+                        <a href="login.html " class="btn btn-success btn-lg ">是</a>
+                        <button class="btn btn-default btn-lg mb-control-close ">否</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type='text/javascript' src="js/import.js"></script>
+<script type='text/javascript' src="js/pages/common.js"></script>
+<script type='text/javascript' src="js/pages/CURDTable.js"></script>
+<script>
+    function initAreaSelectByElementId(e_id, completeHandler) {
+
+        var childSls = {};
+        childSls['#' + e_id] = {
+            url: '/energy/sys/getArea?key=area',
+            def: '全部区域',
+            type: 'GET',
+            showDef: true
+        };
+
+        var sc = new cur({
+            childSls: childSls
+        });
+
+        sc.initSelect();
+
+        sc.on('select:render.complete', function() {
+            checkFirstAsDefault($('#' + e_id));
+
+            if (_.isFunction(completeHandler)) {
+                completeHandler($('#' + e_id).val());
+            }
+        });
+    }
+
+    initAreaSelectByElementId('area');
+
+    function initIndustrySelectByElementId(e_id, completeHandler) {
+
+        var childSls = {};
+        var code = G_CONFIG.industry_parent_code || '000020001';
+        childSls['#' + e_id] = {
+            url: '/energy/sys/getList?code=' + code + '&key=industry',
+            def: '全部行业',
+            type: 'GET',
+            showDef: true
+        };
+
+        var sc = new cur({
+            childSls: childSls
+        });
+
+        sc.initSelect();
+
+        sc.on('select:render.complete', function() {
+            checkFirstAsDefault($('#' + e_id));
+
+            if (_.isFunction(completeHandler)) {
+                completeHandler($('#' + e_id).val());
+            }
+        });
+    }
+
+    initIndustrySelectByElementId('industry');
+
+    $('#search').click(function() {
+        initCur($('#industry').val(), $('#area').val(), $('#companyName').val(), $('#dateRange').val().split(' - ')[0], $('#dateRange').val().split(' - ')[1]);
+    });
+
+    function initCur(industry, area, companyName, startDate, endDate) {
+        var c = new cur({
+            t: "#TContact",
+            m: "#modal",
+            footerbar: '#footerbar',
+            showAfterRender: ['#footerbar'],
+            pageSize: 10,
+            search_params: {
+                field_select: '#field_select',
+                field_input: '#search_input'
+            },
+            queryUrl: "/energy/history/chart/table/data",
+            params: {
+                params: {
+                    startDate: startDate,
+                    endDate: endDate,
+                    industry_code: industry,
+                    area: area,
+                    name: companyName
+                }
+            }
+        });
+        c.init(c);
+    }
+
+    initDateInputForRange('#dateRange');
+
+    $('#dateRange').val(getLastMonthForDay() + ' - ' + getToday());
+
+    initCur($('#industry').val(), $('#area').val(), $('#companyName').val(), $('#dateRange').val().split(' - ')[0], $('#dateRange').val().split(' - ')[1]);
+</script>
+
+</html>

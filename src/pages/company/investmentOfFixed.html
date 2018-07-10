@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>固投项目基本信息</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" id='theme' href="css/theme-dark-blue.css" />
+</head>
+
+<body>
+    <div class="page-container">
+        <a href="# " class="x-navigation-minimize menu_minimalize"><span class="arrow arrow-shrink "></span></a>
+        <div class="page-sidebar page-sidebar-fixed scroll">
+            <ul id='menu' class="x-navigation">
+                <li class="xn-logo">
+                    <a href="index.html"></a>
+                    <a href='#' class="x-navigation-control "></a>
+                </li>
+            </ul>
+        </div>
+        <div class="page-content ">
+            <h3 class="page-title">
+                <ul class="x-navigation x-navigation-horizontal log-out pull-right">
+                    <li class="xn-icon-button last ">
+                        <a href="# "><span class="fa fa-power-off "></span></a>
+                        <ul class="xn-drop-left animated zoomIn ">
+                            <li><a href="# " class="mb-control " data-box="#mb-signout "><span class="fa fa-sign-out "></span> 登出</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                固投项目基本信息</h3>
+            <ul id="navigation" class="nav nav-tabs xs-tabs">
+                <li role="presentation" class="active"><a href="javascript:void(0);" data-page='#page1'>全部</a></li>
+                <li role="presentation"><a href="javascript:void(0);" data-page='#page2'>进行中</a></li>
+                <li role="presentation"><a href="javascript:void(0);" data-page='#page3'>已竣工</a></li>
+            </ul>
+            <div id="ipage_content" class="nav-content pt24">
+                <div id="page1" class="relative">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="panel_title" style="border-bottom: none; font-weight: 500">
+                                    <div class="col-xs-6 clearfix">
+                                        <div id="inputBox1" class="gap-btn-group hidden-xs tbar" role="group">
+                                            <button type="button" class="btn btn-label">
+                                                <span>搜索：</span>
+                                            </button>
+                                            <div id="field_select1" class="btn-group compact" role="group">
+                                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    所属区域
+                                                    <span class="caret"></span>
+                                                </button>
+                                                <ul class="dropdown-menu">
+                                                    <li><a href="#" data-field='project_name' data-placeholder='所属区域'>所属区域</a></li>
+                                                </ul>
+                                            </div>
+                                            <select id="area1" class="w180 form-control select iselect" data-field='area'></select>
+                                            <button id="ser1" type="button" title="搜索" class="btn btn-outline btn-primary">
+                                                <span>查询</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <div class="gap-btn-group pull-right bar-group" role="group">
+                                            <button id="add1" class="btn btn-outline btn-primary">
+                                                <!-- <span class="image_icon"></span> -->新增
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="iPanel single_table_panel">
+                                <div class="content">
+                                    <table id="frame_page1_tabel" data-height="802" data-mobile-responsive="true"></table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="page2" class="relative hidden-em">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="panel_title" style="border-bottom: none; font-weight: 500">
+                                    <div class="col-xs-6 clearfix">
+                                        <div id="inputBox2" class="gap-btn-group hidden-xs tbar" role="group">
+                                            <button type="button" class="btn btn-label">
+                                                <span>搜索：</span>
+                                            </button>
+                                            <div id="field_select2" class="btn-group compact" role="group">
+                                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    所属区域
+                                                    <span class="caret"></span>
+                                                </button>
+                                                <ul class="dropdown-menu">
+                                                    <li><a href="#" data-field='area_name' data-placeholder='所属区域'>所属区域</a></li>
+                                                </ul>
+                                            </div>
+                                            <select id="area2" class="w180 form-control select iselect" data-field='area'></select>
+                                            <button id="ser2" type="button" title="搜索" class="btn btn-outline btn-primary">
+                                                <span>查询</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <div class="gap-btn-group pull-right bar-group" role="group">
+                                            <button id="add2" class="btn btn-outline btn-primary">
+                                                <!-- <span class="image_icon"></span> -->新增
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="iPanel single_table_panel">
+                                <div class="content">
+                                    <table id="frame_page2_tabel" data-height="802" data-mobile-responsive="true"></table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="page3" class="relative hidden-em">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="panel_title" style="border-bottom: none; font-weight: 500">
+                                    <div class="col-xs-6 clearfix">
+                                        <div id="inputBox3" class="gap-btn-group hidden-xs tbar" role="group">
+                                            <button type="button" class="btn btn-label">
+                                                <span>搜索：</span>
+                                            </button>
+                                            <div id="field_select3" class="btn-group compact" role="group">
+                                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    所属区域
+                                                    <span class="caret"></span>
+                                                </button>
+                                                <ul class="dropdown-menu">
+                                                    <li><a href="#" data-field='project_name' data-placeholder='所属区域'>所属区域</a></li>
+                                                </ul>
+                                            </div>
+                                            <select id="area3" class="w180 form-control select iselect" data-field='area'></select>
+                                            <button id="ser3" type="button" title="搜索" class="btn btn-outline btn-primary">
+                                                <span>查询</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <div class="gap-btn-group pull-right bar-group" role="group">
+                                            <button id="add3" class="btn btn-outline btn-primary">
+                                                <!-- <span class="image_icon"></span> -->新增
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="iPanel single_table_panel">
+                                <div class="content">
+                                    <table id="frame_page3_tabel" data-height="802" data-mobile-responsive="true"></table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    <div class="message-box animated fadeIn" data-sound="alert " id='mb-signout'>
+        <div class="mb-container ">
+            <div class="mb-middle ">
+                <div class="mb-title"><span class="fa fa-sign-out "></span> Log <strong>Out</strong> ?</div>
+                <div class="mb-content ">
+                    <p>确定登出?</p>
+                    <p>如果您想继续留在此页面，请点击"否"</p>
+                </div>
+                <div class="mb-footer ">
+                    <div class="pull-right ">
+                        <a href="login.html " class="btn btn-success btn-lg ">是</a>
+                        <button class="btn btn-default btn-lg mb-control-close ">否</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="modal" class="modal fade">
+        <div class="modal-dialog">
+            <form action="javascript:void(0)" data-bv-message="验证未通过" data-bv-feedbackicons-valid="glyphicon glyphicon-ok" data-bv-feedbackicons-invalid="glyphicon glyphicon-remove" data-bv-feedbackicons-validating="glyphicon glyphicon-refresh">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title"></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group hidden-em">
+                            <label><span class="text-red">*</span>id</label>
+                            <input type="text" class="form-control" name="id">
+                        </div>
+                        <div class="form-group">
+                            <label>选择企业</label>
+                            <select id="enterprise_id" class="form-control" name="enterprise_id" required></select>
+                        </div>
+                        <div class="form-group">
+                            <label><span class="text-red">*</span>项目名称</label>
+                            <input type="text" class="form-control" name="project_name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>计划开工日期</label>
+                            <input id="date1" type="text" name="plan_start_time1" class="form-control laydate-icon layer-date">
+                        </div>
+                        <div class="form-group">
+                            <label>实际开工日期</label>
+                            <input id="date2" type="text" name="actual_start_time1" class="form-control laydate-icon layer-date">
+                        </div>
+                        <div class="form-group">
+                            <label>计划竣工日期</label>
+                            <input id="date3" type="text" name="plan_finish_time1" class="form-control laydate-icon layer-date">
+                        </div>
+                        <div class="form-group">
+                            <label>实际竣工日期</label>
+                            <input id="date4" type="text" name="actual_finish_time1" class="form-control laydate-icon layer-date">
+                        </div>
+                        <div class="form-group">
+                            <label>是否竣工</label>
+                            <select id="is_finish" class="form-control" name="is_finish">
+                                <option value="" style="display: none">-- 请选择 -</option>
+                                <option value="1">是</option>
+                                <option value="0">否</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default cancel" data-dismiss="modal">取&nbsp;&nbsp;消</button>
+                        <button type="button" class="btn btn-primary submit">保&nbsp;&nbsp;存</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id="detail" class="modal fade">
+        <div class="modal-dialog">
+            <form action="javascript:void(0)" data-bv-message="验证未通过" data-bv-feedbackicons-valid="glyphicon glyphicon-ok" data-bv-feedbackicons-invalid="glyphicon glyphicon-remove" data-bv-feedbackicons-validating="glyphicon glyphicon-refresh">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title"></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group hidden-em">
+                            <label><span class="text-red">*</span>id</label>
+                            <input type="text" class="form-control" name="id">
+                        </div>
+                        <div class="form-group">
+                            <label>选择企业</label>
+                            <input type="text" class="form-control" name="enterprise_name">
+                            <!-- <select id="enterprise_id" class="form-control" name="enterprise_id" required></select> -->
+                        </div>
+                        <div class="form-group">
+                            <label>项目名称</label>
+                            <input type="text" class="form-control" name="project_name">
+                        </div>
+                        <div class="form-group">
+                            <label>计划开工日期</label>
+                            <input id="date1" type="text" name="plan_start_time1" class="form-control laydate-icon layer-date">
+                        </div>
+                        <div class="form-group">
+                            <label>实际开工日期</label>
+                            <input id="date2" type="text" name="actual_start_time1" class="form-control laydate-icon layer-date">
+                        </div>
+                        <div class="form-group">
+                            <label>计划竣工日期</label>
+                            <input id="date3" type="text" name="plan_finish_time1" class="form-control laydate-icon layer-date">
+                        </div>
+                        <div class="form-group">
+                            <label>实际竣工日期</label>
+                            <input id="date4" type="text" name="actual_finish_time1" class="form-control laydate-icon layer-date">
+                        </div>
+                        <div class="form-group">
+                            <label>是否竣工</label>
+                            <select class="form-control" name="is_finish">
+                                <option value="" style="display: none">-- 请选择 -</option>
+                                <option value="1">是</option>
+                                <option value="0">否</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn  btn-primary submit" data-dismiss="modal">确&nbsp;&nbsp;认</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+<script type='text/javascript' src="js/import.js"></script>
+<script type='text/javascript' src="js/pages/CURDTable.js"></script>
+<script type='text/javascript' src="js/pages/common.js"></script>
+<script type="text/javascript">
+    function getcolumns(el) {
+        return [{
+            field: 'index',
+            title: '<span class="pl16">序号</span>',
+            formatter: IndexFormatter
+        }, {
+            title: '所属区域',
+            align: "left",
+            valign: "middle",
+            field: 'area_name'
+        }, {
+            title: '项目名称',
+            align: "left",
+            valign: "middle",
+            field: 'project_name'
+        }, {
+            title: '企业名称',
+            align: "left",
+            valign: "middle",
+            field: 'enterprise_name'
+        }, {
+            title: '计划开工日期',
+            align: "center",
+            valign: "middle",
+            field: 'plan_start_time1',
+            formatter: DateFormatter
+        }, {
+            title: '实际开工日期',
+            align: "center",
+            valign: "middle",
+            field: 'actual_start_time1',
+            formatter: DateFormatter
+        }, {
+            title: '计划竣工日期',
+            align: "center",
+            valign: "middle",
+            field: 'plan_finish_time1',
+            formatter: DateFormatter
+        }, {
+            title: '实际竣工日期',
+            align: "center",
+            valign: "middle",
+            field: 'actual_finish_time1',
+            formatter: DateFormatter
+        }, {
+            title: '是否竣工',
+            align: "center",
+            valign: "middle",
+            field: 'is_finish',
+            formatter: TFormatter
+        }];
+    }
+    $('#navigation').find('li').click(function() {
+
+        $(this).addClass('active').siblings('li').removeClass('active');
+        var id = $(this).find('a').data('page');
+        $('#ipage_content').find(id).show().siblings().hide();
+        switch (id) {
+            case '#page2':
+                showPage2();
+                break;
+            case '#page3':
+                showPage3();
+                break;
+            case '#page1':
+            default:
+                showPage1();
+                break;
+        }
+    });
+
+    function showPage1() {
+
+        var c = new cur({
+            t: "#frame_page1_tabel",
+            m: "#modal",
+            addBtn: "#add1",
+            serBtn: "#ser1",
+            footerbar: '#footerbar1',
+            showAfterRender: ['#footerbar1'],
+            dataInputs: ['#date1', '#date2', '#date3', '#date4'],
+            childSls: {
+                "#enterprise_id": {
+                    def: '--请选择企业--',
+                    url: '/energy/enterprise/getNameList?key=enterprise_id',
+                    type: 'GET'
+                },
+                "#area1": {
+                    def: '--请选择区域--',
+                    url: '/energy/energyEquipment/getAreaList?key=area1&code=321000',
+                    autoRef: 'true',
+                    type: 'GET'
+                },
+            },
+            pageSize: 11,
+            height: 740,
+            uuid: "id",
+            hideCols: ['id'],
+            search_params: {
+                field_select: '#field_select1',
+                field_input: '#search_input1'
+            },
+            inputBar: "#inputBox1",
+            queryUrl: "/monitor/investment/getList",
+            addUrl: "/monitor/investment/add",
+            editUrl: "/monitor/investment/edit",
+            delUrl: "/monitor/investment/del",
+            appendOperate: CONSTE.OPERATE.ALL,
+            columns: getcolumns("#frame_page1_tabel")
+        });
+        c.init(c);
+        c.on('select:render.complete', function() {
+            init_is_finish('');
+        });
+    }
+
+    function showPage2() {
+
+        var c = new cur({
+            t: "#frame_page2_tabel",
+            m: "#modal",
+            addBtn: "#add2",
+            serBtn: "#ser2",
+            footerbar: '#footerbar2',
+            showAfterRender: ['#footerbar2'],
+            dataInputs: ['#date1', '#date2', '#date3', '#date4'],
+            childSls: {
+                "#enterprise_id": {
+                    def: '--请选择企业--',
+                    url: '/energy/enterprise/getNameList?key=enterprise_id',
+                    type: 'GET'
+                },
+                "#area2": {
+                    def: '--请选择区域--',
+                    url: '/energy/energyEquipment/getAreaList?key=area2&code=321000',
+                    autoRef: 'true',
+                    type: 'GET'
+                },
+            },
+            pageSize: 11,
+            height: 740,
+            uuid: "id",
+            hideCols: ['id'],
+            search_params: {
+                field_select: '#field_select2',
+                field_input: '#search_input2'
+            },
+            inputBar: "#inputBox2",
+            queryUrl: "/monitor/investment/getList",
+            addUrl: "/monitor/investment/add",
+            editUrl: "/monitor/investment/edit",
+            delUrl: "/monitor/investment/del",
+            appendOperate: CONSTE.OPERATE.ALL,
+            columns: getcolumns("#frame_page2_tabel"),
+            params: {
+                params: {
+                    is_finish: 0
+                }
+            }
+        });
+        c.init(c);
+
+        c.on('select:render.complete', function() {
+            init_is_finish('0');
+        });
+    }
+
+    function showPage3() {
+
+        var c = new cur({
+            t: "#frame_page3_tabel",
+            m: "#modal",
+            addBtn: "#add3",
+            serBtn: "#ser3",
+            footerbar: '#footerbar3',
+            showAfterRender: ['#footerbar3'],
+            dataInputs: ['#date1', '#date2', '#date3', '#date4'],
+            childSls: {
+                "#enterprise_id": {
+                    def: '--请选择企业--',
+                    url: '/energy/enterprise/getNameList?key=enterprise_id',
+                    type: 'GET'
+                },
+                "#area3": {
+                    def: '--请选择区域--',
+                    url: '/energy/energyEquipment/getAreaList?key=area3&code=321000',
+                    autoRef: 'true',
+                    type: 'GET'
+                },
+            },
+            pageSize: 11,
+            height: 740,
+            uuid: "id",
+            hideCols: ['id'],
+            search_params: {
+                field_select: '#field_select3',
+                field_input: '#search_input3'
+            },
+            inputBar: "#inputBox3",
+            queryUrl: "/monitor/investment/getList",
+            addUrl: "/monitor/investment/add",
+            editUrl: "/monitor/investment/edit",
+            delUrl: "/monitor/investment/del",
+            appendOperate: CONSTE.OPERATE.ALL,
+            columns: getcolumns("#frame_page3_tabel"),
+            params: {
+                params: {
+                    is_finish: 1
+                }
+            }
+        });
+        c.init(c);
+
+        c.on('select:render.complete', function() {
+            init_is_finish('1');
+        });
+    }
+
+    function init_is_finish(type) {
+        return;
+        var el = '#is_finish';
+        switch (type) {
+            case '0':
+                $(el).attr('disabled', true);
+                break;
+            case '1':
+                $(el).attr('disabled', true);
+                break;
+            case '':
+            default:
+                $(el).removeAttr('disabled', 'disabled');
+                break;
+        }
+
+        $('#is_finish').val(type);
+    }
+
+    showPage1();
+</script>
+
+</html>

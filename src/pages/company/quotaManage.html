@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>“双控”指标管理</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" id='theme' href="css/theme-dark-blue.css" />
+</head>
+
+<body>
+    <div class="page-container">
+        <a href="# " class="x-navigation-minimize menu_minimalize"><span class="arrow arrow-shrink"></span></a>
+        <div class="page-sidebar page-sidebar-fixed scroll">
+            <ul id='menu' class="x-navigation">
+                <li class="xn-logo">
+                    <a href="index.html"></a>
+                    <a href='#' class="x-navigation-control "></a>
+                </li>
+            </ul>
+        </div>
+        <div class="page-content ">
+            <div class="page-content-wrap top0">
+                <h3 class="page-title">
+                    <ul class="x-navigation x-navigation-horizontal log-out pull-right">
+                        <li class="xn-icon-button last ">
+                            <a href="# "><span class="fa fa-power-off "></span></a>
+                            <ul class="xn-drop-left animated zoomIn ">
+                                <li><a href="# " class="mb-control " data-box="#mb-signout "><span class="fa fa-sign-out "></span> 登出</a></li>
+                            </ul>
+                        </li>
+                    </ul>“双控”指标管理</h3>
+                <div id="ipage_content" class="page-content-wrap chart_container">
+                    <div id="ipage1" class="relative">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-xl-6">
+                                    <div class="panel_title">
+                                        <div class="col-lg-12">
+                                            <h4>区域指标管理</h4>
+                                        </div>
+                                    </div>
+                                    <div class="iPanel compact_panel">
+                                        <div class="content clearfix">
+                                            <table id="page1_table1" data-height="415" data-mobile-responsive="true">
+                                                <thead>
+                                                    <tr class="hidden-em">
+                                                        <th data-field="area_name">区域名称</th>
+                                                        <th data-field="year">年份</th>
+                                                        <th data-field="totalEnergyConsumptionIndex" data-align="right">区域能耗总量指标</th>
+                                                        <th data-field="energyIntensityIndex" data-align="right">区域能耗强度指标</th>
+                                                        <th data-field="auditStatus" data-formatter="EnergyAuditFormatter">审核状态</th>
+                                                    </tr>
+                                                </thead>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-6">
+                                    <div class="panel_title">
+                                        <div class="col-lg-12">
+                                            <h4>行业指标管理</h4>
+                                        </div>
+                                    </div>
+                                    <div class="iPanel compact_panel">
+                                        <div class="content clearfix">
+                                            <table id="page1_table2" data-height="415" data-mobile-responsive="true">
+                                                <thead>
+                                                    <tr class="hidden-em">
+                                                        <th data-field="industry_name">行业名称</th>
+                                                        <th data-field="year">年份</th>
+                                                        <th data-field="totalEnergyConsumptionIndex" data-align="right">行业能耗总量指标</th>
+                                                        <th data-field="energyIntensityIndex" data-align="right">行业能耗强度指标</th>
+                                                        <th data-field="auditStatus" data-formatter="EnergyAuditFormatter">审核状态</th>
+                                                    </tr>
+                                                </thead>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="panel_title">
+                                        <div class="col-lg-12">
+                                            <h4>企业指标管理</h4>
+                                        </div>
+                                    </div>
+                                    <div class="iPanel compact_panel">
+                                        <div class="content">
+                                            <table id="page1_table3" data-height="415" data-mobile-responsive="true">
+                                                <thead>
+                                                    <tr class="hidden-em">
+                                                        <th data-field="id">序号</th>
+                                                        <th data-field="company_name">单位名称</th>
+                                                        <th data-field="industry_name">所属行业</th>
+                                                        <th data-field="area_name">所属区域</th>
+                                                        <th data-field="year">年份</th>
+                                                        <th data-field="totalEnergyConsumptionIndex" data-align="right">企业能耗总量指标</th>
+                                                        <th data-field="energyIntensityIndex" data-align="right">企业能耗强度指标</th>
+                                                        <th data-field="auditStatus" data-formatter="EnergyAuditFormatter">审核状态</th>
+                                                    </tr>
+                                                </thead>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="message-box animated fadeIn" data-sound="alert " id='mb-signout'>
+        <div class="mb-container ">
+            <div class="mb-middle ">
+                <div class="mb-title"><span class="fa fa-sign-out "></span> Log <strong>Out</strong> ?</div>
+                <div class="mb-content ">
+                    <p>确定登出?</p>
+                    <p>如果您想继续留在此页面，请点击"否"</p>
+                </div>
+                <div class="mb-footer ">
+                    <div class="pull-right ">
+                        <a href="login.html " class="btn btn-success btn-lg ">是</a>
+                        <button class="btn btn-default btn-lg mb-control-close ">否</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type='text/javascript' src="js/import.js"></script>
+<script type='text/javascript' src="js/pages/common.js"></script>
+<script type='text/javascript' src="js/pages/CURDTable.js"></script>
+<script>
+    function formatterTCol(value, row, index) {
+        return `${value}<span class="glyphicon ${row.totalRelativeToLastyear == '1'?'glyphicon-arrow-up text-red':'glyphicon-arrow-down text-green'}"
+        style="margin-left:30px"></span>`
+    }
+
+    function formatterECol(value, row, index) {
+        return `${value}<span class="glyphicon ${row.energyRelativeToLastyear == '1'?'glyphicon-arrow-up text-red':'glyphicon-arrow-down text-green'}"
+        style="margin-left:30px"></span>`
+    }
+
+    function showFrame1() {
+        new cur({
+            t: "#page1_table1",
+            m: "#modal",
+            footerbar: '#footerbar',
+            showAfterRender: ['#footerbar'],
+            dataSourceType: 'local',
+            pageSize: 10,
+            queryUrl: "js/charts/demos/dualControlManagement_page1_table1.json"
+        }).init();
+
+        new cur({
+            t: "#page1_table2",
+            m: "#modal",
+            footerbar: '#footerbar',
+            showAfterRender: ['#footerbar'],
+            dataSourceType: 'local',
+            pageSize: 10,
+            queryUrl: "js/charts/demos/dualControlManagement_page1_table2.json"
+        }).init();
+
+        new cur({
+            t: "#page1_table3",
+            m: "#modal",
+            footerbar: '#footerbar',
+            showAfterRender: ['#footerbar'],
+            dataSourceType: 'local',
+            pageSize: 10,
+            queryUrl: "js/charts/demos/dualControlManagement_page1_table3.json"
+        }).init();
+    }
+    showFrame1();
+</script>
+
+</html>

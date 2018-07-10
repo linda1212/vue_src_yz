@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>电力实时运行图表</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" id='theme' href="css/theme-dark-blue.css" />
+</head>
+
+<body>
+    <div class="page-container">
+        <a href="# " class="x-navigation-minimize menu_minimalize"><span class="arrow arrow-shrink "></span></a>
+        <div class="page-sidebar page-sidebar-fixed scroll">
+            <ul id='menu' class="x-navigation">
+                <li class="xn-logo">
+                    <a href="index.html"></a>
+                    <a href='#' class="x-navigation-control "></a>
+                </li>
+            </ul>
+        </div>
+        <div class="page-content ">
+            <h3 class="page-title">
+                <ul class="x-navigation x-navigation-horizontal log-out pull-right">
+                    <li class="xn-icon-button last ">
+                        <a href="# "><span class="fa fa-power-off "></span></a>
+                        <ul class="xn-drop-left animated zoomIn ">
+                            <li><a href="# " class="mb-control " data-box="#mb-signout "><span class="fa fa-sign-out "></span> 登出</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                电力实时运行图表</h3>
+            <div class="page-content-wrap chart_container">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-4" style="padding-right:0!important;">
+                            <div class="panel_title" style="height: 56px;">
+                                <div class="clearfix">
+                                    <div id="inputBox" class="gap-btn-group tree-bar" role="group">
+                                        <select id="company" class="form-control select iselect full"></select>
+                                        <!-- <button id="myser" type="button" title="搜索" class="btn btn-outline btn-primary">
+                                           <span>查询</span>
+                                        </button> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="tree_box" class="iPanel tree-panel font14" style="min-height: 940px;max-height: 940px; overflow: auto;">
+                            </div>
+                        </div>
+                        <div class="col-lg-9 col-md-8" style="padding-left:0!important;">
+                            <div class="panel_title left-border">
+                                <div class="col-lg-4">
+                                    <h4 id="main_title"></h4>
+                                </div>
+                                <div class="col-lg-8 clearfix">
+                                    <div class="gap-btn-group pull-right bar-group ml10" role="group">
+                                        <div class="btn-group" role="group">
+                                            <select id="sl1" class="w140 form-control select iselect">
+                                                <option value="0">负荷</option>
+                                                <option value="1">电压</option>
+                                                <option value="2">电流</option>
+                                            </select>
+                                        </div>
+                                        <!-- <div class="btn-group" role="group">
+                                            <select id="sl10" class="w140 form-control select iselect">
+                                                <option value="0">A相</option>
+                                                <option value="1">B相</option>
+                                                <option value="2">C相</option>
+                                            </select>
+                                        </div> -->
+                                        <!--<div class="btn-group" role="group">-->
+                                        <!--<select id="sl11" class="w140 form-control select iselect">-->
+                                        <!--<option value="0">Uab</option>-->
+                                        <!--<option value="1">Ubc</option>-->
+                                        <!--<option value="2">Uca</option>-->
+                                        <!--<option value="3">Ua</option>-->
+                                        <!--<option value="4">Ub</option>-->
+                                        <!--<option value="5">Uc</option>-->
+                                        <!--</select>-->
+                                        <!--</div>-->
+                                        <!--<div class="btn-group" role="group">-->
+                                        <!--<select id="sl12" class="w140 form-control select iselect">-->
+                                        <!--<option value="0">总负荷</option>-->
+                                        <!--<option value="1">A相</option>-->
+                                        <!--<option value="2">B相</option>-->
+                                        <!--<option value="3">C相</option>-->
+                                        <!--</select>-->
+                                        <!--</div>-->
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="content_box" class="iPanel left-border minHeight" style="min-height: 940px;max-height: 940px;overflow: auto;">
+                                <div class="content">
+                                    <div class="chart-wrap">
+                                        <div id="line_bar" style="max-height: 600px;min-height: 300px;"></div>
+                                    </div>
+                                </div>
+                                <div class="content mt40">
+                                    <table id="TTable" data-mobile-responsive="true">
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="message-box animated fadeIn " data-sound="alert " id='mb-signout'>
+        <div class="mb-container ">
+            <div class="mb-middle ">
+                <div class="mb-title "><span class="fa fa-sign-out "></span> Log <strong>Out</strong> ?</div>
+                <div class="mb-content ">
+                    <p>确定登出?</p>
+                    <p>如果您想继续留在此页面，请点击"否 "</p>
+                </div>
+                <div class="mb-footer ">
+                    <div class="pull-right ">
+                        <a href="login.html " class="btn btn-success btn-lg ">是</a>
+                        <button class="btn btn-default btn-lg mb-control-close ">否</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type='text/javascript' src="js/import.js "></script>
+<script type='text/javascript' src="js/pages/common.js "></script>
+<script type='text/javascript' src="js/pages/CURDTable.js "></script>
+<script type='text/javascript' src="js/charts/echart_yarn.min.js "></script>
+<script>
+    var selectId = null;
+    var __currnet_yzTitle = '单位(千瓦)';
+    var __curent_dot_name = '';
+
+    function setMainTitle() {
+        var nms = $("#sl1").find("option:selected").text();
+        var now = new Date().Format('yyyy-MM-dd');
+        var txt = __curent_dot_name + '-' + nms + '曲线(' + now + ')';
+        $('#main_title').text(txt);
+        $('#main_title').attr('title', txt);
+    }
+
+    function showTreeView(id) {
+        eBase.send({
+            "url": '/energy/monitor/tree?companyId=' + id
+        }, "get").done(function(resp) {
+            if (resp.code == "0") {
+                $('#tree_box').treeview({
+                    showBorder: false,
+                    selectedBackColor: '#1e87f0',
+                    expandIcon: "tree-icon menu-plus",
+                    collapseIcon: "tree-icon menu-minus",
+                    data: resp.data,
+                }).on('nodeSelected', function(event, data) {
+                    selectId = data.id;
+                    if (selectId == -1) {
+                        return;
+                    }
+                    __curent_dot_name = data.text;
+                    getChartsByName(selectId);
+                    setMainTitle();
+                });
+                $('#tree_box').treeview('selectNode', [1]);
+            }
+        }).fail(function(resp) {});
+    }
+
+    var sumChartData = null;
+    var sumCategories = null;
+    var sumTableData = null;
+    var colConfig = null;
+    // var chartRule = null;
+
+    var tablefields = [];
+    for (var i = 0; i < 25; i++) {
+        tablefields.push("field" + i);
+    }
+
+    function getChartsByName(id) {
+        var url = "/energy/electricTopic/monitor/power/todaycurve/one?id=";
+        eBase.send({
+            "url": url + id
+        }, "get").done(function(subResp) {
+            if (subResp.code == '0') {
+                sumChartData = subResp.data.datas;
+                sumCategories = subResp.data.categories;
+                search(__currnet_yzTitle);
+            } else {
+                alert(subResp.msg);
+            }
+        }).fail(function(resp) {
+            alert("查询数据失败");
+        });
+        var url2 = "/energy/electricTopic/monitor/power/todaytable/one?id=";
+        eBase.send({
+            "url": url2 + id
+        }, "get").done(function(resp) {
+            if (resp.code == '0') {
+                // eBase.send({ "url": "/energy/electricTopic/monitor/power/todaytable/config?id=" + id }, "get").done(function(subresp) {
+                if (resp.code == '0') {
+                    resp = resp.data;
+                    sumTableData = resp.datas;
+                    resp.categories.unshift('时间');
+                    colConfig = resp.categories.map(function(item, index) {
+                        var align = 0 == index ? 'left' : 'right';
+                        return {
+                            align: align,
+                            title: item,
+                            field: 'field' + index
+                        }
+                    });
+                    search2();
+                    //     } else {
+                    //         alert(subresp.msg);
+                    //     }
+                    // }).fail(function(resp) {
+                    //     alert("查询数据失败");
+                    // });
+                } else {
+                    alert(resp.msg);
+                }
+            }
+        }).fail(function(resp) {
+            alert("查询数据失败");
+        });
+    }
+
+    $('#sl1').on('change', function() {
+        console.log($(this).val())
+    })
+
+    function getTypes() {
+        var se = $('#sl1').val();
+        var type = 0;
+        switch (se) {
+            case '0':
+                type = parseInt($('#sl12').val());
+                break;
+            case '1':
+                type = parseInt($('#sl11').val()) + 10;
+                break;
+            case '2':
+                type = parseInt($('#sl10').val()) + 20;
+                break;
+            default:
+                break;
+        }
+        var result = {};
+        result.names = [];
+        result.categories_field = [];
+        switch (type) {
+            case 0:
+                result.names = ["p", "dp"];
+                result.categories_field = ["总负荷", "需量负荷"];
+                break;
+            case 1:
+                result.names = ["pa"];
+                result.categories_field = ["A相负荷"];
+                break;
+            case 2:
+                result.names = ["pb"];
+                result.categories_field = ["B相负荷"];
+                break;
+            case 3:
+                result.names = ["pc"];
+                result.categories_field = ["C相负荷"];
+                break;
+            case 10:
+                result.names = ["uab"];
+                result.categories_field = ["uab"];
+                break;
+            case 11:
+                result.names = ["ubc"];
+                result.categories_field = ["ubc"];
+                break;
+            case 12:
+                result.names = ["uca"];
+                result.categories_field = ["uca"];
+                break;
+            case 13:
+                result.names = ["ua"];
+                result.categories_field = ["ua"];
+                break;
+            case 14:
+                result.names = ["ub"];
+                result.categories_field = ["ub"];
+                break;
+            case 15:
+                result.names = ["uc"];
+                result.categories_field = ["uc"];
+                break;
+            case 20:
+                result.names = ["ia"];
+                result.categories_field = ["A相电流"];
+                break;
+            case 21:
+                result.names = ["ib"];
+                result.categories_field = ["B相电流"];
+                break;
+            case 22:
+                result.names = ["ic"];
+                result.categories_field = ["C相电流"];
+                break;
+            default:
+                break;
+        }
+        return result;
+    }
+    var table = null;
+
+    function fieldToTitle(data, types) {
+        var lastData = [];
+        types = types.maps;
+        types.forEach(function(item, index) {
+            Object.keys(item).forEach(function(initem, inindex) {
+                if (data[initem]) {
+                    var o = {
+                        ['field' + inindex]: item[initem]
+                    };
+                    data[initem].forEach(function(v, i) {
+                        o['field' + (++i)] = v;
+                    })
+                    lastData.push(o)
+                }
+            })
+        });
+
+        return lastData
+    }
+
+    function search2() {
+        var data = fieldToTitle(sumTableData, getNewTypes())
+        var peopleOptions = {
+            data: data,
+            columns: colConfig
+        };
+
+        $("#TTable").bootstrapTable('destroy');
+        $("#TTable").bootstrapTable(peopleOptions);
+    }
+
+    function initPage() {
+        initDSMCompanySelectByElementId('company', function() {
+            showTreeView($('#company').val());
+        });
+
+        $('#company').change(function() {
+            showTreeView($(this).val());
+        });
+
+        hideAll();
+        // $('#sl12').show();
+        initDateInputForMonth('#date_input1');
+        $('#date_input1').val(getThisMonth());
+
+        setTimeout(function() {
+            resizeTree();
+        }, 200);
+    }
+
+    function resizeTree() {
+        var h = $('#content_box').height() + 39;
+        $('#tree_box').css('height', h + 'px');
+    }
+
+    initPage();
+
+    function hideAll() {
+        $('#sl10').hide();
+        $('#sl11').hide();
+        $('#sl12').hide();
+    }
+
+    $('#sl1').click(function() {
+        // var se = $('#sl1').val();
+        // hideAll();
+        // switch (se) {
+        //     case '0':
+        //         $('#sl12').show();
+        //         $('#sl12').val('0');
+        //         break;
+        //     case '1':
+        //         $('#sl11').show();
+        //         $('#sl11').val('0');
+        //         break;
+        //     case '2':
+        //         $('#sl10').show();
+        //         $('#sl10').val('0');
+        //         break;
+        //     default:
+        //         break;
+        // }
+    });
+
+
+    function getNewTypes() {
+        switch ($('#sl1').val()) {
+            case '0':
+                return {
+                    maps: [{
+                        'p': '总负荷'
+                    }, {
+                        'pa': 'A相负荷'
+                    }, {
+                        'pb': 'B相负荷'
+                    }, {
+                        'pc': 'C相负荷'
+                    }, {
+                        'dp': '需量负荷'
+                    }]
+                }
+            case '1':
+                return {
+                    maps: [{
+                        'uab': 'Uab线电压'
+                    }, {
+                        'ubc': 'Ubc线电压'
+                    }, {
+                        'uca': 'Uca线电压'
+                    }, {
+                        'ua': 'A相电压'
+                    }, {
+                        'ub': 'B相电压'
+                    }, {
+                        'uc': 'C相电压'
+                    }]
+                }
+            case '2':
+                return {
+                    maps: [{
+                        'ia': 'A相电流'
+                    }, {
+                        'ib': 'B相电流'
+                    }, {
+                        'ic': 'C相电流'
+                    }, {
+                        'iz': '零线电流'
+                    }]
+                }
+            default:
+                return {
+                    maps: []
+                }
+        }
+    }
+
+    function search(yzTitle) {
+        var types = getNewTypes();
+        // var data = changeToChartsData2(sumChartData, types.names, types.categories_field, sumCategories, '', yzTitle);
+        var data = changeToChartsData3(sumChartData, sumCategories, types, yzTitle);
+        new yarn({
+            charts: [{
+                el: 'line_bar',
+                type: 'line',
+                ti: '#title1',
+                data: data,
+                dataSourceType: 'object',
+                scale: 0.36,
+                min_height: 300,
+                max_height: 600,
+                theme_obj: {
+                    interval: 23,
+                    legend: {
+                        left: 58
+                    }
+                }
+            }]
+        }).init();
+    }
+
+
+    $("#sl1").change(function() {
+        var text = $(this).find("option:selected").text();
+        switch (text) {
+            case '负荷':
+                __currnet_yzTitle = '单位(千瓦)'
+                break;
+            case '电压':
+                __currnet_yzTitle = '单位(伏特)'
+                break;
+            case '电流':
+                __currnet_yzTitle = '单位(安培)'
+                break;
+            default:
+                break;
+        }
+        setMainTitle();
+        search(__currnet_yzTitle);
+        search2();
+    });
+    // $("#sl10").change(function() {
+    //     search(__currnet_yzTitle);
+    //     search2();
+    // });
+    // $("#sl11").change(function() {
+    //     search(__currnet_yzTitle);
+    //     search2();
+    // });
+    // $("#sl12").change(function() {
+    //     search(__currnet_yzTitle);
+    //     search2();
+    // });
+</script>
+
+</html>

@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>分项用能</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" id='theme' href="css/theme-dark-blue.css" />
+</head>
+
+<body id="energyOption">
+    <div class="page-container">
+        <a href="# " class="x-navigation-minimize menu_minimalize"><span class="arrow arrow-shrink topvalue"></span></a>
+        <div class="page-sidebar page-sidebar-fixed scroll">
+            <ul id='menu' class="x-navigation">
+                <li class="xn-logo">
+                    <a href="index.html"></a>
+                    <a href='#' class="x-navigation-control "></a>
+                </li>
+            </ul>
+        </div>
+        <div class="page-content ">
+            <div class="page-content-wrap top0">
+                <h3 class="page-title">
+                    <ul class="x-navigation x-navigation-horizontal log-out pull-right">
+                        <li class="xn-icon-button last ">
+                            <a href="#"><span class="fa fa-power-off "></span></a>
+                            <ul class="xn-drop-left animated zoomIn ">
+                                <li><a href="#" class="mb-control " data-box="#mb-signout "><span class="fa fa-sign-out "></span> 登出</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    分项用能</h3>
+                <ul id="inavigation" class="nav nav-tabs xs-tabs">
+                    <li role="presentation" class="active"><a href="javascript:void(0);" data-page='#ipage1'>分项用能概况</a></li>
+                    <li role="presentation"><a href="javascript:void(0);" data-page='#ipage2'>分项用能统计</a></li>
+                    <!--<li role="presentation"><a href="javascript:void(0);" data-page='#ipage4'>能源品种</a></li>-->
+                </ul>
+                <div id="ipage_content" class="nav-content pt24">
+                    <div id="ipage1" class="relative">
+                        <div class="container-fluid" style="padding-left: 14px;padding-right: 14px;">
+                            <div class="col-lg-12">
+                                <div class="panel_title">
+                                    <div class="col-md-6">
+                                        <div class="gap-btn-group bar-group clearfix" role="group">
+                                            <div class="btn-group" role="group">
+                                                <select id="area" class="w140 form-control select iselect">
+
+                                                </select>
+                                            </div>
+                                            <button type="button" id="search" title="搜索" class="btn btn-outline btn-primary">
+                                                <span>查询</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-9 clearfix">
+                                    </div>
+                                </div>
+                                <div class="iPanel" style="padding: 0">
+                                    <div class="row">
+                                        <div class="col-lg-6 border-rb pd24" style="min-height: 358px">
+                                            <div class="content">
+                                                <h4 id="frame1_page1_title1" class="title">日分项用能同比分析</h4>
+                                                <div class="chart-wrap">
+                                                    <div id="frame1_page1_chart"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 border-b pd24" style="min-height: 358px">
+                                            <div class="content">
+                                                <!--<div class="rows">-->
+                                                <!--<div class="col-lg-6">-->
+                                                <div class="j-between">
+                                                    <h4 id="frame1_page1_title2" class="title col-lg-8" style="float: left;padding-left: 0;">本月分项用能分布</h4>
+                                                    <!--</div>-->
+                                                    <select id="month_area_code" class="w140 form-control select iselect" style="position: relative;margin-top: -3px">
+
+                                                    </select>
+                                                </div>
+                                                <!--</div>-->
+                                                <div class="chart-wrap">
+                                                    <div id="frame1_page1_chart2"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6 border-rb pd24" style="min-height: 358px;border-bottom: 0;">
+                                            <div class="content">
+                                                <h4 id="frame1_page1_title3" class="title">过去31天分项用能</h4>
+                                                <div class="chart-wrap">
+                                                    <div id="frame1_page1_chart3"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 border-b pd24" style="min-height: 358px;border-bottom: 0;">
+                                            <div class="content">
+                                                <h4 id="frame1_page1_title4" class="title">过去31天分项用能趋势</h4>
+                                                <div class="chart-wrap">
+                                                    <div id="frame1_page1_chart4"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="ipage2" class="relative hidden-em">
+                        <div class="container-fluid" style="padding-left: 14px;padding-right: 14px;">
+                            <div class="col-lg-12">
+                                <div class="panel_title">
+                                    <!--<div class="col-md-3">-->
+                                    <!--<h4>分项用能统计</h4>-->
+                                    <!--</div>-->
+                                    <div class="col-md-9 clearfix">
+                                        <div class="gap-btn-group bar-group" role="group">
+                                            <div class="btn-group" role="group">
+                                                <select id="area_code" class="w140 form-control select iselect">
+
+                                                </select>
+                                            </div>
+                                            <!--<div class="btn-group" role="group">-->
+                                            <!--<select class="form-control select iselect w140">-->
+                                            <!--<option value="0">综合能耗</option>-->
+                                            <!--<option value="1">水</option>-->
+                                            <!--<option value="2">电</option>-->
+                                            <!--<option value="3">蒸汽</option>-->
+                                            <!--<option value="4">天然气</option>-->
+                                            <!--</select>-->
+                                            <!--</div>-->
+                                            <div class="btn-group" role="group">
+                                                <select class="w140 form-control select iselect dateSelection">
+                                                    <option value="0">日报</option>
+                                                    <option value="1">月报</option>
+                                                    <option value="2">年报</option>
+                                                </select>
+                                            </div>
+                                            <div class="btn-group datebox1" role="group">
+                                                <input id="frame1_page2_input1" type="text" name="" class="form-control laydate-icon layer-date" data-bv-date="true">
+                                            </div>
+                                            <div class="btn-group datebox2 hidden-em" role="group">
+                                                <input id="frame1_page2_input2" type="text" name="" class="form-control laydate-icon layer-date" data-bv-date="true">
+                                            </div>
+                                            <div class="btn-group datebox3 hidden-em" role="group">
+                                                <input id="frame1_page2_input3" type="text" name="" class="form-control laydate-icon layer-date" data-bv-date="true">
+                                            </div>
+                                            <button type="button" title="搜索" class="btn btn-outline btn-primary" id="search1">
+                                                <span>查询</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4" style="padding-right:0!important;">
+                                    <div id="tree_box" class="iPanel tree-panel font14 minHeight" style="height: 732px;overflow:auto">
+
+                                    </div>
+                                    <div id="Notree_box" class="iPanel  minHeight" style="height: 732px;text-align: center;padding-top: 100px;">
+                                        暂无数据
+                                    </div>
+                                </div>
+                                <div id="hasData" class="col-lg-9 col-md-8 hidden-em" style="padding-left:0!important;">
+                                    <div id="content_box" class="iPanel left-border minHeight" style="height: 732px;overflow:auto;">
+                                        <div class="content">
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <h4 id="title21" class="title titleNameYz"></h4>
+                                                    <div class="chart-wrap">
+                                                        <div id="line_bar"></div>
+                                                    </div>
+                                                </div>
+                                                <!--<div class="col-lg-3">-->
+                                                <!--<div class="chart-wrap">-->
+                                                <!--<div id="ring"></div>-->
+                                                <!--</div>-->
+                                                <!--</div>-->
+                                            </div>
+                                        </div>
+                                        <div class="content mt40">
+                                            <!--<h4 id="title2" class="title">高炉工序负荷与电量</h4>-->
+                                            <div id="DTTable0">
+                                                <table id="TTable0" data-mobile-responsive="true">
+                                                    <thead>
+                                                        <tr class="hidden-em">
+                                                            <th data-field="BuildName">建筑名称</th>
+                                                            <th data-field="ItemName">建筑分项</th>
+                                                            <th data-field="00时" data-align="right">00时</th>
+                                                            <th data-field="01时" data-align="right">01时</th>
+                                                            <th data-field="02时" data-align="right">02时</th>
+                                                            <th data-field="03时" data-align="right">03时</th>
+                                                            <th data-field="04时" data-align="right">04时</th>
+                                                            <th data-field="05时" data-align="right">05时</th>
+                                                            <th data-field="06时" data-align="right">06时</th>
+                                                            <th data-field="07时" data-align="right">07时</th>
+                                                            <th data-field="08时" data-align="right">08时</th>
+                                                            <th data-field="09时" data-align="right">09时</th>
+                                                            <th data-field="10时" data-align="right">10时</th>
+                                                            <th data-field="11时" data-align="right">11时</th>
+                                                            <th data-field="12时" data-align="right">12时</th>
+                                                            <th data-field="13时" data-align="right">13时</th>
+                                                            <th data-field="14时" data-align="right">14时</th>
+                                                            <th data-field="15时" data-align="right">15时</th>
+                                                            <th data-field="16时" data-align="right">16时</th>
+                                                            <th data-field="17时" data-align="right">17时</th>
+                                                            <th data-field="18时" data-align="right">18时</th>
+                                                            <th data-field="19时" data-align="right">19时</th>
+                                                            <th data-field="20时" data-align="right">20时</th>
+                                                            <th data-field="21时" data-align="right">21时</th>
+                                                            <th data-field="22时" data-align="right">22时</th>
+                                                            <th data-field="23时" data-align="right">23时</th>
+                                                        </tr>
+                                                    </thead>
+                                                </table>
+                                            </div>
+                                            <div id="DTTable1">
+                                                <table id="TTable1" data-mobile-responsive="true">
+                                                    <!-- <thead>
+                                                        <tr class="hidden-em">
+                                                            <th data-field="BuildName">建筑名称</th>
+                                                            <th data-field="ItemName">建筑分项</th>
+                                                            <th data-field="01天" data-align="right">01天</th>
+                                                            <th data-field="02天" data-align="right">02天</th>
+                                                            <th data-field="03天" data-align="right">03天</th>
+                                                            <th data-field="04天" data-align="right">04天</th>
+                                                            <th data-field="05天" data-align="right">05天</th>
+                                                            <th data-field="06天" data-align="right">06天</th>
+                                                            <th data-field="07天" data-align="right">07天</th>
+                                                            <th data-field="08天" data-align="right">08天</th>
+                                                            <th data-field="09天" data-align="right">09天</th>
+                                                            <th data-field="10天" data-align="right">10天</th>
+                                                            <th data-field="11天" data-align="right">11天</th>
+                                                            <th data-field="12天" data-align="right">12天</th>
+                                                            <th data-field="13天" data-align="right">13天</th>
+                                                            <th data-field="14天" data-align="right">14天</th>
+                                                            <th data-field="15天" data-align="right">15天</th>
+                                                            <th data-field="16天" data-align="right">16天</th>
+                                                            <th data-field="17天" data-align="right">17天</th>
+                                                            <th data-field="18天" data-align="right">18天</th>
+                                                            <th data-field="19天" data-align="right">19天</th>
+                                                            <th data-field="20天" data-align="right">20天</th>
+                                                            <th data-field="21天" data-align="right">21天</th>
+                                                            <th data-field="22天" data-align="right">22天</th>
+                                                            <th data-field="23天" data-align="right">23天</th>
+                                                            <th data-field="24天" data-align="right">24天</th>
+                                                            <th data-field="25天" data-align="right">25天</th>
+                                                            <th data-field="26天" data-align="right">26天</th>
+                                                            <th data-field="27天" data-align="right">27天</th>
+                                                            <th data-field="28天" data-align="right">28天</th>
+                                                            <th data-field="29天" data-align="right">29天</th>
+                                                        </tr>
+                                                    </thead> -->
+                                                </table>
+                                            </div>
+                                            <div id="DTTable2">
+                                                <table id="TTable2" data-mobile-responsive="true">
+                                                    <thead>
+                                                        <tr class="hidden-em">
+                                                            <th data-field="BuildName">建筑名称</th>
+                                                            <th data-field="ItemName">建筑分项</th>
+                                                            <th data-field="01月" data-align="right">01月</th>
+                                                            <th data-field="02月" data-align="right">02月</th>
+                                                            <th data-field="03月" data-align="right">03月</th>
+                                                            <th data-field="04月" data-align="right">04月</th>
+                                                            <th data-field="05月" data-align="right">05月</th>
+                                                            <th data-field="06月" data-align="right">06月</th>
+                                                            <th data-field="07月" data-align="right">07月</th>
+                                                            <th data-field="08月" data-align="right">08月</th>
+                                                            <th data-field="09月" data-align="right">09月</th>
+                                                            <th data-field="10月" data-align="right">10月</th>
+                                                            <th data-field="11月" data-align="right">11月</th>
+                                                            <th data-field="12月" data-align="right">12月</th>
+                                                        </tr>
+                                                    </thead>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="noData" class="col-lg-9 col-md-8 minHeight iPanel" style="border-left: 1px solid #F0F3F5;text-align: center;padding-top: 100px;height: 732px">暂无数据</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    <div class="message-box animated fadeIn" data-sound="alert " id='mb-signout'>
+        <div class="mb-container ">
+            <div class="mb-middle ">
+                <div class="mb-title"><span class="fa fa-sign-out "></span> Log <strong>Out</strong> ?</div>
+                <div class="mb-content ">
+                    <p>确定登出?</p>
+                    <p>如果您想继续留在此页面，请点击"否"</p>
+                </div>
+                <div class="mb-footer ">
+                    <div class="pull-right ">
+                        <a href="login.html " class="btn btn-success btn-lg ">是</a>
+                        <button class="btn btn-default btn-lg mb-control-close ">否</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type='text/javascript' src="js/import.js"></script>
+<script type='text/javascript' src="js/pages/common.js"></script>
+<script type='text/javascript' src="js/pages/CURDTable.js"></script>
+<script type='text/javascript' src="js/charts/echart_yarn.min.js"></script>
+<script>
+
+    var tab1L = true,
+        tab2L, currentNode, currentNodes = [];
+
+    initDateInputForDay('#frame1_page2_input1');
+    initDateInputForMonth('#frame1_page2_input2');
+    initDateInputForYear('#frame1_page2_input3');
+
+
+    function initareaSelectByElementId(e_id, code) {
+        var childSls = {};
+        childSls['#' + e_id] = {
+            url: code,
+            type: 'GET',
+            showDef: true
+        };
+        var sc = new cur({
+            childSls: childSls
+        });
+
+        sc.initSelect();
+        sc.on('select:render.complete', function() {
+            checkFirstAsDefault($('#' + e_id));
+            showFrame1();
+        });
+    }
+    initareaSelectByElementId("month_area_code",'/energy/sys/getList?key=month_area_code&code=010101');
+    initareaSelectByElementId('area','/energy/sys/getSubAreas?key=area');
+    initareaSelectByElementId('area_code','/energy/sys/getSubAreas?key=area_code');
+    $('#frame1_page2_input1').val(getToday());
+    $('#frame1_page2_input2').val(getThisMonth());
+    $('#frame1_page2_input3').val(getThisYear());
+
+    $('.dateSelection').change(function() {
+        if ($(this).val() == 1) {
+            $(this).parent().siblings('.datebox2').show();
+            $(this).parent().siblings('.datebox1').hide();
+            $(this).parent().siblings('.datebox3').hide();
+        } else if ($(this).val() == 2) {
+            $(this).parent().siblings('.datebox3').show();
+            $(this).parent().siblings('.datebox2').hide();
+            $(this).parent().siblings('.datebox1').hide();
+        } else {
+            $('.datebox1').show();
+            $('.datebox2').hide();
+            $('.datebox3').hide();
+        };
+        // switchTable($(this).val());
+    });
+
+    $('#search1').on('click', function() {
+        // $('#noData').hide();
+        // $('#hasData').show();
+        // getTab2Data(currentNode);
+        showTreeView();
+    });
+
+    function showTreeView() {
+        eBase.send({
+            url: '/energy/itemOnline/getTree',
+            data: {
+                area_code: $('#area_code').val()
+            }
+        }, 'get').done(function(resp) {
+            getTreeDataHandler('#tree_box', resp.data);
+        }).fail(function() {
+            console.log('获取数据失败');
+        });
+    }
+
+    function getTreeDataHandler(el, data) {
+
+        function appendPid(d, uid) {
+            d.forEach(function(item) {
+                item['pid'] = uid;
+                if (item.nodes && item.nodes[0]) {
+                    appendPid(item.nodes, item.uuid)
+                }
+            })
+        }
+
+        appendPid(data, '0')
+
+        $tree = $(el).treeview({
+            showBorder: false,
+            selectedBackColor: '#1e87f0',
+            expandIcon: "tree-icon menu-plus",
+            collapseIcon: "tree-icon menu-minus",
+            data: data,
+            // multiSelect: true
+        });
+
+        if (!data || !data[0]) {
+            $('#noData').show();
+            $("#Notree_box").show();
+            $('#hasData').hide();
+            $("#tree_box").hide();
+            return;
+        }
+
+        // $tree.on('nodeUnselected', function(event, data) {
+        //     let id = data.uuid + '#@#' + data.pid;
+        //     let pos = currentNodes.indexOf(id);
+        //     currentNodes.splice(pos, 1);
+        //     currentNode = currentNodes.join(',');
+        //     $('#search1').removeAttr('disabled');
+        //     $('#noData').hide();
+        //     $('#hasData').show();
+        //     getTab2Data(currentNode);
+        // });
+
+        $tree.on('nodeSelected', function(event, data) {
+            let id = data.uuid + '#@#' + data.pid;
+            if (data.type == '0') {
+                // currentNodes.push(id); multiple choose
+                currentNode = id;
+            } else {
+                currentNode = null;
+            }
+            // currentNode = currentNodes.join(',');
+            $('#search1').removeAttr('disabled');
+            $("#Notree_box").hide();
+            $("#tree_box").show();
+            $('#noData').hide();
+            $('#hasData').show();
+            getTab2Data(currentNode);
+        });
+        // $(el).treeview('selectNode', [2, { silent: true}]);
+        $(el).treeview('selectNode', [2]);
+
+        $(el).treeview('expandNode', [1, {
+            levels: 2,
+            silent: true
+        }]);
+    }
+
+    $('#inavigation').find('li').click(function() {
+        $(this).addClass('active').siblings('li').removeClass('active');
+        var id = $(this).find('a').data('page');
+        $('#ipage_content').find(id).show().siblings().hide();
+        switch (id) {
+            case '#ipage2':
+                setTimeout(function() {
+                    $(window).trigger("panel_resize");
+                    if (!tab2L) {
+                        showFrame2();
+                        tab2L = true;
+                    }
+                }, 100);
+                break;
+            case '#ipage1':
+            default:
+                setTimeout(function() {
+                    $(window).trigger("panel_resize");
+                    if (!tab1L) {
+                        showFrame1();
+                        tab1L = true;
+                    }
+                }, 100);
+                break;
+        }
+    });
+
+    $('#search').on('click', function() {
+        getTab1Data();
+    });
+
+    $('#month_area_code').on('change', function() {
+        getChartsByName1();
+    });
+
+    function getChartsByName() {
+
+
+        new yarn({
+            charts: [{
+                el: 'frame1_page1_chart',
+                type: 'bar',
+                theme: 'energyOption_bar',
+                url: '/energy/item/chart/count/date',
+                theme_obj: {
+                    // barWidth: '29%'
+                },
+                h: 360,
+                direction: 'y',
+                params: {
+                    area: $('#area').val(),
+                    key: '1'
+                }
+            }]
+        }).init();
+    }
+
+    function getChartsByName1() {
+        new yarn({
+            charts: [{
+                el: 'frame1_page1_chart2',
+                type: 'bar',
+                url: '/energy/item/chart/count/month',
+                h: 360,
+                params: {
+                    area: $('#area').val(),
+                    key: '1',
+                    item: $('#month_area_code').val()
+                }
+            }]
+        }).init();
+    }
+
+    function getChartsByName2() {
+        new yarn({
+            charts: [{
+                el: 'frame1_page1_chart3',
+                type: 'pie',
+                // theme: 'index_rose',
+                // url: 'js/charts/demos/index_rose.json',
+                url: '/energy/item/chart/count/threeOne',
+                theme_obj: {
+                    colors: ["#1890FF", "#13C2C2", "#2EC25B", "#FACC14", "#EF4864", "#9760E5"],
+                    showLabel: false,
+                    radius: ['0', '60%'],
+                    center: ['40%', '50%'],
+                    legend: {
+                        show: true,
+                        left: '65%',
+                        top: 'middle',
+                        type: 'plain',
+                        showPercent: false
+                    }
+                },
+                h: 360,
+                params: {
+                    area: $('#area').val(),
+                    key: '1'
+                }
+            }]
+        }).init();
+    }
+
+    function getChartsByName3() {
+        new yarn({
+            charts: [{
+                el: 'frame1_page1_chart4',
+                type: 'bar',
+                // url: 'js/charts/demos/energyOption_chart4.json',
+                url: '/energy/item/chart/count/threeOneGo',
+                h: 360,
+                stack: 'total',
+                params: {
+                    area: $('#area').val(),
+                    key: '1'
+                }
+            }]
+        }).init();
+    }
+
+    // 获取时间
+    function getFtime() {
+        switch ($('.dateSelection').val()) {
+            case '0':
+                return $('#frame1_page2_input1').val().replace(/-/g, '');
+            case '1':
+                return $('#frame1_page2_input2').val().replace(/-/g, '');
+            case '2':
+                return $('#frame1_page2_input3').val().replace(/-/g, '');
+            default:
+                return $('#frame1_page2_input1').val().replace(/-/g, '');
+        }
+    }
+
+    function getTab2Linechart(id) {
+        var getTime = getFtime();
+        new yarn({
+            charts: [{
+                el: 'line_bar',
+                type: 'line',
+                ti: '#title21',
+                url: '/energy/itemOnline/chart/line/date',
+                // url: '/fake/pseudodata/min/energy_min_data.json',
+                scale: 0.30,
+                theme_obj: {
+                    legend: {
+                        left: 100
+                    }
+                },
+                params: {
+                    area_code: $('#area_code').val(),
+                    key: '1',
+                    get_time: getTime,
+                    buildAndItemCodes: id,
+                    type: $('.dateSelection').find('option:checked').text()
+                }
+            }]
+        }).init();
+    }
+
+    function getTab2Piechart(id) {
+        var getTime = getFtime();
+        new yarn({
+            charts: [{
+                el: 'ring',
+                type: 'circle',
+                theme: 'index_ring',
+                url: '/energy/itemOnline/chart/pie/date',
+                // scale: 0.65,
+                theme_obj: {
+                    showLabel: false,
+                    title: {
+                        show: false,
+                        text: '',
+                        textStyle: {
+                            fontFamily: 'sans-serif',
+                            color: "#666666",
+                            fontSize: 14
+                        },
+                        subtextStyle: {
+                            fontFamily: 'sans-serif',
+                            color: "#262626",
+                            fontSize: 24
+                        }
+                    },
+                    radius: ['40%', '55%'],
+                    legend: {
+                        show: true,
+                        left: '24%',
+                        icon: 'circle',
+                        showPercent: false,
+                        top: 'bottom'
+                    }
+                },
+                h: 279,
+                params: {
+                    area_code: $('#area_code').val(),
+                    key: '1',
+                    get_time: getTime,
+                    buildAndItemCodes: id,
+                    type: $('.dateSelection').find('option:checked').text()
+                }
+            }]
+        }).init();
+    }
+
+    // 切换table
+    function switchTable(v) {
+        switch (+v) {
+            case 0:
+                $('#DTTable0').show();
+                $('#DTTable1').hide();
+                $('#DTTable2').hide();
+                break;
+            case 1:
+                $('#DTTable0').hide();
+                $('#DTTable1').show();
+                $('#DTTable2').hide();
+                break;
+            case 2:
+                $('#DTTable1').hide();
+                $('#DTTable2').show();
+                $('#DTTable0').hide();
+                break;
+            default:
+                break;
+        }
+    }
+
+    function getTab2Table(id, tableId) {
+        switchTable(tableId);
+        // new cur({
+        //     t: "#TTable0",
+        //     m: "#modal",
+        //     footerbar: '#footerbar',
+        //     showAfterRender: ['#footerbar'],
+        //     pageSize: 6,
+        //     search_params: {
+        //         field_select: '#field_select',
+        //         field_input: '#search_input'
+        //     },
+        //     dataSourceType: 'local',
+        //     queryUrl: "js/charts/demos/elePowerDistribution1.json",
+        // }).init();
+        console.log("#TTable" + tableId)
+        var config = {
+            t: "#TTable" + tableId,
+            footerbar: '#footerbar',
+            showAfterRender: ['#footerbar'],
+            pagination: false,
+            height: 'auto',
+            queryUrl: "/energy/itemOnline/chart/excel/date",
+            method: 'get',
+            params: {
+                key: '1',
+                get_time: getFtime(),
+                buildAndItemCodes: id,
+                area_code: $('#area_code').val(),
+                type: $('.dateSelection').find('option:checked').text()
+            }
+        }
+        if(tableId == '1'){
+            var ma = [{
+                    title: '建筑名称',
+                    field: 'BuildName',
+                    align: "left",
+                    valign: "middle"
+                }, {
+                    title: '建筑分项',
+                    field: 'ItemName',
+                    align: "left",
+                    valign: "middle"
+                }];
+            var maxDay = getMaxDayByMonth();
+            for(var i = 1; i<= maxDay; i++){
+                ma.push({
+                    title: ('0' + i).slice(-2) + '天',
+                    field: ('0' + i).slice(-2) + '天',
+                    align: "center",
+                    valign: "middle"
+                });
+            }
+            config.columns = ma;
+        }
+        new cur(config).init();
+    }
+
+    function getTab2Data(id) {
+        if (!id) {
+            return window.layer.msg('请选择具体建筑')
+        }
+
+        getTab2Linechart(id);
+
+        // getTab2Piechart(id);
+
+        getTab2Table(id, $('.dateSelection').val());
+    }
+
+    function showFrame1() {
+        getTab1Data();
+    }
+    function showFrame2() {
+        showTreeView();
+    }
+    function getTab1Data() {
+        getChartsByName();
+        getChartsByName1();
+        getChartsByName2();
+        getChartsByName3();
+    }
+</script>
+
+</html>

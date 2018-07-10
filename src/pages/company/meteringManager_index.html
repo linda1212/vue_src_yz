@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>计量器具管理</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" id='theme' href="css/theme-dark-blue.css" />
+</head>
+
+<body>
+    <div class="page-container">
+        <a href="# " class="x-navigation-minimize menu_minimalize"><span class="arrow arrow-shrink "></span></a>
+        <div class="page-sidebar page-sidebar-fixed scroll">
+            <ul id='menu' class="x-navigation">
+                <li class="xn-logo">
+                    <a href="index.html"></a>
+                    <a href='#' class="x-navigation-control "></a>
+                </li>
+            </ul>
+        </div>
+        <div class="page-content ">
+            <h3 class="page-title">
+                <ul class="x-navigation x-navigation-horizontal log-out pull-right">
+                    <li class="xn-icon-button last ">
+                        <a href="# "><span class="fa fa-power-off "></span></a>
+                        <ul class="xn-drop-left animated zoomIn ">
+                            <li><a href="# " class="mb-control " data-box="#mb-signout "><span class="fa fa-sign-out "></span> 登出</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                计量器具管理</h3>
+            <ul class="breadcrumb">
+                <li class="active"><a href="meteringManager_index.html">计量器具概览</a></li>
+            </ul>
+            <div class="page-content-wrap" style="padding-left: 14px;padding-right: 14px;">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="panel_title" style="border-bottom: none; font-weight: 500">
+                            <div class="col-lg-9">
+                                <h4>纳入管理企业</h4>
+                            </div>
+                            <div class="col-md-3 clearfix">
+                                <div class="gap-btn-group pull-right bar-group" role="group">
+                                    <a href="meteringCheckManager.html" class="btn btn-outline btn-primary">催检</a></li>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="iPanel single_table_panel">
+                            <div class="content">
+                                <table id="Tmetering" data-height="398" data-mobile-responsive="true">
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="panel_title clearfix">
+                            <div class="col-xs-6">
+                                <h4>计量器具检定概览</h4>
+                            </div>
+                            <div class="col-xs-6">
+                                <div class="gap-btn-group pull-right bar-group" role="group">
+                                    <div class="btn-group" role="group">
+                                        <input id="year3" type="text" name="" class="form-control laydate-icon layer-date w140" data-bv-date="true">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="m_panel" class="iPanel clearfix m_main_panel" style="max-height:235px;overflow-x: auto;">
+                            <div class="col-lg-12 m_wigit_panel">
+                                <p class="m_tip">没有数据</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="panel_title clearfix">
+                            <div class="col-xs-6">
+                                <h4>计量器具检定合格率</h4>
+                            </div>
+                            <div class="col-xs-6">
+                                <div class="gap-btn-group pull-right bar-group" role="group">
+                                    <div class="btn-group" role="group">
+                                        <input id="year1" type="text" name="" class="form-control laydate-icon layer-date w140" data-bv-date="true">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="iPanel">
+                            <div id="bar"></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="panel_title">
+                            <div class="col-lg-10">
+                                <h4>计量器具检定区域分布</h4>
+                            </div>
+                            <div class="col-lg-2">
+                                <div class="gap-btn-group pull-right bar-group" role="group">
+                                    <div class="btn-group" role="group">
+                                        <input id="year2" type="text" name="" class="form-control laydate-icon layer-date w140" data-bv-date="true">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="iPanel">
+                            <div id="bar2"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    <div class="message-box animated fadeIn" data-sound="alert " id='mb-signout'>
+        <div class="mb-container ">
+            <div class="mb-middle ">
+                <div class="mb-title"><span class="fa fa-sign-out "></span> Log <strong>Out</strong> ?</div>
+                <div class="mb-content ">
+                    <p>确定登出?</p>
+                    <p>如果您想继续留在此页面，请点击"否"</p>
+                </div>
+                <div class="mb-footer ">
+                    <div class="pull-right ">
+                        <a href="login.html " class="btn btn-success btn-lg ">是</a>
+                        <button class="btn btn-default btn-lg mb-control-close ">否</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id='detail' class="modal fade">
+        <div class="modal-dialog">
+            <form action="javascript:void(0)">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title"></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group hidden-em">
+                            <label>id</label>
+                            <input type="text" class="form-control" name="id">
+                        </div>
+                        <div class="form-group">
+                            <label>企业名称</label>
+                            <input type="text" class="form-control" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label><span class="text-red">*</span>省</label>
+                            <select id="province1" class="form-control" name="province" required></select>
+                        </div>
+                        <div class="form-group">
+                            <label><span class="text-red">*</span>市</label>
+                            <select id="city1" class="form-control" name="city" required></select>
+                        </div>
+                        <div class="form-group">
+                            <label><span class="text-red">*</span>区</label>
+                            <select id="district1" class="form-control" name="district" required></select>
+                        </div>
+                        <div class="form-group">
+                            <label>企业类型</label>
+                            <select id="type_code" class="form-control" name="type_code"></select>
+                        </div>
+                        <div class="form-group">
+                            <label>组织机构代码 </label>
+                            <input type="text" class="form-control" name="code">
+                        </div>
+                        <div class="form-group">
+                            <label>所属行业</label>
+                            <select id="industry_code" class="form-control" name="industry_code"></select>
+                        </div>
+                        <div class="form-group">
+                            <label>法人代表 </label>
+                            <input type="text" class="form-control" name="corporation_name">
+                        </div>
+                        <div class="form-group">
+                            <label>能管员 </label>
+                            <input type="text" class="form-control" name="energy_resp_name">
+                        </div>
+                        <div class="form-group">
+                            <label>能管员联系电话 </label>
+                            <input type="text" class="form-control" name="energy_resp_phone">
+                        </div>
+                        <div class="form-group">
+                            <label>用能规模</label>
+                            <select id="energy_scale" class="form-control" name="energy_scale"></select>
+                        </div>
+                        <div class="form-group">
+                            <label>是否供能企业</label>
+                            <select class="form-control" name="is_energySupply">
+                                <option value="1">是</option>
+                                <option value="0">否</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>是否能发电企业 </label>
+                            <select class="form-control" name="is_power">
+                                <option value="1">是</option>
+                                <option value="0">否</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>是否涉限企业</label>
+                            <select class="form-control" name="is_sx">
+                                <option value="0">否</option>
+                                <option value="1">是</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>企业地址 </label>
+                            <input type="text" class="form-control" name="address">
+                        </div>
+                        <div class="form-group">
+                            <label>企业联系电话 </label>
+                            <input type="text" class="form-control" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label>企业邮箱 </label>
+                            <input type="text" class="form-control" name="email">
+                        </div>
+                        <div class="form-group">
+                            <label>企业传真 </label>
+                            <input type="text" class="form-control" name="fax">
+                        </div>
+                        <div class="form-group">
+                            <label>邮政编码 </label>
+                            <input type="text" class="form-control" name="zip_code">
+                        </div>
+                        <div class="form-group">
+                            <label>经度 </label>
+                            <input type="text" class="form-control" name="longitude">
+                        </div>
+                        <div class="form-group">
+                            <label>纬度 </label>
+                            <input type="text" class="form-control" name="latitude">
+                        </div>
+                        <div class="form-group">
+                            <label>主要产品及业务 </label>
+                            <textarea class="form-control" name="major_produc"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>单位介绍 </label>
+                            <textarea class="form-control" name="enterprise_introduce"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>企业附件资料 </label>
+                            <a class="file_button" name="enterprise_data1"></a>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn  btn-primary submit" data-dismiss="modal">确&nbsp;&nbsp;认</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+<script type='text/javascript' src="js/import.js"></script>
+<script type='text/javascript' src="js/pages/common.js"></script>
+<script type='text/javascript' src="js/pages/CURDTable.js"></script>
+<script type='text/javascript' src="js/charts/echart_yarn.min.js"></script>
+<script>
+    function getChart1(year) {
+        new yarn({
+            charts: [{
+                el: 'bar',
+                type: 'bar',
+                theme: 'blue_grad_bar',
+                url: '/energy/meteringCheckCount/chart/getQualified',
+                scale: 0.46,
+                method: 'get',
+                params: {
+                    getTime: year
+                }
+            }]
+        }).init();
+    }
+
+    function getChart2(year) {
+        new yarn({
+            charts: [{
+                el: 'bar2',
+                type: 'bar',
+                theme: 'green_grad_bar',
+                url: '/energy/meteringCheckCount/chart/getByarea',
+                scale: 0.46,
+                params: {
+                    areaParentCode: G_CONFIG.area_parent_code,
+                    getTime: year
+                }
+            }]
+        }).init();
+    }
+
+    function initPage(year) {
+        initDates();
+        getChart1(year);
+        getChart2(year);
+        sendCheckRequst(year);
+        showTable();
+    }
+
+    function initDates() {
+        initDateInputForYear('#year1', function(value, date, endDate) {
+            getChart1(value);
+        });
+        initDateInputForYear('#year2', function(value, date, endDate) {
+            getChart2(value);
+        });
+        initDateInputForYear('#year3', function(value, date, endDate) {
+            sendCheckRequst(value);
+        });
+        $('#year1').val(getThisYear());
+        $('#year2').val(getThisYear());
+        $('#year3').val(getThisYear());
+    }
+
+    function showTable() {
+        var cur2 = new cur({
+            t: "#Tmetering",
+            m: "#modal",
+            d: '#detail',
+            hideCols: ['id'],
+            queryUrl: "/energy/enterprise/getList",
+            addUrl: "/energy/enterprise/add",
+            editUrl: "/energy/enterprise/edit",
+            delUrl: "/energy/enterprise/del",
+            method: 'post',
+            meteringPage: 'meteringManager_new.html',
+            height: 417,
+            childSls: {
+                "#type_code": {
+                    def: '--请选择单位类型--',
+                    url: '/energy/energyEquipment/getEnterpriseType?key=type_code',
+                    type: 'GET'
+                },
+                "#area": {
+                    def: '--请选择区域--',
+                    url: '/energy/energyEquipment/getAreaList?key=area',
+                    type: 'GET',
+                    params: {
+                        code: CONSTE.OPERATE.area_parent_code
+                    }
+                },
+                "#province1": {
+                    def: '--请选择省--',
+                    url: '/energy/sys/getAreaList?key=province1',
+                    autoRef: 'true',
+                    type: 'GET'
+                },
+                "#city1": {
+                    def: '--请选择市--',
+                    url: '/energy/sys/getAreaList?key=city1',
+                    autoRef: 'true',
+                    type: 'GET'
+                },
+                "#district1": {
+                    def: '--请选择区--',
+                    url: '/energy/sys/getAreaList?key=district1',
+                    autoRef: 'true',
+                    type: 'GET'
+                },
+                "#industry_code": {
+                    def: '--请选择行业--',
+                    url: '/energy/energyEquipment/getIndustryList?key=industry_code',
+                    type: 'GET'
+                },
+                "#energy_scale": {
+                    def: '--请选择用能规模--',
+                    url: '/energy/energyEquipment/getEnergyList?key=energy_scale',
+                    type: 'GET'
+                }
+            },
+            appendOperate: CONSTE.OPERATE.METERING_MANAGER,
+            pageSize: 5,
+            columns: [{
+                field: 'id',
+                checkbox: 'true',
+                title: 'id'
+            }, {
+                field: 'state',
+                checkbox: 'true'
+            }, {
+                field: "Number",
+                title: "序号",
+                align: 'left',
+                halign: 'middle',
+                formatter: function(value, row, index) {
+                    var options = $('#Tmetering').bootstrapTable("getOptions");
+                    return (options.pageNumber - 1) * (options.pageSize) + index + 1;
+                }
+            }, {
+                title: '企业名称',
+                field: 'name'
+            }, {
+                title: '机构组织代码',
+                field: 'code'
+            }, {
+                title: '行业',
+                field: 'industry_name'
+            }, {
+                title: '地址',
+                field: 'address'
+            }, {
+                title: '能源管理负责人',
+                field: 'corporation_name'
+            }, {
+                title: '负责人电话',
+                field: 'phone'
+            }]
+        });
+
+        cur2.init();
+    }
+
+    function sendCheckRequst(year) {
+        var params = {
+            pageIndex: 1,
+            pageSize: 500,
+            params: {
+                getTime: year
+            }
+        };
+        eBase.send({
+            url: '/energy/meteringCheckCount/getListByType',
+            data: JSON.stringify(params)
+        }, 'post').done(function(resp) {
+            var list = resp.rows;
+            renderPage(list, '#m_panel');
+
+        }).fail(function() {
+            console.log('获取数据失败');
+        });
+    }
+
+    function renderPage(list, el) {
+        $(el).empty();
+        if (!list || list.length <= 0) {
+            var tip = $(`<div class="col-lg-12 m_wigit_panel">
+                        <p class="m_tip">没有数据</p>
+                    </div>`);
+            $(el).append(tip);
+            return;
+        }
+
+        _.each(list, function(item, index) {
+            var one = $(`<div class="col-lg-2 m_wigit_panel">
+                        <p class="m_label">${item.meteringTypeName}</p>
+                        <p class="m_value_box"><span class="m_value">${item.totalCount}</span><span class="m_st">次</span></p>
+                    </div>`);
+            $(el).append(one);
+        });
+    }
+
+    initPage(getThisYear());
+</script>
+
+</html>

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>固投项目概览</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" id='theme' href="css/theme-dark-blue.css" />
+</head>
+
+<body>
+    <div class="page-container">
+        <a href="# " class="x-navigation-minimize menu_minimalize"><span class="arrow arrow-shrink "></span></a>
+        <div class="page-sidebar page-sidebar-fixed scroll">
+            <ul id='menu' class="x-navigation">
+                <li class="xn-logo">
+                    <a href="index.html"></a>
+                    <a href='#' class="x-navigation-control "></a>
+                </li>
+            </ul>
+        </div>
+        <div class="page-content ">
+            <h3 class="page-title">
+                <ul class="x-navigation x-navigation-horizontal log-out pull-right">
+                    <li class="xn-icon-button last ">
+                        <a href="# "><span class="fa fa-power-off "></span></a>
+                        <ul class="xn-drop-left animated zoomIn ">
+                            <li><a href="# " class="mb-control " data-box="#mb-signout "><span class="fa fa-sign-out "></span> 登出</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                固投项目概览</h3>
+            <ul class="breadcrumb">
+                <li class="active"><a href="investmentOfFixedOverview.html">固投项目概览</a></li>
+            </ul>
+            <div class="page-content-wrap chart_container">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="panel_title">
+                                <div class="col-sm-4">
+                                    <h4>固投项目概览</h4>
+                                </div>
+                            </div>
+                            <div class="iPanel single_table_panel clearfix " style="padding:0!important;">
+                                <div class="col-xl-8" style="padding-left: 0;padding-right: 0">
+                                    <div class="col-xl-4 col-lg-6 fixed_container">
+                                        <div class="center_box">
+                                            <p class="fixed_label">总投资额</p>
+                                            <p class="fixed_value_box"><span class="fixed_value">23258</span><span class="fixed_unit">万</span></p>
+                                            <div class="fixed_icon fixed_icon1"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-4 col-lg-6 fixed_container three">
+                                        <div class="center_box">
+                                            <p class="fixed_label">项目数量</p>
+                                            <p class="fixed_value_box"><span class="fixed_value">8846</span><span class="fixed_unit">个</span></p>
+                                            <div class="fixed_icon fixed_icon2"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-4 col-lg-6 fixed_container">
+                                        <div class="center_box">
+                                            <p class="fixed_label">占地面积</p>
+                                            <p class="fixed_value_box"><span class="fixed_value">6560</span><span class="fixed_unit">公顷</span></p>
+                                            <div class="fixed_icon fixed_icon3"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-4 col-lg-6 fixed_container" style="border-right: none;">
+                                    <div class="iPanel" style="padding: 0!important;margin-bottom:0!important">
+                                        <div class="content clearfix">
+                                            <div class="col-sm-6">
+                                                <div class="chart-wrap">
+                                                    <div id="pie"></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6" style="position: relative; min-height:289px;">
+                                                <div id="legend_pie" class="detail" style="width:240px;left:50%;margin-left:-120px;">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="iPanel single_table_panel" style="padding-top:24px!important;">
+                                <div class="clearfix mytbar" style="margin-bottom:24px;">
+                                    <div id="inputBox" class="gap-btn-group" role="group">
+                                        <button type="button" class="btn btn-label">
+                                            <span>搜索：</span>
+                                        </button>
+                                        <div id="field_select" class="btn-group compact" role="group">
+                                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                项目名称
+                                                <span class="caret"></span>
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="javascript:void(0);" data-field='project_name' data-placeholder='请输入项目名称'>项目名称</a></li>
+                                                <li><a href="javascript:void(0);" data-field='enterprise_name' data-placeholder='请输入企业名称'>企业名称</a></li>
+                                            </ul>
+                                        </div>
+                                        <input id="search_input" type="text" data-field='project_name' class="form-control" placeholder="请输入项目名称" />
+                                        <button id="ser" type="button" title="搜索" class="btn btn-outline btn-primary">
+                                            <span>查询</span>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="content">
+                                    <table id="TContact" data-height="559" data-mobile-responsive="true"></table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="message-box animated fadeIn" data-sound="alert " id='mb-signout'>
+        <div class="mb-container ">
+            <div class="mb-middle ">
+                <div class="mb-title"><span class="fa fa-sign-out "></span> Log <strong>Out</strong> ?</div>
+                <div class="mb-content ">
+                    <p>确定登出?</p>
+                    <p>如果您想继续留在此页面，请点击"否"</p>
+                </div>
+                <div class="mb-footer ">
+                    <div class="pull-right ">
+                        <a href="login.html " class="btn btn-success btn-lg ">是</a>
+                        <button class="btn btn-default btn-lg mb-control-close ">否</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type='text/javascript' src="js/import.js"></script>
+<script type='text/javascript' src="js/pages/common.js"></script>
+<script type='text/javascript' src="js/pages/CURDTable.js"></script>
+<script type='text/javascript' src="js/charts/echart_yarn.min.js"></script>
+<script>
+    function initPage() {
+
+        var c = new cur({
+            t: "#TContact",
+            m: "#modal",
+            addBtn: "#add1",
+            serBtn: "#ser",
+            footerbar: '#footerbar1',
+            showAfterRender: ['#footerbar1'],
+            dataInputs: ['#date1', '#date2', '#date3', '#date4'],
+            childSls: {
+                "#enterprise_id": {
+                    def: '--请选择企业--',
+                    url: '/energy/enterprise/getNameList?key=enterprise_id',
+                    type: 'GET'
+                },
+                "#area1": {
+                    def: '--请选择区域--',
+                    url: '/energy/energyEquipment/getAreaList?key=area1&code=321000',
+                    autoRef: 'true',
+                    type: 'GET'
+                },
+            },
+            appendOperate: CONSTE.OPERATE.DETAIL,
+            pageSize: 11,
+            height: 740,
+            uuid: "id",
+            hideCols: ['id'],
+            search_params: {
+                field_select: '#field_select',
+                field_input: '#search_input'
+            },
+            inputBar: "#inputBox",
+            queryUrl: "/monitor/investment/getList",
+            addUrl: "/monitor/investment/add",
+            editUrl: "/monitor/investment/edit",
+            delUrl: "/monitor/investment/del",
+            columns: [{
+                field: 'index',
+                align: "left",
+                valign: "middle",
+                title: '序号',
+                formatter: function(value, row, index) {
+                    var options = $('#TContact').bootstrapTable("getOptions");
+                    return (options.pageNumber - 1) * (options.pageSize) + index + 1;
+                }
+            }, {
+                title: '项目名称',
+                align: "left",
+                valign: "middle",
+                field: 'project_name'
+            }, {
+                title: '项目代码',
+                align: "left",
+                valign: "middle",
+                field: 'plan_start_time1',
+                formatter: CodeFormatte
+            }, {
+                title: '企业名称',
+                align: "left",
+                valign: "middle",
+                field: 'enterprise_name'
+            }, {
+                title: '组织机构代码',
+                align: "left",
+                valign: "middle",
+                field: 'actual_start_time1',
+                formatter: CodeFormatte
+            }, {
+                title: '项目阶段',
+                align: "left",
+                valign: "middle",
+                field: 'is_finish',
+                formatter: function(value, row, index) {
+                    if ("1" == value) {
+                        return "节能报告审批";
+                    }
+
+                    return "项目跟踪";
+                }
+            }]
+        });
+        c.init(c);
+        c.on('select:render.complete', function() {
+            // init_is_finish('');
+        });
+
+        initCircle();
+    }
+
+    function initCircle() {
+
+        new yarn({
+            charts: [{
+                el: 'pie',
+                type: 'circle',
+                theme: 'hangye_ring',
+                legend: '#legend_pie',
+                theme_obj: {
+                    showLabel: false,
+                    title: {
+                        subtext: '',
+                        x: 'center',
+                        y: 'center',
+                        show: true,
+                        text: '行业占比',
+                        textStyle: {
+                            fontFamily: 'sans-serif',
+                            color: "#404458",
+                            height: 35,
+                            fontSize: 16
+                        },
+                        subtextStyle: {
+                            show: false,
+                            fontFamily: 'sans-serif',
+                            color: "#262626",
+                            height: 60,
+                            fontSize: 26
+                        }
+                    },
+                    radius: ['68%', '86%'],
+                    center: ['50%', '50%']
+                },
+                url: 'js/charts/demos/hangye.json',
+                scale: 0.84,
+                min_height: 289,
+                max_height: 289
+            }]
+        }).init();
+    }
+
+    initPage();
+</script>
+
+</html>

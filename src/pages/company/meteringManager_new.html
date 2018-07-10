@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>计量器具管理</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" id='theme' href="css/theme-dark-blue.css" />
+</head>
+
+<body class="metering" style="min-width: 1200px;">
+    <div class="page-container">
+        <a href="# " class="x-navigation-minimize menu_minimalize"><span class="arrow arrow-shrink "></span></a>
+        <div class="page-sidebar page-sidebar-fixed scroll">
+            <ul id='menu' class="x-navigation">
+                <li class="xn-logo">
+                    <a href="index.html"></a>
+                    <a href='#' class="x-navigation-control "></a>
+                </li>
+            </ul>
+        </div>
+        <div class="page-content">
+            <h3 class="page-title">
+                <ul class="x-navigation x-navigation-horizontal log-out pull-right">
+                    <li class="xn-icon-button last ">
+                        <a href="# "><span class="fa fa-power-off "></span></a>
+                        <ul class="xn-drop-left animated zoomIn ">
+                            <li><a href="# " class="mb-control " data-box="#mb-signout "><span class="fa fa-sign-out "></span> 登出</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                计量器具管理</h3>
+            <ul class="breadcrumb ">
+                <li><a href="meteringManager_index.html">计量器具概览</a></li>
+                <li class="active"><a href="meteringManager_new.html">计量器具管理</a></li>
+            </ul>
+            <div class="page-content-wrap" style="padding-left: 4px;padding-right: 4px;">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="panel_title">
+                                <div class="col-lg-12">
+                                    <h4 id="company_name"></h4>
+                                </div>
+                            </div>
+                            <div class="iPanel clearfix new_tree_panel" style="padding:0px">
+                                <div class="col-lg-3 col-md-4" style="padding-left: 12px;padding-right: 12px; padding-bottom:24px">
+                                    <div class="panel_title" style="border-bottom: none;">
+                                        <h4 style="font-weight: bolder;">计量器具</h4>
+                                    </div>
+                                    <div class="btn-group" role="group" style="margin-left: 16px;margin-bottom: 16px; margin-top: 8px">
+                                        <button id="addMetering" class="btn btn-outline btn-primary">
+                                            <span class="image_icon"></span>新增
+                                        </button>
+                                    </div>
+                                    <div id="tree_box" class="tree-panel font14" style="min-height: 730px;overflow: auto;">
+                                    </div>
+                                </div>
+                                <div id="right_box" class="col-lg-9 col-md-8 left-border" style="min-height: 867px;padding-left:0!important; overflow: auto;">
+                                    <div class="panel_title" style="border-bottom: none;font-weight: 400">
+                                        <div class="col-lg-8">
+                                            <h4 style="font-weight: bolder;">基本信息</h4>
+                                        </div>
+                                        <div class="gap-btn-group pull-right" role="group" style="margin-right: 124px;">
+                                            <button id="editMetering" class="btn btn-label blue btn-outline">编辑</button>
+                                        </div>
+                                    </div>
+                                    <div id="base_info_box" class="base_info_box clearfix">
+                                        <div class="col-xl-4 col-lg-6">
+                                            <p> <span class="t_label">器具种类：</span> <span class="t_value" data-field="type_name"></span></p>
+                                        </div>
+                                        <div class="col-xl-4 col-lg-6">
+                                            <p> <span class="t_label">器具名称：</span> <span class="t_value" data-field="metering_name"></span></p>
+                                        </div>
+                                        <div class="col-xl-4 col-lg-6">
+                                            <p> <span class="t_label">器具编号：</span> <span class="t_value" data-field="terminal_id"></span></p>
+                                        </div>
+                                        <div class="col-xl-4 col-lg-6">
+                                            <p> <span class="t_label">检定周期：</span> <span class="t_value" data-field="calibration_cycle"></span></p>
+                                        </div>
+                                        <div class="col-xl-4 col-lg-6">
+                                            <p><span class="t_label">下次检定日期：</span> <span class="t_value" data-field="next_calibration1"></span></p>
+                                        </div>
+                                        <div class="col-xl-4 col-lg-6">
+                                            <p><span class="t_label">测量范围：</span> <span class="t_value" data-field="measure_range"></span></p>
+                                        </div>
+                                        <div class="col-xl-4 col-lg-6">
+                                            <p><span class="t_label">规格说明书：</span> <span class="t_value file_button" data-field="file_path"></span></p>
+                                        </div>
+                                    </div>
+                                    <div class="panel_title" style="border-bottom: none;font-weight: 400">
+                                        <div class="col-lg-12">
+                                            <h4 style="font-weight: bolder;">全生命周期维护</h4>
+                                        </div>
+                                    </div>
+                                    <div id="time_line_main_box" class="time_line_box">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="message-box animated fadeIn" data-sound="alert " id='mb-signout'>
+        <div class="mb-container ">
+            <div class="mb-middle ">
+                <div class="mb-title"><span class="fa fa-sign-out "></span> Log <strong>Out</strong> ?</div>
+                <div class="mb-content ">
+                    <p>确定登出?</p>
+                    <p>如果您想继续留在此页面，请点击"否"</p>
+                </div>
+                <div class="mb-footer ">
+                    <div class="pull-right ">
+                        <a href="login.html " class="btn btn-success btn-lg ">是</a>
+                        <button class="btn btn-default btn-lg mb-control-close ">否</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="addMeteringModal" class="modal fade">
+        <div class="modal-dialog">
+            <form action="javascript:void(0)" data-bv-message="验证未通过" data-bv-feedbackicons-valid="glyphicon glyphicon-ok" data-bv-feedbackicons-invalid="glyphicon glyphicon-remove" data-bv-feedbackicons-validating="glyphicon glyphicon-refresh">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title"></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group hidden-em">
+                            <label><span class="text-red">*</span>id</label>
+                            <input type="text" class="form-control" name="id" required>
+                        </div>
+                        <div class="form-group">
+                            <label><span class="text-red">*</span>器具名称</label>
+                            <input type="text" class="form-control" name="metering_name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>器具种类</label>
+                            <select id="metering_type" class="form-control" name="metering_type"></select>
+                        </div>
+                        <div class="form-group">
+                            <label>器具编码</label>
+                            <input type="text" class="form-control" name="terminal_id">
+                        </div>
+                        <div class="form-group">
+                            <label>检定周期</label>
+                            <input type="text" class="form-control" name="calibration_cycle">
+                        </div>
+                        <div class="form-group">
+                            <label>下次检定日期</label>
+                            <input type="text" name="next_calibration1" class="form-control laydate-icon layer-date">
+                        </div>
+                        <div class="form-group">
+                            <label>测量范围</label>
+                            <input type="text" class="form-control" name="measure_range">
+                        </div>
+                        <div class="form-group">
+                            <label>规格说明书</label>
+                            <input type="file" class="file form-control" id="file" name="file" />
+                            <input type="text" class="hidden-em" name="file_path">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default cancel" data-dismiss="modal">取&nbsp;&nbsp;消</button>
+                        <button type="button" class="btn btn-primary submit">保&nbsp;&nbsp;存</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id="addTimeModal" class="modal fade">
+        <div class="modal-dialog">
+            <form action="javascript:void(0)" data-bv-message="验证未通过" data-bv-feedbackicons-valid="glyphicon glyphicon-ok" data-bv-feedbackicons-invalid="glyphicon glyphicon-remove" data-bv-feedbackicons-validating="glyphicon glyphicon-refresh">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title"></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>类型</label>
+                            <select id="ma_type" class="form-control" name="maintain_type">
+                                <option value="0" data-content='{notcanto":["2","3","4"]}'>出厂</option>
+                                <option value="1" data-content='{notcanto":["2"]}'>首检</option>
+                                <option value="2" data-content='{notcanto":["2"]}'>安装</option>
+                                <option value="3" data-content='{notcanto":["2"]}'>检定</option>
+                                <option value="4" data-content='{notcanto":["2"]}'>校准</option>
+                                <option value="5" data-content='{notcanto":["2"]}'>维修</option>
+                                <option value="6" data-content='{notcanto":["2"]}'>报废</option>
+                            </select>
+                        </div>
+                        <div id="field_content">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default cancel" data-dismiss="modal">取&nbsp;&nbsp;消</button>
+                        <button type="button" class="btn btn-primary submit">保&nbsp;&nbsp;存</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+<script type='text/javascript' src="js/import.js"></script>
+<script type='text/javascript' src="js/pages/meteringManager/metering_config.js"></script>
+<script type='text/javascript' src="js/pages/CURDTable.js"></script>
+<script>
+    var addMeteringModal = null;
+    var addTimeModal = null;
+    var __current_metering_rows = {};
+    var __addMeteringFlag = true;
+    var __current_selected_metering_id = '';
+
+    var __enterprise_id = null;
+    var __current_metering_id = '';
+
+    function initModal() {
+
+        new cur({
+            childSls: {
+                '#metering_type': {
+                    def: '--请选择器具种类--',
+                    url: '/energy/meteringCheckCount/getList?key=metering_type',
+                    type: 'get'
+                }
+            }
+        }).initSelect();
+
+        addMeteringModal = $('#addMeteringModal').modal({
+            show: false
+        });
+
+        addTimeModal = $('#addTimeModal').modal({
+            show: false
+        });
+
+        initValidate(addMeteringModal);
+        initValidate(addTimeModal);
+        addModalListeners(addMeteringModal);
+        addModalListeners(addTimeModal);
+    }
+
+    function addModalListeners(el) {
+        el.on('hide.bs.modal', function() {
+
+            eBase.debug('[meteringManager_new.html][addModalListeners][hide.bs.modal click]');
+
+            el.find('form').bootstrapValidator('resetForm', true);
+        });
+    }
+
+    function sendDetailRequset(id) {
+        sendTimeLineById(id);
+        sendMeteringDetailRequest(id);
+    }
+
+    function sendMeteringDetailRequest(id) {
+        eBase.send({
+            url: '/energy/metering/getDetailById',
+            data: id + ''
+        }, "post").done(function(resp) {
+            if (resp['code'] == 0) {
+                renderDetail(resp.data);
+                __current_metering_rows = resp.data;
+            }
+        }).fail(function(resp) {});
+    }
+
+    function sendTimeLineById(id) {
+        eBase.send({
+            url: '/energy/meteringCheckLog/getDetailById',
+            data: id + ''
+        }, "post").done(function(resp) {
+            if (resp['code'] == 0) {
+                getTimeLineHandler(resp.data);
+            }
+        }).fail(function(resp) {});
+    }
+
+    function renderDetail(data) {
+        $('#base_info_box').find('.t_value').each(function() {
+            var self = $(this);
+            var field = self.data('field');
+            self.text(data[field]);
+            self.attr('title', data[field]);
+        });
+
+        $('#base_info_box').find('.file_button').each(function() {
+            var self = $(this);
+            var field = self.data('field');
+            self.data('yourl', data[field]);
+        });
+
+        resizeTree();
+    }
+
+    function getTimeLineHandler(list) {
+
+        var new_list = list && list.sort(function(a, b) {
+            return parseInt(b.id) - parseInt(a.id);
+        });
+
+        renderTimeLime(new_list, '#time_line_main_box');
+    }
+
+    function initMantiTypeSelect(list) {
+        var current_life_time = '-1';
+
+        var len = list.length;
+        try {
+            current_life_time = list[0]['maintain_type'];
+        } catch (error) {
+
+        }
+
+        $('#addTimeLine').removeAttr('disabled');
+
+        var cantoList = G_TIME_LINE_SELECT[current_life_time]['to'];
+
+        if (cantoList.length > 0) {
+            var sc = new cur({});
+            sc.setSelect($('#ma_type'), cantoList, undefined, false, 'value', 'text');
+            setTimeout(function() {
+                $("#ma_type option:first").prop("selected", 'selected');
+                maintainTypeChangeHandler($('#ma_type'), $('#field_content'));
+            }, 200);
+        } else {
+            $('#addTimeLine').attr('disabled', 'true');
+        }
+    }
+
+    function getFieldsByType(type,id) {
+        var result = `<div class="col-lg-4 hidden-em">
+                    <p><span class="t_label">：</span><span class="t_value" data-type="text" data-field="id">${id}</span></p>
+                 </div>`;
+
+        var one_line_arr = _.where(G_METERING_CONFIG, {
+            type: type + ''
+        });
+        _.each(one_line_arr[0]['fields'], function(item, index) {
+            if (item.type == 'file') {
+                result += `<div class="col-lg-8">
+                            <p><span class="t_label">${item.label}：</span><span class="t_value file_button" data-type="${item.type}" data-field="${item.name}"></span></p>
+                       </div>`;
+            } else {
+                result += `<div class="col-lg-4">
+                            <p><span class="t_label">${item.label}：</span><span class="t_value" data-type="${item.type}" data-field="${item.name}"></span></p>
+                       </div>`;
+            }
+        });
+
+        return result;
+    }
+
+    function getTitleByType(type) {
+        var result = '';
+
+        var one_line_arr = _.where(G_METERING_CONFIG, {
+            type: type + ''
+        });
+
+        try {
+            result = one_line_arr[0]['title'];
+        } catch (error) {}
+        return result;
+    }
+
+    function renderTimeLime(list, el) {
+
+        $(el).empty();
+
+        var new_box = $(`<div class="single_time_line new_box">
+                        <div class="time_box">
+                        </div>
+                        <div class="line_box"><span class="c"></span></div>
+                        <div class="info_box">
+                            <button id="addTimeLine" class="btn btn-outline btn-primary">
+                                <span class="image_icon"></span>新增
+                            </button>
+                        </div>
+                    </div>`);
+
+        $(el).append(new_box);
+
+        if (!list || list.length <= 0) {
+            addListener();
+            initMantiTypeSelect(list);
+            return;
+        }
+
+        var list_len = list.length;
+
+        _.each(list, function(item, index) {
+            var fields = getFieldsByType(item.maintain_type,item.id);
+            var time = new Date(JSON.parse(item.text_object)['data_time']).Format('yyyy-MM-dd');
+            var title = getTitleByType(item.maintain_type);
+            var newest_line = '';
+            if (0 == index) newest_line = '<span class="greyline"></span>';
+            var one = $(`<div class="single_time_line">
+                        <div class="time_box">
+                            <p>${time}</p>
+                        </div>
+                        <div class="line_box"><span class="c"></span>${newest_line}</div>
+                        <div class="info_box">
+                            <div class="info_panel">
+                                <div class="i_title">
+                                    <div class="col-lg-8">
+                                        <h4>${title}</h4>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="gap-btn-group pull-right time-group" role="group">
+                                            <button class="btn btn-label grey btn-outline cancel hidden-em">取消</button></li>
+                                            <button class="btn btn-label blue btn-outline submit hidden-em">保存</button></li>
+                                            <button class="btn btn-label blue btn-outline m_edit">编辑</button></li>
+                                            <button class="btn btn-label blue btn-outline m_del" data-id="${item.id}">删除</button></li>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="info_content">
+                                    ${fields}
+                                </div>
+                            </div>
+                        </div>
+                    </div>`);
+            $(el).append(one);
+            setSingleTimeLineHeight(one);
+            setItemDefaultData(one, item);
+            addTimeLineDotListener(one);
+            addDownLoadFileListener();
+        });
+
+        addListener();
+        resizeTree();
+        initMantiTypeSelect(list);
+    }
+
+    function setSingleTimeLineHeight(one, self) {
+        one = one || null;
+        self = self || null;
+        if (one) {
+            var h = one.find('.info_panel').height() + 37;
+            one.height(h);
+        }
+
+        if (self) {
+            var h2 = self.parent().parent().parent().parent().parent().parent().find('.info_panel').height() + 37;
+            self.parent().parent().parent().parent().parent().parent().height(h2)
+        }
+    }
+
+    function addTimeLineDotListener(one) {
+        one.find('.cancel').off('click').on('click', function() {
+            timeLineDotCancelHandler($(this));
+        });
+        one.find('.submit').off('click').on('click', function() {
+            timeLineDotSubmitHandler($(this));
+        });
+        one.find('.m_edit').off('click').on('click', function() {
+            timeLineDotEditHandler($(this));
+        });
+        one.find('.m_del').off('click').on('click', function() {
+            delSingleTimeLine($(this));
+        });
+    }
+
+    function delSingleTimeLine(self) {
+        var ids = [self.data('id')];
+        eBase.send({
+            url: '/energy/meteringCheckLog/delByIds',
+            data: JSON.stringify(ids)
+        }, "post").done(function(resp) {
+            var temp = resp;
+            if (resp['code'] == 0) {
+                sendDetailRequset(__current_metering_id);
+            }
+        }).fail(function(resp) {
+            window.layer.msg("删除失败");
+
+            sendDetailRequset(__current_metering_id);
+        });
+    }
+
+    function timeLineDotCancelHandler(self) {
+        self.hide();
+        self.siblings('.m_edit').show();
+        self.siblings('.submit').hide();
+
+        rollbackDefaultShow(self);
+        setSingleTimeLineHeight(null, self)
+    }
+
+    function timeLineDotSubmitHandler(self) {
+        self.hide();
+        self.siblings('.m_edit').show();
+        self.siblings('.cancel').hide();
+
+        saveEdit(self);
+    }
+
+    function saveEdit(btn) {
+        var box = btn.parent().parent().parent().parent().find('.info_content');
+        var row = getModalData(box);
+        var newRow = {
+            id: row.id,
+            text_object: JSON.stringify(row)
+        };
+
+        // row['maintain_type'] = addTimeModal.find('select[name=maintain_type]').val();
+        // row['metering_id'] = __current_metering_id;
+        // row['text_object'] = JSON.stringify(getModalData($('#field_content')));
+
+        eBase.send({
+            url: '/energy/meteringCheckLog/update',
+            data: JSON.stringify(newRow)
+        }, "post").done(function(resp) {
+            var temp = resp;
+            if (resp['code'] == 0) {
+                window.layer.msg("保存成功");
+                rollbackDefaultShow(btn);
+                setSingleTimeLineHeight(null, btn);
+                sendDetailRequset(__current_metering_id);
+            }
+        }).fail(function(resp) {
+            window.layer.msg("保存失败");
+            sendDetailRequset(__current_metering_id);
+        });
+    }
+
+    function rollbackDefaultShow(self) {
+        self.parent().parent().parent().parent().find('.info_content').find('input[type="text"]').each(function(index, item) {
+            var that = $(item);
+            var name = that.attr('name');
+            var old_value = that.val();
+            var old_type = that.data('type');
+            var newEl = $(`<span class="t_value" data-field="${name}" data-type="${old_type}">${old_value}</span>`);
+
+            if (old_type == 'file') {
+                newEl = $(`<span class="t_value file_button" data-field="${name}" data-type="${old_type}" data-yourl="${old_value}"></span>`);
+                that.parent().parent().find('.file_box').before(newEl);
+                that.parent().parent().find('.file_box').remove();
+                that.parent().parent().css('background-color', 'red');
+            } else {
+                that.replaceWith(newEl);
+            }
+        });
+
+        self.parent().parent().parent().parent().find('.info_content').find('select').each(function(index, item) {
+            var that = $(item);
+            var name = that.attr('name');
+            var old_value = that.find('option:selected').text();
+            var old_type = that.data('type');
+            var newEl = $(`<span class="t_value" data-field="${name}" data-type="${old_type}">${old_value}</span>`);
+
+            that.replaceWith(newEl);
+        });
+
+        addDownLoadFileListener();
+    }
+
+    function addDownLoadFileListener() {
+        $('.file_button').off('click').on('click', function() {
+            var url = $(this).data('yourl');
+            if (undefined != url && '' != url) {
+                var $a = $("<a></a>").attr("href", url).attr("download", url);
+                $a[0].click();
+            }
+        });
+    }
+
+    //编辑，跟换元素
+    function timeLineDotEditHandler(self) {
+        self.hide();
+        self.siblings('.cancel').show();
+        self.siblings('.submit').show();
+
+        self.parent().parent().parent().parent().find('.info_content').find('.t_value').each(function(index, item) {
+            var that = $(item);
+            var name = that.data('field');
+            var type = that.data('type');
+            var old_value = that.text();
+            var obj = {
+                name: name,
+                old_value: old_value
+            };
+            var newEl = $(getElementByType(type, obj));
+            that.replaceWith(newEl);
+            initModalElementType(newEl.parent());
+        });
+
+        setSingleTimeLineHeight(null, self);
+        resizeTree();
+    }
+
+    function getElementByType(type, item) {
+        var result = '';
+        switch (type) {
+            case 'file':
+                var id = item.name + new Date().getTime() + '';
+                result = `<div class='file_box'>
+                        <input type="file" id="${id}" data-name="${item.name}" name="file" class="file">
+                        <input type="text" name="${item.name}" data-type="${type}" class="form-control hidden-em" value="${item.old_value}">
+                      </div>`;
+                break;
+            case 'date':
+                result = `<input id="${item.name}" type="text"  data-type="${type}" name="${item.name}" value="${item.old_value}" class="form-control laydate-icon layer-date">`;
+                break;
+            case 'select':
+                var items = '';
+                var selectValue = getValueByText(item.old_value);
+                if (_.has(item, 'list')) {
+                    _.each(item.list, function(one_item, index) {
+                        var one = `<option value="${one_item.value}">${one_item.label}</option>`;
+                        if (selectValue == one_item.value) {
+                            one = `<option value="${one_item.value}" selected>${one_item.label}</option>`;
+                        }
+                        items += one;
+                    });
+                } else {
+                    var s1 = selectValue == '' ? 'selected' : '';
+                    var s2 = selectValue == '0' ? 'selected' : '';
+                    var s3 = selectValue == '1' ? 'selected' : '';
+
+                    items = `<option value="" ${s1}>--请选择--</option>
+                        <option value="0" ${s2}>不合格</option>
+                        <option value="1" ${s3}>合格</option>`;
+                }
+                result = `<select class="form-control select" name="${item.name}" data-type="${type}" value="${item.old_value}">
+                            ${items}
+                      </select>`;
+                break;
+            case 'text':
+            default:
+                result = `<input type="text" name="${item.name}"  data-type="${type}" class="form-control" value="${item.old_value}">`;
+                break;
+        }
+
+        return result;
+    }
+
+    function addGlobalListener() {
+        $('#addMetering').off('click').on('click', function() {
+            __addMeteringFlag = true;
+            showModal(addMeteringModal);
+        });
+
+        $('#editMetering').off('click').on('click', function() {
+            __addMeteringFlag = false;
+            showModal(addMeteringModal);
+            setDefaultValueForModal(__current_metering_rows, $('#addMeteringModal'));
+        });
+
+        $('#delMetering').off('click').on('click', function() {
+            var delIndex = layer.confirm('确认删除？', {
+                btn: ['删除', '取消'],
+                shade: false
+            }, function() {
+                delMeterinigByIds([__current_metering_rows['id']]);
+                layer.close(delIndex);
+
+            }, function() {
+                eBase.debug('[meteringManager_new.html][addGlobalListener][取消 click handler]');
+            });
+
+        });
+
+        $('#ma_type').off('change').on('change', function() {
+            maintainTypeChangeHandler($(this), $('#field_content'));
+        });
+
+        addMeteringModal.find('.submit').off('click').on('click', function() {
+            submitMeteringHandler();
+        });
+
+        addTimeModal.find('.submit').off('click').on('click', function() {
+            submitTimeHandler();
+        });
+    }
+
+    function delMeterinigByIds(ids) {
+        eBase.send({
+            url: '/energy/metering/delByIds',
+            data: JSON.stringify(ids)
+        }, "post").done(function(resp) {
+            closeModal(addMeteringModal);
+            showTreeView();
+        }).fail(function(resp) {
+            eBase.debug('[meteringManager_new.html][delMeterinigByIds][failed]');
+        });
+    }
+
+    function maintainTypeChangeHandler(el, box) {
+        var val = el.val();
+
+        box.empty();
+
+        var thisFields = _.where(G_METERING_CONFIG, {
+            type: val
+        });
+
+        _.each(thisFields[0]['fields'], function(item, index) {
+            var one = '';
+
+            switch (item.type) {
+                case 'date':
+                    one = `<div class="form-group">
+                            <label><span class="text-red">*</span>${item.label}</label>
+                            <input id="${item.name}" type="text" name="${item.name}" class="form-control laydate-icon layer-date" required>
+                        </div>`;
+                    break;
+                case 'select':
+                    var items = '';
+                    if (_.has(item, 'list')) {
+                        _.each(item.list, function(one_item, index) {
+                            var one = `<option value="${one_item.value}">${one_item.label}</option>`;
+                            items += one;
+                        });
+                    } else {
+                        items = `<option value="">--请选择--</option>
+                            <option value="0">不合格</option>
+                            <option value="1">合格</option>`;
+                    }
+                    one = ` <div class="form-group">
+                            <label>${item.label}</label>
+                            <select id="${item.name}" class="form-control" name="${item.name}">
+                                ${items}
+                            </select>
+                        </div>`;
+                    break;
+                case 'file':
+                    var extensions = _.has(item, 'extensions') ? JOSN.stringify(item.extensions) : JSON.stringify(['doc', 'docx', 'ppt', 'pptx', 'xls', 'xlsx', 'zip', 'pdf']);
+                    var id = item.name + new Date().getTime() + '';
+                    one = `<div class="form-group">
+                            <label>${item.label}</label>
+                            <input type="file" class="file" name="file" id="${id}" data-name='${item.name}' data-extensions='${extensions}'/>
+                            <input type="text" class="hidden-em" name="${item.name}"/>
+                        </div>`;
+                    break;
+                case 'text':
+                default:
+                    one = $(`<div class="form-group">
+                            <label><span class="text-red">*</span>${item.label}</label>
+                            <input type="text" class="form-control" name="${item.name}" required>
+                        </div>`);
+                    break;
+
+            }
+            box.append(one);
+            $('#addTimeModal').find('form').data("bootstrapValidator").addField(item.name);
+        });
+
+        initModalElementType(box);
+        initValidate($('#addTimeModal'));
+    }
+
+    function initLayerDate() {
+        lay('.layer-date').each(function() {
+            var input_el = $(this);
+            laydate.render({
+                elem: this,
+                event: "focus",
+                istime: true,
+                format: 'yyyy-MM-dd HH:mm:ss',
+                done: function() {
+                    eBase.debug('[meteringManager_new.html][initLayerDate][done event handler]');
+                    input_el.trigger('change');
+                },
+                mark: function() {
+                    eBase.debug('[meteringManager_new.html][initLayerDate][mark event handler]');
+                },
+                ready: function() {
+                    eBase.debug('[meteringManager_new.html][initLayerDate][ready event handler]');
+                },
+                change: function() {
+                    eBase.debug('[meteringManager_new.html][initLayerDate][change event handler]');
+                },
+                choose: function() {
+                    eBase.debug('[meteringManager_new.html][initLayerDate][choose event handler]');
+                }
+            });
+        });
+    }
+
+    function initModalElementType(box) {
+        initLayerDate();
+
+        var $input = box.find('input.file[type=file]');
+        if ($input.length) {
+            $input.each(function(item, index) {
+                var extensions = $(this).data('extensions');
+                var id = $(this).attr('id');
+                var name = $(this).data('name');
+                initFile_path(id, name);
+            });
+
+            $input.fileinput();
+        }
+    }
+
+    function addListener() {
+        $('#addTimeLine').off('click').on('click', function() {
+            showModal(addTimeModal);
+        });
+    }
+
+    function submitMeteringHandler() {
+
+        addMeteringModal.find('form').data("bootstrapValidator").validate();
+        var flag = addMeteringModal.find('form').data("bootstrapValidator").isValid();
+
+        if (flag) {
+            var row = getModalData(addMeteringModal);
+
+            row['enterprise_id'] = __enterprise_id;
+            var sendUrl = '/energy/metering/update';
+            if (__addMeteringFlag) {
+                delete row['id'];
+                sendUrl = '/energy/metering/add';
+            }
+            eBase.send({
+                url: sendUrl,
+                data: JSON.stringify(row)
+            }, "post").done(function(resp) {
+                closeModal(addMeteringModal);
+                if (true) {
+                    showTreeView(__current_metering_id);
+                } else {
+                    sendMeteringDetailRequest(__current_metering_id);
+                }
+            }).fail(function(resp) {});
+        }
+    }
+
+    function submitTimeHandler() {
+        addTimeModal.find('form').data("bootstrapValidator").validate();
+        var flag = addTimeModal.find('form').data("bootstrapValidator").isValid();
+
+        if (flag) {
+            var row = {};
+            row['maintain_type'] = addTimeModal.find('select[name=maintain_type]').val();
+            row['metering_id'] = __current_metering_id;
+            row['text_object'] = JSON.stringify(getModalData($('#field_content')));
+
+            eBase.send({
+                url: '/energy/meteringCheckLog/add',
+                data: JSON.stringify(row)
+            }, "post").done(function(resp) {
+                closeModal(addTimeModal);
+                sendDetailRequset(__current_metering_id);
+            }).fail(function(resp) {
+                var temp2 = resp;
+            });
+        }
+    }
+
+    function getModalData(el) {
+        var result = {};
+
+        el.find('input[name]').each(function() {
+            result[$(this).attr('name')] = $(this).val();
+        });
+
+        el.find('select[name]').each(function() {
+            result[$(this).attr('name')] = $(this).val();
+        });
+
+        return result;
+    }
+
+    function closeModal(el) {
+        el.modal('hide');
+    }
+
+    function showModal(el) {
+        el.modal('show');
+        clearModal(el);
+    }
+
+    function setDefaultValueForModal(row, el) {
+
+        for (var key in row) {
+            el.find('input[name="' + key + '"]').val(row[key]);
+
+            el.find('select[name="' + key + '"]').each(function() {
+                var data = $(this).attr('name');
+
+                if (key === data) {
+                    $(this).val(row[key]);
+                    return false;
+                }
+            });
+        }
+    }
+
+    function setItemDefaultData(el, item) {
+        var data = item.text_object != '' && JSON.parse(item.text_object);
+
+        if (data) {
+            el.find(".t_value").each(function() {
+                var field = $(this).data('field');
+
+                if (_.contains(['check_result', 'review_result'], field)) {
+                    $(this).text(getTextBySelectValue(data[field]));
+                    $(this).attr('title', getTextBySelectValue(data[field]));
+                    $(this).data('val', data[field]);
+                } else {
+                    $(this).text(data[field]);
+                    $(this).attr('title', data[field]);
+                }
+            });
+
+            el.find(".file_button").each(function() {
+                var field = $(this).data('field');
+
+                $(this).text(data[field]);
+                $(this).attr('title', data[field]);
+                $(this).data('yourl', data[field]);
+            });
+        }
+    }
+
+    function getTextBySelectValue(value) {
+
+        if (value == '1') {
+            return '合格'
+        } else if (value == '0') {
+            return '不合格';
+        } else {
+            return '';
+        }
+    }
+
+    function getValueByText(text) {
+        if ('合格' == text) {
+            return '1';
+        } else if ('不合格') {
+            return '0';
+        } else {
+            return '';
+        }
+    }
+
+    function showTreeView(defaultSelectId) {
+        defaultSelectId = defaultSelectId || '';
+
+        var params = new cur({}).parserUrl(location.href, 'obj').params;
+        __enterprise_id = params.id;
+        var obj = {
+            enterprise_id: __enterprise_id
+        };
+        eBase.send({
+            url: '/energy/metering/getDetailByEnterpriseId',
+            data: __enterprise_id
+        }, "post").done(function(resp) {
+            var temp = resp;
+            if (resp.code == "0") {
+                var $tree_box = $('#tree_box').treeview({
+                    showBorder: false,
+                    selectedColor: '#1e87f0',
+                    selectedBackColor: '#fff',
+                    expandIcon: "tree-icon menu-plus",
+                    collapseIcon: "tree-icon menu-minus",
+                    selectedIcon: "glyphicon pull-right del_button",
+                    data: parserTreeData(resp.data)
+                }).on('nodeSelected', function(event, data) {
+                    if (!data.id) {
+                        return;
+                    }
+
+                    __current_selected_metering_id = data.nodeId;
+                    __current_metering_id = data.id;
+                    sendDetailRequset(__current_metering_id);
+                    setTimeout(function() {
+                        addDelButtonListener(__current_metering_id)
+                    }, 200);
+                }).on('nodeUnselected', function(event, data) {});
+
+                if (defaultSelectId == '') {
+                    $('#tree_box').treeview('selectNode', [0]);
+                } else {
+                    $('#tree_box').treeview('selectNode', [__current_selected_metering_id]);
+                }
+            }
+        }).fail(function(resp) {});
+    }
+
+    function addDelButtonListener(id) {
+        $('.del_button').off('click').on('click', function(event) {
+            var delIndex = layer.confirm('确认删除？', {
+                btn: ['删除', '取消'],
+                shade: false
+            }, function() {
+                delMeterinigByIds([id]);
+                layer.close(delIndex);
+
+            }, function() {});
+
+            event.stopPropagation();
+        })
+    }
+
+    function parserTreeData(list) {
+        var result = [];
+
+        _.each(list, function(item, index) {
+            var one = {};
+
+            one['text'] = item['metering_name'];
+            one['id'] = item['id'];
+
+            result.push(one);
+        });
+
+        return result;
+    }
+
+    function clearModal(el) {
+        el.find('input').val("");
+        el.find('input[type="text"]').val("");
+        el.find('input[type="password"]').val("");
+        el.find('input[type="email"]').val("");
+        el.find('input[type="file"]').fileinput('clear');
+        el.find('select[name!="maintain_type"]').val("");
+
+        $('#addMeteringModal').find('form').bootstrapValidator('resetForm', true);
+        $('#addTimeModal').find('form').bootstrapValidator('resetForm', true);
+    }
+
+    function showTitle() {
+        var params = new cur({}).parserUrl(location.href, 'obj').params;
+
+        $('#company_name').text(decodeURI(params.name));
+    }
+
+    function init() {
+        resizeTree();
+        addDownLoadFileListener();
+        initLayerDate();
+        initModal();
+        initFile_path('file', 'file_path');
+        maintainTypeChangeHandler($('#ma_type'), $('#field_content'));
+        addGlobalListener();
+        showTitle();
+        showTreeView();
+    }
+
+    function initFile_path(el, name, allowedFileTypes, extensions) {
+        allowedFileTypes = allowedFileTypes || ['image', 'html', 'text', 'video', 'audio', 'flash', 'object', 'other'];
+        extensions = extensions || ['doc', 'docx', 'ppt', 'pptx', 'xls', 'xlsx', 'zip', 'pdf'];
+
+        $('#' + el).fileinput({
+            language: 'zh',
+            uploadUrl: '/zuul/oss/putObject',
+            showUpload: false,
+            showCaption: true,
+            overwriteInitial: false,
+            dropZoneEnabled: false,
+            showPreview: false,
+            allowedFileTypes: allowedFileTypes,
+            allowedFileExtensions: extensions,
+            maxFileSize: 2000,
+            maxFileCount: 1,
+            initialPreviewAsData: true
+        }).on("filebatchselected", function(event, files) {
+            $('#' + el).fileinput("upload");
+        }).on("fileuploaded", function(event, data) {
+            $("input[name='" + name + "']").val(data.response.data.filePath);
+        });
+    }
+
+    function initValidate(el) {
+        el.find('form').bootstrapValidator({
+            // trigger: 'blur keyup change'
+            trigger: 'change keyup blur'
+        });
+    }
+
+    function resizeTree() {
+        var h = $('#right_box').height() - 112 - 24;
+        $('#tree_box').css('height', h + 'px');
+    }
+
+
+    init();
+
+    $(window).resize(function() {
+        resizeTree();
+    });
+</script>
+
+</html>

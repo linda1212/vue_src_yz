@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>在线历史数据</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" id='theme' href="css/theme-dark-blue.css" />
+</head>
+
+<body>
+    <div class="page-container">
+        <a href="# " class="x-navigation-minimize menu_minimalize"><span class="arrow arrow-shrink "></span></a>
+        <div class="page-sidebar page-sidebar-fixed scroll">
+            <ul id='menu' class="x-navigation">
+                <li class="xn-logo">
+                    <a href="index.html"></a>
+                    <a href='#' class="x-navigation-control "></a>
+                </li>
+            </ul>
+        </div>
+        <div class="page-content ">
+            <h3 class="page-title">
+                <ul class="x-navigation x-navigation-horizontal log-out pull-right">
+                    <li class="xn-icon-button last ">
+                        <a href="# "><span class="fa fa-power-off "></span></a>
+                        <ul class="xn-drop-left animated zoomIn ">
+                            <li><a href="# " class="mb-control " data-box="#mb-signout "><span class="fa fa-sign-out "></span> 登出</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            在线历史数据</h3>
+            <div class="page-content-wrap ">
+                <div class="page-content-box gap24">
+                    <div class="clearfix mytbar">
+                        <div id="inputBox" class="gap-btn-group" role="group">
+                            <!--  <button type="button" class="btn btn-label">
+                                <span>搜索：</span>
+                            </button> -->
+                            <!-- <div id="field_select" class="btn-group compact" role="group">
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    单位名称
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#" data-field='name' data-placeholder='请输入单位名称'>单位名称</a></li>
+                                    <li><a href="#" data-field='industry_name' data-placeholder='请输入所属行业'>所属行业</a></li>
+                                </ul>
+                            </div> -->
+                            <div class="btn-group" role="group">
+                                <select id="enterprise_id" class="w140 form-control select iselect" name="industry"></select>
+                            </div>
+                            <div class="btn-group" role="group">
+                                <select id="area" class="w140 form-control select iselect" name="area"></select>
+                            </div>
+                            <input id="search_input" type="text" data-field='name' class="form-control" placeholder="单位名称" />
+                            <button id="ser" type="button" title="搜索" class="btn btn-outline btn-primary">
+                                <span>查询</span>
+                            </button>
+                        </div>
+                    </div>
+                    <table id="TContact" data-height="708" data-mobile-responsive="true">
+                        <thead>
+                            <tr class="hidden-em">
+                                <th data-field="name">单位名称</th>
+                                <th data-field="area_name">所属地区</th>
+                                <th data-field="industry_name">所属行业</th>
+                                <th data-field="energy_month">本月综合能耗<span class="st">(吨标准煤)</span></th>
+                                <th data-field="energy_year">本年累计<span class="st">(吨标准煤)</span></th>
+                                <th data-field="energy_ele">电<span class="st">(万千瓦时)</span></th>
+                                <th data-field="energy_water">水<span class="st">(吨)</span></th>
+                                <th data-field="energy_gas">天然气<span class="st">(万立方米)</span></th>
+                                <th data-field="energy_coal">蒸汽<span class="st">(千焦耳)</span></th>
+                            </tr>
+                        </thead>
+                    </table>
+                    <div id="footerbar" class="footerbar hidden-em">
+                        <div class="gap-btn-group" role="group">
+                            <button id="edit" data-table="TContact" type="button" class="btn btn-outline btn-primary">
+                                <span>编辑</span>
+                            </button>
+                            <button id="del" type="button" title="删除客户" class="btn btn-outline btn-primary">
+                                <span>删除</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="message-box animated fadeIn" data-sound="alert " id='mb-signout'>
+        <div class="mb-container ">
+            <div class="mb-middle ">
+                <div class="mb-title"><span class="fa fa-sign-out "></span> Log <strong>Out</strong> ?</div>
+                <div class="mb-content ">
+                    <p>确定登出?</p>
+                    <p>如果您想继续留在此页面，请点击"否"</p>
+                </div>
+                <div class="mb-footer ">
+                    <div class="pull-right ">
+                        <a href="login.html " class="btn btn-success btn-lg ">是</a>
+                        <button class="btn btn-default btn-lg mb-control-close ">否</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type='text/javascript' src="js/import.js"></script>
+<script type='text/javascript' src="js/pages/CURDTable.js"></script>
+<script>
+new cur({
+    childSls: {
+        "#enterprise_id": {
+            def: '--请选择区域--',
+            url: '/energy/enterprise/getNameList?key=enterprise_id',
+            type: 'GET'
+        }
+    }
+}).initSelect();
+
+new cur({
+    t: "#TContact",
+    m: "#modal",
+    footerbar: '#footerbar',
+    showAfterRender: ['#footerbar'],
+    pageSize: 10,
+    search_params: {
+        field_select: '#field_select',
+        field_input: '#search_input'
+    },
+    dataSourceType: 'local',
+    queryUrl: "js/charts/demos/energyHistory.json",
+    addUrl: "/energy/enterprise/add",
+    editUrl: "/energy/enterprise/update",
+    delUrl: "/energy/enterprise/delByIds"
+}).init();
+</script>
+
+</html>

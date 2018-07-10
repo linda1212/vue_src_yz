@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>监察过程</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" id='theme' href="css/theme-dark-blue.css" />
+    <style>div.noFontWeight label:not(.useFontWeight) {font-weight: normal;}.ablue a{color: #4DC0FF}</style>
+</head>
+
+<body>
+    <div class="page-container">
+        <a href="# " class="x-navigation-minimize menu_minimalize">
+            <span class="arrow arrow-shrink "></span>
+        </a>
+        <div class="page-sidebar page-sidebar-fixed scroll">
+            <ul id='menu' class="x-navigation">
+                <li class="xn-logo">
+                    <a href="index.html"></a>
+                    <a href='#' class="x-navigation-control "></a>
+                </li>
+            </ul>
+        </div>
+        <div class="page-content ">
+            <h3 class="page-title">
+                <ul class="x-navigation x-navigation-horizontal log-out pull-right">
+                    <li class="xn-icon-button last ">
+                        <a href="# ">
+                            <span class="fa fa-power-off "></span>
+                        </a>
+                        <ul class="xn-drop-left animated zoomIn ">
+                            <li>
+                                <a href="# " class="mb-control " data-box="#mb-signout ">
+                                    <span class="fa fa-sign-out "></span> 登出</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                任务下发</h3>
+            <ul class="breadcrumb ">
+                <li>
+                    <a href="javascript:void(0)">节能监察</a>
+                </li>
+                <li>
+                    <a href="lawEnforcementProcess.html">执法过程管理</a>
+                </li>
+                <li class="active">
+                    <a href="javascript:(0)" id='breadName'></a>
+                </li>
+            </ul>
+            <div class="page-content-wrap">
+                <div class="row">
+                    <div class="panel_title">
+                        <div class="col-lg-12">
+                            <h4>任务详情</h4>
+                        </div>
+                    </div>
+                    <div class="iPanel ablue" style="padding-top:34px;">
+                        <div class="steps-form">
+                            <div class="row clearfix">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="">任务名称：</label>
+                                        <span id='taskName'></span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="">被监察企业：</label>
+                                        <span id='monitorEnterprise'></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="">地址：</label>
+                                        <span id='address'></span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="">联系人：</label>
+                                        <span id='contacter'></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="">电话：</label>
+                                        <span id='phone'></span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="">传真：</label>
+                                        <span id='fax'></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="">监察日期：</label>
+                                        <span id='monitorDate'></span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="">节能监察人员：</label>
+                                        <span id='monitorPerson'></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="">监察内容：</label>
+                                        <span id='monitorContent'></span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="">监察方式：</label>
+                                        <span id='monitorWay'></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="">任务状态：</label>
+                                        <span id='taskState'></span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="">附件列表：</label>
+                                        <!-- <span id='files'></span> -->
+                                        <a  id='files'></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="panel_title">
+                        <div class="col-lg-12">
+                            <h4>跟踪管理</h4>
+                        </div>
+                    </div>
+
+                    <div class="iPanel">
+                        <div class="row steps_container steps-label-vertical steps-dot">
+                            <div class="steps-item item01 steps-item-process">
+                                <div class="steps-item-tail"></div>
+                                <div class="steps-item-icon">
+                                    <span class="steps-icon">
+                                        <span class="steps-icon-dot"></span>
+                                    </span>
+                                </div>
+                                <div class="steps-item-content">
+                                    <div class="steps-item-title">任务下发</div>
+                                </div>
+                            </div>
+                            <div class="steps-item item02 steps-item-wait">
+                                <div class="steps-item-tail"></div>
+                                <div class="steps-item-icon">
+                                    <span class="steps-icon">
+                                        <span class="steps-icon-dot"></span>
+                                    </span>
+                                </div>
+                                <div class="steps-item-content">
+                                    <div class="steps-item-title">现场监察</div>
+                                </div>
+                            </div>
+                            <div class="steps-item item03 steps-item-wait">
+                                <div class="steps-item-tail"></div>
+                                <div class="steps-item-icon">
+                                    <span class="steps-icon">
+                                        <span class="steps-icon-dot"></span>
+                                    </span>
+                                </div>
+                                <div class="steps-item-content">
+                                    <div class="steps-item-title">整改</div>
+                                </div>
+                            </div>
+                            <div class="steps-item item04 steps-item-wait">
+                                <div class="steps-item-tail"></div>
+                                <div class="steps-item-icon">
+                                    <span class="steps-icon">
+                                        <span class="steps-icon-dot"></span>
+                                    </span>
+                                </div>
+                                <div class="steps-item-content">
+                                    <div class="steps-item-title">处罚</div>
+                                </div>
+                            </div>
+                            <div class="steps-item item05 steps-item-wait">
+                                <div class="steps-item-tail"></div>
+                                <div class="steps-item-icon">
+                                    <span class="steps-icon">
+                                        <span class="steps-icon-dot"></span>
+                                    </span>
+                                </div>
+                                <div class="steps-item-content">
+                                    <div class="steps-item-title">结案</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="steps-content">
+                            <!-- form01 -->
+                            <form class="steps-form01 steps-form form-horizontal">
+                                <div class="form-group">
+                                    <label for="" class="col-lg-1 control-label">
+                                        <span class="text-red">*</span>通知名称：</label>
+                                    <div class="col-lg-4">
+                                        <input type="text" class="form-control" name="notice_name" placeholder="请输入通知名称">
+                                    </div>
+                                    <label for="" class="col-lg-2 control-label">
+                                        <span class="text-red">*</span>提交人：</label>
+                                    <div class="col-lg-4">
+                                        <input type="text" class="form-control" name="submitter" placeholder="请输入提交人">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="" class="col-lg-1 control-label">
+                                        <span class="text-red">*</span>发送对象：</label>
+                                    <div class="col-lg-4">
+                                        <input type="text" class="form-control" name="notice_obj" placeholder="请输入发送对象">
+                                    </div>
+                                    <label for="" class="col-lg-2 control-label">
+                                        <span class="text-red">*</span>联系人：</label>
+                                    <div class="col-lg-4">
+                                        <input type="text" class="form-control" name="company_contact" placeholder="请输入企业对接人">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="" class="col-lg-1 control-label">日期：</label>
+                                    <div class="col-lg-4">
+                                        <input id="task_send_date" type="text" name="task_send_date" class="form-control laydate-icon layer-date" data-bv-date="true">
+                                        <!-- <input type="text" class="form-control" id="task_send_date"> -->
+                                    </div>
+                                    <label for="" class="col-lg-2 control-label">回执：</label>
+                                    <div class="col-lg-4">
+                                        <input type="text" class="form-control" name="receipt" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="" class="col-lg-1 control-label">状态：</label>
+                                    <div class="col-lg-4">
+                                        <!-- <input type="text" class="form-control" id="" placeholder=""> -->
+                                        <span class="form-control" style="border: 0;padding-top: 6px;">未下发</span>
+                                    </div>
+                                    <label for="" class="col-lg-2 control-label">附件上传：</label>
+                                    <div class="col-lg-4">
+                                        <input type="file" class="file form-control" data-field='notice_file' />
+                                        <input type="text" class="hidden-em" name="notice_file" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-lg-offset-1">
+                                        <button type="button" class="btn btn-primary submit">提交</button>
+                                        <button type="button" class="btn btn-default cancel">取消</button>
+                                    </div>
+                                </div>
+                            </form>
+
+                            <!-- form02 -->
+                            <form class="steps-form02 steps-form form-horizontal hidden-em">
+                                <div class="form-group">
+                                    <label for="" class="col-lg-1 control-label">
+                                        <span class="text-red">*</span>监察时间：</label>
+                                    <div class="col-lg-4">
+                                        <input id="monitor_actual_date" type="text" name="monitor_actual_date" class="form-control laydate-icon layer-date" data-bv-date="true">
+                                    </div>
+                                    <label for="" class="col-lg-2 control-label">监察内容：</label>
+                                    <div class="col-lg-4">
+                                        <!-- <input type="text" class="form-control" name="monitor_content_detail"  placeholder=""> -->
+                                        <span class="form-control" style="border: 0;" id="form02-content"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="" class="col-lg-1 control-label">
+                                        <span class="text-red">*</span>监察结果：</label>
+                                    <div class="col-lg-4">
+                                        <input type="text" class="form-control" name="monitor_result" placeholder="">
+                                    </div>
+                                    <label for="" class="col-lg-2 control-label">监察结果详情：</label>
+                                    <div class="col-lg-4">
+                                        <input type="text" class="form-control" placeholder="" name="monitor_content_detail">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="" class="col-lg-1 control-label">
+                                        <span class="text-red">*</span>附件上传：</label>
+                                    <div class="col-lg-4">
+                                        <input type="file" class="file form-control" data-field='monitor_file' />
+                                        <input type="text" class="hidden-em" name="monitor_file" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-lg-offset-1">
+                                        <button type="button" class="btn btn-primary submit">提交</button>
+                                        <button type="button" class="btn btn-default cancel">取消</button>
+                                    </div>
+                                </div>
+                            </form>
+
+                            <!-- form03 -->
+                            <form class="steps-form03 steps-form form-horizontal hidden-em">
+                                <div class="form-group">
+                                    <label for="" class="col-lg-1 control-label">
+                                        <span class="text-red">*</span>日期：</label>
+                                    <div class="col-lg-4">
+                                        <input id="reform_date" type="text" name="reform_date" class="form-control laydate-icon layer-date" data-bv-date="true">
+                                    </div>
+                                    <label for="" class="col-lg-2 control-label">整改意见：</label>
+                                    <div class="col-lg-4">
+                                        <input type="text" class="form-control" name="reform_advice" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="" class="col-lg-1 control-label">
+                                        <span class="text-red">*</span>整改时间：</label>
+                                    <div class="col-lg-4">
+                                        <input type="text" class="form-control" name="reform_duration" placeholder="">
+                                    </div>
+                                    <label for="" class="col-lg-2 control-label">状态：</label>
+                                    <div class="col-lg-4">
+                                        <input type="text" class="form-control" placeholder="" name="reform_state">
+                                        <!-- <span class="form-control" style="border: 0">未整改</span> -->
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="" class="col-lg-1 control-label">
+                                        <span class="text-red">*</span>附件上传：</label>
+                                    <div class="col-lg-4">
+                                        <input type="file" class="file form-control" data-field='reform_file' />
+                                        <input type="text" class="hidden-em" name="reform_file" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-lg-offset-1">
+                                        <button type="button" class="btn btn-primary submit">提交</button>
+                                        <button type="button" class="btn btn-default cancel">取消</button>
+                                    </div>
+                                </div>
+                            </form>
+
+                            <!-- form04 -->
+                            <form class="steps-form04 steps-form form-horizontal hidden-em">
+                                <div class="form-group">
+                                    <label for="" class="col-lg-1 control-label">处罚原因：</label>
+                                    <div class="col-lg-4">
+                                        <input type="text" class="form-control" name="fine_reason" placeholder="">
+                                    </div>
+
+                                    <label for="" class="col-lg-2 control-label">执法部门：</label>
+                                    <div class="col-lg-4">
+                                        <input type="text" class="form-control" placeholder="" name="fine_department">
+                                        <!-- <span class="form-control" style="border: 0">11</span> -->
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="" class="col-lg-1 control-label">
+                                        <span class="text-red">*</span>日期：</label>
+                                    <div class="col-lg-4">
+                                        <input id="fine_date" type="text" name="fine_date" class="form-control laydate-icon layer-date" data-bv-date="true">
+                                    </div>
+
+                                    <label for="" class="col-lg-2 control-label">
+                                        <span class="text-red">*</span>处罚意见：</label>
+                                    <div class="col-lg-4">
+                                        <input type="text" class="form-control" name="fine_advice" placeholder="">
+                                    </div>
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="" class="col-lg-1 control-label">
+                                        <span class="text-red">*</span>附件上传：</label>
+                                    <div class="col-lg-4">
+                                        <input type="file" class="file form-control" data-field='fine_file' />
+                                        <input type="text" class="hidden-em" name="fine_file" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-lg-offset-1">
+                                        <button type="button" class="btn btn-primary submit">提交</button>
+                                        <button type="button" class="btn btn-default cancel">取消</button>
+                                    </div>
+                                </div>
+                            </form>
+
+                            <!-- form05 -->
+                            <form class="steps-form05 steps-form form-horizontal hidden-em">
+                                <div class="form-group">
+                                    <label for="" class="col-lg-1 control-label">结案原因：</label>
+                                    <div class="col-lg-4">
+                                        <input type="text" class="form-control" name="ending_reason" placeholder="">
+                                    </div>
+
+                                    <label for="" class="col-lg-2 control-label">
+                                        <span class="text-red">*</span>立案时间：</label>
+                                    <div class="col-lg-4">
+                                        <input id="ending_date" type="text" name="ending_date" class="form-control laydate-icon layer-date" data-bv-date="true">
+                                    </div>
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="" class="col-lg-1 control-label">承办人员：</label>
+                                    <div class="col-lg-4">
+                                        <input type="text" class="form-control" placeholder="" name="ending_person">
+                                        <!-- <span class="form-control" style="border: 0">11</span> -->
+                                    </div>
+
+                                    <label for="" class="col-lg-2 control-label">
+                                        <span class="text-red">*</span>查处经过：</label>
+                                    <div class="col-lg-4">
+                                        <input type="text" class="form-control" name="ending_enforce_detail" placeholder="">
+                                    </div>
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="" class="col-lg-1 control-label">
+                                        <span class="text-red">*</span>附件上传：</label>
+                                    <div class="col-lg-4">
+                                        <input type="file" class="file form-control" data-field='ending_file' />
+                                        <input type="text" class="hidden-em" name="ending_file" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-lg-offset-1">
+                                        <button type="button" class="btn btn-primary submit">提交</button>
+                                        <button type="button" class="btn btn-default cancel">取消</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="iPanel hidden-em noFontWeight ablue" id="closeCase">
+                        <div class="steps-form">
+                            <div class="row clearfix">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="" class="useFontWeight">任务下发</label>
+                                        <span id='taskName'></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix row1">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="">通知名称：</label>
+                                        <span></span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="">提交人：</label>
+                                        <span></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix row2">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="">发送对象：</label>
+                                        <span></span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="">联系人：</label>
+                                        <span></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix row3">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="">日期：</label>
+                                        <span></span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="">回执：</label>
+                                        <span></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix row4">
+                                <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label for="">附件：</label>
+                                            <a></a>
+                                        </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="">状态：</label>
+                                        <span></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row clearfix">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="" class="useFontWeight">现场监察</label>
+                                        <span id='taskName'></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix row5">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="">监察时间：</label>
+                                        <span></span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="">监察内容：</label>
+                                        <span></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix row6">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="">监察结果：</label>
+                                        <span></span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="">监察结果详情：</label>
+                                        <span></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix row7">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="">附件：</label>
+                                        <a></a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row clearfix">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="" class="useFontWeight">整改</label>
+                                        <span></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix row8">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="">日期：</label>
+                                        <span></span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="">整改意见：</label>
+                                        <span></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix row9">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="">整改时间：</label>
+                                        <span></span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="">状态：</label>
+                                        <span></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix row10">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="">附件：</label>
+                                        <a></a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row clearfix">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="" class="useFontWeight">处罚</label>
+                                        <span></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix row11">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="">处罚原因：</label>
+                                        <span></span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="">执法部门：</label>
+                                        <span></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix row12">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="">日期：</label>
+                                        <span></span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="">处罚意见：</label>
+                                        <span></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix row13">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="">附件：</label>
+                                        <a></a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row clearfix">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label for="" class="useFontWeight">结案</label>
+                                            <span></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row clearfix row14">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label for="">结案原因：</label>
+                                            <span></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label for="">立案时间：</label>
+                                            <span></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row clearfix row15">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label for="">承办人员：</label>
+                                            <span></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label for="">查处经过：</label>
+                                            <span></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row clearfix row16">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label for="">附件：</label>
+                                            <a></a>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="message-box animated fadeIn" data-sound="alert " id='mb-signout'>
+        <div class="mb-container ">
+            <div class="mb-middle ">
+                <div class="mb-title">
+                    <span class="fa fa-sign-out "></span> Log
+                    <strong>Out</strong> ?</div>
+                <div class="mb-content ">
+                    <p>确定登出?</p>
+                    <p>如果您想继续留在此页面，请点击"否"</p>
+                </div>
+                <div class="mb-footer ">
+                    <div class="pull-right ">
+                        <a href="login.html " class="btn btn-success btn-lg ">是</a>
+                        <button class="btn btn-default btn-lg mb-control-close ">否</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type='text/javascript' src="js/import.js"></script>
+<script type='text/javascript' src="js/pages/common.js"></script>
+<script type='text/javascript' src="js/pages/CURDTable.js"></script>
+<script>
+    var id = getQueryString('enterpriseId');
+    var enterpriseName = getQueryString('name');
+    $('#breadName').html(enterpriseName);
+    var currentName;
+
+    var forms = {
+        '任务下发': 'item01',
+        '现场监察': 'item02',
+        '整改': 'item03',
+        '处罚': 'item04',
+        '结案': 'item05',
+    }
+
+    var formMaps = {
+        '任务下发': {
+            name: 'steps-form01',
+            url: '/monitor/lawEnfor/activiti/sendtask'
+        },
+        '现场监察': {
+            name: 'steps-form02',
+            url: '/monitor/lawEnfor/activiti/complete/supervision'
+        },
+        '整改': {
+            name: 'steps-form03',
+            url: '/monitor/lawEnfor/activiti/complete/reform'
+        },
+        '处罚': {
+            name: 'steps-form04',
+            url: '/monitor/lawEnfor/activiti/complete/fine'
+        },
+        '结案': {
+            name: 'steps-form05',
+            url: '/monitor/lawEnfor/activiti/complete/closecase'
+        },
+    }
+
+    var FIRST_NAME = '任务下发';
+
+    var dateIds = ['task_send_date', 'monitor_actual_date', 'reform_date', 'fine_date', 'ending_date']
+
+    initDateInputForDay('#task_send_date');
+    initDateInputForDay('#monitor_actual_date');
+    initDateInputForDay('#reform_date');
+    initDateInputForDay('#fine_date');
+    initDateInputForDay('#ending_date');
+
+    // $('#task_send_date').val(getToday());
+
+    function inputFile() {
+        $('input[type="file"]').each(function () {
+            var name = $(this).data('field');
+            var self_el = $(this);
+            self_el.fileinput('destroy');
+            self_el.fileinput({
+                language: 'zh',
+                uploadUrl: '/zuul/oss/putObject',
+                showUpload: false,
+                showCaption: true,
+                showPreview: false,
+                overwriteInitial: false,
+                dropZoneEnabled: false,
+                // allowedFileTypes: allowedFileTypes,
+                // allowedFileExtensions: allowedFileExtensions,
+                maxFileSize: 2000,
+                maxFileCount: 1
+            }).on("filebatchselected", function (event, files) {
+                var tokenUrl = '/auth/token/oss';
+                var params = {
+                    filename: files[0].name,
+                    filesize: files[0].size
+                };
+                eBase.send({
+                    url: tokenUrl,
+                    data: JSON.stringify(params)
+                }, 'post').done(function (resp) {
+                    if (resp['code'] == '0') {
+                        self_el.fileinput("upload", {
+                            Athorization: resp['data']
+                        });
+                    } else {
+                        self_el.fileinput("upload");
+                    }
+                }).fail(function (resp) {
+                    self_el.fileinput("upload");
+                });
+
+            }).on("fileuploaded", function (event, data) {
+                $("input[name='" + name + "']").val(data.response.data.filePath);
+            }).on("filecleared", function (event, data) {
+                $("input[name='" + name + "']").val('');
+            });
+        });
+    }
+    inputFile();
+
+    function getTaskDetail() {
+        eBase.send({
+            url: '/monitor/lawEnfor/getDetailById/' + id,
+        }, 'get').done(function (args) {
+            var d = args.data;
+            $('#taskName').html(d.task_name);
+            $('#monitorEnterprise').html(d.name);
+            $('#address').html(d.address);
+            $('#contacter').html(d.contacts);
+            $('#fax').html(d.fax);
+            $('#phone').html(d.phone);
+            $('#monitorPerson').html(d.monitor_person);
+            $('#monitorDate').html(d.monitor_date1);
+            $('#monitorWay').html(d.monitor_way);
+            $('#monitorContent').html(d.monitor_content);
+            $('#taskState').html(d.status_name);
+            $('#files').html('点击下载').attr('href', d.file1);
+
+            $('#form02-content').html(d.monitor_content);
+        });
+    }
+
+    //获取当前点
+    function getCurrentPosition() {
+        eBase.send({
+            url: '/monitor/lawEnfor/activiti/getHisTasks/' + id,
+        }, 'get').done(function (args) {
+            if (!args.data[args.data.length - 1].endTime) {
+                currentName = args.data[0] && args.data[args.data.length - 1].name || FIRST_NAME;
+
+                setCurrent();
+            } else {
+                showCloseCase(args.data);
+            }
+
+        });
+    }
+
+    // 结案状态
+    function showCloseCase(data) {
+        $('#closeCase').removeClass('hidden-em')
+            .prev().addClass('hidden-em');
+        
+        $('.row1 span:first').html(data[0].bussiness.notice_name);
+        $('.row1 span:last').html(data[0].bussiness.submitter);
+        $('.row2 span:first').html(data[0].bussiness.notice_obj);
+        $('.row2 span:last').html(data[0].bussiness.company_contact);
+        $('.row3 span:first').html(data[0].bussiness.task_send_date);
+        $('.row3 span:last').html(data[0].bussiness.receipt);
+        $('.row4 a:first').attr('href', data[0].bussiness.notice_file).html('点击下载');
+        $('.row4 span:last').html('已下发');
+
+        $('.row5 span:first').html(data[1].bussiness.monitor_actual_date);
+        $('.row5 span:last').html(data[1].bussiness.monitor_content);
+        $('.row6 span:first').html(data[1].bussiness.monitor_result);
+        $('.row6 span:last').html(data[1].bussiness.monitor_content_detail);
+        $('.row7 a:first').attr('href', data[1].bussiness.monitor_file).html('点击下载');
+
+        $('.row8 span:first').html(data[2].bussiness.reform_date);
+        $('.row8 span:last').html(data[2].bussiness.reform_advice);
+        $('.row9 span:first').html(data[2].bussiness.reform_duration);
+        $('.row9 span:last').html(data[2].bussiness.reform_state);
+        $('.row10 a:first').attr('href', data[2].bussiness.reform_file).html('点击下载');
+
+        $('.row11 span:first').html(data[3].bussiness.fine_reason);
+        $('.row11 span:last').html(data[3].bussiness.fine_department);
+        $('.row12 span:first').html(data[3].bussiness.fine_date);
+        $('.row12 span:last').html(data[3].bussiness.fine_advice);
+        $('.row13 a:first').attr('href', data[3].bussiness.fine_file).html('点击下载');
+
+        $('.row14 span:first').html(data[4].bussiness.ending_reason);
+        $('.row14 span:last').html(data[4].bussiness.ending_date);
+        $('.row15 span:first').html(data[4].bussiness.ending_person);
+        $('.row15 span:last').html(data[4].bussiness.ending_enforce_detail);
+        $('.row16 a:first').attr('href', data[4].bussiness.ending_file).html('点击下载');
+    }
+
+    // 设置当前tab
+    function setCurrent() {
+        var fs = forms[currentName];
+        var formname = formMaps[currentName].name;
+
+        // 设置步骤条
+        $('.' + fs)
+            .prevAll().removeClass('steps-item-process steps-item-wait').addClass('steps-item-finish')
+            .end()
+            .removeClass('steps-item-wait').addClass('steps-item-process');
+
+        // 设置内容
+        $('.' + formname).siblings().addClass('hidden-em')
+            .end()
+            .removeClass('hidden-em');
+    }
+
+    //提交
+    function submit() {
+        var fname = formMaps[currentName].name,
+            formdata = decodeURIComponent($('.' + fname).serialize()),
+            ps;
+
+        ps = formdata.split('&').reduce(function (total, cur) {
+            var sp = cur.split('=');
+            if (sp[1]) {
+                total[sp[0]] = dateIds.indexOf(sp[0]) == -1 ? sp[1] : sp[1].replace(/-/g, '');
+            }
+            return total;
+        }, {});
+
+        ps.id = id;
+        console.log(ps)
+
+        eBase.send({
+            url: formMaps[currentName].url,
+            data: JSON.stringify(ps)
+        }).done(function (args) {
+            window.location = '/lu/gov/lawEnforcementProcess.html';
+        });
+    }
+
+    $('.submit, .cancel').on('click', function () {
+        submit();
+    });
+
+    getTaskDetail();
+    getCurrentPosition();
+</script>
+
+</html>

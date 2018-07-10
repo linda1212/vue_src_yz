@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>能耗排名</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" id='theme' href="css/theme-dark-blue.css" />
+</head>
+
+<body>
+    <div class="page-container">
+        <a href="# " class="x-navigation-minimize menu_minimalize"><span class="arrow arrow-shrink"></span></a>
+        <div class="page-sidebar page-sidebar-fixed scroll">
+            <ul id='menu' class="x-navigation">
+                <li class="xn-logo">
+                    <a href="index.html"></a>
+                    <a href='#' class="x-navigation-control "></a>
+                </li>
+            </ul>
+        </div>
+        <div class="page-content ">
+            <div class="page-content-wrap top0">
+                <h3 class="page-title">
+                    <ul class="x-navigation x-navigation-horizontal log-out pull-right">
+                        <li class="xn-icon-button last ">
+                            <a href="# "><span class="fa fa-power-off "></span></a>
+                            <ul class="xn-drop-left animated zoomIn ">
+                                <li><a href="# " class="mb-control " data-box="#mb-signout "><span class="fa fa-sign-out "></span> 登出</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    能耗排名</h3>
+                <ul id="inavigation" class="nav nav-tabs xs-tabs">
+                    <li role="presentation" class="active"><a href="javascript:void(0);" data-page='#ipage1'>能耗总量排名</a></li>
+                    <li role="presentation"><a href="javascript:void(0);" data-page='#ipage2'>能耗强度排名</a></li>
+                </ul>
+                <div id="ipage_content" class="nav-content pt24">
+                    <div id="ipage1" class="relative">
+                        <div class="container-fluid">
+                            <div class="col-lg-12">
+                                <div class="panel_title">
+                                    <div class="col-sm-6">
+                                        <h4>能耗总量排名</h4>
+                                    </div>
+                                    <div class="col-sm-6 clearfix">
+                                        <div class="gap-btn-group pull-right bar-group" role="group">
+                                            <div class="btn-group" role="group">
+                                                <select id="energyType" class="w140 form-control select iselect energyConsumType"> </select>
+                                            </div>
+                                            <div class="btn-group datebox" role="group">
+                                                <input id="frame1_page1_input1" type="text" name="name" class="w240 form-control laydate-icon layer-date">
+                                            </div>
+                                            <div class="btn-group datebox hidden-em" role="group">
+                                                <input id="frame1_page1_input2" type="text" name="name" class="w240 form-control laydate-icon layer-date">
+                                            </div>
+                                            <button id="ser1" type="button" title="搜索" class="btn btn-outline btn-primary">
+                                                <span>查询</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="iPanel">
+                                    <div class="row">
+                                        <div class="col-lg-6 inner_left_col">
+                                            <div class="content">
+                                                <h4 id="frame1_page1_title1" class="title"></h4>
+                                                <div class="chart-wrap">
+                                                    <div id="frame1_page1_chart"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 inner_right_col">
+                                            <div class="content">
+                                                <h4 id="frame1_page1_title2" class="title"></h4>
+                                                <div class="chart-wrap">
+                                                    <div id="frame1_page1_chart2"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="content mt40">
+                                        <h4 id="frame1_page1_title3" class="title mb10">TOP10企业能耗总量排名</h4>
+                                        <table id="frame1_page1_tabel1" data-height="700" data-mobile-responsive="true">
+                                            <thead>
+                                                <tr class="hidden-em">
+                                                    <th data-formatter="IndexFormatter">排名</th>
+                                                    <th data-field="name">企业名称</th>
+                                                    <th data-field="energy_total" data-align="right">综合能耗<span class="st">(吨标准煤)</span></th>
+                                                </tr>
+                                            </thead>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="ipage2" class="relative hidden-em">
+                        <div class="container-fluid">
+                            <div class="col-lg-12">
+                                <div class="panel_title">
+                                    <div class="col-sm-6">
+                                        <h4>能耗强度排名</h4>
+                                    </div>
+                                    <div class="col-sm-6 clearfix">
+                                        <div class="gap-btn-group pull-right bar-group" role="group">
+                                            <div class="btn-group">
+                                                <select id="date_type2" class="form-control select iselect" name="type">
+                                                    <option value="1">按月查询</option>
+                                                    <option value="2">按年查询</option>
+                                                </select>
+                                            </div>
+                                            <div class="btn-group datebox hidden-em" role="group">
+                                                <input id="frame1_page2_input1" type="text" name="name" class="w140 form-control laydate-icon layer-date">
+                                            </div>
+                                            <div class="btn-group datebox hidden-em" role="group">
+                                                <input id="frame1_page2_input2" type="text" name="name" class="w140 form-control laydate-icon layer-date">
+                                            </div>
+                                            <button id="ser2" type="button" title="搜索" class="btn btn-outline btn-primary">
+                                                <span>查询</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="iPanel">
+                                    <div class="row">
+                                        <div class="col-lg-6 inner_left_col">
+                                            <div class="content">
+                                                <h4 id="frame1_page2_title1" class="title"></h4>
+                                                <div class="chart-wrap">
+                                                    <div id="frame1_page2_chart"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 inner_right_col">
+                                            <div class="content">
+                                                <h4 id="frame1_page2_title2" class="title"></h4>
+                                                <div class="chart-wrap">
+                                                    <div id="frame1_page2_chart2"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="content mt40">
+                                        <h4 id="frame1_page2_title3" class="title mb10">TOP10企业能耗强度排名</h4>
+                                        <table id="frame1_page2_tabel1" data-height="700" data-mobile-responsive="true">
+                                            <thead>
+                                                <tr class="hidden-em">
+                                                    <th data-formatter="IndexFormatter">排名</th>
+                                                    <th data-field="name">企业名称</th>
+                                                    <th data-field="energyCount" data-align="right">综合能耗 <span class="st">(吨标准煤)</span></th>
+                                                </tr>
+                                            </thead>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    <div class="message-box animated fadeIn" data-sound="alert " id='mb-signout'>
+        <div class="mb-container ">
+            <div class="mb-middle ">
+                <div class="mb-title"><span class="fa fa-sign-out "></span> Log <strong>Out</strong> ?</div>
+                <div class="mb-content ">
+                    <p>确定登出?</p>
+                    <p>如果您想继续留在此页面，请点击"否"</p>
+                </div>
+                <div class="mb-footer ">
+                    <div class="pull-right ">
+                        <a href="login.html " class="btn btn-success btn-lg ">是</a>
+                        <button class="btn btn-default btn-lg mb-control-close ">否</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type='text/javascript' src="js/import.js"></script>
+<script type='text/javascript' src="js/pages/common.js"></script>
+<script type='text/javascript' src="js/pages/CURDTable.js"></script>
+<script type='text/javascript' src="js/charts/echart_yarn.min.js"></script>
+<script>
+    setDateInputByType('#frame1_page2_input1', $('#date_type2').val());
+
+    var dateRange;
+
+
+    initSelectByUrl('energyConsumType', '/energy/enengyType/getEnergyConsumType?key=enengyConsumType', function() {
+        setDateInputByType('#frame1_page1_input1', $('#energyType').val());
+        var startDate = dateRange.split(" ")[0];
+        var endDate = dateRange.split(" ")[2];
+        showFrame1(startDate, endDate, $('#energyType').val())
+    }, ['.energyConsumType']);
+
+
+    function addListener() {
+        $('#energyType').change(function() {
+            var type = $(this).val();
+            if (type == '004' || type == '0101') {
+                setDateInputByType('#frame1_page1_input1', type);
+            } else {
+                setDateInputByType('#frame1_page1_input2', type);
+            }
+        });
+        $('#date_type2').change(function() {
+            var type = $(this).val();
+            if (type == '1') {
+                setDateInputByType('#frame1_page2_input1', type);
+            } else {
+                setDateInputByType('#frame1_page2_input2', type);
+            }
+
+        });
+
+        $('#ser1').click(function() {
+            var startDate = dateRange.split(" ")[0];
+            var endDate = dateRange.split(" ")[2];
+            var type = $('#energyType').val();
+            showFrame1(startDate, endDate, type);
+        });
+        $('#ser2').click(function() {});
+    }
+
+    function toggerDateInput(el) {
+        $(el).parent().show().siblings('.datebox').hide();
+    }
+
+    function setDateInputByType(el, type) {
+        switch (type) {
+            case '004':
+            case '0101':
+                toggerDateInput(el);
+                initDateInputForRangeMonth(el);
+                $(el).val(getLastMonth() + ' - ' + getThisMonth());
+                dateRange = $(el).val();
+                break;
+            case '1':
+                toggerDateInput(el);
+                initDateInputForMonth(el);
+                $(el).val(getThisMonth());
+                break;
+            case '2':
+                toggerDateInput(el);
+                initDateInputForYear(el);
+                $(el).val(getThisYear());
+                break;
+            default:
+                toggerDateInput(el);
+                initDateInputForRange(el);
+                $(el).val(getYesterday() + ' - ' + getToday());
+                dateRange = $(el).val();
+                break;
+        }
+    }
+
+    var lock1 = false,
+        lock2 = false,
+        lock3 = false;
+    $('#inavigation').find('li').click(function() {
+        $(this).addClass('active').siblings('li').removeClass('active');
+        var id = $(this).find('a').data('page');
+        $('#ipage_content').find(id).show().siblings().hide();
+        $(window).trigger("panel_resize");
+        switch (id) {
+            case '#ipage2':
+                setTimeout(function() {
+                    if (!lock2) {
+                        showFrame2($('#frame1_page2_input1').val(), $('#date_type2').val());
+                        lock2 = true;
+                    }
+                }, 100);
+                break;
+            case '#ipage1':
+            default:
+                setTimeout(function() {
+                    if (!lock1) {
+                        showFrame1(startDate, endDate, $('#energyType').val());
+                        lock1 = true;
+                    }
+                }, 100);
+                break;
+        }
+    });
+
+    function showFrame1(startDate, endDate, type) {
+
+        new yarn({
+            charts: [{
+                el: 'frame1_page1_chart',
+                type: 'bar',
+                ti: '#frame1_page1_title1',
+                url: '/energy/energyStructure/line/getDataYZ?startDate=' + startDate + '&endDate=' + endDate + '&e_type=' + type + '&key=11&sort=1',
+                h: 340
+            }]
+        }).init();
+
+        new yarn({
+            charts: [{
+                el: 'frame1_page1_chart2',
+                type: 'bar',
+                ti: '#frame1_page1_title2',
+                url: '/energy/yzconsumptionRanking/getIndustryTotal?startDate=' + startDate + '&endDate=' + endDate + '&key=11&e_type=' + type,
+                h: 340
+            }]
+        }).init();
+
+        new cur({
+            t: "#frame1_page1_tabel1",
+            m: "#modal",
+            footerbar: '#footerbar',
+            showAfterRender: ['#footerbar'],
+            method: 'get',
+            pageSize: 10,
+            ti: '#frame1_page1_title3',
+            queryUrl: '/energy/yzconsumptionRanking/getTopTenCompany?startDate=' + startDate + '&endDate=' + endDate + '&key=11&e_type=' + type,
+
+        }).init();
+    }
+
+    function showFrame2(date, type) {
+        new yarn({
+            charts: [{
+                el: 'frame1_page2_chart',
+                type: 'bar',
+                ti: '#frame1_page2_title1',
+                url: 'js/charts/demos/energyConsumptionRanking_area_bar2.json',
+                h: 340,
+                params: {
+                    getTime: date
+                }
+            }]
+        }).init();
+
+        new yarn({
+            charts: [{
+                el: 'frame1_page2_chart2',
+                type: 'bar',
+                ti: '#frame1_page2_title2',
+                url: 'js/charts/demos/energyConsumptionRanking_industry_bar2.json',
+                h: 340,
+                params: {
+                    getTime: date
+                }
+            }]
+        }).init();
+
+        new cur({
+            t: "#frame1_page2_tabel1",
+            m: "#modal",
+            footerbar: '#footerbar',
+            showAfterRender: ['#footerbar'],
+            pageSize: 10,
+            dataSourceType: 'local',
+            queryUrl: "js/charts/demos/energyConsumptionRanking_tabel1.json"
+        }).init();
+    }
+
+    addListener();
+</script>
+
+</html>

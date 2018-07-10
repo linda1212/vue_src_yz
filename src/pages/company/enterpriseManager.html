@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>企业管理</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" id='theme' href="css/theme-dark-blue.css" />
+</head>
+
+<body>
+    <div class="page-container">
+        <a href="# " class="x-navigation-minimize menu_minimalize"><span class="arrow arrow-shrink "></span></a>
+        <div class="page-sidebar page-sidebar-fixed scroll">
+            <ul id='menu' class="x-navigation">
+                <li class="xn-logo">
+                    <a href="index.html"></a>
+                    <a href='#' class="x-navigation-control "></a>
+                </li>
+            </ul>
+        </div>
+        <div class="page-content ">
+            <h3 class="page-title">
+                <ul class="x-navigation x-navigation-horizontal log-out pull-right">
+                    <li class="xn-icon-button last ">
+                        <a href="# "><span class="fa fa-power-off "></span></a>
+                        <ul class="xn-drop-left animated zoomIn ">
+                            <li><a href="# " class="mb-control " data-box="#mb-signout "><span class="fa fa-sign-out "></span> 登出</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                企业管理</h3>
+            <div class="page-content-wrap ">
+                <div class="page-content-box gap24">
+                    <div class="clearfix mytbar">
+                        <div id="inputBox" class="gap-btn-group  " role="group">
+                            <button type="button" title="新增客户" class="btn btn-label">
+                                <span>企业名称：</span>
+                            </button>
+                            <!-- <div id="field_select" class="btn-group compact" role="group">
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    企业名称
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#" data-field='name' data-placeholder='请输入企业名称'>企业名称</a></li>
+                                </ul>
+                            </div> -->
+                            <input id="search_input" type="text" data-field='name' class="form-control" placeholder="企业名称" />
+                            <button id="ser" type="button" title="搜索" class="btn btn-outline btn-primary">
+                                <span>查询</span>
+                            </button>
+                        </div>
+                        <div class="btn-group   pull-right" role="group">
+                            <button id="add" data-table="TContact" type="button" title="新增客户" class="btn btn-outline btn-primary pull-right">
+                                <span>新增</span>
+                            </button>
+                        </div>
+                    </div>
+                    <table id="TContact" data-mobile-responsive="true">
+                        <thead>
+                            <tr class="hidden-em">
+                                <th data-field="state" data-my="1" data-checkbox="true"></th>
+                                <th data-field="id">ID</th>
+                                <th data-field="name">企业名称</th>
+                                <th data-field="code">组织机构代码</th>
+                                <th data-field="district_name">所属区域</th>
+                                <!-- <th data-field="industry_name">所属行业</th> -->
+                                <th data-field="type_name">企业类型</th>
+                                <th data-field="scale_name">用能规模</th>
+                                <th data-field="is_sx" data-formatter="TFormatter">是否涉限企业</th>
+                                <!-- <th data-field="address">企业地址</th> -->
+                                <th data-field="phone">联系电话</th>
+                                <th data-field="email">企业邮箱</th>
+                                <th data-field="operate" data-formatter="OperatingFomatterC" data-align="right">操作</th>
+                            </tr>
+                        </thead>
+                    </table>
+                    <div id="footerbar" class="footerbar hidden-em">
+                        <div class="gap-btn-group" role="group">
+                            <button id="checkall" type="button" class="btn btn-outline btn-default" data-cked="unchecked">
+                                <span>全选</span>
+                            </button>
+                            <button id="bedit" type="button" class="btn btn-outline btn-primary">
+                                <span>批量操作</span>
+                            </button>
+                            <button id="bdel" type="button" title="删除客户" class="btn btn-outline btn-primary">
+                                <span>删除</span>
+                            </button>
+                            <button id="endState" type="button" title="删除客户" class="btn btn-outline btn-primary">
+                                <span>完成</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="message-box animated fadeIn" data-sound="alert " id='mb-signout'>
+        <div class="mb-container ">
+            <div class="mb-middle ">
+                <div class="mb-title"><span class="fa fa-sign-out "></span> Log <strong>Out</strong> ?</div>
+                <div class="mb-content ">
+                    <p>确定登出?</p>
+                    <p>如果您想继续留在此页面，请点击"否"</p>
+                </div>
+                <div class="mb-footer ">
+                    <div class="pull-right ">
+                        <a href="login.html " class="btn btn-success btn-lg ">是</a>
+                        <button class="btn btn-default btn-lg mb-control-close ">否</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="modal" class="modal fade">
+        <div class="modal-dialog">
+            <form action="javascript:void(0)" data-bv-message="验证未通过" data-bv-feedbackicons-valid="glyphicon glyphicon-ok" data-bv-feedbackicons-invalid="glyphicon glyphicon-remove" data-bv-feedbackicons-validating="glyphicon glyphicon-refresh">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title"></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group hidden-em">
+                            <label>id</label>
+                            <input type="text" class="form-control" name="id">
+                        </div>
+                        <div class="form-group">
+                            <label><span class="text-red">*</span>企业名称 </label>
+                            <input type="text" class="form-control" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label><span class="text-red">*</span>省</label>
+                            <select id="province" class="form-control" name="province" required></select>
+                        </div>
+                        <div class="form-group hidden-em">
+                            <label><span class="text-red">*</span>市</label>
+                            <select id="city" class="form-control" name="city" required></select>
+                        </div>
+                        <div class="form-group hidden-em">
+                            <label><span class="text-red">*</span>区</label>
+                            <select id="district" class="form-control" name="district" required></select>
+                        </div>
+                        <div class="form-group">
+                            <label><span class="text-red">*</span>企业类型 </label>
+                            <select id="companyType" class="form-control" name="type_code" required></select>
+                        </div>
+                        <div class="form-group">
+                            <label><span class="text-red">*</span>组织机构代码 </label>
+                            <input type="text" class="form-control" name="code" required>
+                        </div>
+                        <div class="form-group">
+                            <label><span class="text-red">*</span>所属行业 </label>
+                            <select id="industryCode" class="form-control" name="industry_code" required></select>
+                        </div>
+                        <div class="form-group">
+                            <label>法人代表 </label>
+                            <input type="text" class="form-control" name="corporation_name">
+                        </div>
+                        <div class="form-group">
+                            <label>能管员 </label>
+                            <input type="text" class="form-control" name="energy_resp_name">
+                        </div>
+                        <div class="form-group">
+                            <label>能管员联系电话 </label>
+                            <input type="text" class="form-control" name="energy_resp_phone">
+                        </div>
+                        <div class="form-group">
+                            <label><span class="text-red">*</span>用能规模 </label>
+                            <select id="energyScale" class="form-control" name="energy_scale" required></select>
+                        </div>
+                        <div class="form-group">
+                            <label>是否供能企业 </label>
+                            <select class="form-control select" name="is_energySupply">
+                                <option value="0">否</option>
+                                <option value="1">是</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>是否能发电企业 </label>
+                            <select class="form-control select" name="is_power">
+                                <option value="0">否</option>
+                                <option value="1">是</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>是否涉限企业 </label>
+                            <select class="form-control select" name="is_sx">
+                                <option value="0">否</option>
+                                <option value="1">是</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>企业地址 </label>
+                            <input type="text" class="form-control" name="address">
+                        </div>
+                        <div class="form-group">
+                            <label>企业联系电话 </label>
+                            <input type="text" class="form-control" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label>企业邮箱 </label>
+                            <input type="text" class="form-control" name="email">
+                        </div>
+                        <div class="form-group">
+                            <label>企业传真 </label>
+                            <input type="text" class="form-control" name="fax">
+                        </div>
+                        <div class="form-group">
+                            <label>邮政编码 </label>
+                            <input type="text" class="form-control" name="zip_code">
+                        </div>
+                        <div class="form-group">
+                            <label>经度 </label>
+                            <input type="text" class="form-control" name="longitude">
+                        </div>
+                        <div class="form-group">
+                            <label>纬度 </label>
+                            <input type="text" class="form-control" name="latitude">
+                        </div>
+                        <div class="form-group">
+                            <label>主要产品及业务 </label>
+                            <input class="form-control" name="major_product">
+                        </div>
+                        <div class="form-group">
+                            <label>单位介绍 </label>
+                            <input class="form-control" name="enterprise_introduce">
+                        </div>
+                        <div class="form-group">
+                            <label>企业附件资料 </label>
+                            <input type="file" class="file" id="file" data-field="enterprise_data" />
+                            <input type="text" class="hidden-em" name="enterprise_data" />
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default cancel" data-dismiss="modal">取&nbsp;&nbsp;消</button>
+                        <button type="button" class="btn btn-primary submit">保&nbsp;&nbsp;存</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id='detail' class="modal fade">
+        <div class="modal-dialog">
+            <form action="javascript:void(0)">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title"></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group hidden-em">
+                            <label>id</label>
+                            <input type="text" class="form-control" name="id">
+                        </div>
+                        <div class="form-group">
+                            <label><span class="text-red">*</span>企业名称 </label>
+                            <input type="text" class="form-control" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label><span class="text-red">*</span>省</label>
+                            <select id="province1" class="form-control" name="province" required></select>
+                        </div>
+                        <div class="form-group">
+                            <label><span class="text-red">*</span>市</label>
+                            <select id="city1" class="form-control" name="city" required></select>
+                        </div>
+                        <div class="form-group">
+                            <label><span class="text-red">*</span>区</label>
+                            <select id="district1" class="form-control" name="district" required></select>
+                        </div>
+                        <div class="form-group">
+                            <label>企业类型 </label>
+                            <select id="companyType1" class="form-control" name="type_code"></select>
+                        </div>
+                        <div class="form-group">
+                            <label>组织机构代码 </label>
+                            <input type="text" class="form-control" name="code">
+                        </div>
+                        <div class="form-group">
+                            <label>所属行业 </label>
+                            <select id="industryCode1" class="form-control" name="industry_code"></select>
+                        </div>
+                        <div class="form-group">
+                            <label>法人代表 </label>
+                            <input type="text" class="form-control" name="corporation_name">
+                        </div>
+                        <div class="form-group">
+                            <label>能管员 </label>
+                            <input type="text" class="form-control" name="energy_resp_name">
+                        </div>
+                        <div class="form-group">
+                            <label>能管员联系电话 </label>
+                            <input type="text" class="form-control" name="energy_resp_phone">
+                        </div>
+                        <div class="form-group">
+                            <label>用能规模 </label>
+                            <select id="energyScale1" class="form-control" name="energy_scale"></select>
+                        </div>
+                        <div class="form-group">
+                            <label>是否供能企业 </label>
+                            <select class="form-control select" name="is_energySupply">
+                                <option value="0">否</option>
+                                <option value="1">是</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>是否能发电企业 </label>
+                            <select class="form-control select" name="is_power">
+                                <option value="0">否</option>
+                                <option value="1">是</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>是否涉限企业 </label>
+                            <select class="form-control select" name="is_sx">
+                                <option value="0">否</option>
+                                <option value="1">是</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>企业地址 </label>
+                            <input type="text" class="form-control" name="address">
+                        </div>
+                        <div class="form-group">
+                            <label>企业联系电话 </label>
+                            <input type="text" class="form-control" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label>企业邮箱 </label>
+                            <input type="text" class="form-control" name="email">
+                        </div>
+                        <div class="form-group">
+                            <label>企业传真 </label>
+                            <input type="text" class="form-control" name="fax">
+                        </div>
+                        <div class="form-group">
+                            <label>邮政编码 </label>
+                            <input type="text" class="form-control" name="zip_code">
+                        </div>
+                        <div class="form-group">
+                            <label>经度 </label>
+                            <input type="text" class="form-control" name="longitude">
+                        </div>
+                        <div class="form-group">
+                            <label>纬度 </label>
+                            <input type="text" class="form-control" name="latitude">
+                        </div>
+                        <div class="form-group">
+                            <label>主要产品及业务 </label>
+                            <input class="form-control" name="major_product" />
+                        </div>
+                        <div class="form-group">
+                            <label>单位介绍 </label>
+                            <input class="form-control" name="enterprise_introduce" />
+                        </div>
+                        <div class="form-group">
+                            <label>企业附件资料 </label>
+                            <img name="enterprise_data1">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn  btn-primary submit" data-dismiss="modal">确&nbsp;&nbsp;认</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+<script type='text/javascript' src="js/import.js"></script>
+<script type='text/javascript' src="js/pages/CURDTable.js"></script>
+<script>
+    function OperatingFomatterC(value, row, index) {
+        var uuid = 'id';
+        return '<span class="operate"><a href="javascript:void(0);" class="tedit" onclick="onEditClick(' + row[uuid] + ')">编辑</a>\
+        |<a href="javascript:void(0);" class="tdetail" onclick="onDetailClick(' + row[uuid] + ')">详情</a>\
+        |<a href="javascript:void(0);" class="tdetail" onclick="onMonitor(' + row[uuid] + ',' + '\'' + row['name'] + '\'' + ')">监测点</a>\
+        |<a href="javascript:void(0);" class="tdel" onclick="onDelClick(' + row[uuid] + ')">删除</a></span>';
+    }
+
+    function onMonitor(id, name) {
+        window.location = 'monitorManage.html?enterpriseId=' + id;
+        sessionStorage.setItem('monitorName', name);
+    }
+
+    var c = new cur({
+        t: "#TContact",
+        m: "#modal",
+        footerbar: '#footerbar',
+        showAfterRender: ['#footerbar'],
+        hideCols: ['id'],
+        childSls: {
+            "#province": {
+                def: '--请选择省--',
+                url: '/energy/sys/getAreaList?key=province&code=0',
+                autoRef: 'true',
+                type: 'GET'
+            },
+            "#companyType": {
+                def: '--请选择企业类型--',
+                url: '/energy/energyEquipment/getEnterpriseType?key=companyType',
+                autoRef: 'true',
+                type: 'GET'
+            },
+            "#industryCode": {
+                def: '--请选择所属行业--',
+                url: '/energy/energyEquipment/getIndustryList?key=industryCode',
+                autoRef: 'true',
+                type: 'GET'
+            },
+            "#energyScale": {
+                def: '--请选择用能规模--',
+                url: '/energy/energyEquipment/getEnergyList?key=energyScale',
+                autoRef: 'true',
+                type: 'GET'
+            },
+            "#province1": {
+                def: '--请选择省--',
+                url: '/energy/sys/getAreaList?key=province1',
+                autoRef: 'true',
+                type: 'GET'
+            },
+            "#city1": {
+                def: '--请选择市--',
+                url: '/energy/sys/getAreaList?key=city1',
+                autoRef: 'true',
+                type: 'GET'
+            },
+            "#district1": {
+                def: '--请选择区--',
+                url: '/energy/sys/getAreaList?key=district1',
+                autoRef: 'true',
+                type: 'GET'
+            },
+            "#companyType1": {
+                def: '--请选择企业类型--',
+                url: '/energy/energyEquipment/getEnterpriseType?key=companyType1',
+                autoRef: 'true',
+                type: 'GET'
+            },
+            "#industryCode1": {
+                def: '--请选择所属行业--',
+                url: '/energy/energyEquipment/getIndustryList?key=industryCode1',
+                autoRef: 'true',
+                type: 'GET'
+            },
+            "#energyScale1": {
+                def: '--请选择用能规模--',
+                url: '/energy/energyEquipment/getEnergyList?key=energyScale1',
+                autoRef: 'true',
+                type: 'GET'
+            },
+
+        },
+        search_params: {
+            field_select: '#field_select',
+            field_input: '#search_input'
+        },
+        queryUrl: "/energy/enterprise/getList",
+        addUrl: "/energy/enterprise/add",
+        editUrl: "/energy/enterprise/update",
+        delUrl: "/energy/enterprise/delByIds"
+    });
+
+    c.init(c);
+
+    $("#province").change(function() {
+        var provinceCode = $("#province").val();
+        if (provinceCode) {
+            $('#city').parent().show();
+            initOption('city', provinceCode);
+        }
+    });
+
+    $("#city").change(function() {
+        var cityCode = $("#city").val();
+        if (cityCode) {
+            $('#district').parent().show();
+            initOption('district', cityCode);
+        }
+
+    });
+
+    function initOption(e_id, code) {
+        var childSls = {};
+        childSls['#' + e_id] = {
+            url: '/energy/sys/getAreaList?key=' + e_id + '&code=' + code,
+            def: '请选择',
+            type: 'GET'
+        };
+
+        var sc = new cur({
+            childSls: childSls
+        });
+
+        sc.initSelect();
+    }
+</script>
+
+</html>

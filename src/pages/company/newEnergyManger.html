@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>新能源管理</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" id='theme' href="css/theme-dark-blue.css" />
+</head>
+
+<body>
+    <div class="page-container">
+        <a href="# " class="x-navigation-minimize menu_minimalize"><span class="arrow arrow-shrink "></span></a>
+        <div class="page-sidebar page-sidebar-fixed scroll">
+            <ul id='menu' class="x-navigation">
+                <li class="xn-logo">
+                    <a href="index.html"></a>
+                    <a href='#' class="x-navigation-control "></a>
+                </li>
+            </ul>
+        </div>
+        <div class="page-content">
+            <h3 class="page-title">
+                <ul class="x-navigation x-navigation-horizontal log-out pull-right">
+                    <li class="xn-icon-button last ">
+                        <a href="# "><span class="fa fa-power-off "></span></a>
+                        <ul class="xn-drop-left animated zoomIn ">
+                            <li><a href="# " class="mb-control " data-box="#mb-signout "><span class="fa fa-sign-out "></span> 登出</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            新能源管理</h3>
+            <div class="page-content-wrap min508 top0">
+                <div class="container-fluid pt24">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="panel_title">
+                                <div class="col-md-12">
+                                    <h4>区域总览</h4>
+                                </div>
+                            </div>
+                            <div class="iPanel relative">
+                                <div id="map" style="width:100%;">
+                                </div>
+                                <div class="iPanel pt0 float_panel">
+                                    <h4 class="blue_title">扬州市发电概况</h4>
+                                    <div id="detail_panel" class="scroll_content">
+                                        <div class="content">
+                                            <div class="detail-content">
+                                                <p class="detailp"><span class="lb">光伏电厂:</span> <span class="value">85</span><span class="dw">家</span></p>
+                                                <p class="detailp"><span class="lb">装机容量:</span> <span class="value">3023.34</span><span class="dw">万千瓦</span></p>
+                                                <p class="detailp"><span class="lb">总发电量:</span> <span class="value">0</span><span class="dw">万千瓦时</span></p>
+                                                <p class="detailp"><span class="lb">发电能力:</span> <span class="value">3352523.4</span><span class="dw">万千瓦时</span></p>
+                                            </div>
+                                            <div class="sepeartor"></div>
+                                            <div class="detail-content">
+                                                <p class="detailp"><span class="lb">风力电厂:</span> <span class="value">45</span><span class="dw">家</span></p>
+                                                <p class="detailp"><span class="lb">装机容量:</span> <span class="value">1322.34</span><span class="dw">万千瓦</span></p>
+                                                <p class="detailp"><span class="lb">总发电量:</span> <span class="value">0</span><span class="dw">万千瓦时</span></p>
+                                                <p class="detailp"><span class="lb">发电能力:</span> <span class="value">355643.44.4</span><span class="dw">万千瓦时</span></p>
+                                            </div>
+                                        </div>
+                                        <h4 id="title2" class="blue_title fluid hidden-em">
+                                            <span class="value">扬州市发电概况</span>
+                                            <span id="iclose" class="iclose"></span>
+                                        </h4>
+                                        <div id="panel2" class="content hidden-em">
+                                            <div id="light" class="detail-content">
+                                                <p class="detailp"><span class="lb">光伏电厂:</span> <span class="value">85</span><span class="dw">家</span></p>
+                                                <p class="detailp"><span class="lb">装机容量:</span> <span class="value">3023.34</span><span class="dw">万千瓦</span></p>
+                                                <p class="detailp"><span class="lb">总发电量:</span> <span class="value">0</span><span class="dw">万千瓦时</span></p>
+                                                <p class="detailp"><span class="lb">发电能力:</span> <span class="value">3352523.4</span><span class="dw">万千瓦时</span></p>
+                                            </div>
+                                            <div class="sepeartor"></div>
+                                            <div id="wind" class="detail-content">
+                                                <p class="detailp"><span class="lb">风力电厂:</span> <span class="value">45</span><span class="dw">家</span></p>
+                                                <p class="detailp"><span class="lb">装机容量:</span> <span class="value">1322.34</span><span class="dw">万千瓦</span></p>
+                                                <p class="detailp"><span class="lb">总发电量:</span> <span class="value">0</span><span class="dw">万千瓦时</span></p>
+                                                <p class="detailp"><span class="lb">发电能力:</span> <span class="value">355643.44.4</span><span class="dw">万千瓦时</span></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="panel_title">
+                                <div class="col-md-12">
+                                    <h4>发电量走势</h4>
+                                </div>
+                            </div>
+                            <div class="iPanel pt24">
+                                <div class="content">
+                                    <h4 id="chart_title" class="title">扬州市各区光伏发电量走势</h4>
+                                    <div class="chart-wrap">
+                                        <div id="chart_bar"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="message-box animated fadeIn" data-sound="alert " id='mb-signout'>
+        <div class="mb-container ">
+            <div class="mb-middle ">
+                <div class="mb-title"><span class="fa fa-sign-out "></span> Log <strong>Out</strong> ?</div>
+                <div class="mb-content ">
+                    <p>确定登出?</p>
+                    <p>如果您想继续留在此页面，请点击"否"</p>
+                </div>
+                <div class="mb-footer ">
+                    <div class="pull-right ">
+                        <a href="login.html " class="btn btn-success btn-lg ">是</a>
+                        <button class="btn btn-default btn-lg mb-control-close ">否</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type='text/javascript' src="js/import.js"></script>
+<script type='text/javascript' src="js/pages/common.js"></script>
+<script type='text/javascript' src="js/pages/CURDTable.js"></script>
+<script type='text/javascript' src="js/charts/echart_yarn.min.js"></script>
+<script src="http://api.map.baidu.com/api?v=2.0&ak=t7rKOWuAzG5cad66oTnl1VYU" type="text/javascript"></script>
+<script>
+// $("#detail_panel").yi_scroll();
+//$("#detail_panel").yi_scroll({ isMaxHeight: true, isBar: true });
+
+var window_height = $(window).height();
+$("#map").css("height", 495 + 'px');
+
+$(window).resize(function() {
+    var window_height = $(window).height();
+    $("#map").css("height", 495 + 'px');
+});
+
+var markerArr = [];
+var iconPos = { w: 26, h: 26, l: 42, t: 20, x: 0, lb: 5 };
+
+eBase.send({
+    url: '/energy/enterprise/getGisList',
+    data: JSON.stringify({
+        pageIndex: 1,
+        pageSize: 500
+    })
+}).done(function(resp) {
+    var data = resp.rows;
+    $.each(data, function(i, item) {
+        var chartid = 'ring' + i;
+        var obj = {};
+        var value1 = '2222万千瓦时',
+            value2 = '7856kv';
+        obj.title = item.name;
+        obj.content = "<div class='chart mb40' id='" + chartid + "'></div>";
+        obj.content += '<p>装机容量: ' + value1 + '</p><p>电压等级：' + value2 + '</p>';
+        obj.point = item.longitude + "," + item.latitude;
+        obj.isOpen = 0;
+        obj.icon = iconPos;
+        obj.data = {
+            light: {
+                value1: _.random(1, 100),
+                value2: _.random(1000, 2000),
+                value3: _.random(100, 600),
+                value4: _.random(10000, 20000)
+            },
+            wind: {
+                value1: _.random(2, 200),
+                value2: _.random(2000, 3000),
+                value3: _.random(700, 1200),
+                value4: _.random(30000, 40000)
+            }
+        };
+        markerArr.push(obj);
+    });
+
+    initMap();
+
+}).fail(function() {
+    console.log('获取数据失败');
+});
+
+
+function initMap() {
+    createMap();
+    addMarker();
+}
+
+
+function createMap() {
+    var map = new BMap.Map("map");
+    var point = new BMap.Point(119.4223207512, 32.3995499263);
+    map.centerAndZoom(point, 15);
+    map.enableScrollWheelZoom();
+    map.addControl(new BMap.NavigationControl());
+    window.map = map;
+}
+
+function addMarker() {
+    for (var i = 0; i < markerArr.length; i++) {
+        var json = markerArr[i];
+        var p0 = json.point.split(",")[0];
+        var p1 = json.point.split(",")[1];
+        var point = new BMap.Point(p0, p1);
+        var iconImg = createIcon(json.icon);
+        var marker = new BMap.Marker(point, { icon: iconImg });
+        var iw = createInfoWindow(i);
+        map.addOverlay(marker);
+
+        var _iw = createInfoWindow(i);
+        addMouseOverListener(_iw, marker, json);
+    }
+}
+
+function addMouseOverListener(_iw, _marker, json) {
+    _marker.addEventListener("mouseover", function() {
+        var item = json;
+        $('#title2').show();
+        $('#panel2').show();
+
+        $('#title2').find('.value').text(json.title);
+        $('#light').find('.value').eq(0).text(json.data.light.value1);
+        $('#light').find('.value').eq(1).text(json.data.light.value2);
+        $('#light').find('.value').eq(2).text(json.data.light.value3);
+        $('#light').find('.value').eq(3).text(json.data.light.value4);
+
+        $('#wind').find('.value').eq(0).text(json.data.wind.value1);
+        $('#wind').find('.value').eq(1).text(json.data.wind.value2);
+        $('#wind').find('.value').eq(2).text(json.data.wind.value3);
+        $('#wind').find('.value').eq(3).text(json.data.wind.value4);
+
+        this.openInfoWindow(_iw);
+    });
+}
+
+
+$('#iclose').on('click', function() {
+    $('#title2').hide();
+    $('#panel2').hide();
+});
+
+function createInfoWindow(i) {
+    var json = markerArr[i];
+    var opts = {
+        width: 300,
+        title: json.title
+    };
+    var iw = new BMap.InfoWindow(json.content, opts);
+    return iw;
+}
+
+
+function createIcon(json) {
+    var icon = new BMap.Icon("img/us_mk_icon.png", new BMap.Size(json.w, json.h), { imageOffset: new BMap.Size(-json.l, -json.t), infoWindowOffset: new BMap.Size(json.lb + 5, 1), offset: new BMap.Size(json.x, json.h) })
+    return icon;
+}
+
+function initPage() {
+    new yarn({
+        charts: [{
+            el: 'chart_bar',
+            type: 'bar',
+            ti: '#chart_title',
+            theme: 'bar',
+            url: 'js/charts/demos/newEnergyManger_bar.json',
+            scale: 0.20
+        }]
+    }).init();
+}
+
+initPage();
+</script>
+
+</html>

@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>综合能耗在线</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" id='theme' href="css/theme-dark-blue.css" />
+</head>
+
+<body>
+    <div class="page-container">
+        <a href="# " class="x-navigation-minimize menu_minimalize"><span class="arrow arrow-shrink "></span></a>
+        <div class="page-sidebar page-sidebar-fixed scroll">
+            <ul id='menu' class="x-navigation">
+                <li class="xn-logo">
+                    <a href="index.html"></a>
+                    <a href='#' class="x-navigation-control "></a>
+                </li>
+            </ul>
+        </div>
+        <div class="page-content ">
+            <ul class="x-navigation x-navigation-horizontal x-navigation-panel ">
+                <li class="xn-icon-button ">
+                    <a href="# " class="x-navigation-minimize "><span class="fa fa-dedent "></span></a>
+                </li>
+                <li class="xn-icon-button pull-right last ">
+                    <a href="# "><span class="fa fa-power-off "></span></a>
+                    <ul class="xn-drop-left animated zoomIn ">
+                        <li><a href="# " class="mb-control " data-box="#mb-signout "><span class="fa fa-sign-out "></span> 登出</a></li>
+                    </ul>
+                </li>
+                <li class="xn-icon-button pull-right ">
+                    <ul class="xn-drop-left xn-drop-white animated zoomIn ">
+                        <li><a href="#"><span class="flag flag-gb "></span> English</a></li>
+                        <li><a href="#"><span class="flag flag-de "></span> Deutsch</a></li>
+                        <li><a href="#"><span class="flag flag-cn "></span> Chinese</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="page-content-wrap top0">
+                <div class="banner_box">
+                    <h3 class="page-title">综合能耗在线</h3>
+                    <ul id="inavigation" class="nav nav-tabs xs-tabs">
+                        <li role="presentation" class="active"><a href="javascript:void(0);" data-page='#ipage1'>电能在线</a></li>
+                        <li role="presentation"><a href="javascript:void(0);" data-page='#ipage2'>用水在线</a></li>
+                        <li role="presentation"><a href="javascript:void(0);" data-page='#ipage3'>用气在线</a></li>
+                    </ul>
+                </div>
+                <div id="ipage_content" class="nav-content pt24">
+                    <div id="ipage1" class="relative">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <ul id="navigation" class="nav nav-tabs">
+                                        <li role="presentation" class="active"><a href="javascript:void(0);" data-page='#page1'>区域电能在线监测</a></li>
+                                        <li role="presentation"><a href="javascript:void(0);" data-page='#page2'>行业电能在线监测</a></li>
+                                    </ul>
+                                    <div id="page_content" class="nav-content">
+                                        <div id="page1" class="relative">
+                                            <div class="absolute-bar">
+                                                <div class="gap-btn-group" role="group">
+                                                    <input id="frame1_page1_input1" type="text" name="name" class="form-control laydate-icon layer-date">
+                                                    <div class="btn-group">
+                                                        <button class="btn btn-primary" onclick="searchAreaPageByDay()">按日查询</button>
+                                                        <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                                                            <span class="caret"></span>
+                                                        </button>
+                                                        <ul class="dropdown-menu mw116">
+                                                            <li><a href="javascript:void(0);" data-value='0002' onclick="searchAreaPageByMonth()">按月查询</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="iPanel">
+                                                <div class="content">
+                                                    <h4 id="frame1_page1_title" class="title">区域电能在线监测</h4>
+                                                    <div class="chart-wrap">
+                                                        <div id="frame1_page1_chart"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="content mt10">
+                                                    <table id="frame1_page1_tabel" data-height="559" data-mobile-responsive="true">
+                                                        <thead>
+                                                            <tr class="hidden-em">
+                                                                <th data-field="county_name">地区</th>
+                                                                <th data-field="upload_date">日期</th>
+                                                                <th data-field="data_value">电量<span class="st">(万千瓦时)</span></th>
+                                                            </tr>
+                                                        </thead>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="page2" class="relative hidden-em">
+                                            <div class="absolute-bar">
+                                                <div class="gap-btn-group" role="group">
+                                                    <input id="frame1_page2_input1" type="text" name="name" class="form-control laydate-icon layer-date">
+                                                    <div class="btn-group">
+                                                        <button class="btn btn-primary" onclick="searchIndustryByDay()">按日查询</button>
+                                                        <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                                                            <span class="caret"></span>
+                                                        </button>
+                                                        <ul class="dropdown-menu mw116">
+                                                            <li><a href="javascript:void(0);" data-value='0002' onclick="searchIndustryByMonth()">按月查询</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="iPanel">
+                                                <div class="content">
+                                                    <h4 id="frame1_page2_title" class="title">行业用电分析</h4>
+                                                    <div class="chart-wrap">
+                                                        <div id="frame1_page2_chart"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="content mt10">
+                                                    <table id="frame_page2_tabel" data-height="559" data-mobile-responsive="true">
+                                                        <thead>
+                                                            <tr class="hidden-em">
+                                                                <th data-field="industry_name">行业名称</th>
+                                                                <th data-field="upload_date">日期</th>
+                                                                <th data-field="data_value">电量<span class="st">(万千瓦时)</span></th>
+                                                            </tr>
+                                                        </thead>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="ipage2" class="relative hidden-em">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <ul id="navigation2" class="nav nav-tabs">
+                                        <li role="presentation" class="active"><a href="javascript:void(0);" data-page='#page3'>区域水能在线监测</a></li>
+                                        <li role="presentation"><a href="javascript:void(0);" data-page='#page4'>行业水能在线监测</a></li>
+                                    </ul>
+                                    <div id="page_content2" class="nav-content">
+                                        <div id="page3" class="relative">
+                                            <div class="absolute-bar">
+                                                <div class="gap-btn-group" role="group">
+                                                    <input id="frame2_page3_input1" type="text" name="name" class="form-control laydate-icon layer-date">
+                                                    <div class="btn-group">
+                                                        <button class="btn btn-primary" onclick="searchAreaPageByDayForWater()">按日查询</button>
+                                                        <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                                                            <span class="caret"></span>
+                                                        </button>
+                                                        <ul class="dropdown-menu mw116">
+                                                            <li><a href="javascript:void(0);" data-value='0002' onclick="searchAreaPageByMonthForWater()">按月查询</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="iPanel">
+                                                <div class="content">
+                                                    <h4 id="frame2_page3_title" class="title">区域水能在线监测</h4>
+                                                    <div class="chart-wrap">
+                                                        <div id="frame2_page3_chart"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="content mt10">
+                                                    <table id="frame2_page3_tabel" data-height="559" data-mobile-responsive="true">
+                                                        <thead>
+                                                            <tr class="hidden-em">
+                                                                <th data-field="county_name">地区</th>
+                                                                <th data-field="upload_date">日期</th>
+                                                                <th data-field="data_value">水量 <span class="st">(吨)</span></th>
+                                                            </tr>
+                                                        </thead>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="page4" class="relative hidden-em">
+                                            <div class="absolute-bar">
+                                                <div class="gap-btn-group" role="group">
+                                                    <input id="frame2_page4_input1" type="text" name="name" class="form-control laydate-icon layer-date">
+                                                    <div class="btn-group">
+                                                        <button class="btn btn-primary" onclick="searchIndustryByDayForWater()">按日查询</button>
+                                                        <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                                                            <span class="caret"></span>
+                                                        </button>
+                                                        <ul class="dropdown-menu mw116">
+                                                            <li><a href="javascript:void(0);" data-value='0002' onclick="searchIndustryByMonthForWater()">按月查询</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="iPanel">
+                                                <div class="content">
+                                                    <h4 id="frame2_page4_title" class="title">行业用水分析</h4>
+                                                    <div class="chart-wrap">
+                                                        <div id="frame2_page4_chart"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="content mt10">
+                                                    <table id="frame2_page4_tabel" data-height="559" data-mobile-responsive="true">
+                                                        <thead>
+                                                            <tr class="hidden-em">
+                                                                <th data-field="industry_name">行业名称</th>
+                                                                <th data-field="upload_date">日期</th>
+                                                                <th data-field="data_value">水量 <span class="st">(吨)</span></th>
+                                                            </tr>
+                                                        </thead>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="ipage3" class="relative hidden-em">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <ul id="navigation3" class="nav nav-tabs">
+                                        <li role="presentation" class="active"><a href="javascript:void(0);" data-page='#page5'>区域天然气在线监测</a></li>
+                                        <li role="presentation"><a href="javascript:void(0);" data-page='#page6'>行业天然气在线监测</a></li>
+                                    </ul>
+                                    <div id="page_content3" class="nav-content">
+                                        <div id="page5" class="relative">
+                                            <div class="absolute-bar">
+                                                <div class="gap-btn-group" role="group">
+                                                    <input id="frame3_page5_input1" type="text" name="name" class="form-control laydate-icon layer-date">
+                                                    <div class="btn-group">
+                                                        <button class="btn btn-primary" onclick="searchAreaPageByDayForGas()">按日查询</button>
+                                                        <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                                                            <span class="caret"></span>
+                                                        </button>
+                                                        <ul class="dropdown-menu mw116">
+                                                            <li><a href="javascript:void(0);" data-value='0002' onclick="searchAreaPageByMonthForGas()">按月查询</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="iPanel">
+                                                <div class="content">
+                                                    <h4 id="frame3_page5_title" class="title">区域天然气在线监测</h4>
+                                                    <div class="chart-wrap">
+                                                        <div id="frame3_page5_chart"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="content mt10">
+                                                    <table id="frame3_page5_tabel" data-height="559" data-mobile-responsive="true">
+                                                        <thead>
+                                                            <tr class="hidden-em">
+                                                                <th data-field="county_name">地区</th>
+                                                                <th data-field="upload_date">日期</th>
+                                                                <th data-field="data_value">用量 <span class="st">(立方米)</span></th>
+                                                            </tr>
+                                                        </thead>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="page6" class="relative hidden-em">
+                                            <div class="absolute-bar">
+                                                <div class="gap-btn-group" role="group">
+                                                    <input id="frame3_page6_input1" type="text" name="name" class="form-control laydate-icon layer-date">
+                                                    <div class="btn-group">
+                                                        <button class="btn btn-primary" onclick="searchIndustryByDayForGas()">按日查询</button>
+                                                        <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                                                            <span class="caret"></span>
+                                                        </button>
+                                                        <ul class="dropdown-menu mw116">
+                                                            <li><a href="javascript:void(0);" data-value='0002' onclick="searchIndustryByMonthForGas()">按月查询</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="iPanel">
+                                                <div class="content">
+                                                    <h4 id="frame3_page6_title" class="title">行业天然气分析</h4>
+                                                    <div class="chart-wrap">
+                                                        <div id="frame3_page6_chart"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="content mt10">
+                                                    <table id="frame3_page6_tabel" data-height="559" data-mobile-responsive="true">
+                                                        <thead>
+                                                            <tr class="hidden-em">
+                                                                <th data-field="industry_name">行业名称</th>
+                                                                <th data-field="upload_date">日期</th>
+                                                                <th data-field="data_value">用量 <span class="st">(立方米)</span></th>
+                                                            </tr>
+                                                        </thead>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    <div class="message-box animated fadeIn" data-sound="alert " id='mb-signout'>
+        <div class="mb-container ">
+            <div class="mb-middle ">
+                <div class="mb-title"><span class="fa fa-sign-out "></span> Log <strong>Out</strong> ?</div>
+                <div class="mb-content ">
+                    <p>确定登出?</p>
+                    <p>如果您想继续留在此页面，请点击"否"</p>
+                </div>
+                <div class="mb-footer ">
+                    <div class="pull-right ">
+                        <a href="login.html " class="btn btn-success btn-lg ">是</a>
+                        <button class="btn btn-default btn-lg mb-control-close ">否</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type='text/javascript' src="js/import.js"></script>
+<script type='text/javascript' src="js/pages/common.js"></script>
+<script type='text/javascript' src="js/pages/CURDTable.js"></script>
+<script type='text/javascript' src="js/charts/echart_yarn.min.js"></script>
+<script>
+initDateInputForDay('#frame1_page1_input1');
+initDateInputForDay('#frame1_page2_input1');
+
+$('#frame1_page1_input1').val(getToday());
+$('#frame1_page2_input1').val(getToday());
+
+initDateInputForDay('#frame2_page3_input1');
+initDateInputForDay('#frame2_page4_input1');
+
+$('#frame2_page3_input1').val(getToday());
+$('#frame2_page4_input1').val(getToday());
+
+initDateInputForDay('#frame3_page5_input1');
+initDateInputForDay('#frame3_page6_input1');
+
+$('#frame3_page5_input1').val(getToday());
+$('#frame3_page6_input1').val(getToday());
+
+
+$('#inavigation').find('li').click(function() {
+    $(this).addClass('active').siblings('li').removeClass('active');
+    var id = $(this).find('a').data('page');
+    $('#ipage_content').find(id).show().siblings().hide();
+    switch (id) {
+        case '#ipage2':
+            setTimeout(function() { showFrame2(); }, 100);
+            break;
+        case '#ipage3':
+            setTimeout(function() { showFrame3(); }, 100);
+            break;
+        case '#ipage1':
+        default:
+            setTimeout(function() { showFrame1(); }, 100);
+            break;
+    }
+});
+
+//用电在线
+$('#navigation').find('li').click(function() {
+    $(this).addClass('active').siblings('li').removeClass('active');
+    var id = $(this).find('a').data('page');
+    $('#page_content').find(id).show().siblings().hide();
+    switch (id) {
+        case '#page2':
+            setTimeout(function() { showIndustryPageForEle($('#frame1_page2_input1').val(), 0); }, 100);
+            break;
+        case '#page1':
+        default:
+            setTimeout(function() { showAreaPageForEle($('#frame1_page1_input1').val(), 0); }, 100);
+            break;
+    }
+});
+
+//区域 area 行业 industry 企业:company 电:ele, 水water,气 gas
+function showFrame1() {
+    showAreaPageForEle($('#frame1_page1_input1').val(), 0);
+}
+
+function searchAreaPageByDay() {
+    var d = $('#frame1_page1_input1').val();
+    showAreaPageForEle(d, 0);
+}
+
+function searchAreaPageByMonth() {
+    var d = new Date($('#frame1_page1_input1').val()).Format('yyyy-MM');
+    showAreaPageForEle(d, 1);
+}
+
+function searchIndustryByDay() {
+    var d = $('#frame1_page2_input1').val();
+    showIndustryPageForEle(d, 0);
+}
+
+function searchIndustryByMonth() {
+    var d = new Date($('#frame1_page2_input1').val()).Format('yyyy-MM');
+    showIndustryPageForEle(d, 1);
+}
+
+function showAreaPageForEle(date, type) {
+    new cur({
+        t: "#frame1_page1_tabel",
+        m: "#modal",
+        footerbar: '#footerbar',
+        showAfterRender: ['#footerbar'],
+        uuid: "id",
+        unEditFields: ['uuid'],
+        hideCols: [],
+        dataInputs: [],
+        urlGetType: 'list',
+        queryUrl: "/energy/analysis/table/county/date/001",
+        addBtn: "#add",
+        refBtn: "#ref",
+        inputBar: "#inputBox",
+        params: {
+            params: {
+                cityId: "321000",
+                getTime: date,
+                type: type
+            }
+        }
+    }).init();
+
+    new yarn({
+        charts: [{
+            el: 'frame1_page1_chart',
+            type: 'bar',
+            ti: '#frame1_page1_title',
+            url: '/energy/analysis/chart/county/date/power',
+            scale: 0.20,
+            params: {
+                cityId: '321000',
+                getTime: date,
+                key: '123',
+                type: type
+            }
+        }]
+    }).init();
+}
+
+function showIndustryPageForEle(date, type) {
+    new cur({
+        t: "#frame_page2_tabel",
+        m: "#modal",
+        footerbar: '#footerbar',
+        showAfterRender: ['#footerbar'],
+        uuid: "id",
+        unEditFields: ['uuid'],
+        urlGetType: 'list',
+        queryUrl: "/energy/analysis/table/industry/date/001",
+        params: {
+            params: {
+                getTime: date,
+                type: type
+            }
+        }
+    }).init();
+
+    new yarn({
+        charts: [{
+            el: 'frame1_page2_chart',
+            type: 'bar',
+            ti: '#frame1_page2_title',
+            url: '/energy/analysis/chart/industry/date/power',
+            scale: 0.20,
+            params: {
+                getTime: date,
+                key: '123',
+                type: type
+            }
+        }]
+    }).init();
+}
+
+//用水在线
+$('#navigation2').find('li').click(function() {
+    $(this).addClass('active').siblings('li').removeClass('active');
+    var id = $(this).find('a').data('page');
+    $('#page_content2').find(id).show().siblings().hide();
+    switch (id) {
+        case '#page4':
+            setTimeout(function() { showIndustryPageForWater($('#frame2_page4_input1').val(), 0); }, 100);
+            break;
+        case '#page3':
+        default:
+            setTimeout(function() { showAreaPageForWater($('#frame2_page3_input1').val(), 0); }, 100);
+            break;
+    }
+});
+
+function showFrame2() {
+    showAreaPageForWater($('#frame2_page3_input1').val(), 0);
+}
+
+
+function searchAreaPageByDayForWater() {
+    var d = $('#frame2_page3_input1').val();
+    showAreaPageForWater(d, 0);
+}
+
+function searchAreaPageByMonthForWater() {
+    var d = new Date($('#frame2_page3_input1').val()).Format('yyyy-MM');
+    showAreaPageForWater(d, 1);
+}
+
+function searchIndustryByDayForWater() {
+    var d = $('#frame2_page4_input1').val();
+    showIndustryPageForWater(d, 0);
+}
+
+function searchIndustryByMonthForWater() {
+    var d = new Date($('#frame2_page4_input1').val()).Format('yyyy-MM');
+    showIndustryPageForWater(d, 1);
+}
+
+function showAreaPageForWater(date, type) {
+    new cur({
+        t: "#frame2_page3_tabel",
+        m: "#modal",
+        footerbar: '#footerbar',
+        showAfterRender: ['#footerbar'],
+        uuid: "id",
+        unEditFields: ['uuid'],
+        hideCols: [],
+        dataInputs: [],
+        urlGetType: 'list',
+        queryUrl: "/energy/analysis/table/county/date/002",
+        addBtn: "#add",
+        refBtn: "#ref",
+        inputBar: "#inputBox",
+        params: {
+            params: {
+                cityId: "321000",
+                getTime: date,
+                type: type
+            }
+        }
+    }).init();
+
+    new yarn({
+        charts: [{
+            el: 'frame2_page3_chart',
+            type: 'bar',
+            ti: '#frame2_page3_title',
+            url: '/energy/analysis/chart/county/date/water',
+            scale: 0.20,
+            params: {
+                cityId: '321000',
+                getTime: date,
+                key: '123',
+                type: type
+            }
+        }]
+    }).init();
+}
+
+function showIndustryPageForWater(date, type) {
+    new cur({
+        t: "#frame2_page4_tabel",
+        m: "#modal",
+        footerbar: '#footerbar',
+        showAfterRender: ['#footerbar'],
+        uuid: "id",
+        unEditFields: ['uuid'],
+        urlGetType: 'list',
+        queryUrl: "/energy/analysis/table/industry/date/002",
+        params: {
+            params: {
+                getTime: date,
+                type: type
+            }
+        }
+    }).init();
+
+    new yarn({
+        charts: [{
+            el: 'frame2_page4_chart',
+            type: 'bar',
+            ti: '#frame2_page4_title',
+            url: '/energy/analysis/chart/industry/date/water',
+            scale: 0.20,
+            params: {
+                getTime: date,
+                key: '123',
+                type: type
+            }
+        }]
+    }).init();
+}
+
+//天然气在线
+$('#navigation3').find('li').click(function() {
+    $(this).addClass('active').siblings('li').removeClass('active');
+    var id = $(this).find('a').data('page');
+    $('#page_content3').find(id).show().siblings().hide();
+    switch (id) {
+        case '#page6':
+            setTimeout(function() { showIndustryPageForGas($('#frame3_page6_input1').val(), 0); }, 100);
+            break;
+        case '#page5':
+        default:
+            setTimeout(function() { showAreaPageForGas($('#frame3_page5_input1').val(), 0); }, 100);
+            break;
+    }
+});
+
+function showFrame3() {
+    showAreaPageForGas($('#frame3_page5_input1').val(), 0);
+}
+
+
+function searchAreaPageByDayForGas() {
+    var d = $('#frame3_page5_input1').val();
+    showAreaPageForGas(d, 0);
+}
+
+function searchAreaPageByMonthForGas() {
+    var d = new Date($('#frame3_page5_input1').val()).Format('yyyy-MM');
+    showAreaPageForGas(d, 1);
+}
+
+function searchIndustryByDayForGas() {
+    var d = $('#frame3_page6_input1').val();
+    showIndustryPageForGas(d, 0);
+}
+
+function searchIndustryByMonthForGas() {
+    var d = new Date($('#frame3_page6_input1').val()).Format('yyyy-MM');
+    showIndustryPageForGas(d, 1);
+}
+
+function showAreaPageForGas(date, type) {
+    new cur({
+        t: "#frame3_page5_tabel",
+        m: "#modal",
+        footerbar: '#footerbar',
+        showAfterRender: ['#footerbar'],
+        uuid: "id",
+        unEditFields: ['uuid'],
+        hideCols: [],
+        dataInputs: [],
+        urlGetType: 'list',
+        queryUrl: "/energy/analysis/table/county/date/003",
+        addBtn: "#add",
+        refBtn: "#ref",
+        inputBar: "#inputBox",
+        params: {
+            params: {
+                cityId: "321000",
+                getTime: date,
+                type: type
+            }
+        }
+    }).init();
+
+    new yarn({
+        charts: [{
+            el: 'frame3_page5_chart',
+            type: 'bar',
+            ti: '#frame3_page5_title',
+            url: '/energy/analysis/chart/county/date/gas',
+            scale: 0.20,
+            params: {
+                cityId: '321000',
+                getTime: date,
+                key: '123',
+                type: type
+            }
+        }]
+    }).init();
+}
+
+function showIndustryPageForGas(date, type) {
+    new cur({
+        t: "#frame3_page6_tabel",
+        m: "#modal",
+        footerbar: '#footerbar',
+        showAfterRender: ['#footerbar'],
+        uuid: "id",
+        unEditFields: ['uuid'],
+        urlGetType: 'list',
+        queryUrl: "/energy/analysis/table/industry/date/003",
+        params: {
+            params: {
+                getTime: date,
+                type: type
+            }
+        }
+    }).init();
+
+    new yarn({
+        charts: [{
+            el: 'frame3_page6_chart',
+            type: 'bar',
+            ti: '#frame3_page6_title',
+            url: '/energy/analysis/chart/industry/date/gas',
+            scale: 0.20,
+            params: {
+                getTime: date,
+                key: '123',
+                type: type
+            }
+        }]
+    }).init();
+}
+
+showFrame1();
+</script>
+
+</html>

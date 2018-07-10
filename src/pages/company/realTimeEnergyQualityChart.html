@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>电能质量实时运行图表</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" id='theme' href="css/theme-dark-blue.css" />
+</head>
+
+<body>
+    <div class="page-container">
+        <a href="# " class="x-navigation-minimize menu_minimalize"><span class="arrow arrow-shrink "></span></a>
+        <div class="page-sidebar page-sidebar-fixed scroll">
+            <ul id='menu' class="x-navigation">
+                <li class="xn-logo">
+                    <a href="index.html"></a>
+                    <a href='#' class="x-navigation-control "></a>
+                </li>
+            </ul>
+        </div>
+        <div class="page-content ">
+            <h3 class="page-title">
+                <ul class="x-navigation x-navigation-horizontal log-out pull-right">
+                    <li class="xn-icon-button last ">
+                        <a href="# "><span class="fa fa-power-off "></span></a>
+                        <ul class="xn-drop-left animated zoomIn ">
+                            <li><a href="# " class="mb-control " data-box="#mb-signout "><span class="fa fa-sign-out "></span> 登出</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                电能质量实时运行图表</h3>
+            <div class="page-content-wrap chart_container">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-4" style="padding-right:0!important;">
+                            <div class="panel_title" style="height: 56px;">
+                                <div class="clearfix">
+                                    <div id="inputBox" class="gap-btn-group tree-bar" role="group">
+                                        <select id="company" class="form-control select iselect full"></select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="tree_box" class="iPanel tree-panel font14" style="max-height: 1000px;height: 1000px;min-height:1000px;overflow: auto;">
+                            </div>
+                        </div>
+                        <div class="col-lg-9 col-md-8" style="padding-left:0!important;">
+                            <div class="panel_title left-border clearfix">
+                                <div class="col-xl-6">
+                                    <h4 id="chart_title"></h4>
+                                </div>
+                                <div class="col-xl-6 clearfix">
+                                    <div class="gap-btn-group pull-right bar-group ml10" role="group">
+                                        <div class="btn-group" role="group">
+                                            <select id="line_type" class="w180 form-control select iselect">
+                                                <option value='{"type":"1","filter":[{"htype":"IA"},{"htype":"IB"},{"htype":"IC"}],"names":["A相","B相","C相"],"yzTitle":"单位(%)"}'>电流谐波畸变率</option>
+                                                <option value='{"type":"2","filter":[{"htype":"UA"},{"htype":"UB"},{"htype":"UC"}],"names":["A相","B相","C相"],"yzTitle":"单位(%)"}'>电压谐波畸变率</option>
+                                                <option value='{"type":"3","names":["Uab","Ubc","Uca"],"names2":["Uab","Ubc","Uca","A相","B相","C相"],"fields":["uabw","ubcw","ucaw"],"fields2":["uabw","ubcw","ucaw","uaw","ubw","ucw"],"yzTitle":"单位(%)"}'>电压偏差</option>
+                                                <option value='{"type":"3","names":["频率偏差"],"fields":["fw"],"yzTitle":"单位(%)"}'>频率偏差</option>
+                                                <option value='{"type":"3","names":["电流","电压"],"fields":["inbalance","unbalance"],"yzTitle":"单位(%)"}'>三相不平衡度</option>
+                                            </select>
+                                        </div>
+                                        <div class="btn-group" role="group">
+                                            <select id="lv" class="w140 form-control select iselect">
+                                                <option value="hall">总畸变率</option>
+                                                <option value="h3">3次畸变率</option>
+                                                <option value="h5">5次畸变率</option>
+                                                <option value="h7">7次畸变率</option>
+                                                <option value="h9">9次畸变率</option>
+                                                <option value="h11">11次畸变率</option>
+                                                <option value="h13">13次畸变率</option>
+                                                <option value="h15">15次畸变率</option>
+                                                <option value="h17">17次畸变率</option>
+                                                <option value="h19">19次畸变率</option>
+                                                <option value="h21">21次畸变率</option>
+                                                <option value="h23">23次畸变率</option>
+                                                <option value="h25">25次畸变率</option>
+                                                <option value="h27">27次畸变率</option>
+                                                <option value="h29">29次畸变率</option>
+                                                <option value="h31">31次畸变率</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="content_box" class="iPanel left-border" style="max-height: 1000px;height: 1000px;min-height: 1000px;overflow: auto;">
+                                <div class="content">
+                                    <div class="chart-wrap">
+                                        <div id="line_bar" style="max-height: 600px;min-height: 300px;"></div>
+                                    </div>
+                                </div>
+                                <ul id="inavigation" class="nav nav-tabs xs-tabs mt40">
+                                    <li role="presentation" class="active"><a href="javascript:void(0);" data-page='#ipage1'>谐波畸变</a></li>
+                                    <li role="presentation"><a href="javascript:void(0);" data-page='#ipage2'>电能质量</a></li>
+                                </ul>
+                                <div id="ipage_content" class="nav-content">
+                                    <div id="ipage1" class="relative">
+                                        <table id="TJIBian" data-mobile-responsive="true">
+                                            <thead>
+                                                <tr class="hidden-em">
+                                                    <th data-field="name">时间</th>
+                                                    <!-- <th data-field="code">标准值范围</th> -->
+                                                    <th data-field="hour00" data-align="right">0</th>
+                                                    <th data-field="hour01" data-align="right">1</th>
+                                                    <th data-field="hour02" data-align="right">2</th>
+                                                    <th data-field="hour03" data-align="right">3</th>
+                                                    <th data-field="hour04" data-align="right">4</th>
+                                                    <th data-field="hour05" data-align="right">5</th>
+                                                    <th data-field="hour06" data-align="right">6</th>
+                                                    <th data-field="hour07" data-align="right">7</th>
+                                                    <th data-field="hour08" data-align="right">8</th>
+                                                    <th data-field="hour09" data-align="right">9</th>
+                                                    <th data-field="hour10" data-align="right">10</th>
+                                                    <th data-field="hour11" data-align="right">11</th>
+                                                    <th data-field="hour12" data-align="right">12</th>
+                                                    <th data-field="hour13" data-align="right">13</th>
+                                                    <th data-field="hour14" data-align="right">14</th>
+                                                    <th data-field="hour15" data-align="right">15</th>
+                                                    <th data-field="hour16" data-align="right">16</th>
+                                                    <th data-field="hour17" data-align="right">17</th>
+                                                    <th data-field="hour18" data-align="right">18</th>
+                                                    <th data-field="hour19" data-align="right">19</th>
+                                                    <th data-field="hour20" data-align="right">20</th>
+                                                    <th data-field="hour21" data-align="right">21</th>
+                                                    <th data-field="hour22" data-align="right">22</th>
+                                                    <th data-field="hour23" data-align="right">23</th>
+                                                </tr>
+                                            </thead>
+                                        </table>
+                                    </div>
+                                    <div id="ipage2" class="relative hidden-em">
+                                        <table id="TZHILiang" data-mobile-responsive="true">
+                                            <thead>
+                                                <tr class="hidden-em">
+                                                    <th data-field="name">时间</th>
+                                                    <!-- <th data-field="code">标准值范围</th> -->
+                                                    <th data-field="hour00" data-align="right">0</th>
+                                                    <th data-field="hour01" data-align="right">1</th>
+                                                    <th data-field="hour02" data-align="right">2</th>
+                                                    <th data-field="hour03" data-align="right">3</th>
+                                                    <th data-field="hour04" data-align="right">4</th>
+                                                    <th data-field="hour05" data-align="right">5</th>
+                                                    <th data-field="hour06" data-align="right">6</th>
+                                                    <th data-field="hour07" data-align="right">7</th>
+                                                    <th data-field="hour08" data-align="right">8</th>
+                                                    <th data-field="hour09" data-align="right">9</th>
+                                                    <th data-field="hour10" data-align="right">10</th>
+                                                    <th data-field="hour11" data-align="right">11</th>
+                                                    <th data-field="hour12" data-align="right">12</th>
+                                                    <th data-field="hour13" data-align="right">13</th>
+                                                    <th data-field="hour14" data-align="right">14</th>
+                                                    <th data-field="hour15" data-align="right">15</th>
+                                                    <th data-field="hour16" data-align="right">16</th>
+                                                    <th data-field="hour17" data-align="right">17</th>
+                                                    <th data-field="hour18" data-align="right">18</th>
+                                                    <th data-field="hour19" data-align="right">19</th>
+                                                    <th data-field="hour20" data-align="right">20</th>
+                                                    <th data-field="hour21" data-align="right">21</th>
+                                                    <th data-field="hour22" data-align="right">22</th>
+                                                    <th data-field="hour23" data-align="right">23</th>
+                                                </tr>
+                                            </thead>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="message-box animated fadeIn" data-sound="alert " id='mb-signout'>
+        <div class="mb-container ">
+            <div class="mb-middle ">
+                <div class="mb-title"><span class="fa fa-sign-out "></span> Log <strong>Out</strong> ?</div>
+                <div class="mb-content ">
+                    <p>确定登出?</p>
+                    <p>如果您想继续留在此页面，请点击"否"</p>
+                </div>
+                <div class="mb-footer ">
+                    <div class="pull-right ">
+                        <a href="login.html " class="btn btn-success btn-lg ">是</a>
+                        <button class="btn btn-default btn-lg mb-control-close ">否</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type='text/javascript' src="js/import.js "></script>
+<script type='text/javascript' src="js/pages/common.js "></script>
+<script type='text/javascript' src="js/pages/CURDTable.js "></script>
+<script type='text/javascript' src="js/charts/echart_yarn.min.js "></script>
+<script>
+    var __data1 = null;
+    var __data2 = null;
+    var __data3 = null;
+    var __UIargs = null;
+    var __current_dot_id = null;
+    var __current_wiringWay; //1：电压有ABC项，电流没有B项
+
+    var __current_dot_name = '';
+
+    function sendLineRequset(dot_id) {
+        var line_url = '/energy/qty/getDate/harmonic/{monitorId}?monitorId=' + dot_id;
+        var af = 'harmonicI';
+        var uf = 'harmonicU'
+        eBase.send({
+            "url": line_url
+        }, "get").done(function(resp) {
+            if (resp.code == "0") {
+                __data1 = resp['data'][af];
+                __data2 = resp['data'][uf];
+
+                let params = JSON.parse($('#line_type').val() + '');
+                lineTypeChangeHandler(params);
+
+                setTimeout(function() {
+                    resizeTree();
+                }, 200);
+            }
+        }).fail(function(resp) {});
+
+        var line_url2 = '/energy/qty/getDate/qty/{monitorId}?monitorId=' + dot_id;
+        var f = 'data';
+        eBase.send({
+            "url": line_url2
+        }, "get").done(function(resp) {
+            if (resp.code == "0") {
+                __data3 = resp[f];
+            }
+        }).fail(function(resp) {});
+
+        resizeTree();
+    }
+
+    function setCurrentTitle(dot_name, line_type, lv_text) {
+        var newtext = line_type.split('畸变率').join('');
+        var now = new Date().Format('yyyy-MM-dd');
+        $('#chart_title').text(dot_name + '-' + newtext + '-' + lv_text + '曲线(' + now + ')');
+        $('#chart_title').attr('title', dot_name + '-' + newtext + '-' + lv_text + '曲线(' + now + ')');
+    }
+
+    function setTop2Title() {
+        setCurrentTitle(__current_dot_name, $("#line_type").find("option:selected").text(), '');
+    }
+
+    function setBottom3Title() {
+        setCurrentTitle(__current_dot_name, $("#line_type").find("option:selected").text(), $("#lv").find("option:selected").text());
+    }
+
+    function getLineByType(arr, args) {
+        setTop2Title();
+        var data = getChartsDataFromArray(arr, args);
+        showChartsByData(data);
+    }
+
+    function getLine2ByType(arr, args) {
+        setBottom3Title();
+        var data = parser_proxy(arr, args);
+        showChartsByData(data);
+    }
+
+    function showTreeView(id) {
+        eBase.send({
+            "url": '/energy/monitor/tree?companyId=' + id
+        }, "get").done(function(resp) {
+            if (resp.code == "0") {
+                var $tree_box = $('#tree_box').treeview({
+                    showBorder: false,
+                    selectedBackColor: '#1e87f0',
+                    expandIcon: "tree-icon menu-plus",
+                    collapseIcon: "tree-icon menu-minus",
+                    data: resp.data
+                }).on('nodeSelected', function(event, data) {
+                    if (data.id == -1) {
+                        return;
+                    }
+                    __current_dot_name = data.text;
+                    __current_wiringWay = data.wiringWay;
+                    __current_dot_id = data.id;
+                    eBase.debug('__current_wiringWay:' + __current_wiringWay);
+                    sendLineRequset(data.id);
+                    getTableByDotId(__current_dot_id)
+                    setTop2Title();
+                });
+
+                $('#tree_box').treeview('selectNode', [1]);
+            }
+        }).fail(function(resp) {});
+    }
+
+    function showChartsByData(data) {
+
+        var indexOf2Hour = _.indexOf(data.chartData.categories || [], '02:00') - 1;
+        var interval = indexOf2Hour != -2 ? indexOf2Hour : null;
+
+        new yarn({
+            charts: [{
+                el: 'line_bar',
+                type: 'line',
+                theme: "green_line",
+                ti: '#11',
+                dataSourceType: 'object',
+                data: data,
+                scale: 0.36,
+                min_height: 300,
+                max_height: 600,
+                theme_obj: {
+                    interval: interval,
+                    legend: {
+                        left: 48
+                    }
+                }
+            }]
+        }).init();
+    }
+
+    function getTableByDotId(dot_id) {
+        resetLock();
+        showFrame1(dot_id);
+        showFrame2(dot_id);
+    }
+
+    function initPage() {
+        initDSMCompanySelectByElementId('company', function() {
+            showTreeView($('#company').val());
+        });
+
+        $('#company').change(function() {
+            showTreeView($(this).val());
+        });
+
+        setTimeout(function() {
+            resizeTree();
+        }, 200);
+    }
+
+    function resizeTree() {
+        var h = $('#content_box').height() + 60 + 35 - 56;
+        $('#tree_box').css('height', h + 'px');
+    }
+
+    initPage();
+
+    $('#line_type').change(function() {
+        let params = JSON.parse($(this).val() + '');
+        lineTypeChangeHandler(params);
+    });
+
+    function lineTypeChangeHandler(params) {
+
+        var type = _.has(params, 'type') ? params.type : '';
+
+        var single_field = $('#lv').val();
+        __UIargs = params;
+        __UIargs['field'] = single_field;
+        __UIargs['line_type'] = type;
+
+        switch (type) {
+            case '1':
+                $('#lv').show();
+                __data1 && getLine2ByType(__data1, __UIargs);
+                break;
+            case '2':
+                $('#lv').show();
+                __data2 && getLine2ByType(__data2, __UIargs);
+                break;
+            case '3':
+                $('#lv').hide();
+                if (__current_wiringWay == '1') {
+                    if (_.has(params, 'names2')) {
+                        params['names'] = params['names2']
+                    }
+
+                    if (_.has(params, 'fields2')) {
+                        params['fields'] = params['fields2']
+                    }
+                }
+                __data3 && getLineByType(__data3, params);
+                break;
+            default:
+                break;
+        }
+    }
+
+    $('#lv').change(function() {
+        var f = $(this).val();
+        var type = __UIargs['line_type'] || '1';
+        __UIargs['field'] = f;
+
+        switch (type) {
+            case '1':
+                __data1 && getLine2ByType(__data1, __UIargs);
+                break;
+            case '2':
+                __data2 && getLine2ByType(__data2, __UIargs);
+                break;
+            default:
+                break;
+        }
+    });
+
+    var tab1L = false,
+        tab2L = false;
+
+    function resetLock() {
+        tab1L = false;
+        tab2L = false;
+    }
+
+    $('#inavigation').find('li').click(function() {
+        $(this).addClass('active').siblings('li').removeClass('active');
+        var id = $(this).find('a').data('page');
+        $('#ipage_content').find(id).show().siblings().hide();
+        resetLock();
+        switch (id) {
+            case '#ipage2':
+                showFrame2(__current_dot_id);
+                break;
+            case '#ipage1':
+            default:
+                showFrame1(__current_dot_id);
+                break;
+        }
+    });
+
+    function showFrame2(id) {
+        if (!tab1L) {
+            new cur({
+                t: "#TZHILiang",
+                pageSize: 10,
+                queryUrl: "/energy/qty/getTabelDate/qty/{monitorId}?monitorId=" + id,
+                addUrl: "/energy/enterprise/add",
+                editUrl: "/energy/enterprise/update",
+                delUrl: "/energy/enterprise/delByIds",
+                height: 'auto',
+                method: 'get'
+            }).init();
+            tab1L = true;
+        }
+    }
+
+    function showFrame1(id) {
+        if (!tab2L) {
+            new cur({
+                t: "#TJIBian",
+                queryUrl: "/energy/qty/getTabelDate/harmonic/{monitorId}?monitorId=" + id,
+                addUrl: "/energy/enterprise/add",
+                editUrl: "/energy/enterprise/update",
+                delUrl: "/energy/enterprise/delByIds",
+                height: 'auto',
+                method: 'get'
+            }).init();
+            tab2L = true;
+        }
+    }
+</script>
+
+</html>

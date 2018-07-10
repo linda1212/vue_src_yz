@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>数据综览</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" id='theme' href="css/theme-dark-blue.css" />
+</head>
+
+<body class="dashboard">
+    <div class="page-container page-navigation-toggled page-container-wide minW480">
+        <a href="# " class="x-navigation-minimize menu_minimalize"><span class="arrow arrow-expand "></span></a>
+        <div class="page-sidebar page-sidebar-fixed scroll">
+            <ul id='menu' class="x-navigation x-navigation-minimized">
+                <li class="xn-logo">
+                    <a href="index.html"></a>
+                    <a href='#' class="x-navigation-control "></a>
+                </li>
+            </ul>
+        </div>
+        <div class="page-content ">
+            <h3 class="page-title">
+                <ul class="x-navigation x-navigation-horizontal log-out pull-right">
+                    <li class="xn-icon-button last ">
+                        <a href="# "><span class="fa fa-power-off "></span></a>
+                        <ul class="xn-drop-left animated zoomIn ">
+                            <li><a href="# " class="mb-control " data-box="#mb-signout "><span class="fa fa-sign-out "></span> 登出</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                数据综览</h3>
+            <div class="page-content-wrap chart_container">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 relative">
+                            <div class="wigit-title hi2 dashboard-pin-bg"></div>
+                            <div class="iPanel dashboard-wigit-panel">
+                                <p class="dashboard-text">能耗总量</p>
+                                <p class="dashboard-box" id="dsb1">
+                                    <span class="dashboard-value"></span>
+                                    <span>万吨标煤</span>
+                                </p>
+                            </div>
+                            <div class="dashboard-icon icon1"></div>
+                        </div>
+                        <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 relative">
+                            <div class="wigit-title hi2 dashboard-green-bg"></div>
+                            <div class="iPanel dashboard-wigit-panel">
+                                <p class="dashboard-text">监测企业</p>
+                                <p class="dashboard-box" id="dsb2">
+                                    <span class="dashboard-value"></span>
+                                    <span>家</span>
+                                </p>
+                            </div>
+                            <div class="dashboard-icon icon2"></div>
+                        </div>
+                        <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 relative">
+                            <div class="wigit-title hi2 dashboard-yellow-bg"></div>
+                            <div class="iPanel dashboard-wigit-panel">
+                                <p class="dashboard-text">1000吨标准煤以上</p>
+                                <p class="dashboard-box" id="dsb3">
+                                    <span class="dashboard-value"></span>
+                                    <span>家</span>
+                                </p>
+                            </div>
+                            <div class="dashboard-icon icon3"></div>
+                        </div>
+                        <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 relative">
+                            <div class="wigit-title hi2 dashboard-purple-bg"></div>
+                            <div class="iPanel dashboard-wigit-panel">
+                                <p class="dashboard-text">高耗能企业占比</p>
+                                <p class="dashboard-box" id="dsb4">
+                                    <span class="dashboard-value"></span>
+                                    <span>%</span>
+                                </p>
+                            </div>
+                            <div class="dashboard-icon icon4"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6">
+                            <div class="panel_title">
+                                <div class="col-lg-12">
+                                    <h4>能源消费总量趋势分析</h4>
+                                </div>
+                            </div>
+                            <div class="iPanel">
+                                <div class="content clearfix">
+                                    <div class="col-xs-12">
+                                        <div class="chart-wrap">
+                                            <div id="bars"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-6">
+                            <div class="panel_title">
+                                <div class="col-lg-12">
+                                    <h4>行业能耗分析</h4>
+                                </div>
+                            </div>
+                            <div class="iPanel" style="padding-left:0!important;padding-right: 0!important;overflow: visible">
+                                <div class="content clearfix">
+                                    <div class="col-xs-12" style="padding-left:0!important;padding-right: 0!important">
+                                        <div class="chart-wrap" style="overflow: visible">
+                                            <div id="rose"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-6">
+                            <div class="panel_title">
+                                <div class="col-lg-12">
+                                    <h4>区域能耗分析</h4>
+                                </div>
+                            </div>
+                            <div class="iPanel">
+                                <div class="content clearfix">
+                                    <div class="col-xs-12">
+                                        <div class="chart-wrap">
+                                            <div id="bar4"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6">
+                            <div class="panel_title">
+                                <div class="col-lg-12">
+                                    <h4>能源强度分析</h4>
+                                </div>
+                            </div>
+                            <div class="iPanel">
+                                <div class="content clearfix">
+                                    <div class="col-xs-12">
+                                        <div class="chart-wrap">
+                                            <div id="line"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6">
+                            <div class="panel_title">
+                                <div class="col-lg-12">
+                                    <h4>公共建筑能耗</h4>
+                                </div>
+                            </div>
+                            <div class="iPanel">
+                                <div class="content clearfix">
+                                    <div class="col-xs-12">
+                                        <div class="chart-wrap">
+                                            <div id="bar2"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-6">
+                            <div class="panel_title">
+                                <div class="col-lg-12">
+                                    <h4>能源消费结构分析</h4>
+                                </div>
+                            </div>
+                            <div class="iPanel" style="padding-left:0!important;padding-right: 0!important;overflow: visible">
+                                <div class="content clearfix">
+                                    <div class="col-xs-12" style="padding-left:0!important;padding-right: 0!important">
+                                        <div class="chart-wrap" style="overflow: visible">
+                                            <div id="ring"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-9 col-lg-12">
+                            <div class="panel_title">
+                                <div class="col-lg-12">
+                                    <h4>“双控”指标完成情况</h4>
+                                </div>
+                            </div>
+                            <div class="iPanel scroll_panel" style="padding-left:0!important;padding-right: 0!important;padding-top: 0px;">
+                                <div class="ds_scroll_content clearfix">
+                                    <div class="time-wigit">
+                                        <p class="label">2014</p>
+                                        <div class="ring"></div>
+                                        <div class="line"></div>
+                                        <div class="ds-panel">
+                                            <div class="pink-ti ti"></div>
+                                            <div class="pink-tr triangle-up "></div>
+                                            <div class="ds-content">
+                                                <p><span class="lb"></span>目标总量：<span class="value">100</span></p>
+                                                <p><span class="lb"></span>实际消耗总量：<span class="value">106</span></p>
+                                                <p><span class="lb"></span>同比变化率：<span class="value">6%</span></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="time-wigit">
+                                        <p class="label">2015</p>
+                                        <div class="ring"></div>
+                                        <div class="line"></div>
+                                        <div class="ds-panel">
+                                            <div class="green-ti ti"></div>
+                                            <div class="green-tr triangle-up "></div>
+                                            <div class="ds-content">
+                                                <p><span class="lb"></span>目标总量：<span class="value">100</span></p>
+                                                <p><span class="lb"></span>实际消耗总量：<span class="value">106</span></p>
+                                                <p><span class="lb"></span>同比变化率：<span class="value">6%</span></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="time-wigit">
+                                        <p class="label">2016</p>
+                                        <div class="ring"></div>
+                                        <div class="line"></div>
+                                        <div class="ds-panel">
+                                            <div class="yellow-ti ti"></div>
+                                            <div class="yellow-tr triangle-up "></div>
+                                            <div class="ds-content">
+                                                <p><span class="lb"></span>目标总量：<span class="value">100</span></p>
+                                                <p><span class="lb"></span>实际消耗总量：<span class="value">106</span></p>
+                                                <p><span class="lb"></span>同比变化率：<span class="value">6%</span></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="time-wigit">
+                                        <p class="label">2017</p>
+                                        <div class="ring"></div>
+                                        <div class="line"></div>
+                                        <div class="ds-panel">
+                                            <div class="purple-ti ti"></div>
+                                            <div class="purple-tr triangle-up "></div>
+                                            <div class="ds-content">
+                                                <p><span class="lb"></span>目标总量：<span class="value">100</span></p>
+                                                <p><span class="lb"></span>实际消耗总量：<span class="value">106</span></p>
+                                                <p><span class="lb"></span>同比变化率：<span class="value">6%</span></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="time-wigit">
+                                        <p class="label">2018</p>
+                                        <div class="ring"></div>
+                                        <div class="line"></div>
+                                        <div class="ds-panel">
+                                            <div class="blue-ti ti"></div>
+                                            <div class="blue-tr triangle-up "></div>
+                                            <div class="ds-content">
+                                                <p><span class="lb"></span>目标总量：<span class="value">100</span></p>
+                                                <p><span class="lb"></span>实际消耗总量：<span class="value">106</span></p>
+                                                <p><span class="lb"></span>同比变化率：<span class="value">6%</span></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="message-box animated fadeIn" data-sound="alert " id='mb-signout'>
+        <div class="mb-container ">
+            <div class="mb-middle ">
+                <div class="mb-title"><span class="fa fa-sign-out "></span> Log <strong>Out</strong> ?</div>
+                <div class="mb-content ">
+                    <p>确定登出?</p>
+                    <p>如果您想继续留在此页面，请点击"否"</p>
+                </div>
+                <div class="mb-footer ">
+                    <div class="pull-right ">
+                        <a href="login.html " class="btn btn-success btn-lg ">是</a>
+                        <button class="btn btn-default btn-lg mb-control-close ">否</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type='text/javascript' src="js/import.js"></script>
+<script type='text/javascript' src="js/pages/common.js"></script>
+<script type='text/javascript' src="js/pages/CURDTable.js"></script>
+<script type='text/javascript' src="js/charts/echart_yarn.min.js"></script>
+<script>
+    function initPage() {
+
+        eBase.send({
+            "url": '/energy/analysis/statistic/getDataByMonth/' + getLastMonthNum()
+        }, "get").done(function(res) {
+            $('#dsb1').find('.dashboard-value').text(res.data.energySum || 6.28);
+            $('#dsb2').find('.dashboard-value').text(res.data.allCompanys || 8);
+            $('#dsb3').find('.dashboard-value').text(res.data.bigConsumeCompanys || 4);
+            $('#dsb4').find('.dashboard-value').text(res.data.bigConsumeCompanysPercent || '50');
+        })
+
+        new yarn({
+            charts: [{
+                el: 'bars',
+                type: 'bar',
+                theme: 'dashboard_bar1',
+                url: '/energy/analysis/chart/district/getYearEData/' + getThisYear(),
+                theme_obj: {
+                    barWidth: '19%'
+                },
+                h: 279,
+                params: {
+                    period: 7
+                }
+            }]
+        }).init();
+
+        new yarn({
+            charts: [{
+                el: 'ring',
+                type: 'circle',
+                theme: 'index_ring',
+                url: '/energy/analysis/chart/energytype/getDataByMonth/' + getLastMonthNum(),
+                theme_obj: {
+                    showLabel: false,
+                    title: {
+                        show: true,
+                        text: '消耗总量',
+                        y: '29%',
+                        textStyle: {
+                            fontFamily: 'sans-serif',
+                            color: "#666666",
+                            fontSize: 14
+                        },
+                        subtextStyle: {
+                            fontFamily: 'sans-serif',
+                            color: "#262626",
+                            fontSize: 24
+                        }
+                    },
+                    legend: {
+                        show: true,
+                        showPercent: true,
+                        type: 'plain',
+                        orient: 'horizontal',
+                        selectedMode: true,
+                        left: 50,
+                        right: 50,
+                        top: 'auto',
+                        bottom: 0
+                    },
+                    radius: ['50%', '65%'],
+                    center: ['50%', '40%'],
+                    label: {
+                        showPercent: false
+                    }
+                },
+                h: 279
+            }]
+        }).init();
+
+        new yarn({
+            charts: [{
+                el: 'rose',
+                type: 'circle',
+                theme: 'index_rose',
+                url: '/energy/analysis/chart/industry/getDataByMonth/' + getLastMonthNum(),
+                theme_obj: {
+                    showLabel: false,
+                    radius: ['0%', '65%'],
+                    center: ['50%', '40%'],
+                    label: {
+                        showPercent: false
+                    },
+                    legend: {
+                        show: true,
+                        showPercent: true,
+                        type: 'plain',
+                        orient: 'horizontal',
+                        selectedMode: true,
+                        left: 50,
+                        right: 50,
+                        top: 'auto',
+                        bottom: 0
+                    }
+                },
+                h: 279
+            }]
+        }).init();
+
+        new yarn({
+            charts: [{
+                el: 'line',
+                type: 'line',
+                theme: 'dashboard_line',
+                url: 'js/charts/demos/dashboard_line.json',
+                theme_obj: {
+                    areaStyle: ['rgba(255,187,68,0.2)', 'rgba(116,96,238,0.2)'],
+                    legend: {
+                        left: 100
+                    }
+                },
+                h: 279,
+                params: {
+                    month: getToday()
+                }
+            }]
+        }).init();
+
+        new yarn({
+            charts: [{
+                el: 'bar2',
+                type: 'bar',
+                theme: 'dashboard_bar2',
+                theme_obj: {
+                    legend: {
+                        left: 50
+                    }
+                },
+                url: 'js/charts/demos/dashboard_bar2_new.json',
+                theme_obj: {
+                    barWidth: '19%',
+                    legend: {
+                        left: 45
+                    }
+                },
+                h: 279,
+                params: {
+                    month: getToday()
+                }
+            }]
+        }).init();
+
+        new cur({
+            t: "#TEnergy",
+            dataSourceType: 'local',
+            pageSize: 6,
+            queryUrl: "js/charts/demos/index_table1.json"
+        }).init();
+
+        new cur({
+            t: "#TRank",
+            dataSourceType: 'local',
+            pageSize: 6,
+            queryUrl: "js/charts/demos/index_table2.json"
+        }).init();
+
+        new yarn({
+            charts: [{
+                el: 'bar4',
+                type: 'hbar',
+                theme: 'index_hbar',
+                theme_obj: {
+                    legend: {
+                        left: 95
+                    },
+                    grid: {
+                        top: 30,
+                        right: 15
+                    }
+                },
+                url: '/energy/analysis/chart/district/getDataByMonthOrYear/1',
+                h: 279,
+                params: {
+                    getTime: getLastMonthNum()
+                }
+            }]
+        }).init();
+    }
+
+    initPage();
+</script>
+
+</html>

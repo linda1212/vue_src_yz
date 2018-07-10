@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>用能单位能耗统计</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" id='theme' href="css/theme-dark-blue.css" />
+</head>
+
+<body>
+    <div class="page-container">
+        <a href="# " class="x-navigation-minimize menu_minimalize"><span class="arrow arrow-shrink "></span></a>
+        <div class="page-sidebar page-sidebar-fixed scroll">
+            <ul id='menu' class="x-navigation">
+                <li class="xn-logo">
+                    <a href="index.html"></a>
+                    <a href='#' class="x-navigation-control "></a>
+                </li>
+            </ul>
+        </div>
+        <div class="page-content ">
+            <h3 class="page-title">
+                <ul class="x-navigation x-navigation-horizontal log-out pull-right">
+                    <li class="xn-icon-button last ">
+                        <a href="# "><span class="fa fa-power-off "></span></a>
+                        <ul class="xn-drop-left animated zoomIn ">
+                            <li><a href="# " class="mb-control " data-box="#mb-signout "><span class="fa fa-sign-out "></span> 登出</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                用能单位能耗统计</h3>
+            <div class="page-content-wrap chart_container">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-4" style="padding-right:0!important;">
+                            <div class="panel_title" style="height: 56px;">
+                                <div class="clearfix">
+                                    <div id="inputBox" class="gap-btn-group tree-bar" role="group">
+                                        <input id="search_input" type="text" data-field='name' class="form-control" placeholder="请输入单位名称" style="width:calc(100% - 68px);max-width:calc(100% - 68px);" />
+                                        <button id="ser1" type="button" title="搜索" class="btn btn-outline btn-primary">
+                                            <span>查询</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="tree_box" class="tree-panel font14 new_left_tree" style="height:820px;overflow: auto;">
+                            </div>
+                        </div>
+                        <div class="col-lg-9 col-md-8" style="padding-left:0!important;">
+                            <div class="panel_title left-border">
+                                <div class="gap-btn-group pull-right bar-group" role="group">
+                                    <div class="btn-group">
+                                        <select id="energyType" class="w140 form-control select iselect energyType"></select>
+                                    </div>
+                                    <input id="date_input1" type="text" name="name" class="form-control laydate-icon layer-date">
+                                    <div class="btn-group">
+                                        <button id="ser2" type="button" title="搜索" class="btn btn-outline btn-primary">
+                                            <span>查询</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="content_box" class="iPanel left-border" style="min-height: 800px;">
+                                <div class="content">
+                                    <h4 id="title1" class="title"></h4>
+                                    <div class="chart-wrap">
+                                        <div id="line_bar"></div>
+                                    </div>
+                                </div>
+                                <div class="content" style="margin-top:45px;">
+                                    <h4 id="title2" class="title"></h4>
+                                    <div class="chart-wrap ">
+                                        <div id="bar"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="message-box animated fadeIn " data-sound="alert " id='mb-signout'>
+        <div class="mb-container ">
+            <div class="mb-middle ">
+                <div class="mb-title "><span class="fa fa-sign-out "></span> Log <strong>Out</strong> ?</div>
+                <div class="mb-content ">
+                    <p>确定登出?</p>
+                    <p>如果您想继续留在此页面，请点击"否 "</p>
+                </div>
+                <div class="mb-footer ">
+                    <div class="pull-right ">
+                        <a href="login.html " class="btn btn-success btn-lg ">是</a>
+                        <button class="btn btn-default btn-lg mb-control-close ">否</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type='text/javascript' src="js/import.js "></script>
+<script type='text/javascript' src="js/pages/common.js "></script>
+<script type='text/javascript' src="js/pages/CURDTable.js "></script>
+<script type='text/javascript' src="js/charts/echart_yarn.min.js "></script>
+<script>
+    var __current_company_id = '';
+
+    function getChartsByName(id, date, type) {
+
+        if (id == '' || date == '' || type == '') return;
+
+        new yarn({
+            charts: [{
+                el: 'line_bar',
+                type: 'line',
+                theme: "green_line",
+                ti: '#title1',
+                // url: '/energy/analysis/chart/company/month/power',
+                url: '/energy/analysis/chart/company/day/' + type,
+                //url: 'js/charts/demos/onlineCompany_line.json',
+                scale: 0.30,
+                min_height: 300,
+                max_height: 600,
+                params: {
+                    getTime: date,
+                    companyId: id
+                }
+            }]
+        }).init();
+
+        new yarn({
+            charts: [{
+                el: 'bar',
+                type: 'bar',
+                theme: 'orange_bar',
+                ti: '#title2',
+                theme_obj: {
+                    legend: {
+                        left: 84
+                    }
+                },
+                // url: '/energy/analysis/chart/company/year/power',
+                url: '/energy/analysis/chart/company/year/' + type,
+                scale: 0.30,
+                min_height: 300,
+                max_height: 600,
+                params: {
+                    getTime: date,
+                    companyId: id
+                }
+            }]
+        }).init();
+    }
+
+    function initPage() {
+
+        initDateInputForDay('#date_input1');
+        $('#date_input1').val(getToday());
+
+        addListener();
+        searchCompanyByName();
+    }
+
+    function searchCompanyByName(name) {
+
+        var params;
+
+        if (name != '') {
+            params = {
+                pageIndex: 1,
+                pageSize: 500,
+                params: {
+                    name: name
+                }
+            };
+        } else {
+            params = {
+                pageIndex: 1,
+                pageSize: 500,
+                params: {}
+            };
+        }
+
+        eBase.send({
+            url: '/energy/companyAnalysis/getEnterpriseList',
+            data: JSON.stringify(params)
+        }, "post").done(function(resp) {
+            var temp = resp;
+            if (resp.code == "0") {
+                var $tree_box = $('#tree_box').treeview({
+                    showBorder: false,
+                    selectedColor: '#1e87f0',
+                    selectedBackColor: '#fff',
+                    expandIcon: "tree-icon menu-plus",
+                    collapseIcon: "tree-icon menu-minus",
+                    selectedIcon: "glyphicon pull-right",
+                    data: parserTreeData(resp.rows)
+                }).on('nodeSelected', function(event, data) {
+
+                    __current_company_id = data.id;
+
+                    getChartsByName(__current_company_id, $('#date_input1').val(), $('#energyType').val());
+                }).on('nodeUnselected', function(event, data) {});
+
+                $('#tree_box').treeview('selectNode', [0]);
+            }
+        }).fail(function(resp) {});
+    }
+
+    function addListener() {
+        $('#ser1').click(function() {
+            searchCompanyByName($.trim($('#search_input').val()));
+        });
+        $('#ser2').click(function() {
+            getChartsByName(__current_company_id, $('#date_input1').val(), $('#energyType').val());
+        });
+
+        $('#search_input').keyup(function(event) {
+            if (event.keyCode == 13) {
+                var name = $(this).val();
+                searchCompanyByName(name);
+            }
+        })
+    }
+
+    function parserTreeData(list) {
+        var result = [];
+
+        _.each(list, function(item, index) {
+            var one = {};
+
+            one['text'] = item['name'];
+            one['id'] = item['id'];
+
+            result.push(one);
+        });
+
+        return result;
+    }
+
+    function initedEnergyType() {
+        getChartsByName(__current_company_id, $('#date_input1').val(), $('#energyType').val());
+    }
+
+    initPage();
+</script>
+
+</html>

@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>报表审核</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" id='theme' href="css/theme-dark-blue.css" />
+</head>
+
+<body>
+    <div class="page-container">
+        <a href="# " class="x-navigation-minimize menu_minimalize"><span class="arrow arrow-shrink "></span></a>
+        <div class="page-sidebar page-sidebar-fixed scroll">
+            <ul id='menu' class="x-navigation">
+                <li class="xn-logo">
+                    <a href="index.html"></a>
+                    <a href='#' class="x-navigation-control "></a>
+                </li>
+            </ul>
+        </div>
+        <div class="page-content">
+            <h3 class="page-title">
+                <ul class="x-navigation x-navigation-horizontal log-out pull-right">
+                    <li class="xn-icon-button last ">
+                        <a href="# "><span class="fa fa-power-off "></span></a>
+                        <ul class="xn-drop-left animated zoomIn ">
+                            <li><a href="# " class="mb-control " data-box="#mb-signout "><span class="fa fa-sign-out "></span> 登出</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                报表审核</h3>
+            <div class="page-content-wrap ">
+                <div class="page-content-box gap24">
+                    <div class="clearfix mytbar">
+                        <div id="inputBox" class="gap-btn-group" role="group">
+                            <button type="button" class="btn btn-label">
+                                <span>企业名称：</span>
+                            </button>
+                            <!-- <div id="field_select" class="btn-group compact" role="group">
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    企业名称
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#" data-field='enterpriseName' data-placeholder='请输入企业名称'>企业名称</a></li>
+                                </ul>
+                            </div> -->
+                            <input id="search_input" type="text" data-field='enterpriseName' class="form-control" placeholder="请输入企业名称" />
+                            <button id="ser" type="button" title="搜索" class="btn btn-outline btn-primary">
+                                <span>查询</span>
+                            </button>
+                        </div>
+                        <!-- <div class="btn-group   pull-right" role="group">
+                            <button id="add" type="button" title="新增数据" class="btn btn-outline btn-primary pull-right">
+                                <span>新增</span>
+                            </button>
+                        </div> -->
+                    </div>
+                    <table id="TContact" data-height="720" data-mobile-responsive="true">
+                        <thead>
+                            <tr class="hidden-em">
+                                <th data-field="state" data-my="1" data-checkbox="true"></th>
+                                <th data-field="id">ID</th>
+                                <th data-field="enterprise_name">企业名称</th>
+                                <th data-field="date" data-formatter="DateFormatter">上报日期</th>
+                                <th data-field="monthSum" data-align="right">本月合计 <span class="st">(单位：吨标准煤)</span></th>
+                                <th data-field="auditState" data-formatter="EnergyAuditFormatter">审核状态</th>
+                                <th data-field="rate" data-align="right">预警 <span class="st">(同比去年)</span></th>
+                                <th data-field="operate" data-formatter="OperatingShenheFomatter" data-align="right">操作</th>
+                            </tr>
+                        </thead>
+                    </table>
+                    <div id="footerbar" class="footerbar hidden-em">
+                        <div class="gap-btn-group" role="group">
+                            <button id="checkall" type="button" class="btn btn-outline btn-default" data-cked="unchecked">
+                                <span>全选</span>
+                            </button>
+                            <button id="bedit" type="button" class="btn btn-outline btn-primary">
+                                <span>批量操作</span>
+                            </button>
+                            <button id="bdel" type="button" title="删除客户" class="btn btn-outline btn-primary">
+                                <span>删除</span>
+                            </button>
+                            <button id="bsheng" type="button" class="btn btn-outline btn-primary">
+                                <span>批量审核</span>
+                            </button>
+                            <button id="endState" type="button" title="删除客户" class="btn btn-outline btn-primary">
+                                <span>完成</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="message-box animated fadeIn" data-sound="alert " id='mb-signout'>
+        <div class="mb-container ">
+            <div class="mb-middle ">
+                <div class="mb-title"><span class="fa fa-sign-out "></span> Log <strong>Out</strong> ?</div>
+                <div class="mb-content ">
+                    <p>确定登出?</p>
+                    <p>如果您想继续留在此页面，请点击"否"</p>
+                </div>
+                <div class="mb-footer ">
+                    <div class="pull-right ">
+                        <a href="login.html" class="btn btn-success btn-lg ">是</a>
+                        <button class="btn btn-default btn-lg mb-control-close ">否</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="manual_modal" class="modal fade selferror">
+        <div class="modal-dialog">
+            <form action="javascript:void(0)" data-bv-message="验证未通过" data-bv-feedbackicons-valid="" data-bv-feedbackicons-invalid="glyphicon glyphicon-remove" data-bv-feedbackicons-validating="glyphicon glyphicon-refresh">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title"></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div id="manual_modal_input_box" class="one_level_box">
+                            <div class="form-group hidden-em">
+                                <label>id</label>
+                                <input type="text" class="form-control" name="id">
+                            </div>
+                            <div class="form-group" style="position: relative;">
+                                <label><span class="text-red">*</span>单位名称</label>
+                                <!-- <select id="enterprise_name" class="form-control" name="enterprise_name">
+                                </select> -->
+                                <input id="enterprise_name" type="text" class="form-control" name="enterprise_name" required>
+                                <div id="popupBox" class="box">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>上报时间</label>
+                                <input id="date_modal" type="text" class="form-control laydate-icon layer-date" name="date">
+                            </div>
+                            <!-- <div class="form-group">
+                                <label>本月总能耗</label>
+                                <input type="text" class="form-control" name="monthSum">
+                            </div>
+                            <div class="form-group">
+                                <label>审核状态</label>
+                                <select id="auditState_modal" class="form-control" name="auditState">
+                                    <option value="" style="display: none">--审核状态--</option>
+                                    <option value="0">待审核</option>
+                                    <option value="1">已审核</option>
+                                </select>
+                            </div> -->
+                            <div class="form-group hidden-em">
+                                <label>填报类型</label>
+                                <select id="select_type_modal" class="form-control" name="type">
+                                    <option value="" style="display: none">--请选择填报类型--</option>
+                                    <option value="0">按日填报</option>
+                                    <option value="1">按月填报</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="container-fluid">
+                            <div class="row">
+                                <ul id="navigation" class="nav nav-tabs">
+                                    <li id="navigation_day" role="presentation" style="display: none!important;"><a href="javascript:void(0);" data-page='#page1'>按日填报</a></li>
+                                    <li id="navigation_month" role="presentation"><a href="javascript:void(0);" data-page='#page2'>按月填报</a></li>
+                                </ul>
+                                <div id="page_content" class="nav-content">
+                                    <div id="page1" class="relative hidden-em">
+                                        <div class="iPanel compact_panel">
+                                            <div class="content">
+                                                <table id="manual_table_day" data-height="560"></table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="page2" class="relative">
+                                        <div class="iPanel compact_panel">
+                                            <div class="content">
+                                                <table id="manual_table_month" data-height="300"></table>
+                                            </div>
+                                            <div class="content mt40">
+                                                <table id="manual_table_chanzhi" data-height="260"></table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default cancel" data-dismiss="modal">取&nbsp;&nbsp;消</button>
+                        <button type="button" class="btn btn-primary submit">保&nbsp;&nbsp;存</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id="manual_detail" class="modal fade">
+        <div class="modal-dialog">
+            <form action="javascript:void(0)">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title"></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div id="manual_detail_input_box" class="one_level_box">
+                            <div class="form-group hidden-em">
+                                <label>id</label>
+                                <input type="text" class="form-control" name="id">
+                            </div>
+                            <div class="form-group">
+                                <label>单位名称</label>
+                                <input type="text" class="form-control" name="enterprise_name" required>
+                            </div>
+                            <div class="form-group">
+                                <label>上报时间</label>
+                                <input id="date_detail" type="text" class="form-control laydate-icon layer-date" name="date">
+                            </div>
+                            <div class="form-group">
+                                <label>本月总能耗</label>
+                                <input type="text" class="form-control" name="monthSum">
+                            </div>
+                            <div class="form-group">
+                                <label>审核状态</label>
+                                <input type="text" class="form-control" name="type1">
+                            </div>
+                            <div class="form-group">
+                                <label>同比上期增加</label>
+                                <input type="text" class="form-control" name="rate">
+                            </div>
+                        </div>
+                        <div class="container-fluid">
+                            <div class="row">
+                                <ul id="navigation_detail" class="nav nav-tabs">
+                                    <li id="navigation_day_detail" role="presentation"><a href="javascript:void(0);" data-page='#page1_detail'>按日填报数据</a></li>
+                                    <li id="navigation_month_detail" role="presentation" style="display: none!important;"><a href="javascript:void(0);" data-page='#page2_detail'>按月填报数据</a></li>
+                                </ul>
+                                <div id="page_content" class="nav-content">
+                                    <div id="page1_detail" class="relative">
+                                        <div class="iPanel compact_panel">
+                                            <div class="content">
+                                                <table id="manual_table_day_detail"></table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="page2_detail" class="relative hidden-em">
+                                        <div class="iPanel compact_panel">
+                                            <div class="content">
+                                                <table id="manual_table_month_detail" data-height="300"></table>
+                                            </div>
+                                            <div class="content mt40">
+                                                <table id="manual_table_chanzhi_detail" data-height="200"></table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn  btn-primary submit" data-dismiss="modal">确&nbsp;&nbsp;认</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+<script type='text/javascript' src="js/import.js"></script>
+<script type='text/javascript' src="js/pages/common.js"></script>
+<script type='text/javascript' src="js/pages/CURDTable.js"></script>
+<script>
+    var __current_instance = null
+    var addType = 1;
+    $('#navigation').find('li').click(function() {
+        $(this).addClass('active').siblings('li').removeClass('active');
+        var id = $(this).find('a').data('page');
+        $('#page_content').find(id).show().siblings().hide();
+        switch (id) {
+            case '#page2':
+                //showModalPage2();
+                break;
+            case '#page1':
+            default:
+                //showModalPage1();
+                break;
+        }
+    });
+
+    $('#popupBox').hide();
+    $('#popupBox').empty();
+
+    $('#enterprise_name').on('click', function() {
+        $('#popupBox').show();
+    });
+
+    $("#enterprise_name").blur(function() {
+        //$('#popupBox').hide();
+    });
+
+    $('#enterprise_name').on('keyup', function() {
+        var txtt = $(this).val();
+
+        eBase.send({
+            "url": '/energy/enterprise/getList',
+            data: JSON.stringify({
+                pageIndex: 1,
+                pageSize: 500,
+                params: {
+                    name: txtt
+                }
+            })
+        }).done(function(resp) {
+            var arr = resp.rows;
+            showAndAddItem(arr, '#enterprise_name', '#popupBox');
+        }).fail(function(resp) {});
+    });
+
+    //linda
+
+    function showAndAddItem(arr, el, box) {
+        $(box).empty();
+        _.each(arr, function(item) {
+            var one = $('<div class="item popuo-item">' + item.name + '</div>');
+            $(box).append(one);
+            addItemListener(one);
+        });
+        $(box).show();
+    }
+
+    function addItemListener(el) {
+        el.on('click', function() {
+            var txt = $(this).text();
+            $('#enterprise_name').val(txt);
+            $('#popupBox').hide();
+        });
+    }
+
+    function showModalDayTab() {
+        showTab('#navigation_day', '#page1');
+    }
+
+    function showModalMonthTab() {
+        showTab('#navigation_month', '#page2');
+    }
+
+    function showDetailDayTab() {
+        showTab('#navigation_day_detail', '#page1_detail');
+    }
+
+    function showDetaiMonthTab() {
+        showTab('#navigation_month_detail', '#page2_detail');
+    }
+
+    function showTab(el, el2) {
+        $(el).removeClass('active').siblings('li').removeClass('active');
+        $(el).show().siblings('li').hide();
+        $(el2).show().siblings('div').hide();
+    }
+
+    $('#navigation_detail').find('li').click(function() {
+        $(this).addClass('active').siblings('li').removeClass('active');
+        var id = $(this).find('a').data('page');
+        $('#page_content').find(id).show().siblings().hide();
+        switch (id) {
+            case '#page2_detail':
+                //showDetailPage2();
+                break;
+            case '#page1_detail':
+            default:
+                //showDetailPage1();
+                break;
+        }
+    });
+
+    $('#select_type_modal').change(function() {
+
+        addType = $(this).val();
+
+        if (addType === '0') {
+            //按日填报
+            showModalDayTab();
+        } else {
+            showModalMonthTab();
+        }
+    });
+
+    function showModalPage1() {
+        eBase.send({
+            "url": '/energy/gov/manual/config',
+        }).done(function(resp) {
+            renderTable(resp.data, "#manual_table_day");
+            renderTable(resp.data, "#manual_table_month");
+            renderTable(resp.data, "#manual_table_day_detail");
+            renderTable(resp.data, "#manual_table_month_detail");
+            renderChangzhiTable(resp.data, "#manual_table_chanzhi");
+            renderChangzhiTable(resp.data, "#manual_table_chanzhi_detail");
+
+        }).fail(function(resp) {});
+    }
+
+    function parseColData(colConfig) {
+        var colConfigs = new Array();
+        var len = colConfig.length;
+        for (var i = 0; i < colConfig.length; i++) {
+            var data = new Object(),
+                pattern = "(^[1-9]([0-9]+)?(\.[0-9]{1,2})?$)|(^(0){1}$)|(^[0-9]\.[0-9]([0-9])?$)";
+            data.title = colConfig[i].label;
+            data.field = colConfig[i].colName;
+            data.align = i == len - 1 ? "right" : 'left';
+            data.valign = "middle";
+
+            if (colConfig[i].type == 1) {
+                data.formatter = (function(field1) {
+                    return function() {
+                        return "<div class='form-group'><input name='" + field1 + "' type='text' pattern=" + pattern + " data-bv-regexp-message='请填写数字格式' class='form-control mw140'/></div>"
+                    }
+                })(data.field)
+
+                $('#manual_modal').find('form').data("bootstrapValidator").addField(data.field);
+            }
+            colConfigs.push(data);
+        }
+        return colConfigs;
+    }
+
+    function renderTable(config, el) {
+        var colConfig = parseColData(config.colConfig);
+
+        peopleOptions = {
+            data: config.rowConfig,
+            columns: colConfig
+        }
+        $table = $(el).bootstrapTable(peopleOptions);
+    }
+
+    function renderChangzhiTable(config, el) {
+        var colConfig = parseColData(config.gdpColConfig);
+
+        peopleOptions = {
+            data: config.gdpRowConfig,
+            columns: colConfig
+        }
+        $table = $(el).bootstrapTable(peopleOptions);
+    }
+
+    function getInputListByID(el, el2, el3) {
+        var result = {},
+            arr = [],
+            gdparr = [];
+
+        $(el2).find('.one_level_box').find('input[name]').each(function(one, i) {
+            var na = $(this).attr('name');
+            result[na] = $(this).val();
+        });
+
+        $(el2).find('.one_level_box').find('select[name]').each(function(one, i) {
+            var na2 = $(this).attr('name');
+            result[na2] = $(this).val();
+        });
+
+        $(el).find('tbody').find('tr').each(function() {
+            var oneItem = {};
+            var fname = $(this).find('td').eq(0).text();
+            oneItem['name'] = fname;
+            $(this).find('input[name]').each(function(item, index) {
+                var n = $(this).attr('name');
+                oneItem[n] = $(this).val();
+            });
+
+            arr.push(oneItem);
+        });
+
+        result['content'] = arr;
+
+        if (el3 && $(el3).length > 0) {
+            $(el3).find('tbody').find('tr').each(function() {
+                var gdponeItem = {};
+                var gdpfname = $(this).find('td').eq(0).text();
+                gdponeItem['name'] = gdpfname;
+                $(this).find('input[name]').each(function(item, index) {
+                    var n = $(this).attr('name');
+                    gdponeItem[n] = $(this).val();
+                });
+
+                gdparr.push(gdponeItem);
+            });
+
+            result['gdpContent'] = gdparr;
+        }
+
+        return result;
+    }
+
+    function addClearModal(el) {
+        clearModal(el);
+        initDateInputForDay('#date_modal');
+        $('#date_modal').val(getToday());
+
+        addAbled();
+    }
+
+    function addAbled() {
+        $('#select_type_modal').val(1);
+        $('#select_type_modal').removeAttr('disabled');
+        $('#enterprise_name').removeAttr('disabled');
+        $('#date_modal').removeAttr('disabled');
+
+        $('#popupBox').empty();
+    }
+
+    function editDisabled() {
+        $('#select_type_modal').attr('disabled', true);
+        $('#enterprise_name').attr('disabled', true);
+        $('#date_modal').attr('disabled', true);
+    }
+
+    function clearModal(el) {
+        $(el).find('input[type="text"]').val("");
+        $(el).find('input[type="password"]').val("");
+        $(el).find('input[type="email"]').val("");
+        $(el).find('select').val("");
+    }
+
+    function getDetailByID(id) {
+        clearModal('#manual_detail');
+        eBase.send({
+            url: '/energy/gov/manual/info/' + id,
+        }, 'get').done(function(resp) {
+            $('#select_type_modal').hide();
+            setDetail('#manual_detail', resp.data, 'detail');
+            __current_instance.showDetailModalPanel();
+        }).fail(function(resp) {
+            __current_instance.refreshTable();
+        });
+    }
+
+    function getEditDetailByID(id) {
+        clearModal('#manual_modal');
+        eBase.send({
+            url: '/energy/gov/manual/info/' + id,
+        }, 'get').done(function(resp) {
+            $('#select_type_modal').show();
+            editDisabled();
+            setDetail('#manual_modal', resp.data, 'edit');
+            __current_instance.showEditModalPanel();
+        }).fail(function(resp) {
+            __current_instance.refreshTable();
+        });
+    }
+
+    function setDetail(el, data, type2) {
+
+        addType = data['type'] || '0';
+        var el1, el2;
+
+        if ('0' == addType) {
+            $('#select_type_modal').val(0);
+            //day
+            if (type2 === 'detail') {
+                //detail
+                showDetailDayTab();
+                el1 = '#manual_table_day_detail';
+                el2 = '';
+            } else {
+                //modal
+                showModalDayTab();
+
+                el1 = '#manual_table_day';
+                el2 = '';
+            }
+
+        } else {
+            //month
+            $('#select_type_modal').val(1);
+
+            if (type2 === 'detail') {
+                showDetaiMonthTab();
+                el1 = '#manual_table_month_detail';
+                el2 = '#manual_table_chanzhi_detail';
+            } else {
+                showModalMonthTab();
+                el1 = '#manual_table_month';
+                el2 = '#manual_table_chanzhi';
+            }
+        }
+
+        _.each(data, function(value1, key1, list1) {
+            $(el).find('.one_level_box').find('input[name="' + key1 + '"]').eq(0).val(value1);
+
+            var state_text = ''
+            if (key1 === 'type') {
+                if (value1 === '1') {
+                    state_text = '已审核';
+                } else {
+                    state_text = '待审核';
+                }
+
+                var newk = key1 + '1';
+
+                $(el).find('.one_level_box').find('input[name="' + newk + '"]').eq(0).val(state_text);
+            }
+
+            if (key1 === 'date') {
+
+                var fdate = new Date(value1).Format('yyyy-MM-dd');
+
+                $(el).find('.one_level_box').find('input[name="' + key1 + '"]').eq(0).val(fdate);
+            }
+        });
+
+        $(el1).find('tbody').find('tr').each(function(index) {
+            var self = this;
+            var oneItem = data['content'][index];
+            _.each(oneItem, function(value, key, list) {
+                $(self).find('input[name="' + key + '"]').eq(0).val(value);
+            });
+        });
+
+        $(el2).length > 0 && $(el2).find('tbody').find('tr').each(function(index) {
+            var self = this;
+            if (_.has(data, 'gdpContent')) {
+                var gdponeItem = data['gdpContent'][index];
+                _.each(gdponeItem, function(value, key, list) {
+                    $(self).find('input[name="' + key + '"]').eq(0).val(value);
+                });
+            }
+        });
+    }
+
+    __current_instance = new cur({
+        t: "#TContact",
+        m: "#manual_modal",
+        d: "#manual_detail",
+        footerbar: '#footerbar',
+        hideCols: ["id"],
+        uuid: "id",
+        showAfterRender: ['#footerbar'],
+        search_params: {
+            field_select: '#field_select',
+            field_input: '#search_input'
+        },
+        shenheUrl: '/energy/gov/manual/audit',
+        shenheBtn: '#bsheng',
+        batchBtns: [{
+            el: '#bsheng'
+        }],
+        params: {
+            params: {
+                b_valid: 0
+            }
+        },
+        queryUrl: "/energy/gov/manual/query",
+        addUrl: "/energy/gov/manual/upload",
+        editUrl: "/energy/gov/manual/update",
+        delUrl: "/energy/gov/manual/del",
+        clearModal: function() {
+            addClearModal('#manual_modal');
+        },
+        getRow: function() {
+            if (addType == '1') {
+                return getInputListByID('#manual_table_month', '#manual_modal', '#manual_table_chanzhi');
+            } else {
+                return getInputListByID('#manual_table_day', '#manual_modal');
+            }
+            return {};
+        },
+        setDetailRow: function(row) {
+            getDetailByID(row.id);
+        },
+        setEditRow: function(row) {
+            getEditDetailByID(row.id);
+        }
+    });
+
+    __current_instance.init(__current_instance);
+
+    // var hasinit = false;
+    // c.on('render.complete', function() {
+    //     if (!hasinit) {
+    //         hasinit = true;
+    //         showModalPage1();
+    //     }
+    // });
+
+    // c.on('render.error', function() {
+    //     if (!hasinit) {
+    //         hasinit = true;
+    //         showModalPage1();
+    //     }
+    // });
+
+    initDateInputForDay('#date_modal');
+</script>
+
+</html>

@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>能评项目管理</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" id='theme' href="css/theme-dark-blue.css" />
+</head>
+
+<body>
+    <div class="page-container">
+        <a href="# " class="x-navigation-minimize menu_minimalize"><span class="arrow arrow-shrink "></span></a>
+        <div class="page-sidebar page-sidebar-fixed scroll">
+            <ul id='menu' class="x-navigation">
+                <li class="xn-logo">
+                    <a href="index.html"></a>
+                    <a href='#' class="x-navigation-control "></a>
+                </li>
+            </ul>
+        </div>
+        <div class="page-content ">
+            <h3 class="page-title">
+                <ul class="x-navigation x-navigation-horizontal log-out pull-right">
+                    <li class="xn-icon-button last ">
+                        <a href="# "><span class="fa fa-power-off "></span></a>
+                        <ul class="xn-drop-left animated zoomIn ">
+                            <li><a href="# " class="mb-control " data-box="#mb-signout "><span class="fa fa-sign-out "></span> 登出</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                能评项目管理</h3>
+            <div class="page-content-wrap ">
+                <div class="page-content-box gap24">
+                    <div class="clearfix mytbar">
+                        <div id="inputBox" class="gap-btn-group  " role="group">
+                            <button type="button" class="btn btn-label">
+                                <span>搜索：</span>
+                            </button>
+                            <div id="field_select" class="btn-group compact" role="group">
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    项目名称
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#" data-field='projectName' data-placeholder='请输入项目名称'>项目名称</a></li>
+                                </ul>
+                            </div>
+                            <input id="search_input" type="text" class="form-control" data-field="projectName" placeholder="请输入项目名称" />
+                            <button id="ser" type="button" title="搜索" class="btn btn-outline btn-primary">
+                                <span>查询</span>
+                            </button>
+                        </div>
+                        <div class="btn-group   pull-right" role="group">
+                            <button id="add" data-table="TContact" type="button" title="新增" class="btn btn-outline btn-primary pull-right">
+                                <span>新增</span>
+                            </button>
+                        </div>
+                    </div>
+                    <table id="TContact" data-height="716" data-mobile-responsive="true">
+                        <thead>
+                            <tr class="hidden-em">
+                                <th data-field="state" data-my="1" data-checkbox="true"></th>
+                                <th data-field="id">ID</th>
+                                <th data-field="projectNum">项目编号</th>
+                                <th data-field="companyName">企业名称</th>
+                                <th data-field="projectCateName">项目类别</th>
+                                <th data-field="projectName">项目名称</th>
+                                <th data-field="declareTime1" data-formatter="DateFormatter">申报日期</th>
+                                <th data-field="completeTime1" data-formatter="DateFormatter">竣工日期</th>
+                                <th data-field="isCapital">资金支持</th>
+                                <th data-field="amountSupport">支持额度</th>
+                                <th data-field="operate" data-formatter="OperatingAuditFomatter" data-align="right">操作</th>
+                            </tr>
+                        </thead>
+                    </table>
+                    <div id="footerbar" class="footerbar hidden-em">
+                        <div class="gap-btn-group" role="group">
+                            <button id="checkall" type="button" class="btn btn-outline btn-default" data-cked="unchecked">
+                                <span>全选</span>
+                            </button>
+                            <button id="bedit" type="button" class="btn btn-outline btn-primary">
+                                <span>批量操作</span>
+                            </button>
+                            <button id="bdel" type="button" title="删除客户" class="btn btn-outline btn-primary">
+                                <span>删除</span>
+                            </button>
+                            <button id="endState" type="button" title="删除客户" class="btn btn-outline btn-primary">
+                                <span>完成</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="message-box animated fadeIn" data-sound="alert " id='mb-signout'>
+        <div class="mb-container ">
+            <div class="mb-middle ">
+                <div class="mb-title"><span class="fa fa-sign-out "></span> Log <strong>Out</strong> ?</div>
+                <div class="mb-content ">
+                    <p>确定登出?</p>
+                    <p>如果您想继续留在此页面，请点击"否"</p>
+                </div>
+                <div class="mb-footer ">
+                    <div class="pull-right ">
+                        <a href="login.html " class="btn btn-success btn-lg ">是</a>
+                        <button class="btn btn-default btn-lg mb-control-close ">否</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="modal" class="modal fade">
+        <div class="modal-dialog">
+            <form action="javascript:void(0)" data-bv-message="验证未通过" data-bv-feedbackicons-valid="glyphicon glyphicon-ok" data-bv-feedbackicons-invalid="glyphicon glyphicon-remove" data-bv-feedbackicons-validating="glyphicon glyphicon-refresh">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title"></h4>
+                    </div>
+                    <div class="modal-body">
+                        <input type="hidden" class="form-control" name="id">
+                        <div class="form-group">
+                            <label><span class="text-red">*</span>企业名称</label>
+                            <!-- <input type="text" class="form-control" name="companyName" required> -->
+                            <select id="enterpriseId" class="form-control" name="enterpriseId" required></select>
+                        </div>
+                        <div class="form-group">
+                            <label><span class="text-red">*</span>项目编号</label>
+                            <input type="text" class="form-control" name="projectNum" required>
+                        </div>
+                        <div class="form-group">
+                            <label><span class="text-red">*</span>项目名称</label>
+                            <input type="text" class="form-control" name="projectName" required>
+                        </div>
+                        <div class="form-group">
+                            <label><span class="text-red">*</span>项目类别</label>
+                            <select id="classify" class="form-control" name="projectCateId" required></select>
+                        </div>
+                        <div class="form-group">
+                            <label>申报日期</label>
+                            <input id="declareTime" type="text" name="declareTime1" class="form-control laydate-icon layer-date">
+                        </div>
+                        <div class="form-group">
+                            <label>竣工日期</label>
+                            <input id="completeTime" type="text" name="completeTime1" class="form-control laydate-icon layer-date">
+                        </div>
+                        <div class="form-group">
+                            <label>资金扶持</label>
+                            <select id="illegal" class="form-control select" name="isCapital">
+                                <option value="0">无</option>
+                                <option value="1">有</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>资金扶持金额</label>
+                            <input type="text" class="form-control" name="amountSupport">
+                        </div>
+                        <div class="form-group">
+                            <label>项目内容</label>
+                            <input type="text" class="form-control" name="projectContent">
+                        </div>
+                        <div class="form-group">
+                            <label>实施进度</label>
+                            <input type="text" class="form-control" name="progress">
+                        </div>
+                        <div class="form-group">
+                            <label>实施完成情况</label>
+                            <input type="text" class="form-control" name="actualCompletion">
+                        </div>
+                        <div class="form-group">
+                            <label>附件</label>
+                            <input type="file" class="file" id="file" data-field="fileUrl" />
+                            <input type="text" class="hidden-em" name="fileUrl" />
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default cancel" data-dismiss="modal">取&nbsp;&nbsp;消</button>
+                        <button type="button" class="btn btn-primary submit">保&nbsp;&nbsp;存</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id="detail" class="modal fade">
+        <div class="modal-dialog">
+            <form action="javascript:void(0)">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title"></h4>
+                    </div>
+                    <div class="modal-body">
+                        <input type="hidden" class="form-control" name="id">
+                        <div class="form-group">
+                            <label>企业名称</label>
+                            <input type="text" class="form-control" name="companyName" required>
+                        </div>
+                        <div class="form-group">
+                            <label>项目编号</label>
+                            <input type="text" class="form-control" name="projectNum" required>
+                        </div>
+                        <div class="form-group">
+                            <label>项目名称</label>
+                            <input type="text" class="form-control" name="projectName" required>
+                        </div>
+                        <div class="form-group">
+                            <label>项目类别</label>
+                            <input id="classify" type="text" class="form-control" name="projectCateId"></input>
+                        </div>
+                        <div class="form-group">
+                            <label>申报日期</label>
+                            <input id="declareTime" type="text" name="declareTime1" class="form-control laydate-icon layer-date">
+                        </div>
+                        <div class="form-group">
+                            <label>竣工日期</label>
+                            <input id="completeTime" type="text" name="completeTime1" class="form-control laydate-icon layer-date">
+                        </div>
+                        <div class="form-group">
+                            <label>资金扶持</label>
+                            <select id="illegal" class="form-control select" name="isCapital">
+                                <option value="0">无</option>
+                                <option value="1">有</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>资金扶持金额</label>
+                            <input type="text" class="form-control" name="amountSupport">
+                        </div>
+                        <div class="form-group">
+                            <label>项目内容</label>
+                            <input type="text" class="form-control" name="projectContent">
+                        </div>
+                        <div class="form-group">
+                            <label>实施进度</label>
+                            <input type="text" class="form-control" name="progress">
+                        </div>
+                        <div class="form-group">
+                            <label>实施完成情况</label>
+                            <input type="text" class="form-control" name="actualCompletion">
+                        </div>
+                        <div class="form-group">
+                            <label>附件</label>
+                            <a class="file_button" name="fileUrl1"></a>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn  btn-primary submit" data-dismiss="modal">确&nbsp;&nbsp;认</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+<script type='text/javascript' src="js/import.js"></script>
+<script type='text/javascript' src="js/pages/CURDTable.js"></script>
+<script>
+    var c = new cur({
+        t: "#TContact",
+        m: "#modal",
+        uuid: "id",
+        hideCols: ['id'],
+        dataInputs: ["#declareTime", "#completeTime"],
+        search_params: {
+            field_select: '#field_select',
+            field_input: '#search_input'
+        },
+        childSls: {
+            "#classify": {
+                def: '--请选择项目类别--',
+                url: '/energy/sys/getList?key=classify&code=000060001',
+                autoRef: 'true',
+                type: 'GET'
+            },
+            "#enterpriseId": {
+                def: '--请选择企业名称--',
+                url: '/energy/enterprise/getNameList?key=enterpriseId',
+                autoRef: 'true',
+                type: 'GET'
+            }
+        },
+        fileType: {
+            'fileUrl': {
+                allowedFileTypes: ['image', 'html', 'text', 'video', 'audio', 'flash', 'object', 'other'],
+                allowedFileExtensions: ['doc', 'docx', 'ppt', 'pptx', 'xls', 'xlsx', 'zip', 'pdf'],
+                showPreview: false
+            }
+        },
+        queryUrl: "/monitor/projectEnergy/getList",
+        addUrl: "/monitor/projectEnergy/add",
+        editUrl: "/monitor/projectEnergy/edit",
+        delUrl: "/monitor/projectEnergy/del"
+    });
+
+    c.init(c);
+</script>
+
+</html>

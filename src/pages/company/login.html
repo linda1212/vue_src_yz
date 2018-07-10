@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html class="body-full-height">
+
+<head>
+    <title>登录</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" id="theme" href="css/theme-dark-blue.css" />
+</head>
+
+<body>
+    <div class="login-leftCont">
+        <h2 class="main-title"></h2>
+        <div class="login-option">
+            <div class="option1"></div>
+            <div class="option2">企业</div>
+            <div class="option3">建设</div>
+            <div class="option4">交通</div>
+            <div class="option5">发改委</div>
+            <div class="option6">公共机构</div>
+            <div class="option7">工业信息</div>
+        </div>
+    </div>
+    <div class="login-rightCont">
+        <div id="colorSelect" class="login-color01">
+            <div id="container01">
+                <div class="login-title col-md-10 col-md-offset-1">
+                    <span class="blue">经信委</span>
+                </div>
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <div class="col-md-10 col-md-offset-1 relative">
+                            <div class="login_user_name_icon"></div>
+                            <input type="text" class="form-control username" placeholder="请输入用户名" id="username" autocomplete="off" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-10 col-md-offset-1 relative">
+                            <div class="login_user_password_icon"></div>
+                            <input type="password" class="form-control password" placeholder="请输入密码" id="userpsw" autocomplete="off" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-10 col-md-offset-1 relative">
+                            <a id="forgetPwd" href="javascript:void(0);" class="text pull-right">忘记密码？</a>
+                            <div class="checkbox">
+                                <label>
+                                    <input id="autoLogin" name="autoLogin" type="checkbox"> 自动登录
+                                </label>
+                            </div>
+                        </div> 
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-10 col-md-offset-1">
+                            <button id="loginBtn" class="btn btn-primary btn-block login-btn">登 录</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="container02" class="hidden-em">
+                <div class="login-title col-md-10 col-md-offset-1">
+                    <span>找回密码</span>
+                </div>
+                <div class="form-horizontal">
+                    <div class="form-group" style="margin-bottom: 144px;">
+                        <div class="col-md-10 col-md-offset-1 relative">
+                            <input type="text" class="form-control noIconInput" placeholder="请输入账号" id="reusername" autocomplete="off" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-10 col-md-offset-1">
+                            <button id="submit" class="btn btn-disable btn-block login-btn" disabled="disabled">提 交</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="container03" class="successSend hidden-em">
+                <div class="col-md-10 col-md-offset-1">
+                    <p></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="login-bg">
+        <div class="login-container">
+            <div class="login-box animated fadeInDown">
+                 <div id="container01">
+                    <div class="login-body">
+                        <div class="login-title"></div>
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <div class="col-md-10 col-md-offset-1 relative">
+                                    <div class="login_user_name_icon"></div>
+                                    <input type="text" class="form-control username" placeholder="请输入用户名" id="username" autocomplete="off" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-10 col-md-offset-1 relative">
+                                    <div class="login_user_password_icon"></div>
+                                    <input type="password" class="form-control password" placeholder="请输入密码" id="userpsw" autocomplete="off" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-10 col-md-offset-1 relative">
+                                    <a id="forgetPwd" href="javascript:void(0);" class="text pull-right">忘记密码？</a>
+                                    <div class="checkbox">
+                                        <label>
+                                          <input id="autoLogin" name="autoLogin" type="checkbox"> 自动登录
+                                        </label>
+                                    </div>
+                                </div> 
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-10 col-md-offset-1">
+                                    <button id="loginBtn" class="btn btn-primary btn-block login-btn">登 录</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+                <div id="container02" class="hidden-em">
+                    <div class="login-body">
+                        <div class="login-title01"></div>
+                        <div class="form-horizontal">
+                            <div class="form-group" style="margin-bottom: 144px;">
+                                <div class="col-md-10 col-md-offset-1 relative">
+                                    <input type="text" class="form-control noIconInput" placeholder="请输入账号" id="reusername" autocomplete="off" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-10 col-md-offset-1">
+                                    <button id="submit" class="btn btn-disable btn-block login-btn" disabled="disabled">提 交</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+                <div id="container03"  class="successSend hidden-em">
+                    <div class="col-md-10 col-md-offset-1">
+                        <p></p>
+                    </div>
+                </div> 
+            </div>
+            <h2 id="main_title" class="main-title"></h2>
+            <h3 class="sub-title"><span class="en_title"></span><span class="sub_title"></span></h3>
+        </div>
+        <div class="footer"></div>
+    </div> -->
+</body>
+<script type='text/javascript' src="js/plugins/jquery/jquery.min.js"></script>
+<script type='text/javascript' src="js/plugins/layer/layer.min.js"></script>
+<script type='text/javascript' src="js/base/config.js"></script>
+<script type='text/javascript' src="js/pages/eBase.js"></script>
+<script type="text/javascript" src="js/pages/common.js"></script>
+<script type="text/javascript" src="js/pages/login.js"></script>
+
+</html>

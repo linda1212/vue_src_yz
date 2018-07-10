@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>年电能分析</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" id='theme' href="css/theme-dark-blue.css" />
+</head>
+
+<body>
+    <div class="page-container">
+        <a href="# " class="x-navigation-minimize menu_minimalize"><span class="arrow arrow-shrink "></span></a>
+        <div class="page-sidebar page-sidebar-fixed scroll">
+            <ul id='menu' class="x-navigation">
+                <li class="xn-logo">
+                    <a href="index.html"></a>
+                    <a href='#' class="x-navigation-control "></a>
+                </li>
+            </ul>
+        </div>
+        <div class="page-content ">
+            <h3 class="page-title">
+                <ul class="x-navigation x-navigation-horizontal log-out pull-right">
+                    <li class="xn-icon-button last ">
+                        <a href="# "><span class="fa fa-power-off "></span></a>
+                        <ul class="xn-drop-left animated zoomIn ">
+                            <li><a href="# " class="mb-control " data-box="#mb-signout "><span
+                                class="fa fa-sign-out "></span> 登出</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                年电能分析
+            </h3>
+            <div class="page-content-wrap chart_container">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-4" style="padding-right:0!important;">
+                            <div class="panel_title" style="height: 56px;">
+                                <div class="clearfix">
+                                    <div id="inputBox" class="gap-btn-group tree-bar" role="group">
+                                        <select id="company" class="form-control select iselect full">
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="tree_box" class="iPanel tree-panel font14 minHeight" style="min-height: 790px;">
+                            </div>
+                        </div>
+                        <div class="col-lg-9 col-md-8" style="padding-left:0!important;">
+                            <div class="panel_title left-border clearfix" style="height: 56px;">
+                                <div class="col-lg-12">
+                                    <div class="gap-btn-group bar-group" role="group">
+                                        <div class="btn-group" role="group">
+                                            <select id="types" class="w180 form-control select iselect">
+                                                <option value="0" data-item="0">平均负荷</option>
+                                                <option value="1" data-item="999">最大负荷</option>
+                                                <option value="2" data-item="1">无功功率</option>
+                                                <option value="3" data-item="2">功率因素</option>
+                                                <option value="4" data-item="3">电流</option>
+                                                <option value="5" data-item="4">电压</option>
+                                                <option value="6" data-item="999">温度</option>
+                                                <option value="7" data-item="5">电流谐波畸变率</option>
+                                                <option value="8" data-item="6">电压谐波畸变率</option>
+                                                <option value="9" data-item="999">频率偏差</option>
+                                                <option value="10" data-item="7">电压偏差</option>
+                                                <option value="11" data-item="8">三相不平衡度</option>
+                                            </select>
+                                        </div>
+                                        <input id="frame1_page1_input1" type="text" name="name" class="form-control laydate-icon layer-date w180" data-bv-date="true">
+                                        <button type="button" title="查询" id="search" class="btn btn-outline btn-primary">
+                                            <span>查询</span>
+                                        </button>
+                                    </div>
+                                </div>
+                                <!--<div class="col-lg-4 clearfix">-->
+                                <!--</div>-->
+                            </div>
+                            <div id="content_box">
+                                <div class="iPanel left-border" style="margin-bottom: 0;border-bottom: 1px solid #e8e8e8">
+                                    <div class="content">
+                                        <h4 id="title1" class="title"></h4>
+                                        <div class="chart-wrap">
+                                            <div id="line_bar" style="min-height: 414px;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <ul id="navigation" class="nav nav-tabs left-border">
+                                    <li role="presentation" class="active"><a href="javascript:void(0);" data-page='#page1' data-type="1">负荷</a></li>
+                                    <li role="presentation"><a href="javascript:void(0);" data-page='#page2' data-type="2">无功功率</a></li>
+                                    <li role="presentation"><a href="javascript:void(0);" data-page='#page1' data-type="3">功率因素</a></li>
+                                    <li role="presentation"><a href="javascript:void(0);" data-page='#page1' data-type="4">电流</a></li>
+                                    <li role="presentation"><a href="javascript:void(0);" data-page='#page1' data-type="5">电压</a></li>
+                                    <li role="presentation"><a href="javascript:void(0);" data-page='#page1' data-type="7">电流谐波</a></li>
+                                    <li role="presentation"><a href="javascript:void(0);" data-page='#page1' data-type="8">电压谐波</a></li>
+                                    <li role="presentation"><a href="javascript:void(0);" data-page='#page1' data-type="10">电压偏差</a></li>
+                                    <li role="presentation"><a href="javascript:void(0);" data-page='#page1' data-type="11">三相不平衡</a></li>
+                                </ul>
+                                <div class="iPanel left-border" style="padding-bottom: 0;">
+                                    <div id="page_content" class="nav-content">
+                                        <div id="page1" class="relative">
+                                            <div class="iPanel compact_panel" style="min-height: 250px;">
+                                                <div class="content">
+                                                    <table id="TTable" data-height="400" data-mobile-responsive="true">
+                                                        <thead>
+                                                            <tr class="hidden-em">
+                                                                <th data-field="field0">信息</th>
+                                                                <!--<th data-field="field1">标准值范围</th>-->
+                                                                <th data-field="field2" data-align="right">平均值</th>
+                                                                <th data-field="field3" data-align="right">最大值</th>
+                                                                <th data-field="field4" data-formatter="SubstrDateFormatter">最大值时间</th>
+                                                                <th data-field="field5" data-align="right">最小值</th>
+                                                                <th data-field="field6" data-formatter="SubstrDateFormatter">最小值时间</th>
+                                                                </th>
+                                                            </tr>
+                                                        </thead>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="page2" class="relative" style="display: none">
+                                            <div class="iPanel compact_panel">
+                                                <div class="content">
+                                                    <table id="TTable1" data-height="400" data-mobile-responsive="true">
+                                                        <thead>
+                                                            <tr class="hidden-em">
+                                                                <th data-field="field0">信息</th>
+                                                                <th data-field="field1" data-align="right">平均值</th>
+                                                                <th data-field="field2" data-align="right">最大值</th>
+                                                                <th data-field="field3" data-formatter="SubstrDateFormatter">最大值时间</th>
+                                                                <th data-field="field4" data-align="right">最小值</th>
+                                                                <th data-field="field5" data-formatter="SubstrDateFormatter">最小值时间</th>
+                                                            </tr>
+                                                        </thead>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="message-box animated fadeIn " data-sound="alert " id='mb-signout'>
+        <div class="mb-container ">
+            <div class="mb-middle ">
+                <div class="mb-title "><span class="fa fa-sign-out "></span> Log <strong>Out</strong> ?</div>
+                <div class="mb-content ">
+                    <p>确定登出?</p>
+                    <p>如果您想继续留在此页面，请点击"否 "</p>
+                </div>
+                <div class="mb-footer ">
+                    <div class="pull-right ">
+                        <a href="login.html " class="btn btn-success btn-lg ">是</a>
+                        <button class="btn btn-default btn-lg mb-control-close ">否</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type='text/javascript' src="js/import.js "></script>
+<script type='text/javascript' src="js/pages/common.js "></script>
+<script type='text/javascript' src="js/pages/CURDTable.js "></script>
+<script type='text/javascript' src="js/charts/echart_yarn.min.js "></script>
+<script>
+    var $tree, tableData = {},
+        chartsData = {},
+        currentNode = {},
+        activeLi = 0; // 当前选择li
+
+    initDateInputForYear('#frame1_page1_input1');
+
+    $('#frame1_page1_input1').val(getThisYear());
+
+    function getInputDay() {
+        return $('#frame1_page1_input1').val();
+    }
+
+    $('#navigation').find('li').click(function() {
+        $(this).addClass('active').siblings('li').removeClass('active');
+        var id = $(this).find('a').data('page'),
+            type = $(this).find('a').data('type'),
+            ts = returnTypes();
+        $('#page_content').find(id).show().siblings().hide();
+        switch (id) {
+            case '#page2':
+                setTimeout(function() {
+                    $(window).trigger("panel_resize");
+                    renderGLTable(tableData[ts[type]]);
+                }, 100);
+                break;
+            case '#page1':
+            default:
+                setTimeout(function() {
+                    $(window).trigger("panel_resize");
+                    renderTable(tableData[ts[type]]);
+                }, 100);
+                break;
+        }
+    });
+
+    function getTableData(id, cb) {
+        eBase.send({
+            "url": "/energy/monitor/anal/power/getYear/" + getInputDay() + "/" + id + ".json"
+        }, "get").done(function(res) {
+            var data = res.data,
+                avg = data.avg,
+                max = data.max,
+                min = data.min,
+                fuhe,
+                wugong,
+                gonglv,
+                dianliu,
+                dianya,
+                dianliuxiebo,
+                dianyaxiebo,
+                dianyapiancha,
+                sanxiang;
+
+            fuhe = [{
+                field0: '总负荷(kW)',
+                field1: '',
+                field2: avg.pAvg,
+                field3: max.pMax,
+                field4: max.pMaxTime,
+                field5: min.pMin,
+                field6: min.pMinTime
+            }];
+            // {field0: 'A相负荷(kW)',field1: '',field2: avg.paAvg,field3: max.paMax,field4: max.paMaxTime,field5: min.paMin,field6: min.paMinTime},
+            // {field0: 'B相负荷(kW)',field1: '',field2: avg.pbAvg,field3: max.pbMax,field4: max.pbMaxTime,field5: min.pbMin,field6: min.pbMinTime},
+            // {field0: 'C相负荷(kW)',field1: '',field2: avg.pcAvg,field3: max.pcMax,field4: max.pcMaxTime,field5: min.pcMin,field6: min.pcMinTime}
+
+            wugong = [{
+                field0: '总无功(kVar)',
+                field1: avg.qAvg,
+                field2: max.qMax,
+                field3: max.qMaxTime,
+                field4: min.qMin,
+                field5: min.qMinTime
+            }];
+            // {field0: 'A相无功(kVar)',field1: avg.qaAvg,field2: max.qaMax,field3: max.qaMaxTime,field4: min.qaMin,field5: min.qaMinTime},
+            // {field0: 'B相无功(kVar)',field1: avg.qbAvg,field2: max.qbMax,field3: max.qbMaxTime,field4: min.qbMin,field5: min.qbMinTime},
+            // {field0: 'C相无功(kVar)',field1: avg.qcAvg,field2: max.qcMax,field3: max.qcMaxTime,field4: min.qcMin,field5: min.qcMinTime}];
+
+            gonglv = [{
+                field0: '总功率因数',
+                field1: '',
+                field2: avg.pfAvg,
+                field3: max.pfMax,
+                field4: max.pfMaxTime,
+                field5: min.pfMin,
+                field6: min.pfMinTime
+            }];
+            // {field0: 'A相功率因数',field1: '',field2: avg.pfaAvg,field3: max.pfaMax,field4: max.pfaMaxTime,field5: min.pfaMin,field6: min.pfaMinTime},
+            // {field0: 'A相功率因数',field1: '',field2: avg.pfbAvg,field3: max.pfbMax,field4: max.pfbMaxTime,field5: min.pfbMin,field6: min.pfbMinTime},
+            // {field0: 'A相功率因数',field1: '',field2: avg.pfcAvg,field3: max.pfcMax,field4: max.pfcMaxTime,field5: min.pfcMin,field6: min.pfcMinTime}];
+
+            dianliu = [{
+                    field0: 'A相电流(A)',
+                    field1: '',
+                    field2: avg.iaAvg,
+                    field3: max.iaMax,
+                    field4: max.iaMaxTime,
+                    field5: min.iaMin,
+                    field6: min.iaMinTime
+                },
+                // {field0: 'B相电流(A)',field1: '',field2: avg.ibAvg,field3: max.ibMax,field4: max.ibMaxTime,field5: min.ibMin,field6: min.ibMinTime},
+                {
+                    field0: 'C相电流(A)',
+                    field1: '',
+                    field2: avg.icAvg,
+                    field3: max.icMax,
+                    field4: max.icMaxTime,
+                    field5: min.icMin,
+                    field6: min.icMinTime
+                }
+            ];
+            // {field0: '零线电流(A)',field1: '',field2: avg.izAvg,field3: max.izMax,field4: max.izMaxTime,field5: min.izMin,field6: min.izMinTime}];
+
+            dianya = [
+                // {field0: 'A相电压(V)',field1: '',field2: avg.uaAvg,field3: max.uaMax,field4: max.uaMaxTime,field5: min.uaMin,field6: min.uaMinTime},
+                // {field0: 'B相电压(V)',field1: '',field2: avg.ubAvg,field3: max.ubMax,field4: max.ubMaxTime,field5: min.ubMin,field6: min.ubMinTime},
+                // {field0: 'C相电压(V)',field1: '',field2: avg.ucAvg,field3: max.ucMax,field4: max.ucMaxTime,field5: min.ucMin,field6: min.ucMinTime},
+                {
+                    field0: 'Uab线电压(V)',
+                    field1: '',
+                    field2: avg.uabAvg,
+                    field3: max.uabMax,
+                    field4: max.uabMaxTime,
+                    field5: min.uabMin,
+                    field6: min.uabMinTime
+                }, {
+                    field0: 'Ubc线电压(V)',
+                    field1: '',
+                    field2: avg.ubcAvg,
+                    field3: max.ubcMax,
+                    field4: max.ubcMaxTime,
+                    field5: min.ubcMin,
+                    field6: min.ubcMinTime
+                }, {
+                    field0: 'Uca线电压(V)',
+                    field1: '',
+                    field2: avg.ucaAvg,
+                    field3: max.ucaMax,
+                    field4: max.ucaMaxTime,
+                    field5: min.ucaMin,
+                    field6: min.ucaMinTime
+                }
+            ];
+
+            dianliuxiebo = [{
+                field0: 'A相电流谐波畸变率(%)',
+                field1: '',
+                field2: avg.harmonic_IaAvg,
+                field3: max.harmonic_IaMax,
+                field4: max.harmonic_IaMaxTime,
+                field5: min.harmonic_IaMin,
+                field6: min.harmonic_IaMinTime
+            }, {
+                field0: 'B相电流谐波畸变率(%)',
+                field1: '',
+                field2: avg.harmonic_IbAvg,
+                field3: max.harmonic_IbMax,
+                field4: max.harmonic_IbMaxTime,
+                field5: min.harmonic_IbMin,
+                field6: min.harmonic_IbMinTime
+            }, {
+                field0: 'C相电流谐波畸变率(%)',
+                field1: '',
+                field2: avg.harmonic_IcAvg,
+                field3: max.harmonic_IcMax,
+                field4: max.harmonic_IcMaxTime,
+                field5: min.harmonic_IcMin,
+                field6: min.harmonic_IcMinTime
+            }];
+
+            dianyaxiebo = [{
+                field0: 'A相电压谐波畸变率(%)',
+                field1: '',
+                field2: avg.harmonic_UaAvg,
+                field3: max.harmonic_UaMax,
+                field4: max.harmonic_UaMaxTime,
+                field5: min.harmonic_UaMin,
+                field6: min.harmonic_UaMinTime
+            }, {
+                field0: 'B相电压谐波畸变率(%)',
+                field1: '',
+                field2: avg.harmonic_UbAvg,
+                field3: max.harmonic_UbMax,
+                field4: max.harmonic_UbMaxTime,
+                field5: min.harmonic_UbMin,
+                field6: min.harmonic_UbMinTime
+            }, {
+                field0: 'C相电压谐波畸变率(%)',
+                field1: '',
+                field2: avg.harmonic_UcAvg,
+                field3: max.harmonic_UcMax,
+                field4: max.harmonic_UcMaxTime,
+                field5: min.harmonic_UcMin,
+                field6: min.harmonic_UcMinTime
+            }];
+
+            dianyapiancha = [
+                // field0: 'A相电压偏差(%)',field1: '',field2: avg.uaWAvg,field3: max.uaWMax,field4: max.uaWMaxTime,field5: min.uaWMin,field6: min.uaWMinTime},
+                // {field0: 'B相电压偏差(%)',field1: '',field2: avg.ubWAvg,field3: max.ubWMax,field4: max.ubWMaxTime,field5: min.ubWMin,field6: min.ubWMinTime},
+                // {field0: 'C相电压偏差(%)',field1: '',field2: avg.ucWAvg,field3: max.ucWMax,field4: max.ucWMaxTime,field5: min.ucWMin,field6: min.ucWMinTime},
+                {
+                    field0: 'Uab线电压偏差(%)',
+                    field1: '',
+                    field2: avg.uabWAvg,
+                    field3: max.uabWMax,
+                    field4: max.uabWMaxTime,
+                    field5: min.uabWMin,
+                    field6: min.uabWMinTime
+                }, {
+                    field0: 'Ubc线电压偏差(%)',
+                    field1: '',
+                    field2: avg.ubcWAvg,
+                    field3: max.ubcWMax,
+                    field4: max.ubcWMaxTime,
+                    field5: min.ubcWMin,
+                    field6: min.ubcWMinTime
+                }, {
+                    field0: 'Uca线电压偏差(%)',
+                    field1: '',
+                    field2: avg.ucaWAvg,
+                    field3: max.ucaWMax,
+                    field4: max.ucaWMaxTime,
+                    field5: min.ucaWMin,
+                    field6: min.ucaWMinTime
+                }
+            ];
+
+            sanxiang = [{
+                field0: '电流(%)',
+                field1: '',
+                field2: avg.inBalanceAvg,
+                field3: max.inBalanceMax,
+                field4: max.inBalanceMaxTime,
+                field5: min.inBalanceMin,
+                field6: min.inBalanceMinTime
+            }, {
+                field0: '电压(%)',
+                field1: '',
+                field2: avg.unBalanceAvg,
+                field3: max.unBalanceMax,
+                field4: max.unBalanceMaxTime,
+                field5: min.unBalanceMin,
+                field6: min.unBalanceMinTime
+            }];
+
+            tableData.fuhe = fuhe;
+            tableData.wugong = wugong;
+            tableData.gonglv = gonglv;
+            tableData.dianliu = dianliu;
+            tableData.dianya = dianya;
+            tableData.dianliuxiebo = dianliuxiebo;
+            tableData.dianyaxiebo = dianyaxiebo;
+            tableData.dianyapiancha = dianyapiancha;
+            tableData.sanxiang = sanxiang;
+
+            cb && cb();
+        });
+    }
+
+    function showTreeView(id) {
+        eBase.send({
+            // url: 'js/charts/demos/treeData.json'
+            url: '/energy/monitor/tree?companyId=' + id
+        }, 'get').done(function(resp) {
+
+            getTreeDataHandler('#tree_box', resp.data);
+
+        }).fail(function() {
+            console.log('获取数据失败');
+        });
+    }
+
+    function getTreeDataHandler(el, data) {
+
+        $tree = $(el).treeview({
+            showBorder: false,
+            selectedBackColor: '#1e87f0',
+            expandIcon: "tree-icon menu-plus",
+            collapseIcon: "tree-icon menu-minus",
+            data: data
+        });
+
+        $tree.on('nodeSelected', function(event, data) {
+            console.log(data)
+
+            currentNode = data;
+            if (data.id == -1) {
+                return;
+            }
+            initFunc(data.id);
+
+        });
+
+        $(el).treeview('selectNode', [1]);
+    }
+
+    function initFunc(id) {
+        if (-1 == id) {
+            return;
+        }
+        chartsData = {};
+        renderWhichCharts();
+        getTableData(id, function() {
+            clickLi(activeLi);
+        });
+    }
+
+    function clickLi(i) {
+        $('#navigation').find('li').eq(i).click();
+    }
+
+    function returnTypes() {
+        return {
+            '1': 'fuhe',
+            '2': 'wugong',
+            '3': 'gonglv',
+            '4': 'dianliu',
+            '5': 'dianya',
+            '7': 'dianliuxiebo',
+            '8': 'dianyaxiebo',
+            '10': 'dianyapiancha',
+            '11': 'sanxiang',
+        }
+    }
+
+    function returnUnits() {
+        return {
+            '0': '单位(kW)',
+            '1': '单位(kW)',
+            '2': '单位(kVar)',
+            '3': '单位',
+            '4': '单位(A)',
+            '5': '单位(V)',
+            '6': '单位(℃)',
+            '7': '单位(%)',
+            '8': '单位(%)',
+            '9': '单位(Hz)',
+            '10': '单位(%)',
+            '11': '单位(%)',
+        }
+    }
+
+    $('#types').on('change', function() {
+
+        renderWhichCharts();
+        if (($(this).find('option:checked').data('item')) > 100) return;
+        activeLi = +$(this).find('option:checked').data('item')
+        clickLi(activeLi);
+
+    })
+
+    function renderWhichCharts() {
+        getChartsByName();
+    }
+
+    function typeToSeries(type) {
+        var t1 = [1, 2, 3, 4, 5],
+            t2 = [7, 8],
+            t3 = [6, 9, 10, 11],
+            datas = [],
+            categories = [],
+            series = [];
+
+        categories = chartsData.dianneng.categories;
+        switch (type) {
+            case '0':
+                var o = {};
+                chartsData.dianneng.datas.pAvg && (o['总负荷'] = chartsData.dianneng.datas.pAvg);
+                chartsData.dianneng.datas.paAvg && (o['A相负荷'] = chartsData.dianneng.datas.paAvg);
+                chartsData.dianneng.datas.pbAvg && (o['B相负荷'] = chartsData.dianneng.datas.pbAvg);
+                chartsData.dianneng.datas.pcAvg && (o['C相负荷'] = chartsData.dianneng.datas.pcAvg);
+                datas = o;
+                break;
+            case '1':
+                var o = {};
+                chartsData.dianneng.datas.pMax && (o['总负荷'] = chartsData.dianneng.datas.pMax);
+                chartsData.dianneng.datas.paMax && (o['A相负荷'] = chartsData.dianneng.datas.paMax);
+                chartsData.dianneng.datas.pbMax && (o['B相负荷'] = chartsData.dianneng.datas.pbMax);
+                chartsData.dianneng.datas.pcMax && (o['C相负荷'] = chartsData.dianneng.datas.pcMax);
+                datas = o;
+                break;
+            case '2':
+                var o = {};
+                chartsData.dianneng.datas.qAvg && (o['总无功'] = chartsData.dianneng.datas.qAvg);
+                chartsData.dianneng.datas.qaAvg && (o['A相无功'] = chartsData.dianneng.datas.qaAvg);
+                chartsData.dianneng.datas.qbAvg && (o['B相无功'] = chartsData.dianneng.datas.qbAvg);
+                chartsData.dianneng.datas.qcAvg && (o['C相无功'] = chartsData.dianneng.datas.qcAvg);
+                datas = o;
+                break;
+            case '3':
+                var o = {};
+                chartsData.dianneng.datas.pfAvg && (o['总功率因素'] = chartsData.dianneng.datas.pfAvg);
+                chartsData.dianneng.datas.pfaAvg && (o['A相功率因素'] = chartsData.dianneng.datas.pfaAvg);
+                chartsData.dianneng.datas.pfbAvg && (o['B相功率因素'] = chartsData.dianneng.datas.pfbAvg);
+                chartsData.dianneng.datas.pfcAvg && (o['C相功率因素'] = chartsData.dianneng.datas.pfcAvg);
+                datas = o;
+                break;
+            case '4':
+                var o = {};
+                chartsData.dianneng.datas.iaAvg && (o['A相电流'] = chartsData.dianneng.datas.iaAvg);
+                chartsData.dianneng.datas.ibAvg && (o['B相电流'] = chartsData.dianneng.datas.ibAvg);
+                chartsData.dianneng.datas.icAvg && (o['C相电流'] = chartsData.dianneng.datas.icAvg);
+                chartsData.dianneng.datas.izAvg && (o['零线电流'] = chartsData.dianneng.datas.izAvg);
+                datas = o;
+                break;
+            case '5':
+                var o = {};
+                chartsData.dianneng.datas.uaAvg && (o['A相电压'] = chartsData.dianneng.datas.uaAvg);
+                chartsData.dianneng.datas.ubAvg && (o['B相电压'] = chartsData.dianneng.datas.ubAvg);
+                chartsData.dianneng.datas.ucAvg && (o['C相电压'] = chartsData.dianneng.datas.ucAvg);
+                chartsData.dianneng.datas.uabAvg && (o['Uab线电压'] = chartsData.dianneng.datas.uabAvg);
+                chartsData.dianneng.datas.ubcAvg && (o['Ubc线电压'] = chartsData.dianneng.datas.ubcAvg);
+                chartsData.dianneng.datas.ucaAvg && (o['Uca线电压'] = chartsData.dianneng.datas.ucaAvg);
+                datas = o;
+                break;
+            case '7':
+                var o = {};
+                chartsData.dianneng.datas.harmonic_IaAvg && (o['A相电流谐波畸变率'] = chartsData.dianneng.datas.harmonic_IaAvg);
+                chartsData.dianneng.datas.harmonic_IbAvg && (o['B相电流谐波畸变率'] = chartsData.dianneng.datas.harmonic_IbAvg);
+                chartsData.dianneng.datas.harmonic_IcAvg && (o['C相电流谐波畸变率'] = chartsData.dianneng.datas.harmonic_IcAvg);
+                datas = o;
+                break;
+            case '8':
+                var o = {};
+                chartsData.dianneng.datas.harmonic_UaAvg && (o['A相电压谐波畸变率'] = chartsData.dianneng.datas.harmonic_UaAvg);
+                chartsData.dianneng.datas.harmonic_UbAvg && (o['B相电压谐波畸变率'] = chartsData.dianneng.datas.harmonic_UbAvg);
+                chartsData.dianneng.datas.harmonic_UcAvg && (o['C相电压谐波畸变率'] = chartsData.dianneng.datas.harmonic_UcAvg);
+                datas = o;
+                break;
+            case '6':
+                var o = {};
+                chartsData.dianneng.datas.tAvg && (o['温度'] = chartsData.dianneng.datas.tAvg);
+                // o['温度二'] = chartsData.other.datas.t2;
+                // o['温度三'] = chartsData.other.datas.t3;
+                // o['温度四'] = chartsData.other.datas.t4;
+                // o['温度五'] = chartsData.other.datas.t5;
+                // o['温度六'] = chartsData.other.datas.t6;
+                // o['温度七'] = chartsData.other.datas.t7;
+                // o['温度八'] = chartsData.other.datas.t8;
+                datas = o;
+                break;
+            case '10':
+                var o = {};
+                chartsData.dianneng.datas.uawAvg && (o['A相电压偏差'] = chartsData.dianneng.datas.uawAvg);
+                chartsData.dianneng.datas.ubwAvg && (o['B相电压偏差'] = chartsData.dianneng.datas.ubwAvg);
+                chartsData.dianneng.datas.ucwAvg && (o['C相电压偏差'] = chartsData.dianneng.datas.ucwAvg);
+                chartsData.dianneng.datas.uabWAvg && (o['Uab线电压偏差'] = chartsData.dianneng.datas.uabWAvg);
+                chartsData.dianneng.datas.ubcWAvg && (o['Ubc线电压偏差'] = chartsData.dianneng.datas.ubcWAvg);
+                chartsData.dianneng.datas.ucaWAvg && (o['Uca线电压偏差'] = chartsData.dianneng.datas.ucaWAvg);
+                datas = o;
+                break;
+            case '9':
+                var o = {};
+                chartsData.dianneng.datas.fWAvg && (o['频率偏差'] = chartsData.dianneng.datas.fWAvg);
+                datas = o;
+                break;
+            case '11':
+                var o = {};
+                chartsData.dianneng.datas.inBalanceAvg && (o['三相电流不平衡度'] = chartsData.dianneng.datas.inBalanceAvg);
+                chartsData.dianneng.datas.unBalanceAvg && (o['三相电压不平衡度'] = chartsData.dianneng.datas.unBalanceAvg);
+                datas = o;
+                break;
+        }
+
+        for (let key in datas) {
+            series.push({
+                data: datas[key],
+                name: key
+            })
+        }
+
+        return {
+            series: series,
+            categories: categories
+        };
+    }
+
+    function getChartsByName() {
+        if (!chartsData.dianneng) {
+            eBase.send({
+                "url": "/energy/monitor/anal/power/maxAndAvg/getYear/" + getInputDay() + "/" + currentNode.id + ".json"
+            }, "get").done(function(resp) {
+
+                chartsData.dianneng = resp.data || [];
+
+                renderRealCharts();
+            });
+        } else {
+            renderRealCharts();
+        }
+
+    }
+
+    function getXieboCharts() {
+        if (!chartsData.xiebo) {
+            eBase.send({
+                "url": "/energy/monitor/harmonic/getDate/" + getInputDay() + "/" + currentNode.id + ".json"
+            }, "get").done(function(resp) {
+
+                chartsData.xiebo = resp.data || [];
+
+                renderRealCharts();
+            });
+        } else {
+            renderRealCharts();
+        }
+    }
+
+    function getOtherCharts() {
+        if (!chartsData.other) {
+            eBase.send({
+                "url": "/energy/monitor/qty/getDate/" + getInputDay() + "/" + currentNode.id + ".json"
+            }, "get").done(function(resp) {
+
+                chartsData.other = resp.data || [];
+
+                renderRealCharts();
+            });
+        } else {
+            renderRealCharts();
+        }
+    }
+
+    function renderRealCharts() {
+        new yarn({
+            charts: [{
+                el: 'line_bar',
+                type: 'line',
+                ti: '#title1',
+                // url: 'js/charts/demos/dayEnergyAnalysis.json',
+                dataSourceType: 'object',
+                scale: 0.30,
+                theme_obj: {
+                    legend: {
+                        left: 55
+                    }
+                },
+                data: {
+                    chartData: {
+                        categories: typeToSeries($('#types').val()).categories,
+                        series: typeToSeries($('#types').val()).series,
+                        title: currentNode.text,
+                        yzTitle: returnUnits()[$('#types').val()]
+                    }
+                }
+            }]
+        }).init();
+    }
+
+    function renderGLTable(data) {
+        new cur({
+            t: "#TTable1",
+            m: "#modal",
+            footerbar: '#footerbar',
+            showAfterRender: ['#footerbar'],
+            pageSize: 6,
+            dataSourceType: 'localData',
+            data: data,
+        }).init();
+    }
+
+    function renderTable(data) {
+        new cur({
+            t: "#TTable",
+            m: "#modal",
+            footerbar: '#footerbar',
+            showAfterRender: ['#footerbar'],
+            pageSize: 6,
+            dataSourceType: 'localData',
+            data: data,
+        }).init();
+    }
+
+    function initPage() {
+        initDSMCompanySelectByElementId('company', function() {
+            showTreeView($('#company').val());
+        });
+        $('#company').change(function() {
+            showTreeView($(this).val());
+        });
+        // getChartsByName();
+        initDateInputForMonth('#date_input1');
+        $('#date_input1').val(getThisMonth());
+
+        setTimeout(function() {
+            $('#tree_box').css('height', $('#content_box').height() + 'px').css('overflow-y', 'auto');
+        }, 500);
+    }
+
+    initPage();
+
+    $('#search').click(function() {
+        initFunc(currentNode.id);
+    });
+</script>
+
+</html>

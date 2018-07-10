@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>电能分布图</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" id='theme' href="css/theme-dark-blue.css" />
+</head>
+
+<body>
+    <div class="page-container">
+        <a href="# " class="x-navigation-minimize menu_minimalize"><span class="arrow arrow-shrink "></span></a>
+        <div class="page-sidebar page-sidebar-fixed scroll">
+            <ul id='menu' class="x-navigation">
+                <li class="xn-logo">
+                    <a href="index.html"></a>
+                    <a href='#' class="x-navigation-control "></a>
+                </li>
+            </ul>
+        </div>
+        <div class="page-content ">
+            <h3 class="page-title">
+                <ul class="x-navigation x-navigation-horizontal log-out pull-right">
+                    <li class="xn-icon-button last ">
+                        <a href="# "><span class="fa fa-power-off "></span></a>
+                        <ul class="xn-drop-left animated zoomIn ">
+                            <li><a href="# " class="mb-control " data-box="#mb-signout "><span class="fa fa-sign-out "></span> 登出</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                电能分布图</h3>
+            <div class="page-content-wrap chart_container">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-4" style="padding-right:0!important;">
+                            <div class="panel_title" style="height: 56px;">
+                                <div class="clearfix">
+                                    <div id="inputBox" class="gap-btn-group tree-bar" role="group">
+                                        <select id="company" class="form-control select iselect full"></select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="tree_box" class="iPanel tree-panel font14" style="overflow: auto;padding-bottom: 24px;min-height: 838px;max-height: 838px;">
+                            </div>
+                        </div>
+                        <div class="col-lg-9 col-md-8" style="padding-left:0!important;">
+                            <div class="panel_title left-border">
+                                <div class="col-lg-6">
+                                    <h4 id="title1"></h4>
+                                </div>
+                                <div class="col-lg-6 clearfix">
+                                    <div class="gap-btn-group pull-right bar-group ml10" role="group">
+                                        <div class="btn-group" role="group">
+                                            <select id="picTypes" class="w140 form-control select iselect">
+                                                <option value="1">负荷</option>
+                                                <option value="2">电量</option>
+                                            </select>
+                                        </div>
+                                        <!-- <button id="search_btn" type="button" title="搜索" class="btn btn-outline btn-primary">
+                                            <span>查询</span>
+                                        </button> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="content_box" class="iPanel left-border" style="overflow: auto;min-height: 838px;max-height: 838px;">
+                                <div class="content">
+                                    <div class="chart-wrap">
+                                        <div id="line_bar" style="max-height: 600px;min-height: 300px;"></div>
+                                    </div>
+                                </div>
+                                <div class="content mt40 table-header-twoRow">
+                                    <table id="TTable" data-height="400" data-mobile-responsive="true">
+                                        <thead>
+                                            <tr class="hidden-em">
+                                                <th data-field="name" data-valign='middle' data-align='left'>监测点名称</th>
+                                                <th data-field="p" data-align='right'>负荷<span class="unit">(千瓦)</span></th>
+                                                <th data-field="power" data-align='right'>总电量<span class="unit">(千瓦时)</span></th>
+                                                <th data-field="fTpe" data-align='right'>峰电量<span class="unit">(千瓦时)</span></th>
+                                                <th data-field="gTpe" data-align='right'>谷电量<span class="unit">(千瓦时)</span></th>
+                                                <th data-field="pTpe" data-align='right'>平电量<span class="unit">(千瓦时)</span></th>
+                                                <th data-field="jTpe" data-align='right'>尖电量<span class="unit">(千瓦时)</span></th>
+                                            </tr>
+                                        </thead>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="message-box animated fadeIn " data-sound="alert " id='mb-signout'>
+        <div class="mb-container ">
+            <div class="mb-middle ">
+                <div class="mb-title "><span class="fa fa-sign-out "></span> Log <strong>Out</strong> ?</div>
+                <div class="mb-content ">
+                    <p>确定登出?</p>
+                    <p>如果您想继续留在此页面，请点击"否 "</p>
+                </div>
+                <div class="mb-footer ">
+                    <div class="pull-right ">
+                        <a href="login.html " class="btn btn-success btn-lg ">是</a>
+                        <button class="btn btn-default btn-lg mb-control-close ">否</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type='text/javascript' src="js/import.js "></script>
+<script type='text/javascript' src="js/pages/common.js "></script>
+<script type='text/javascript' src="js/pages/CURDTable.js "></script>
+<script type='text/javascript' src="js/charts/echart_yarn.min.js "></script>
+<script>
+    var selectId = null;
+
+    function showTreeView(id) {
+        eBase.send({
+            "url": '/energy/monitor/tree?companyId=' + id
+        }, "get").done(function(resp) {
+            if (resp.code == "0") {
+                $('#tree_box').treeview({
+                    showBorder: false,
+                    selectedBackColor: '#1e87f0',
+                    expandIcon: "tree-icon menu-plus",
+                    collapseIcon: "tree-icon menu-minus",
+                    data: resp.data
+                }).on('nodeSelected', function(event, data) {
+                    selectId = data.id;
+                    if (data.id == -1) {
+                        return;
+                    }
+                    var se = $('#picTypes').val();
+                    switch (se) {
+                        case '1':
+                            getChartsByCharge(selectId);
+                            break;
+                        case '2':
+                            getChartsByElectricity(selectId);
+                            break;
+                        default:
+                            getChartsByCharge(selectId);
+                            break;
+                    }
+                    showTable(selectId);
+                });
+                $('#tree_box').treeview('selectNode', [1]);
+            }
+        }).fail(function(resp) {});
+    }
+
+    function getChartsByCharge(id) {
+        new yarn({
+            charts: [{
+                el: 'line_bar',
+                type: 'hbar',
+                ti: '#title1',
+                theme_obj: {
+                    legend: {
+                        left: 80,
+                    },
+                    grid: {
+                        right: 50
+                    }
+                },
+                scale: 0.36,
+                min_height: 300,
+                max_height: 600,
+                url: '/energy/electricTopic/monitor/power/distribute/chart',
+                params: {
+                    "id": id,
+                    "key": "the_id_from_params"
+                }
+            }]
+        }).init();
+    }
+
+    function getChartsByElectricity(id) {
+        new yarn({
+            charts: [{
+                el: 'line_bar',
+                type: 'hbar',
+                ti: '#title1',
+                url: '/energy/electricTopic/monitor/getFgp/distribute/chart',
+                theme_obj: {
+                    legend: {
+                        left: 80
+                    },
+                    grid: {
+                        right: 50
+                    }
+                },
+                scale: 0.36,
+                min_height: 300,
+                max_height: 600,
+                direction: 'y',
+                params: {
+                    "id": id,
+                    "key": "the_id_from_params"
+                }
+            }]
+        }).init();
+    }
+
+    function initPage() {
+        initDSMCompanySelectByElementId('company', function() {
+            showTreeView($('#company').val());
+        });
+
+        $('#company').change(function() {
+            showTreeView($(this).val());
+        });
+    }
+
+    initPage();
+
+    function showTable(id) {
+        new cur({
+            t: "#TTable",
+            m: "#modal",
+            footerbar: '#footerbar',
+            showAfterRender: ['#footerbar'],
+            pageSize: false,
+            search_params: {
+                field_select: '#field_select',
+                field_input: '#search_input'
+            },
+            method: "get",
+            queryUrl: "/energy/electricTopic/monitor/getPower/distribute/table",
+            params: {
+                id: id
+            },
+            addUrl: "/energy/enterprise/add",
+            editUrl: "/energy/enterprise/update",
+            delUrl: "/energy/enterprise/delByIds"
+        }).init();
+    }
+
+    $('#picTypes').change(function() {
+        var se = $(this).val();
+        switch (se) {
+            case '1':
+                getChartsByCharge(selectId);
+                break;
+            case '2':
+                getChartsByElectricity(selectId);
+                break;
+            default:
+                getChartsByCharge(selectId);
+                break;
+        }
+    });
+</script>
+
+</html>

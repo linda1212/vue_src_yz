@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>固投项目节能管理</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" id='theme' href="css/theme-dark-blue.css" />
+</head>
+
+<body>
+    <div class="page-container">
+        <a href="# " class="x-navigation-minimize menu_minimalize"><span class="arrow arrow-shrink "></span></a>
+        <div class="page-sidebar page-sidebar-fixed scroll">
+            <ul id='menu' class="x-navigation">
+                <li class="xn-logo">
+                    <a href="index.html"></a>
+                    <a href='#' class="x-navigation-control "></a>
+                </li>
+            </ul>
+        </div>
+        <div class="page-content ">
+            <h3 class="page-title">
+                <ul class="x-navigation x-navigation-horizontal log-out pull-right">
+                    <li class="xn-icon-button last ">
+                        <a href="# "><span class="fa fa-power-off "></span></a>
+                        <ul class="xn-drop-left animated zoomIn ">
+                            <li><a href="# " class="mb-control " data-box="#mb-signout "><span class="fa fa-sign-out "></span> 登出</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            固投项目节能管理</h3>
+            <ul class="breadcrumb">
+                <li class="active"><a href="investmentOfFixedTrack.html">固投项目节能管理</a></li>
+            </ul>
+            <div class="page-content-wrap" style="padding-left: 14px;padding-right: 14px;">
+                <div id="page1" class="container-fluid">
+                    <div class="row">
+                        <div class="panel_title">
+                            <div class="col-lg-6">
+                                <h4 id="bar_title"></h4>
+                            </div>
+                            <div class="col-md-6 clearfix">
+                                <div class="gap-btn-group pull-right bar-group" role="group">
+                                    <div class="btn-group" role="group">
+                                        <select id="area" class="w240 form-control select iselect">
+                                            <option value="321000">扬州市</option>
+                                            <option value="321084">高邮市</option>
+                                            <option value="321081">仪征市</option>
+                                            <option value="321023">宝应市</option>
+                                            <option value="321001">开发区</option>
+                                            <option value="321003">邗江区</option>
+                                            <option value="321002">广陵区</option>
+                                            <option value="321012">江都区</option>
+                                        </select>
+                                    </div>
+                                    <div class="btn-group datebox2" role="group">
+                                        <input id="year1" type="text" name="" class="form-control laydate-icon layer-date w140" data-bv-date="true">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="iPanel">
+                            <div id="bar"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="panel_title" style="border-bottom: none; font-weight: 500">
+                            <div class="col-lg-8">
+                                <h4 id="tb_title">江都区固投项目能耗情况</h4>
+                            </div>
+                            <div class="col-lg-4 clearfix">
+                                <div class="gap-btn-group pull-right bar-group" role="group">
+                                    <div class="btn-group" role="group">
+                                        <select id="area1" class="w140 form-control select iselect">
+                                            <option value="321000">扬州市</option>
+                                            <option value="321084">高邮市</option>
+                                            <option value="321081">仪征市</option>
+                                            <option value="321023">宝应市</option>
+                                            <option value="321001">开发区</option>
+                                            <option value="321003">邗江区</option>
+                                            <option value="321002">广陵区</option>
+                                            <option value="321012">江都区</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="iPanel single_table_panel">
+                            <div class="content">
+                                <table id="table" data-height="800" data-mobile-responsive="true">
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="page2" class="container-fluid hidden-em" style="background-color: yellow">
+                    <div class="row">
+                        <div class="panel_title" style="border-bottom: none; font-weight: 500">
+                            <div class="col-lg-12">
+                                <h4 id="tb_title">江都区固投项目能耗情况</h4>
+                            </div>
+                        </div>
+                        <div class="iPanel single_table_panel">
+                            <div class="content">
+                                <table id="table2" data-height="800" data-mobile-responsive="true">
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="message-box animated fadeIn" data-sound="alert " id='mb-signout'>
+        <div class="mb-container ">
+            <div class="mb-middle ">
+                <div class="mb-title"><span class="fa fa-sign-out "></span> Log <strong>Out</strong> ?</div>
+                <div class="mb-content ">
+                    <p>确定登出?</p>
+                    <p>如果您想继续留在此页面，请点击"否"</p>
+                </div>
+                <div class="mb-footer ">
+                    <div class="pull-right ">
+                        <a href="login.html " class="btn btn-success btn-lg ">是</a>
+                        <button class="btn btn-default btn-lg mb-control-close ">否</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type='text/javascript' src="js/import.js"></script>
+<script type='text/javascript' src="js/pages/common.js"></script>
+<script type='text/javascript' src="js/pages/CURDTable.js"></script>
+<script type='text/javascript' src="js/charts/echart_yarn.min.js"></script>
+<script>
+function getChart1(year) {
+    new yarn({
+        charts: [{
+            el: 'bar',
+            type: 'bar-line',
+            ti: '#bar_title',
+            url: 'js/charts/demos/investmentEnergyManage_mbar.json',
+            theme: 'blue_fake_grad_bar',
+            stack: 'total', //堆积
+            scale: 0.20,
+            min_height: 300,
+            max_height: 600,
+            method: 'get',
+            params: { getTime: year },
+            theme_obj: {
+                barMaxWidth: 40,
+                legend: { left: 50 }
+            }
+        }]
+    }).init();
+}
+
+function initPage(year) {
+    initDates();
+    getChart1(year);
+    showTable();
+}
+
+function initDates() {
+    initDateInputForYear('#year1', function(value, date, endDate) {
+        getChart1(value);
+    });
+    $('#year1').val(getThisYear());
+}
+
+function showTable() {
+    var c = new cur({
+        t: "#table",
+        m: "#modal",
+        footerbar: '#footerbar',
+        showAfterRender: ['#footerbar'],
+        pageSize: 12,
+        uuid: "id",
+        hideCols: ['id'],
+        search_params: {
+            field_select: '#field_select',
+            field_input: '#search_input'
+        },
+        dataSourceType: 'local',
+        queryUrl: "js/charts/demos/investmentOfFixedTrack_tb.json",
+        appendOperate: CONSTE.OPERATE.INVESTMENT_TRACK,
+        height: 600,
+        columns: [{
+            field: 'index',
+            title: '<span class="pl16">序号</span>',
+            formatter: IndexFormatter
+        }, {
+            title: '所属区域',
+            align: "left",
+            valign: "middle",
+            field: 'f1'
+        }, {
+            title: '项目名称',
+            align: "left",
+            valign: "middle",
+            field: 'f2'
+        }, {
+            title: '企业名称',
+            align: "left",
+            valign: "middle",
+            field: 'f3'
+        }, {
+            title: '当年计划投资',
+            align: "left",
+            valign: "middle",
+            field: 'f4'
+        }, {
+            title: '一季度',
+            align: "left",
+            valign: "middle",
+            field: 'f5'
+        }, {
+            title: '二季度',
+            align: "left",
+            valign: "middle",
+            field: 'f6'
+        }, {
+            title: '三季度',
+            align: "left",
+            valign: "middle",
+            field: 'f7'
+        }, {
+            title: '四季度',
+            align: "left",
+            valign: "middle",
+            field: 'f8'
+        }],
+        investment_track_handler: function() {
+
+        }
+    });
+    c.init(c);
+}
+
+initPage(getThisYear());
+</script>
+
+</html>

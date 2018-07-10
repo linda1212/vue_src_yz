@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>节能专题管理</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" id='theme' href="css/theme-dark-blue.css" />
+</head>
+
+<body>
+    <div class="page-container">
+        <a href="# " class="x-navigation-minimize menu_minimalize"><span class="arrow arrow-shrink "></span></a>
+        <div class="page-sidebar page-sidebar-fixed scroll">
+            <ul id='menu' class="x-navigation">
+                <li class="xn-logo">
+                    <a href="index.html"></a>
+                    <a href='#' class="x-navigation-control "></a>
+                </li>
+            </ul>
+        </div>
+        <div class="page-content ">
+            <h3 class="page-title">
+                <ul class="x-navigation x-navigation-horizontal log-out pull-right">
+                    <li class="xn-icon-button last ">
+                        <a href="# "><span class="fa fa-power-off "></span></a>
+                        <ul class="xn-drop-left animated zoomIn ">
+                            <li><a href="# " class="mb-control " data-box="#mb-signout "><span class="fa fa-sign-out "></span> 登出</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                节能专题管理</h3>
+            <div class="page-content-wrap ">
+                <div class="row">
+                    <ul id="navigation" class="nav nav-tabs">
+                        <li role="presentation" class="active"><a href="javascript:void(0);" data-page='#page1'>绿色称号管理</a></li>
+                        <li role="presentation"><a href="javascript:void(0);" data-page='#page2'>企业专题目录</a></li>
+                    </ul>
+                    <div id="page_content" class="nav-content">
+                        <div id="page1" class="relative">
+                            <div class="absolute-bar">
+                                <div class="gap-btn-group" role="group">
+                                    <button id="add" data-table="TContact" type="button" title="新增" class="btn btn-outline btn-primary pull-right">
+                                        <span>新增</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="iPanel compact_panel">
+                                <div class="content">
+                                    <table id="frame_page1_tabel" data-height="720" data-mobile-responsive="true">
+                                    </table>
+                                    <div id="footerbar" class="footerbar hidden-em">
+                                        <div class="gap-btn-group" role="group">
+                                            <button id="checkall" type="button" class="btn btn-outline btn-default" data-cked="unchecked">
+                                                <span>全选</span>
+                                            </button>
+                                            <button id="bedit" type="button" class="btn btn-outline btn-primary">
+                                                <span>批量操作</span>
+                                            </button>
+                                            <button id="bdel" type="button" title="删除客户" class="btn btn-outline btn-primary">
+                                                <span>删除</span>
+                                            </button>
+                                            <button id="endState" type="button" title="删除客户" class="btn btn-outline btn-primary">
+                                                <span>完成</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="page2" class="relative hidden-em">
+                            <div class="absolute-bar">
+                                <div class="gap-btn-group" role="group">
+                                    <button id="add2" data-table="TContact" type="button" title="新增" class="btn btn-outline btn-primary pull-right">
+                                        <span>新增</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="iPanel compact_panel">
+                                <div class="content">
+                                    <table id="frame_page2_tabel" data-height="720" data-mobile-responsive="true">
+                                    </table>
+                                    <div id="footerbar2" class="footerbar hidden-em">
+                                        <div class="gap-btn-group" role="group">
+                                            <button id="checkall2" type="button" class="btn btn-outline btn-default" data-cked="unchecked">
+                                                <span>全选</span>
+                                            </button>
+                                            <button id="bedit2" type="button" class="btn btn-outline btn-primary">
+                                                <span>批量操作</span>
+                                            </button>
+                                            <button id="bdel2" type="button" title="删除客户" class="btn btn-outline btn-primary">
+                                                <span>删除</span>
+                                            </button>
+                                            <button id="endState2" type="button" title="删除客户" class="btn btn-outline btn-primary">
+                                                <span>完成</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    <div class="message-box animated fadeIn" data-sound="alert " id='mb-signout'>
+        <div class="mb-container ">
+            <div class="mb-middle ">
+                <div class="mb-title"><span class="fa fa-sign-out "></span> Log <strong>Out</strong> ?</div>
+                <div class="mb-content ">
+                    <p>确定登出?</p>
+                    <p>如果您想继续留在此页面，请点击"否"</p>
+                </div>
+                <div class="mb-footer ">
+                    <div class="pull-right">
+                        <a href="login.html" class="btn btn-success btn-lg ">是</a>
+                        <button class="btn btn-default btn-lg mb-control-close ">否</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="modal" class="modal fade">
+        <div class="modal-dialog">
+            <form action="javascript:void(0)" data-bv-message="验证未通过" data-bv-feedbackicons-valid="glyphicon glyphicon-ok" data-bv-feedbackicons-invalid="glyphicon glyphicon-remove" data-bv-feedbackicons-validating="glyphicon glyphicon-refresh">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title"></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group hidden-em">
+                            <label>id</label>
+                            <input type="text" class="form-control" name="id">
+                        </div>
+                        <div class="form-group">
+                            <label><span class="text-red">*</span>企业名称 </label>
+                            <select id="enterprise_id" class="form-control" name="enterprise_id" required></select>
+                        </div>
+                        <div class="form-group">
+                            <label>获得日期 </label>
+                            <input id="get_date1" type="text" name="get_date1" class="form-control laydate-icon layer-date">
+                        </div>
+                        <div class="form-group">
+                            <label><span class="text-red">*</span>称号分类 </label>
+                            <select id="directories_code" class="form-control" name="title_classify_code" required></select>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default cancel" data-dismiss="modal">取&nbsp;&nbsp;消</button>
+                        <button type="button" class="btn btn-primary submit">保&nbsp;&nbsp;存</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id='detail' class="modal fade">
+        <div class="modal-dialog">
+            <form action="javascript:void(0)">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title"></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group hidden-em">
+                            <label>id</label>
+                            <input type="text" class="form-control" name="id">
+                        </div>
+                        <div class="form-group">
+                            <label><span class="text-red">*</span>企业名称 </label>
+                            <input type="text" class="form-control" name="enterprise_name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>获得日期 </label>
+                            <input type="text" name="get_date1" class="form-control laydate-icon layer-date">
+                        </div>
+                        <div class="form-group">
+                            <label>称号分类 </label>
+                            <input type="text" class="form-control" name="title_classify_name">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn  btn-primary submit" data-dismiss="modal">确&nbsp;&nbsp;认</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id="modal2" class="modal fade">
+        <div class="modal-dialog">
+            <form action="javascript:void(0)" data-bv-message="验证未通过" data-bv-feedbackicons-valid="glyphicon glyphicon-ok" data-bv-feedbackicons-invalid="glyphicon glyphicon-remove" data-bv-feedbackicons-validating="glyphicon glyphicon-refresh">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title"></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group hidden-em">
+                            <label>id</label>
+                            <input type="text" class="form-control" name="id">
+                        </div>
+                        <div class="form-group">
+                            <label><span class="text-red">*</span>企业名称 </label>
+                            <select id="enterprise_id2" class="form-control" name="enterprise_id" required></select>
+                        </div>
+                        <div class="form-group">
+                            <label>获得日期 </label>
+                            <input id="get_date11" type="text" name="get_date1" class="form-control laydate-icon layer-date">
+                        </div>
+                        <div class="form-group">
+                            <label><span class="text-red">*</span>名录分类</label>
+                            <select id="directories_code2" class="form-control" name="directories_code" required></select>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default cancel" data-dismiss="modal">取&nbsp;&nbsp;消</button>
+                        <button type="button" class="btn btn-primary submit">保&nbsp;&nbsp;存</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id='detail2' class="modal fade w_detail">
+        <div class="modal-dialog">
+            <form action="javascript:void(0)">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title"></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group hidden-em">
+                            <label>id</label>
+                            <input type="text" class="form-control" name="id">
+                        </div>
+                        <div class="form-group">
+                            <label><span class="text-red">*</span>企业名称 </label>
+                            <input type="text" class="form-control" name="enterprise_name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>获得日期 </label>
+                            <input type="text" name="get_date1" class="form-control laydate-icon layer-date">
+                        </div>
+                        <div class="form-group">
+                            <label>名录分类 </label>
+                            <input type="text" class="form-control" name="directories_name">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn  btn-primary submit" data-dismiss="modal">确&nbsp;&nbsp;认</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+<script type='text/javascript' src="js/import.js"></script>
+<script type='text/javascript' src="js/pages/CURDTable.js"></script>
+<script type='text/javascript' src="js/pages/common.js"></script>
+<script type="text/javascript">
+    var hasInit1 = false,
+        hasInit2 = false;
+    $('#navigation').find('li').click(function() {
+        $(this).addClass('active').siblings('li').removeClass('active');
+        var id = $(this).find('a').data('page');
+        $('#page_content').find(id).show().siblings().hide();
+        switch (id) {
+            case '#page2':
+                showPage2();
+                break;
+            case '#page1':
+            default:
+                showPage1();
+                break;
+        }
+    });
+
+    function showPage1() {
+        var cur1 = new cur({
+            t: "#frame_page1_tabel",
+            m: "#modal",
+            d: '#detail',
+            addBtn: "#add",
+            hideCols: ['id', 'enterprise_id'],
+            childSls: {
+                "#enterprise_id": {
+                    def: '--请选择企业--',
+                    url: '/energy/enterprise/getNameList?key=enterprise_id',
+                    type: 'GET'
+                },
+                "#directories_code": {
+                    def: '--请选择称号分类--',
+                    url: '/energy/greenTitle/getList?key=directories_code',
+                    type: 'GET'
+                }
+            },
+            dataInputs: ["#get_date1"],
+            queryUrl: "/energy/greenTitle/query",
+            addUrl: "/energy/greenTitle/add",
+            editUrl: "/energy/greenTitle/update",
+            delUrl: "/energy/greenTitle/delByIds",
+            appendOperate: CONSTE.OPERATE.ALL,
+            columns: [{
+                field: 'id',
+                checkbox: 'true',
+                title: 'id'
+            }, {
+                field: 'state',
+                checkbox: 'true'
+            }, {
+                title: '序号',
+                field: 'oper',
+                formatter: function(value, row, index) {
+                    var options = $('#frame_page1_tabel').bootstrapTable("getOptions");
+                    return (options.pageNumber - 1) * (options.pageSize) + index + 1;
+                }
+            }, {
+                title: '企业名称',
+                field: 'enterprise_name'
+            }, {
+                title: '获得日期',
+                field: 'get_date1',
+                formatter: DateFormatter
+            }, {
+                title: '称号分类',
+                field: 'title_classify_name'
+            }]
+        });
+
+        if (!hasInit1) {
+            cur1.init();
+            hasInit1 = true;
+        }
+    }
+
+    function showPage2() {
+        var cur2 = new cur({
+            t: "#frame_page2_tabel",
+            m: "#modal2",
+            d: '#detail2',
+            footerbar: '#footerbar2',
+            showAfterRender: ['#footerbar2'],
+            addBtn: "#add2",
+            editBtn: "#edit2",
+            batchEditBtn: '#bedit2',
+            batchDelBtn: "#bdel2",
+            checkAllBtn: '#checkall2',
+            endStateBtn: '#endState2',
+            checkAllBox: '#checkbox2',
+            delBtn: "#del2",
+            serBtn: "#ser2",
+            refBtn: "#ref2",
+            dataInputs: ["#get_date11"],
+            hideCols: ['id', 'enterprise_id'],
+            childSls: {
+                "#enterprise_id2": {
+                    def: '--请选择企业--',
+                    url: '/energy/enterprise/getNameList?key=enterprise_id2',
+                    autoRef: 'false',
+                    type: 'GET'
+                },
+                "#directories_code2": {
+                    def: '--请选择名录分类--',
+                    url: '/energy/enterpriseSpecialTopic/getList?key=directories_code2',
+                    autoRef: 'false',
+                    type: 'GET'
+                }
+            },
+            queryUrl: "/energy/enterpriseSpecialTopic/query",
+            addUrl: "/energy/enterpriseSpecialTopic/add",
+            editUrl: "/energy/enterpriseSpecialTopic/update",
+            delUrl: "/energy/enterpriseSpecialTopic/delByIds",
+            appendOperate: CONSTE.OPERATE.ALL,
+            columns: [{
+                field: 'id',
+                checkbox: 'true',
+                title: 'id'
+            }, {
+                field: 'state',
+                checkbox: 'true'
+            }, {
+                title: '序号',
+                field: 'oper',
+                formatter: function(value, row, index) {
+                    var options = $('#frame_page2_tabel').bootstrapTable("getOptions");
+                    return (options.pageNumber - 1) * (options.pageSize) + index + 1;
+                }
+            }, {
+                title: '企业名称',
+                field: 'enterprise_name'
+                    // }, {
+                    //     title: '获得年度',
+                    //     field: 'get_date11',
+                    //     formatter: YearFormatter
+            }, {
+                title: '获得日期',
+                field: 'get_date1',
+                formatter: DateFormatter
+            }, {
+                title: '名录分类',
+                field: 'directories_name'
+            }]
+        });
+
+        if (!hasInit2) {
+            cur2.init();
+            hasInit2 = true;
+        }
+    }
+
+    showPage1();
+</script>
+
+</html>

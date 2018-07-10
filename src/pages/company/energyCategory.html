@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>分类用能</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" id='theme' href="css/theme-dark-blue.css" />
+</head>
+
+<body>
+    <div class="page-container">
+        <a href="# " class="x-navigation-minimize menu_minimalize"><span class="arrow arrow-shrink"></span></a>
+        <div class="page-sidebar page-sidebar-fixed scroll">
+            <ul id='menu' class="x-navigation">
+                <li class="xn-logo">
+                    <a href="index.html"></a>
+                    <a href='#' class="x-navigation-control "></a>
+                </li>
+            </ul>
+        </div>
+        <div class="page-content ">
+            <h3 class="page-title">
+                <ul class="x-navigation x-navigation-horizontal log-out pull-right">
+                    <li class="xn-icon-button last ">
+                        <a href="# "><span class="fa fa-power-off "></span></a>
+                        <ul class="xn-drop-left animated zoomIn ">
+                            <li><a href="# " class="mb-control " data-box="#mb-signout "><span class="fa fa-sign-out "></span> 登出</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            分类用能</h3>
+            <ul id="inavigation" class="nav nav-tabs xs-tabs">
+                <li role="presentation" class="active"><a href="javascript:void(0);" data-page='#ipage1'>分类用能概况</a></li>
+                <li role="presentation"><a href="javascript:void(0);" data-page='#ipage2'>分类用能统计</a></li>
+            </ul>
+            <div id="ipage_content" class="nav-content pt24">
+                <div id="ipage1" class="relative">
+                    <div class="container-fluid" style="padding-left: 14px;padding-right: 14px;">
+                        <div class="col-lg-12">
+                            <div class="panel_title">
+                                <div class="col-md-3">
+                                    <h4>分类用能概况</h4>
+                                </div>
+                                <div class="col-md-9 clearfix">
+                                    <div class="gap-btn-group pull-right bar-group" role="group">
+                                        <div class="btn-group">
+                                            <select id="area" class="w140 form-control select iselect subArea">
+                                            </select>
+                                        </div>
+                                        <div class="btn-group" role="group">
+                                            <select id="building" class="w140 form-control select iselect building">
+                                            </select>
+                                        </div>
+                                        <div class="btn-group">
+                                            <select id="searchIndex" class="w140 form-control select iselect energyType">
+                                            </select>
+                                        </div>
+                                        <div class="btn-group" role="group">
+                                            <input id="frame1_page1_input1" type="text" name="" class="form-control laydate-icon layer-date" data-bv-date="true">
+                                        </div>
+                                        <button id="search_btn" type="button" title="搜索" class="btn btn-outline btn-primary">
+                                            <span>查询</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="iPanel">
+                                <div class="row">
+                                    <div class="col-lg-8 inner_left_col">
+                                        <div class="content">
+                                            <h4 id="frame1_page1_title1" class="title"></h4>
+                                            <div class="chart-wrap">
+                                                <div id="frame1_page1_chart" style="height:340px;"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 border-table inner_right_col">
+                                        <h4 id="frame1_page1_title2" class="title mb24"></h4>
+                                        <ul id="frame1_page1_tabel1" class="min-table" style="height: 200px;"></ul>
+                                    </div>
+                                </div>
+                                <div class="content mt40">
+                                    <h4 id="frame1_page1_title3" class="title mb10">过去31天历史趋势</h4>
+                                    <div class="chart-wrap">
+                                        <div id="bar2" style="height: 279px;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="ipage2" class="relative hidden-em">
+                    <div class="container-fluid" style="padding-left: 14px;padding-right: 14px;">
+                        <div class="col-lg-12">
+                            <div class="panel_title">
+                                <div class="col-md-3">
+                                    <h4>分类用能统计</h4>
+                                </div>
+                                <div class="col-md-9 clearfix">
+                                    <div class="gap-btn-group pull-right bar-group" role="group">
+                                        <div class="btn-group">
+                                            <select id="area2" class="w140 form-control select iselect subArea">
+                                            </select>
+                                        </div>
+                                        <div class="btn-group">
+                                            <select id="searchIndex2" class="w140 form-control select iselect energyType">
+                                            </select>
+                                        </div>
+                                        <div class="btn-group" role="group">
+                                            <select class="w140 form-control select iselect dateSelection">
+                                                <option value="0">日报</option>
+                                                <option value="1">月报</option>
+                                                <option value="2">年报</option>
+                                            </select>
+                                        </div>
+                                        <div class="btn-group datebox1" role="group">
+                                            <input id="frame1_page2_input1" type="text" name="" class="form-control laydate-icon layer-date" data-bv-date="true">
+                                        </div>
+                                        <div class="btn-group datebox2 hidden-em" role="group">
+                                            <input id="frame1_page2_input2" type="text" name="" class="form-control laydate-icon layer-date" data-bv-date="true">
+                                        </div>
+                                        <div class="btn-group datebox3 hidden-em" role="group">
+                                            <input id="frame1_page2_input3" type="text" name="" class="form-control laydate-icon layer-date" data-bv-date="true">
+                                        </div>
+                                        <button id="search_btn2" type="button" title="搜索" class="btn btn-outline btn-primary">
+                                            <span>查询</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-3 col-md-4" style="padding-right:0!important;">
+                                <div id="tree_box" class="iPanel tree-panel font14 minHeight" style="overflow: auto"></div>
+                            </div>
+                            <div class="col-lg-9 col-md-8" style="padding-left:0!important;">
+                                <div id="content_box" class="iPanel left-border minHeight">
+                                    <div class="content">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <h4 id="title21" class="title"></h4>
+                                                <div class="chart-wrap">
+                                                    <div id="line_bar"></div>
+                                                </div>
+                                            </div>
+                                            <!--                                                 <div class="col-lg-3">
+                                                    <div class="chart-wrap">
+                                                        <div id="ring"></div>
+                                                    </div>
+                                                </div> -->
+                                        </div>
+                                    </div>
+                                    <div class="content mt40">
+                                        <table id="TTable" data-height="300" data-mobile-responsive="true">
+                                            <!--                                                 <thead>
+                                                    <tr class="hidden-em">
+                                                        <th data-field="field0">建筑名称</th>
+                                                        <th data-field="field1">建筑分类</th>
+                                                        <th data-field="field2">1</th>
+                                                        <th data-field="field3">2</th>
+                                                        <th data-field="field4">3</th>
+                                                        <th data-field="field5">4</th>
+                                                        <th data-field="field6">5</th>
+                                                        <th data-field="field7">6</th>
+                                                        <th data-field="field8">7</th>
+                                                        <th data-field="field9">8</th>
+                                                        <th data-field="field10">9</th>
+                                                        <th data-field="field11">10</th>
+                                                        <th data-field="field12">11</th>
+                                                        <th data-field="field13">12</th>
+                                                        <th data-field="field14">13</th>
+                                                        <th data-field="field15">14</th>
+                                                        <th data-field="field16">15</th>
+                                                        <th data-field="field17">16</th>
+                                                        <th data-field="field18">17</th>
+                                                        <th data-field="field19">18</th>
+                                                        <th data-field="field20">19</th>
+                                                        <th data-field="field21">20</th>
+                                                        <th data-field="field22">21</th>
+                                                        <th data-field="field23">22</th>
+                                                        <th data-field="field24">23</th>
+                                                        <th data-field="field25">24</th>
+                                                    </tr>
+                                                </thead> -->
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    <div class="message-box animated fadeIn" data-sound="alert " id='mb-signout'>
+        <div class="mb-container ">
+            <div class="mb-middle ">
+                <div class="mb-title"><span class="fa fa-sign-out "></span> Log <strong>Out</strong> ?</div>
+                <div class="mb-content ">
+                    <p>确定登出?</p>
+                    <p>如果您想继续留在此页面，请点击"否"</p>
+                </div>
+                <div class="mb-footer ">
+                    <div class="pull-right ">
+                        <a href="login.html " class="btn btn-success btn-lg ">是</a>
+                        <button class="btn btn-default btn-lg mb-control-close ">否</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type='text/javascript' src="js/import.js"></script>
+<script type='text/javascript' src="js/pages/common.js"></script>
+<script type='text/javascript' src="js/pages/CURDTable.js"></script>
+<script type='text/javascript' src="js/charts/echart_yarn.min.js"></script>
+<script type="text/javascript">
+var currentNode;
+
+var tab1L = true,
+    tab2L;
+
+var dateTypes = ['day', 'month', 'year'];
+
+initDateInputForDay('#frame1_page1_input1');
+$('#frame1_page1_input1').val(getToday());
+
+initSelectByUrl('building', '/energy/building/type/all?key=building', function() {
+    }, ['.building']);
+
+initSelectByUrl('subArea', '/energy/sys/getSubAreas?key=subArea', function() {
+    }, ['.subArea']);
+
+$('#inavigation').find('li').click(function() {
+    $(this).addClass('active').siblings('li').removeClass('active');
+    var id = $(this).find('a').data('page');
+    $('#ipage_content').find(id).show().siblings().hide();
+    switch (id) {
+        case '#ipage2':
+            setTimeout(function() {
+                $(window).trigger("panel_resize");
+                if (!tab2L) {
+                    showFrame2();
+                    tab2L = true;
+                }
+            }, 100);
+            break;
+        case '#ipage1':
+        default:
+            setTimeout(function() {
+                $(window).trigger("panel_resize");
+                if (!tab1L) {
+                    showFrame1();
+                    tab1L = true;
+                }
+            }, 100);
+            break;
+    }
+});
+
+function showClassificationEnergy(selectArea, buildingType, searchIndex, date) {
+    new yarn({
+        charts: [{
+            el: 'frame1_page1_chart',
+            type: 'line',
+            ti: '#frame1_page1_title1',
+            url: '/energy/building/energy/btype/oneday',
+            h: 340,
+            params: {
+                areaCode: selectArea,
+                building_code: buildingType,
+                energyCode: searchIndex,
+                getDate: date,
+                key: '123'
+            }
+        }]
+    }).init();
+
+    var objData = {
+        "areaCode": selectArea,
+        "building_code": buildingType,
+        "energyCode": searchIndex,
+        "getDate": date
+    };
+
+    eBase.send({
+        url: '/energy/building/energy/btype/anal/day',
+        data: objData
+    }, 'get').done(function(resp) {
+        var result = resp.data;
+        $("#frame1_page1_tabel1").html("");
+        $("#frame1_page1_title2").html("");
+        $("#frame1_page1_title2").html(result.title);
+        var frame1_page1_tabel1 = $("#frame1_page1_tabel1");
+        var html = '';
+        if (result.todayEnergy) {
+            html += '<li><div class="col-lg-6">' + result.energyTypeTitle + '</div><div class="col-lg-6">' + result.todayEnergy + '</div></li>';
+        } else {
+            html += '<li><div class="col-lg-6">' + result.energyTypeTitle + '</div><div class="col-lg-6">暂无数据</div></li>';
+        }
+        if (result.yesterdayEnergy) {
+            html += '<li><div class="col-lg-6">昨日同期</div><div class="col-lg-6">' + result.yesterdayEnergy + '</div></li>';
+        } else {
+            html += '<li><div class="col-lg-6">昨日同期</div><div class="col-lg-6">暂无数据</div></li>';
+        }
+        if (result.loopRatio) {
+            html += '<li><div class="col-lg-6">环比</div><div class="col-lg-6">' + result.loopRatio + '</div></li>';
+        } else {
+            html += '<li><div class="col-lg-6">环比</div><div class="col-lg-6">暂无数据</div></li>';
+        }
+
+        frame1_page1_tabel1.append(html);
+    }).fail(function() {
+        console.log('获取数据失败');
+    });
+
+    new yarn({
+        charts: [{
+            el: 'bar2',
+            type: 'bar',
+            theme: 'dashboard_bar2',
+            theme_obj: { legend: { left: 50 } },
+            url: '/energy/building/energy/btype/lastdays',
+            theme_obj: {
+                barWidth: '19%',
+                legend: { left: 45 }
+            },
+            h: 279,
+            params: {
+                areaCode: selectArea,
+                building_code: buildingType,
+                energyCode: searchIndex,
+                getDate: date,
+                key: '123'
+            }
+        }]
+    }).init();
+}
+
+$('#search_btn').click(function() {
+    var selectArea = $('#area').val();
+    var buildingType = $('#building').val();
+    var searchIndex = $('#searchIndex').val();
+    showClassificationEnergy(selectArea, buildingType, searchIndex, $('#frame1_page1_input1').val());
+});
+
+function showFrame1() {
+    setTimeout(function(){
+        showClassificationEnergy($('#area').val(), $('#building').val(), $('#searchIndex').val(), $('#frame1_page1_input1').val());
+    },200)
+    
+}
+
+initDateInputForDay('#frame1_page2_input1');
+initDateInputForMonth('#frame1_page2_input2');
+initDateInputForYear('#frame1_page2_input3');
+
+$('#frame1_page2_input1').val(getToday());
+$('#frame1_page2_input2').val(getThisMonth());
+$('#frame1_page2_input3').val(getThisYear());
+
+$('.dateSelection').change(function() {
+    if ($(this).val() == 1) {
+        $(this).parent().siblings('.datebox2').show();
+        $(this).parent().siblings('.datebox1').hide();
+        $(this).parent().siblings('.datebox3').hide();
+    } else if ($(this).val() == 2) {
+        $(this).parent().siblings('.datebox3').show();
+        $(this).parent().siblings('.datebox2').hide();
+        $(this).parent().siblings('.datebox1').hide();
+    } else {
+        $('.datebox1').show();
+        $('.datebox2').hide();
+        $('.datebox3').hide();
+    };
+});
+
+function showTreeView(areaCode) {
+    eBase.send({
+        url: '/energy/classifyEnergy/getBuildTree',
+        data: { 'areaCode': areaCode }
+    }, 'get').done(function(resp) {
+
+        getTreeDataHandler('#tree_box', resp.treeData);
+
+    }).fail(function() {
+        console.log('获取数据失败');
+    });
+}
+
+function getTreeDataHandler(el, data) {
+
+    $tree = $(el).treeview({
+        showBorder: false,
+        selectedBackColor: '#1e87f0',
+        expandIcon: "tree-icon menu-plus",
+        collapseIcon: "tree-icon menu-minus",
+        data: data
+    });
+
+    $tree.on('nodeSelected', function(event, data) {
+        if (data.nodes != null) {
+            return window.layer.msg('请选择具体建筑')
+        } else {
+            currentNode = data.uuid;
+            var date = getFDate();
+            var typeItem = $('.dateSelection').val();
+            var areaCode = $('#area2').val();
+            var energyCode = $('#searchIndex2').val();
+            getChartsByName(currentNode, typeItem, energyCode, date);
+        }
+    });
+
+    $(el).treeview('selectNode', [1]);
+
+    $(el).treeview('expandNode', [1, { levels: 2, silent: true }]);
+}
+
+$('#search_btn2').click(function() {
+    var date = getFDate();
+    var typeItem = $('.dateSelection').val();
+    var areaCode = $('#area2').val();
+    var energyCode = $('#searchIndex2').val();
+    showTreeView(areaCode);
+    getChartsByName(currentNode, typeItem, energyCode, date);
+
+});
+
+
+// 获取时间
+function getFDate() {
+    switch ($('.dateSelection').val()) {
+        case '0':
+            return $('#frame1_page2_input1').val();
+        case '1':
+            return $('#frame1_page2_input2').val();
+        case '2':
+            return $('#frame1_page2_input3').val();
+        default:
+            return $('#frame1_page2_input1').val();
+    }
+}
+
+// 切换table
+function switchTable(v, dateType, id) {
+    switch (+v) {
+        case 0:
+            new cur({
+                t: "#TTable",
+                m: "#modal",
+                footerbar: '#footerbar',
+                showAfterRender: ['#footerbar'],
+                search_params: {
+                    field_select: '#field_select',
+                    field_input: '#search_input'
+                },
+                pagination: false,
+                columns: [{
+                    title: '建筑名称',
+                    field: 'buildName',
+                    align: "left",
+                    valign: "middle"
+                }, {
+                    title: '建筑分类',
+                    field: 'buildClass',
+                    align: "left",
+                    valign: "middle"
+                }, {
+                    title: '01时',
+                    field: '01时',
+                    align: "left",
+                    valign: "middle"
+                }, {
+                    title: '02时',
+                    field: '02时',
+                    align: "left",
+                    valign: "middle"
+                }, {
+                    title: '03时',
+                    field: '03时',
+                    align: "left",
+                    valign: "middle"
+                }, {
+                    title: '04时',
+                    field: '04时',
+                    align: "left",
+                    valign: "middle"
+                }, {
+                    title: '05时',
+                    field: '05时',
+                    align: "left",
+                    valign: "middle"
+                }, {
+                    title: '06时',
+                    field: '06时',
+                    align: "left",
+                    valign: "middle"
+                }, {
+                    title: '07时',
+                    field: '07时',
+                    align: "left",
+                    valign: "middle"
+                }, {
+                    title: '08时',
+                    field: '08时',
+                    align: "left",
+                    valign: "middle"
+                }, {
+                    title: '09时',
+                    field: '09时',
+                    align: "left",
+                    valign: "middle"
+                }, {
+                    title: '10时',
+                    field: '10时',
+                    align: "left",
+                    valign: "middle"
+                }, {
+                    title: '11时',
+                    field: '11时',
+                    align: "left",
+                    valign: "middle"
+                }, {
+                    title: '12时',
+                    field: '12时',
+                    align: "left",
+                    valign: "middle"
+                }, {
+                    title: '13时',
+                    field: '13时',
+                    align: "left",
+                    valign: "middle"
+                }, {
+                    title: '14时',
+                    field: '14时',
+                    align: "left",
+                    valign: "middle"
+                }, {
+                    title: '15时',
+                    field: '15时',
+                    align: "left",
+                    valign: "middle"
+                }, {
+                    title: '16时',
+                    field: '16时',
+                    align: "left",
+                    valign: "middle"
+                }, {
+                    title: '17时',
+                    field: '17时',
+                    align: "left",
+                    valign: "middle"
+                }, {
+                    title: '18时',
+                    field: '18时',
+                    align: "left",
+                    valign: "middle"
+                }, {
+                    title: '19时',
+                    field: '19时',
+                    align: "left",
+                    valign: "middle"
+                }, {
+                    title: '20时',
+                    field: '20时',
+                    align: "left",
+                    valign: "middle"
+                }, {
+                    title: '21时',
+                    field: '21时',
+                    align: "left",
+                    valign: "middle"
+                }, {
+                    title: '22时',
+                    field: '22时',
+                    align: "left",
+                    valign: "middle"
+                }, {
+                    title: '23时',
+                    field: '23时',
+                    align: "left",
+                    valign: "middle"
+                }, {
+                    title: '24时',
+                    field: '24时',
+                    align: "left",
+                    valign: "middle"
+                }],
+                queryUrl: "/energy/classifyEnergy/chart/building/data",
+                method: 'get',
+                params: {
+                    upload_date: getFDate(),
+                    buildId: id,
+                    type: dateType,
+                    code: $('#searchIndex2').val()
+                }
+            }).init();
+            break;
+        case 1:
+            new cur({
+                t: "#TTable",
+                m: "#modal",
+                footerbar: '#footerbar',
+                showAfterRender: ['#footerbar'],
+                search_params: {
+                    field_select: '#field_select',
+                    field_input: '#search_input'
+                },
+                pagination: false,
+                columns: [{
+                    title: '建筑名称',
+                    field: 'buildName',
+                    align: "left",
+                    valign: "middle"
+                }, {
+                    title: '建筑分类',
+                    field: 'buildClass',
+                    align: "left",
+                    valign: "middle"
+                }, {
+                    title: '1日',
+                    field: '01天',
+                    align: "left",
+                    valign: "middle"
+                }, {
+                    title: '2日',
+                    field: '02天',
+                    align: "left",
+                    valign: "middle"
+                }, {
+                    title: '3日',
+                    field: '03天',
+                    align: "left",
+                    valign: "middle"
+                }, {
+                    title: '4日',
+                    field: '04天',
+                    align: "left",
+                    valign: "middle"
+                }, {
+                    title: '5日',
+                    field: '05天',
+                    align: "left",
+                    valign: "middle"
+                }, {
+                    title: '6日',
+                    field: '06天',
+                    align: "left",
+                    valign: "middle"
+                }, {
+                    title: '7日',
+                    field: '07天',
+                    align: "left",
+                    valign: "middle"
+                }, {
+                    title: '8日',
+                    field: '08天',
+                    align: "left",
+                    valign: "middle"
+                }, {
+                    title: '9日',
+                    field: '09天',
+                    align: "left",
+                    valign: "middle"
+                }, {
+                    title: '10日',
+                    field: '10天',
+                    align: "left",
+                    valign: "middle"
+                }, {
+                    title: '11日',
+                    field: '11天',
+                    align: "left",
+                    valign: "middle"
+                }, {
+                    title: '12日',
+                    field: '12天',
+                    align: "left",
+                    valign: "middle"
+                }, {
+                    title: '13日',
+                    field: '13天',
+                    align: "left",
+                    valign: "middle"
+                }, {
+                    title: '14日',
+                    field: '14天',
+                    align: "left",
+                    valign: "middle"
+                }, {
+                    title: '15日',
+                    field: '15天',
+                    align: "left",
+                    valign: "middle"
+                }, {
+                    title: '16日',
+                    field: '16天',
+                    align: "left",
+                    valign: "middle"
+                }, {
+                    title: '17日',
+                    field: '17天',
+                    align: "left",
+                    valign: "middle"
+                }, {
+                    title: '18日',
+                    field: '18天',
+                    align: "left",
+                    valign: "middle"
+                }, {
+                    title: '19日',
+                    field: '19天',
+                    align: "left",
+                    valign: "middle"
+                }, {
+                    title: '20日',
+                    field: '20天',
+                    align: "left",
+                    valign: "middle"
+                }, {
+                    title: '21日',
+                    field: '21天',
+                    align: "left",
+                    valign: "middle"
+                }, {
+                    title: '22日',
+                    field: '22天',
+                    align: "left",
+                    valign: "middle"
+                }, {
+                    title: '23日',
+                    field: '23天',
+                    align: "left",
+                    valign: "middle"
+                }, {
+                    title: '24日',
+                    field: '24天',
+                    align: "left",
+                    valign: "middle"
+                }, {
+                    title: '25日',
+                    field: '25天',
+                    align: "left",
+                    valign: "middle"
+                }, {
+                    title: '26日',
+                    field: '26天',
+                    align: "left",
+                    valign: "middle"
+                }, {
+                    title: '27日',
+                    field: '27天',
+                    align: "left",
+                    valign: "middle"
+                }, {
+                    title: '28日',
+                    field: '28天',
+                    align: "left",
+                    valign: "middle"
+                }, {
+                    title: '29日',
+                    field: '29天',
+                    align: "left",
+                    valign: "middle"
+                }, {
+                    title: '30日',
+                    field: '30天',
+                    align: "left",
+                    valign: "middle"
+                }, {
+                    title: '31日',
+                    field: '31天',
+                    align: "left",
+                    valign: "middle"
+                }],
+                queryUrl: "/energy/classifyEnergy/chart/building/data",
+                method: 'get',
+                params: {
+                    upload_date: getFDate(),
+                    buildId: id,
+                    type: dateType,
+                    code: $('#searchIndex2').val()
+                }
+            }).init();
+            break;
+        case 2:
+            new cur({
+                t: "#TTable",
+                m: "#modal",
+                footerbar: '#footerbar',
+                showAfterRender: ['#footerbar'],
+                search_params: {
+                    field_select: '#field_select',
+                    field_input: '#search_input'
+                },
+                pagination: false,
+                columns: [{
+                    title: '建筑名称',
+                    field: 'buildName',
+                    align: "left",
+                    valign: "middle"
+                }, {
+                    title: '建筑分类',
+                    field: 'buildClass',
+                    align: "left",
+                    valign: "middle"
+                }, {
+                    title: '01月',
+                    field: '01月',
+                    align: "left",
+                    valign: "middle"
+                }, {
+                    title: '02月',
+                    field: '02月',
+                    align: "left",
+                    valign: "middle"
+                }, {
+                    title: '03月',
+                    field: '03月',
+                    align: "left",
+                    valign: "middle"
+                }, {
+                    title: '04月',
+                    field: '04月',
+                    align: "left",
+                    valign: "middle"
+                }, {
+                    title: '05月',
+                    field: '05月',
+                    align: "left",
+                    valign: "middle"
+                }, {
+                    title: '06月',
+                    field: '06月',
+                    align: "left",
+                    valign: "middle"
+                }, {
+                    title: '07月',
+                    field: '07月',
+                    align: "left",
+                    valign: "middle"
+                }, {
+                    title: '08月',
+                    field: '08月',
+                    align: "left",
+                    valign: "middle"
+                }, {
+                    title: '09月',
+                    field: '09月',
+                    align: "left",
+                    valign: "middle"
+                }, {
+                    title: '10月',
+                    field: '10月',
+                    align: "left",
+                    valign: "middle"
+                }, {
+                    title: '11月',
+                    field: '11月',
+                    align: "left",
+                    valign: "middle"
+                }, {
+                    title: '12月',
+                    field: '12月',
+                    align: "left",
+                    valign: "middle"
+                }],
+                queryUrl: "/energy/classifyEnergy/chart/building/data",
+                method: 'get',
+                params: {
+                    upload_date: getFDate(),
+                    buildId: id,
+                    type: dateType,
+                    code: $('#searchIndex2').val()
+                }
+            }).init();
+            break;
+        default:
+            break;
+    }
+}
+
+function getChartsByName(id, typeItem, energyCode, date) {
+    var dateType = dateTypes[typeItem];
+    new yarn({
+        charts: [{
+            el: 'line_bar',
+            type: 'line',
+            theme: 'Xaxis_show',
+            ti: '#title21',
+            url: '/energy/building/energy/building/' + dateType + '',
+            // url: '/fake/pseudodata/min/energy_min_data.json',
+            scale: 0.30,
+            theme_obj: { legend: { left: 85 } },
+            params: {
+                key: '123',
+                getDate: date,
+                building_id: id,
+                energyCode: $('#searchIndex2').val()
+            }
+        }]
+    }).init();
+
+    switchTable(typeItem, dateType, id);
+
+}
+
+function showFrame2() {
+    showTreeView($('#area2').val());
+    // getChartsByName(1, $('.dateSelection').val(), $('#searchIndex2').val(), getFDate());
+    setTimeout(function() {
+        $('#tree_box').css('height', $('#content_box').height() + 39 + 'px');
+    }, 200);
+}
+
+
+
+function initPage() {
+    showFrame1();
+}
+
+initPage();
+</script>
+
+</html>

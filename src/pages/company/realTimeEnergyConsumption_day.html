@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>当日实时能耗</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" id='theme' href="css/theme-dark-blue.css" />
+</head>
+
+<body>
+    <div class="page-container">
+        <a href="# " class="x-navigation-minimize menu_minimalize"><span class="arrow arrow-shrink "></span></a>
+        <div class="page-sidebar page-sidebar-fixed scroll">
+            <ul id='menu' class="x-navigation">
+                <li class="xn-logo">
+                    <a href="index.html"></a>
+                    <a href='#' class="x-navigation-control "></a>
+                </li>
+            </ul>
+        </div>
+        <div class="page-content ">
+            <h3 class="page-title">
+                <ul class="x-navigation x-navigation-horizontal log-out pull-right">
+                    <li class="xn-icon-button last ">
+                        <a href="# "><span class="fa fa-power-off "></span></a>
+                        <ul class="xn-drop-left animated zoomIn ">
+                            <li><a href="# " class="mb-control " data-box="#mb-signout"><span class="fa fa-sign-out "></span> 登出</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                当日实时能耗</h3>
+            <div class="page-content-wrap chart_container">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-4 right-border" style="padding-right:0!important;">
+                            <div class="panel_title" style="height:56px;">
+                                <div class="clearfix">
+                                    <div class="gap-btn-group tree-bar" role="group">
+                                        <input id="search_input" type="text" data-field='name' class="form-control" style="width:calc(100% - 93px)" placeholder="请输入单位名称" />
+                                        <div class="btn-group" id="serg1">
+                                            <button id="ser1" type="button" title="排序" class="btn btn-outline btn-default">
+                                                <span>排序</span>
+                                            </button>
+                                            <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                                <span class="caret"></span>
+                                            </button>
+                                            <ul class="dropdown-menu mw116">
+                                                <li><a href="javascript:void(0);" id="serName">名称排序<span class="glyphicon glyphicon-arrow-up"></span></a></li>
+                                                <li><a href="javascript:void(0);" id="serNameD">名称排序<span class="glyphicon glyphicon-arrow-down"></span></a></li>
+                                                <li><a href="javascript:void(0);" id="serEgy">能耗量排序<span class="glyphicon glyphicon-arrow-up"></span></a></li>
+                                                <li><a href="javascript:void(0);" id="serEgyD">能耗量排序<span class="glyphicon glyphicon-arrow-down"></span></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="tree_box" class="tree-panel font14 new_left_tree" style="height:820px;overflow: auto;">
+                            </div>
+                        </div>
+                        <div class="col-lg-9 col-md-8" style="padding-left:0!important;">
+                            <div class="panel_title">
+                                <div class="gap-btn-group pull-right bar-group" role="group">
+                                    <div class="btn-group">
+                                        <select id="energyType" class="w140 form-control select iselect"></select>
+                                    </div>
+                                    <div class="btn-group">
+                                        <button id="ser2" type="button" title="搜索" class="btn btn-outline btn-primary">
+                                            <span>查询</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="content_box" class="iPanel" style="min-height: 800px;">
+                                <div class="content">
+                                    <h4 id="title" class="title"></h4>
+                                    <div class="chart-wrap">
+                                        <div id="line_bar"></div>
+                                    </div>
+                                </div>
+                                <div id="view" class="content mt40">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="message-box animated fadeIn" data-sound="alert " id='mb-signout'>
+        <div class="mb-container ">
+            <div class="mb-middle ">
+                <div class="mb-title"><span class="fa fa-sign-out "></span> Log <strong>Out</strong> ?</div>
+                <div class="mb-content ">
+                    <p>确定登出?</p>
+                    <p>如果您想继续留在此页面，请点击"否"</p>
+                </div>
+                <div class="mb-footer ">
+                    <div class="pull-right ">
+                        <a href="login.html " class="btn btn-success btn-lg ">是</a>
+                        <button class="btn btn-default btn-lg mb-control-close ">否</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type='text/javascript' src="js/import.js"></script>
+<script type='text/javascript' src="js/pages/common.js "></script>
+<script type='text/javascript' src="js/pages/CURDTable.js "></script>
+<script type='text/javascript' src="js/pages/ALONETable.js "></script>
+<script type='text/javascript' src="js/charts/echart_yarn.min.js "></script>
+<script type="text/javascript">
+    var __current_company_id = '';
+    var columns = [];
+
+    $('#serNameD').click(function() {
+        showTreeViewByName(-1);
+    })
+
+    $('#serName').click(function() {
+        showTreeViewByName(1);
+    })
+
+    $('#serEgyD').click(function() {
+        showTreeViewByEgy(-1, $('#energyType').val());
+    })
+
+    $('#serEgy').click(function() {
+        showTreeViewByEgy(1, $('#energyType').val());
+    })
+
+    $('#search_input').keyup(function(event) {
+        if (event.keyCode == 13) {
+            var name = $(this).val();
+            showTreeViewByName(null, name);
+        }
+    })
+
+    function showTreeViewByEgy(order, currentType) {
+        var params = {
+            orderType: order
+        };
+        if (currentType) {
+            params.code = currentType
+        }
+        params.date = getToday();
+        order = order || 1;
+        eBase.send({
+            "url": '/energy/companyAnalysis/getListOrderByEnergy',
+            data: JSON.stringify({
+                pageIndex: 1,
+                pageSize: 25,
+                params: params
+            })
+        }, "post").done(function(resp) {
+
+            resp = resp.rows.map(function(item) {
+                return {
+                    id: item.id,
+                    text: item.name
+                }
+            }) || [];
+
+            $('#tree_box').treeview({
+                showBorder: false,
+                selectedColor: '#1e87f0',
+                selectedBackColor: '#fff',
+                expandIcon: "tree-icon menu-plus",
+                collapseIcon: "tree-icon menu-minus",
+                selectedIcon: "glyphicon pull-right",
+                data: resp
+            }).on('nodeSelected', function(event, data) {
+                __current_company_id = data.id;
+
+                showPage(__current_company_id, $('#energyType').val());
+            });
+            $('#tree_box').treeview('selectNode', [0])
+        })
+    }
+
+    function showTreeViewByName(order, name) {
+        var params = {
+            orderByName: order
+        };
+        if (name) {
+            params.name = name
+        }
+        order = order || 1;
+        eBase.send({
+            "url": '/energy/companyAnalysis/getEnterpriseList',
+            data: JSON.stringify({
+                pageIndex: 1,
+                pageSize: 25,
+                params: params
+            })
+        }, "post").done(function(resp) {
+
+            resp = resp.rows.map(function(item) {
+                return {
+                    id: item.id,
+                    text: item.name
+                }
+            }) || [];
+
+            $('#tree_box').treeview({
+                showBorder: false,
+                selectedColor: '#1e87f0',
+                selectedBackColor: '#fff',
+                expandIcon: "tree-icon menu-plus",
+                collapseIcon: "tree-icon menu-minus",
+                selectedIcon: "glyphicon pull-right",
+                data: resp
+            }).on('nodeSelected', function(event, data) {
+                __current_company_id = data.id;
+
+                showPage(__current_company_id, $('#energyType').val());
+            });
+            $('#tree_box').treeview('selectNode', [0])
+        })
+    }
+
+    function showPage(id, currentType) {
+        new yarn({
+            charts: [{
+                el: 'line_bar',
+                type: 'line',
+                ti: '#title',
+                theme: 'waring_line',
+                url: '/energy/companyAnalysis/chart/line/date',
+                scale: 0.36,
+                min_height: 300,
+                max_height: 600,
+                theme_obj: {
+                    showWarning: true,
+                    markLine: {
+                        lineStyle: {
+                            color: '#ff0000',
+                            type: 'solid'
+                        }
+                    },
+                    grid: {
+                        top: 50,
+                        left: 0,
+                        right: 40,
+                        bottom: 10,
+                        containLabel: true
+                    }
+                },
+                params: {
+                    key: 1,
+                    type: currentType,
+                    enterprise_id: id
+                }
+            }]
+        }).init();
+
+
+        // 设置column
+        if (!columns[0]) {
+            eBase.send({
+                url: "/energy/companyAnalysis/chart/table/date",
+                data: JSON.stringify({
+                    params: {
+                        key: 1,
+                        enterprise_id: 2,
+                        type: currentType
+                    }
+                })
+            }).done(function(res) {
+                var r = res.rows[0] || {};
+                var tks = Object.keys(r).sort();
+                var reg = /^[a-z]+$/i;
+                var titleMaps = {
+                    unit: '单位',
+                    rangeValue: '范围值'
+                };
+                var ls = tks.reduce(function(total, current, index, arr) {
+                    total[current] = r[current];
+                    return total;
+                }, {});
+                for (var k in ls) {
+                    if (reg.test(k)) {
+                        columns.unshift({
+                            title: titleMaps[k],
+                            field: k,
+                            align: 'left',
+                            valign: 'middle'
+                        });
+                    } else {
+                        columns.push({
+                            title: k,
+                            field: k,
+                            align: 'left',
+                            valign: 'middle'
+                        });
+                    }
+                }
+
+                renderTable(id, currentType, columns);
+            })
+        } else {
+            renderTable(id, currentType, columns);
+        }
+    }
+
+    function renderTable(id, currentType, columns) {
+        new at({
+            queryUrl: "/energy/companyAnalysis/chart/table/date",
+            params: {
+                key: 1,
+                enterprise_id: id,
+                type: currentType
+            },
+            columns: CONSTT.TIME_COLUMNS
+        }).init();
+    }
+
+    function initPage() {
+        $('#energyType').length > 0 && initSelectByUrl('enengyType', '/energy/enengyType/getEnergyType?key=enengyType', function() {
+            showTreeViewByName();
+        }, ['#energyType']);
+
+        $('#ser2').click(function() {
+            showPage(__current_company_id, $('#energyType').val());
+        });
+
+        setTimeout(function() {
+            $('#tree_box').css('height', $('#content_box').height() + 38 + 'px');
+        }, 200);
+    }
+
+    initPage();
+</script>
+
+</html>

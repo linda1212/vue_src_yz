@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>专家库管理</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" id='theme' href="css/theme-dark-blue.css" />
+</head>
+
+<body style="min-width: 600px;">
+    <div class="page-container">
+        <a href="# " class="x-navigation-minimize menu_minimalize"><span class="arrow arrow-shrink "></span></a>
+        <div class="page-sidebar page-sidebar-fixed scroll">
+            <ul id='menu' class="x-navigation">
+                <li class="xn-logo">
+                    <a href="index.html"></a>
+                    <a href='#' class="x-navigation-control "></a>
+                </li>
+            </ul>
+        </div>
+        <div class="page-content ">
+            <h3 class="page-title">
+                <ul class="x-navigation x-navigation-horizontal log-out pull-right">
+                    <li class="xn-icon-button last ">
+                        <a href="# "><span class="fa fa-power-off "></span></a>
+                        <ul class="xn-drop-left animated zoomIn ">
+                            <li><a href="# " class="mb-control " data-box="#mb-signout "><span class="fa fa-sign-out "></span> 登出</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                专家库管理</h3>
+            <div class="page-content-wrap ">
+                <div class="page-content-box gap24">
+                    <div class="clearfix">
+                        <div id="inputBox" class="gap-btn-group" role="group">
+                            <button type="button" class="btn btn-label">
+                                <span>专家名称：</span>
+                            </button>
+                            <!-- <div class="btn-group compact" role="group">
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    专家名称
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#" data-field='expertName' data-placeholder='请输入专家名称'>专家名称</a></li>
+                                </ul>
+                            </div> -->
+                            <input type="text" class="form-control" data-field="expertName" placeholder="请输入专家名称" />
+                            <button id="ser" type="button" title="搜索" class="btn btn-outline btn-primary">
+                                <span>查询</span>
+                            </button>
+                        </div>
+                        <div class="btn-group   pull-right" role="group">
+                            <button id="add" type="button" title="新增" class="btn btn-outline btn-primary pull-right">
+                                <span>新增</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="row expert_list mt24 clearfix">
+                        <div id="view_container" class="clearfix" style="min-height: 724px;">
+                        </div>
+                        <div class="pagination_container pull-right">
+                            <ul class="pagination" id="pagination">
+                            </ul>
+                            <input type="hidden" id="PageSize" runat="server" value="" />
+                            <input type="hidden" id="countindex" runat="server" value="" />
+                            <input type="hidden" id="visiblePages" runat="server" value="7" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="message-box animated fadeIn" data-sound="alert " id='mb-signout'>
+        <div class="mb-container ">
+            <div class="mb-middle ">
+                <div class="mb-title"><span class="fa fa-sign-out "></span> Log <strong>Out</strong> ?</div>
+                <div class="mb-content ">
+                    <p>确定登出?</p>
+                    <p>如果您想继续留在此页面，请点击"否"</p>
+                </div>
+                <div class="mb-footer">
+                    <div class="pull-right ">
+                        <a href="login.html " class="btn btn-success btn-lg ">是</a>
+                        <button class="btn btn-default btn-lg mb-control-close ">否</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- modal -->
+    <div id="modal" class="modal fade">
+        <div class="modal-dialog">
+            <form action="javascript:void(0)" data-bv-message="验证未通过" data-bv-feedbackicons-valid="glyphicon glyphicon-ok" data-bv-feedbackicons-invalid="glyphicon glyphicon-remove" data-bv-feedbackicons-validating="glyphicon glyphicon-refresh">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title"></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group hidden-em">
+                            <label>id</label>
+                            <input type="text" class="form-control" name="id">
+                        </div>
+                        <div class="form-group">
+                            <label>头像</label>
+                            <input type="file" class="file" id="file" data-field="headImage" />
+                            <input type="text" class="hidden-em" name="headImage" />
+                        </div>
+                        <div class="form-group">
+                            <label><span class="text-red">*</span>专家名称</label>
+                            <input type="text" class="form-control" name="expertName" required>
+                        </div>
+                        <div class="form-group">
+                            <label>学历</label>
+                            <input type="text" class="form-control" name="education">
+                        </div>
+                        <div class="form-group">
+                            <label>职称</label>
+                            <input type="text" class="form-control" name="academicTitle">
+                        </div>
+                        <div class="form-group">
+                            <label>性别</label>
+                            <select id="gender" class="form-control" name="gender">
+                                <option value="0">男</option>
+                                <option value="1">女</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>专家介绍</label>
+                            <textarea class="form-control" style="min-height: 120px;" name="expertIntroduce"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>专家机构</label>
+                            <input type="text" class="form-control" name="expertInstitution">
+                        </div>
+                        <div class="form-group">
+                            <label>电话</label>
+                            <input type="text" class="form-control" name="expertTel" pattern="^1[23456789]\d{9}$" data-bv-regexp-message="请填写正确的手机号码">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default cancel" data-dismiss="modal">取&nbsp;&nbsp;消</button>
+                        <button type="button" class="btn btn-primary submit">保&nbsp;&nbsp;存</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+<script type='text/javascript' src="js/import.js"></script>
+<script type='text/javascript' src="js/pages/CardTable.js"></script>
+<script type="text/javascript">
+    function getTemplate(item) {
+        var obj_str = JSON.stringify(item);
+        return `<div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+                    <div class="item" data-id="${item.id}" data-content='${obj_str}'>
+                        <div class="avatar">
+                            <img src="${item.headImage1}" alt="">
+                        </div>
+                        <div class="info">
+                            <h3 class="name">${item.expertName}</h3>
+                            <p class="professional_tit">${item.education} ${item.academicTitle}</p>
+                        </div>
+                        <div class="describe">
+                            ${item.expertIntroduce}
+                        </div>
+                        <div class="btnBar">
+                            <button type="button" title="删除" class="btn btn-outline btn-primary ml20 pull-right card_del">
+                                <span>删除</span>
+                            </button>
+                            <button type="button" title="编辑" class="btn btn-outline btn-warning pull-right card_edit">
+                                <span>编辑</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>`;
+    }
+
+    new card({
+        m: '#modal',
+        cardView: '#view_container',
+        paginatorView: '#pagination',
+        queryUrl: "/monitor/energyExpert/getList",
+        addUrl: "/monitor/energyExpert/add",
+        editUrl: "/monitor/energyExpert/edit",
+        delUrl: "/monitor/energyExpert/del",
+        method: 'post',
+        tokenUrl: '/auth/token/oss',
+        getTemplate: getTemplate
+    }).init();
+</script>
+
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ARIMA预测</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" id='theme' href="css/theme-dark-blue.css" />
+</head>
+
+<body id="eleEnergyPrediction">
+    <div class="page-container">
+        <a href="# " class="x-navigation-minimize menu_minimalize"><span class="arrow arrow-shrink"></span></a>
+        <div class="page-sidebar page-sidebar-fixed scroll">
+            <ul id='menu' class="x-navigation">
+                <li class="xn-logo">
+                    <a href="index.html"></a>
+                    <a href='#' class="x-navigation-control "></a>
+                </li>
+            </ul>
+        </div>
+        <div class="page-content ">
+            <div class="page-content-wrap top0">
+                <div class="banner_box">
+                    <h3 class="page-title">
+                        <ul class="x-navigation x-navigation-horizontal log-out mt24 pull-right">
+                            <li class="xn-icon-button last ">
+                                <a href="# "><span class="fa fa-power-off "></span></a>
+                                <ul class="xn-drop-left animated zoomIn ">
+                                    <li><a href="# " class="mb-control " data-box="#mb-signout "><span class="fa fa-sign-out "></span> 登出</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        ARIMA预测</h3>
+                    <h4 class="page-sub-title">根据数据源特点，采用峰谷聚类的预测方法，基于ARIMA模型，选取往年的数据作为拟合数据，用当年的数据作为评估模型的测试数据，分别进行建模预测。</h4>
+                </div>
+                <div class="container-fluid pt24">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6">
+                            <div class="wigit-title blue-bg"></div>
+                            <div class="iPanel wigit-panel">
+                                <!-- 扬州市第一季度累计用电总量 -->
+                                <p class="wigit-text wigit-text1"></p>
+                                <p class="wigit-value"><span class="value">3547</span><span>万千瓦时</span></p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="wigit-title purple-bg"></div>
+                            <div class="iPanel wigit-panel">
+                                <!-- 预计扬州市第一季度累计用电总量 -->
+                                <p class="wigit-text wigit-text2"></p>
+                                <p class="wigit-value"><span class="value">3547</span><span>万千瓦时</span></p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-12">
+                            <div class="wigit-title red-bg"></div>
+                            <div class="iPanel wigit-panel">
+                                <p class="wigit-text">预计同比增加</p>
+                                <p class="wigit-value"><span class="value">23</span><span>%</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="panel_title">
+                                <div class="col-sm-6">
+                                    <!-- 扬州市企业用电统计(钢铁行业) -->
+                                    <h4 class="wigit-text3"></h4>
+                                </div>
+                                <div class="col-sm-6 clearfix">
+                                    <div class="gap-btn-group pull-right bar-group" role="group">
+                                        <div class="btn-group" role="group">
+                                            <select class="w140 form-control select iselect industry">
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="iPanel compact_panel">
+                                <div class="content">
+                                    <table id="TContact" data-height="415" data-mobile-responsive="true">
+                                        <thead>
+                                            <tr class="hidden-em">
+                                                <th data-field="name">企业名称</th>
+                                                <th data-field="ele_this_month" data-align="right">当月用电量<span class="st">(万千瓦时)</span></th>
+                                                <th data-field="ele_this_season" data-align="right">本季度累计用电量<span class="st">(万千瓦时)</span></th>
+                                                <th data-field="ele_this_season_pred" data-align="right">预计本季度用电总量<span class="st">(万千瓦时)</span></th>
+                                            </tr>
+                                        </thead>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="panel_title">
+                                <div class="col-md-12">
+                                    <h4 id="chart_title" class="wigit-text4"></h4>
+                                </div>
+                            </div>
+                            <div class="iPanel">
+                                <div class="content">
+                                    <div class="chart-wrap">
+                                        <div id="line_bar"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="message-box animated fadeIn" data-sound="alert " id='mb-signout'>
+        <div class="mb-container ">
+            <div class="mb-middle ">
+                <div class="mb-title"><span class="fa fa-sign-out "></span> Log <strong>Out</strong> ?</div>
+                <div class="mb-content ">
+                    <p>确定登出?</p>
+                    <p>如果您想继续留在此页面，请点击"否"</p>
+                </div>
+                <div class="mb-footer ">
+                    <div class="pull-right ">
+                        <a href="login.html " class="btn btn-success btn-lg ">是</a>
+                        <button class="btn btn-default btn-lg mb-control-close ">否</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type='text/javascript' src="js/import.js"></script>
+<script type='text/javascript' src="js/pages/common.js"></script>
+<script type='text/javascript' src="js/pages/CURDTable.js"></script>
+<script type='text/javascript' src="js/charts/echart_yarn.min.js"></script>
+<script>
+    function initPage() {
+        new cur({
+            t: "#TContact",
+            m: "#modal",
+            dataSourceType: 'local',
+            pageSize: 5,
+            queryUrl: "js/charts/demos/eleEnergyPrediction_table.json",
+            addUrl: "/energy/process/add",
+            editUrl: "/energy/process/update",
+            delUrl: "/energy/process/delByIds"
+        }).init();
+
+        new yarn({
+            charts: [{
+                el: 'line_bar',
+                type: 'line',
+                ti: '#chart_title',
+                theme: 'index_line',
+                url: 'js/charts/demos/eleEnergyPrediction_line.json',
+                scale: 0.20
+            }]
+        }).init();
+    }
+
+    initPage();
+</script>
+
+</htm>

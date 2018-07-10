@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>区域能耗统计</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" id='theme' href="css/theme-dark-blue.css" />
+</head>
+
+<body>
+    <div class="page-container">
+        <a href="# " class="x-navigation-minimize menu_minimalize"><span class="arrow arrow-shrink "></span></a>
+        <div class="page-sidebar page-sidebar-fixed scroll">
+            <ul id='menu' class="x-navigation">
+                <li class="xn-logo">
+                    <a href="index.html"></a>
+                    <a href='#' class="x-navigation-control "></a>
+                </li>
+            </ul>
+        </div>
+        <div class="page-content ">
+            <h3 class="page-title">
+                <ul class="x-navigation x-navigation-horizontal log-out pull-right">
+                    <li class="xn-icon-button last ">
+                        <a href="# "><span class="fa fa-power-off "></span></a>
+                        <ul class="xn-drop-left animated zoomIn ">
+                            <li><a href="# " class="mb-control " data-box="#mb-signout "><span class="fa fa-sign-out "></span> 登出</a></li>
+                        </ul>
+                    </li>
+                </ul>区域能耗统计</h3>
+            <div class="page-content-wrap chart_container">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="panel_title">
+                                <div class="col-md-3">
+                                    <h4>区域能耗统计</h4>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="gap-btn-group pull-right bar-group" role="group">
+                                        <div class="btn-group">
+                                            <select id="area" class="w140 form-control select iselect area">
+                                            </select>
+                                        </div>
+                                        <div class="btn-group">
+                                            <select id="searchIndex" class="w140 form-control select iselect energyType">
+                                            </select>
+                                        </div>
+                                        <input id="date_input2" type="text" name="name" class="form-control laydate-icon layer-date">
+                                        <div class="btn-group">
+                                            <button id="search_btn" class="btn btn-primary">查询</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="page_content" class="nav-content">
+                                <div id="page2" class="relative">
+                                    <div class="iPanel" style="min-height: 731px;">
+                                        <div class="content">
+                                            <h4 id="title1" class="title"></h4>
+                                            <div class="chart-wrap">
+                                                <div id="chart1"></div>
+                                            </div>
+                                        </div>
+                                        <div id="view" class="mt40"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="message-box animated fadeIn" data-sound="alert " id='mb-signout'>
+        <div class="mb-container ">
+            <div class="mb-middle ">
+                <div class="mb-title"><span class="fa fa-sign-out "></span> Log <strong>Out</strong> ?</div>
+                <div class="mb-content ">
+                    <p>确定登出?</p>
+                    <p>如果您想继续留在此页面，请点击"否"</p>
+                </div>
+                <div class="mb-footer ">
+                    <div class="pull-right ">
+                        <a href="login.html " class="btn btn-success btn-lg ">是</a>
+                        <button class="btn btn-default btn-lg mb-control-close ">否</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type='text/javascript' src="js/import.js"></script>
+<script type='text/javascript' src="js/pages/common.js"></script>
+<script type='text/javascript' src="js/pages/CURDTable.js"></script>
+<script type='text/javascript' src="js/pages/ALONETable.js "></script>
+<script type='text/javascript' src="js/charts/echart_yarn.min.js"></script>
+<script>
+    function initPage() {
+        initDateInputForDay('#date_input2');
+
+        $('#date_input2').val(getToday());
+
+        $('#search_btn').click(function() {
+            showAreaPageForEle($('#date_input2').val(), 0, $('#searchIndex').val(), $('#area').val());
+        });
+    }
+
+    function initedEnergyType() {
+        showAreaPageForEle($('#date_input2').val(), 0, $('#searchIndex').val(), $('#area').val());
+    }
+
+    function initedArea() {
+        showAreaPageForEle($('#date_input2').val(), 0, $('#searchIndex').val(), $('#area').val());
+    }
+
+    function showAreaPageForEle(date, type, powerType, selectArea) {
+
+        if ('' === date || '' === type || '' === powerType || null == powerType || '' === selectArea || null == selectArea) {
+            return;
+        }
+
+        new at({
+            queryUrl: "/energy/analysis/table/onlineCounty/date/" + powerType,
+            params: {
+                cityId: selectArea,
+                getTime: date,
+                type: type
+            },
+            columns: CONSTT.NAME_COLUMNS
+        }).init();
+
+        new yarn({
+            charts: [{
+                el: 'chart1',
+                type: 'line',
+                ti: '#title1',
+                url: '/energy/analysis/chart/county/online/' + powerType,
+                scale: 0.20,
+                min_height: 300,
+                max_height: 600,
+                params: {
+                    cityId: selectArea,
+                    getTime: date,
+                    key: '123',
+                    type: type
+                }
+            }]
+        }).init();
+    }
+
+    initPage();
+</script>
+
+</html>

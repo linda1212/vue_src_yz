@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>能耗统计</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" id='theme' href="css/theme-dark-blue.css" />
+</head>
+
+<body>
+    <div class="page-container">
+        <a href="# " class="x-navigation-minimize menu_minimalize"><span class="arrow arrow-shrink"></span></a>
+        <div class="page-sidebar page-sidebar-fixed scroll">
+            <ul id='menu' class="x-navigation">
+                <li class="xn-logo">
+                    <a href="index.html"></a>
+                    <a href='#' class="x-navigation-control "></a>
+                </li>
+            </ul>
+        </div>
+        <div class="page-content ">
+            <div class="page-content-wrap top0">
+                <h3 class="page-title">
+                    <ul class="x-navigation x-navigation-horizontal log-out pull-right">
+                        <li class="xn-icon-button last ">
+                            <a href="# "><span class="fa fa-power-off "></span></a>
+                            <ul class="xn-drop-left animated zoomIn ">
+                                <li><a href="# " class="mb-control " data-box="#mb-signout "><span class="fa fa-sign-out "></span> 登出</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    能耗统计</h3>
+                <ul id="inavigation" class="nav nav-tabs xs-tabs">
+                    <li role="presentation" class="active"><a href="javascript:void(0);" data-page='#ipage1'>地区</a></li>
+                    <li role="presentation"><a href="javascript:void(0);" data-page='#ipage2'>行业</a></li>
+                    <li role="presentation"><a href="javascript:void(0);" data-page='#ipage3'>企业</a></li>
+                    <!--<li role="presentation"><a href="javascript:void(0);" data-page='#ipage4'>能源品种</a></li>-->
+                </ul>
+                <div id="ipage_content" class="nav-content pt24">
+                    <div id="ipage1" class="relative">
+                        <div class="container-fluid">
+                            <div class="col-lg-12">
+                                <div class="panel_title">
+                                    <div class="col-md-3">
+                                        <h4>地区能源消耗分析</h4>
+                                    </div>
+                                    <div class="col-md-9 clearfix">
+                                        <div class="gap-btn-group pull-right bar-group" role="group">
+                                            <div class="btn-group" role="group">
+                                                <select id="energyType1" class="w140 form-control select iselect energyType"> </select>
+                                            </div>
+                                            <div class="btn-group" role="group">
+                                                <select id="area1" class="w140 form-control select iselect area">
+                                                </select>
+                                            </div>
+                                            <div class="btn-group" role="group">
+                                                <select id="dateSelection1" class="w140 form-control select iselect dateSelection">
+                                                    <option value="0">按日查询</option>
+                                                    <option value="1">按月查询</option>
+                                                    <option value="2">按年查询</option>
+                                                </select>
+                                            </div>
+                                            <div class="btn-group datebox1 hidden-em" role="group">
+                                                <input id="frame1_page1_input1" type="text" name="" class="form-control laydate-icon layer-date w140" data-bv-date="true">
+                                            </div>
+                                            <div class="btn-group datebox2  hidden-em" role="group">
+                                                <input id="frame1_page1_input2" type="text" name="" class="form-control laydate-icon layer-date w140" data-bv-date="true">
+                                            </div>
+                                            <div class="btn-group datebox3" role="group">
+                                                <input id="frame1_page1_input3" type="text" name="" class="form-control laydate-icon layer-date w140" data-bv-date="true">
+                                            </div>
+                                            <button id="ser1" type="button" title="搜索" class="btn btn-outline btn-primary">
+                                                <span>查询</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="iPanel">
+                                    <div class="row">
+                                        <div class="col-lg-8 inner_left_col">
+                                            <div class="content">
+                                                <h4 id="frame1_page1_title1" class="title"></h4>
+                                                <div class="chart-wrap">
+                                                    <div id="frame1_page1_chart"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 border-table inner_right_col">
+                                            <h4 id="frame1_page1_title2" class="title mb24"></h4>
+                                            <ul id="frame1_page1_tabel1" class="min-table"></ul>
+                                        </div>
+                                    </div>
+                                    <div class="content mt40" style="min-height: 283px;">
+                                        <h4 id="frame1_page1_title3" class="title mb10"><span class="text"></span><span class="st"></span></h4>
+                                        <div id="view1"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="ipage2" class="relative hidden-em">
+                        <div class="container-fluid">
+                            <div class="col-lg-12">
+                                <div class="panel_title">
+                                    <div class="col-md-3">
+                                        <h4>行业能源消耗分析</h4>
+                                    </div>
+                                    <div class="col-md-9 clearfix">
+                                        <div class="gap-btn-group pull-right bar-group" role="group">
+                                            <div class="btn-group" role="group">
+                                                <select id="energyType2" class="form-control select iselect w140 energyType">
+                                                </select>
+                                            </div>
+                                            <select id="industry" class="form-control select iselect w140 industry"></select>
+                                            <div class="btn-group" role="group">
+                                                <select id="dateSelection2" class="w140 form-control select iselect dateSelection">
+                                                    <option value="0">按日查询</option>
+                                                    <option value="1">按月查询</option>
+                                                    <option value="2">按年查询</option>
+                                                </select>
+                                            </div>
+                                            <div class="btn-group datebox1 hidden-em" role="group">
+                                                <input id="frame1_page2_input1" type="text" name="" class="form-control laydate-icon layer-date w140" data-bv-date="true">
+                                            </div>
+                                            <div class="btn-group datebox2  hidden-em" role="group">
+                                                <input id="frame1_page2_input2" type="text" name="" class="form-control laydate-icon layer-date w140" data-bv-date="true">
+                                            </div>
+                                            <div class="btn-group datebox3" role="group">
+                                                <input id="frame1_page2_input3" type="text" name="" class="form-control laydate-icon layer-date w140" data-bv-date="true">
+                                            </div>
+                                            <button id="ser2" type="button" title="搜索" class="btn btn-outline btn-primary">
+                                                <span>查询</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="iPanel">
+                                    <div class="row">
+                                        <div class="col-lg-8 inner_left_col">
+                                            <div class="content">
+                                                <h4 id="frame1_page2_title1" class="title"></h4>
+                                                <div class="chart-wrap">
+                                                    <div id="frame1_page2_chart"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 border-table inner_right_col">
+                                            <h4 id="frame1_page2_title2" class="title mb24"></h4>
+                                            <ul id="frame1_page2_tabel1" class="min-table"></ul>
+                                        </div>
+                                    </div>
+                                    <div class="content mt40" style="min-height: 283px;">
+                                        <h4 id="frame1_page2_title3" class="title mb10"><span class="text"></span><span class="st"></span></h4>
+                                        <div id="view2"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="ipage3" class="relative hidden-em">
+                        <div class="container-fluid">
+                            <div class="col-lg-12">
+                                <div class="">
+                                    <div class="row" style="background-color: #fff">
+                                        <div class="col-lg-3 col-md-4 " style="padding-right:0!important;padding-left: 0">
+                                            <div class="panel_title" style="height:56px;margin-right: 10px">
+                                                <div class="clearfix">
+                                                    <div class="gap-btn-group tree-bar" role="group">
+                                                        <input id="search_input" type="text" data-field='name' class="form-control" style="width:calc(100% - 93px);max-width:calc(100% - 93px);" placeholder="请输入单位名称" />
+                                                        <div class="btn-group" id="serg1">
+                                                            <button id="ser4" type="button" title="排序" class="btn btn-outline btn-default">
+                                                                <span>排序</span>
+                                                            </button>
+                                                            <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                                                <span class="caret"></span>
+                                                            </button>
+                                                            <ul class="dropdown-menu mw116">
+                                                                <li><a href="javascript:void(0);" id="serName">名称排序<span class="glyphicon glyphicon-arrow-up"></span></a></li>
+                                                                <li><a href="javascript:void(0);" id="serNameD">名称排序<span class="glyphicon glyphicon-arrow-down"></span></a></li>
+                                                                <li><a href="javascript:void(0);" id="serEgy">能耗量排序<span class="glyphicon glyphicon-arrow-up"></span></a></li>
+                                                                <li><a href="javascript:void(0);" id="serEgyD">能耗量排序<span class="glyphicon glyphicon-arrow-down"></span></a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div id="tree_box" class="tree-panel font14 new_left_tree" style="overflow: auto;">
+                                            </div>
+                                        </div>
+                                        <!--1-->
+                                        <div class="col-lg-9 col-md-8 inner_left_col left-border" style="padding-right: 0">
+                                            <div class="panel_title">
+                                                <div class="gap-btn-group pull-right bar-group" role="group">
+                                                    <div class="btn-group" role="group">
+                                                        <select id="energyType3" class="w140 form-control select iselect energyType">
+                                                        </select>
+                                                    </div>
+                                                    <div class="btn-group hidden" role="group">
+                                                        <select id="company" class="w240 form-control select iselect">
+                                                        </select>
+                                                    </div>
+                                                    <div class="btn-group" role="group">
+                                                        <select id="dateSelection3" class="w140 form-control select iselect dateSelection">
+                                                            <option value="0">按日查询</option>
+                                                            <option value="1">按月查询</option>
+                                                            <option value="2">按年查询</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="btn-group datebox1 hidden-em" role="group">
+                                                        <input id="frame3_page1_input1" type="text" name="" class="form-control laydate-icon layer-date w140" data-bv-date="true">
+                                                    </div>
+                                                    <div class="btn-group datebox2 hidden-em" role="group">
+                                                        <input id="frame3_page1_input2" type="text" name="" class="form-control laydate-icon layer-date w140" data-bv-date="true">
+                                                    </div>
+                                                    <div class="btn-group datebox3 " role="group">
+                                                        <input id="frame3_page1_input3" type="text" name="" class="form-control laydate-icon layer-date w140" data-bv-date="true">
+                                                    </div>
+                                                    <button id="ser3" type="button" title="搜索" class="btn btn-outline btn-primary">
+                                                        <span>查询</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="content iPanel">
+                                                <div class="">
+                                                    <div>
+                                                        <h4 style="color: #262626;margin-bottom: 24px;margin-top: 9px;">企业能源消耗分析</h4>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-12" style=" border: 1px solid #E8E8E8;">
+                                                            <div id="m_panel" class=" clearfix pre_main_panel">
+                                                                <div class="col-lg-6 m_wigit_panel">
+                                                                    <p class="m_label static_label2 center" style="color: #000000 ">综合能耗总值</p>
+                                                                    <p class="m_value_box center" id="frame3_page1_tabel1"></p>
+                                                                </div>
+                                                                <div class="col-lg-6 m_wigit_panel ">
+                                                                    <p class="m_label static_label2 center" style="color: #000000">环比</p>
+                                                                    <p class="m_value_box center" id="frame3_page1_tabelTwo"></p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <h4 id="frame3_page1_title1" style="margin: 48px 0 24px 0;color: #262626;"></h4>
+                                                <div class="chart-wrap">
+                                                    <div id="frame3_page1_chart"></div>
+                                                </div>
+                                            </div>
+                                            <div class="content  col-lg-12 col-md-12" style="padding-left: 24px;padding-right: 24px">
+                                                <h4 id="frame3_page1_title3" class="title" style="color: #262626;"><span class="text"></span><span class="st"></span></h4>
+                                                <!-- <table id="frame3_page1_tabel2" data-height="320" data-mobile-responsive="true">
+                                                </table> -->
+                                                <div id="view3"></div>
+                                            </div>
+                                        </div>
+
+                                        <!--<div class="col-lg-4 border-table inner_right_col ">-->
+                                        <!--<h4 id="frame3_page1_title2" class="title mb24"></h4>-->
+                                        <!--<ul id="frame3_page1_tabel1" class="min-table"></ul>-->
+                                        <!--</div>-->
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    <div class="message-box animated fadeIn" data-sound="alert " id='mb-signout'>
+        <div class="mb-container ">
+            <div class="mb-middle ">
+                <div class="mb-title"><span class="fa fa-sign-out "></span> Log <strong>Out</strong> ?</div>
+                <div class="mb-content ">
+                    <p>确定登出?</p>
+                    <p>如果您想继续留在此页面，请点击"否"</p>
+                </div>
+                <div class="mb-footer ">
+                    <div class="pull-right ">
+                        <a href="login.html " class="btn btn-success btn-lg ">是</a>
+                        <button class="btn btn-default btn-lg mb-control-close ">否</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type='text/javascript' src="js/import.js"></script>
+<script type='text/javascript' src="js/pages/common.js"></script>
+<script type='text/javascript' src="js/pages/CURDTable.js"></script>
+<script type='text/javascript' src="js/pages/ALONETable.js "></script>
+<script type='text/javascript' src="js/charts/echart_yarn.min.js"></script>
+<script>
+    initDateInputForMonth('#frame1_page1_input1');
+    initDateInputForYear('#frame1_page1_input2');
+    initDateInputForMonth('#frame1_page2_input1');
+    initDateInputForYear('#frame1_page2_input2');
+    initDateInputForMonth('#frame3_page1_input1');
+    initDateInputForYear('#frame3_page1_input2');
+    initDateInputForDay('#frame3_page1_input3');
+    initDateInputForDay('#frame1_page2_input3');
+    initDateInputForDay('#frame1_page1_input3');
+    initCompanySelectByElementId('company');
+
+    $('#serNameD').click(function() {
+        showTreeViewByName(-1);
+    })
+
+
+    $('#serName').click(function() {
+        showTreeViewByName(1);
+    })
+
+    $('#serEgyD').click(function() {
+        showTreeViewByEgy(-1, $('#energyType').val());
+    })
+    $('#search_input').keyup(function(event) {
+        if (event.keyCode == 13) {
+            var name = $(this).val();
+            showTreeViewByName(null, name);
+        }
+
+    })
+
+    $('#serEgy').click(function() {
+        showTreeViewByEgy(1, $('#energyType').val());
+    });
+    $('#frame1_page1_input1').val(getThisMonth());
+    $('#frame1_page1_input2').val(getThisYear());
+    $('#frame1_page2_input1').val(getThisMonth());
+    $('#frame1_page2_input2').val(getThisYear());
+    $('#frame3_page1_input1').val(getThisMonth());
+    $('#frame3_page1_input2').val(getThisYear());
+    $('#frame3_page1_input3').val(getToday());
+    $("#frame1_page2_input3").val(getToday());
+    $("#frame1_page1_input3").val(getToday());
+    $('.dateSelection').change(function() {
+        if ($(this).val() == 1) {
+            $(this).parent().siblings('.datebox1').show();
+            $(this).parent().siblings('.datebox2').hide();
+            $(this).parent().siblings('.datebox3').hide();
+        } else if ($(this).val() == 2) {
+            $(this).parent().siblings('.datebox2').show();
+            $(this).parent().siblings('.datebox1').hide();
+            $(this).parent().siblings('.datebox3').hide();
+        } else if ($(this).val() == 0) {
+            $(this).parent().siblings('.datebox3').show();
+            $(this).parent().siblings('.datebox2').hide();
+            $(this).parent().siblings('.datebox1').hide();
+        };
+    });
+
+
+    var lock1 = false,
+        lock2 = false,
+        lock3 = false;
+    $('#inavigation').find('li').click(function() {
+        $(this).addClass('active').siblings('li').removeClass('active');
+        var id = $(this).find('a').data('page');
+        $('#ipage_content').find(id).show().siblings().hide();
+        $(window).trigger("panel_resize");
+        switch (id) {
+            case '#ipage2':
+                setTimeout(function() {
+                    if (!lock2) {
+                        showFrame2();
+                        lock2 = true;
+                    }
+                }, 100);
+                break;
+            case '#ipage3':
+                setTimeout(function() {
+                    if (!lock3) {
+                        showFrame3();
+                        lock3 = true;
+                    }
+                }, 100);
+                break;
+            case '#ipage1':
+            default:
+                setTimeout(function() {
+                    if (!lock1) {
+                        showFrame1();
+                        lock1 = true;
+                    }
+                }, 100);
+                break;
+        }
+    });
+
+    function initedEnergyType() {
+        showFrame1();
+
+    }
+
+    function initedArea() {
+        showFrame1();
+    }
+
+    $('#ser1').click(function() {
+        var date;
+
+        if ($('#dateSelection1').val() == 1) {
+            date = $('#frame1_page1_input1').val();
+        } else if ($('#dateSelection1').val() == 2) {
+            date = $('#frame1_page1_input2').val();
+        } else {
+            date = $('#frame1_page1_input3').val();
+        }
+        getData1($('#energyType1').val(), $('#area1').val(), $('#dateSelection1').val(), date)
+    })
+
+    function showFrame1() {
+        var date;
+
+        if ($('#dateSelection1').val() == 1) {
+            date = $('#frame1_page1_input1').val();
+        } else if ($('#dateSelection1').val() == 2) {
+            date = $('#frame1_page1_input2').val();
+        } else {
+            date = $('#frame1_page1_input3').val();
+        }
+
+        getData1($('#energyType1').val(), $('#area1').val(), $('#dateSelection1').val(), date)
+
+    }
+
+    function getData1(energyType, type, item, date) {
+
+        var params = {
+            "dataCode": energyType,
+            "code": type,
+            "queryType": item,
+            "queryTime": date
+        };
+
+        if (!energyType || !type) {
+            return;
+        }
+        new yarn({
+            charts: [{
+                el: 'frame1_page1_chart',
+                type: 'line',
+                ti: '#frame1_page1_title1',
+                url: '/energy/consumption/area/chart/line',
+                h: 340,
+                params: params
+            }]
+        }).init();
+        eBase.send({
+            url: '/energy/consumption/area/chart/table',
+            data: JSON.stringify({
+                params: params
+            }),
+        }, 'post').done(function(resp) {
+            var result = resp.map;
+            $("#frame1_page1_tabel1").html("");
+            $("#frame1_page1_title2").html("");
+            $("#frame1_page1_title3 .text").html("");
+            $("#frame1_page1_title3 .st").html("");
+            $("#frame1_page1_title2").html(result.title);
+            $("#frame1_page1_title3 .text").html(result.title);
+            $("#frame1_page1_title3 .st").html(result.yzTitle);
+            var frame1_page1_tabel1 = $("#frame1_page1_tabel1");
+            var html = '';
+            if (result.total && result.total != 0) {
+                html += '<li><div class="col-lg-6">监测企业</div><div class="col-lg-6">' + result.total + '</div></li>';
+            } else {
+                html += '<li><div class="col-lg-6">监测企业</div><div class="col-lg-6">暂无数据</div></li>';
+            }
+            if (result.energy && result.energy != 0) {
+                html += '<li><div class="col-lg-6">综合能耗总值</div><div class="col-lg-6">' + result.energy + '</div></li>';
+            } else {
+                html += '<li><div class="col-lg-6">综合能耗总值</div><div class="col-lg-6">暂无数据</div></li>';
+            }
+            if (result.annularGrowth) {
+                html += '<li><div class="col-lg-6">环比</div><div class="col-lg-6">' + result.annularGrowth + '</div></li>';
+            } else {
+                html += '<li><div class="col-lg-6">环比</div><div class="col-lg-6">暂无数据</div></li>';
+            }
+
+            frame1_page1_tabel1.append(html);
+        }).fail(function() {
+            console.log('获取数据失败');
+        });
+
+        if ($('#dateSelection1').val() == 1) {
+            new at({
+                queryUrl: "/energy/consumption/area/chart/table",
+                params: params,
+                view: '#view1',
+                columns: CONSTT.AREA_MONTH_COLUMNS
+            }).init();
+        } else if ($('#dateSelection1').val() == 2) {
+            new at({
+                queryUrl: "/energy/consumption/area/chart/table",
+                params: params,
+                view: '#view1',
+                columns: CONSTT.AREA_YEAR_COLUMNS
+            }).init();
+        } else {
+            new at({
+                queryUrl: "/energy/consumption/area/chart/table",
+                params: params,
+                view: '#view1',
+                columns: CONSTT.AREA_DAY_COLUMNS
+            }).init();
+        }
+    }
+
+    $('#ser2').click(function() {
+        var date;
+
+        if ($('#dateSelection2').val() == 1) {
+            date = $('#frame1_page2_input1').val();
+        } else if ($('#dateSelection2').val() == 2) {
+            date = $('#frame1_page2_input2').val();
+        } else {
+            date = $('#frame1_page2_input3').val();
+        }
+        getData2($('#energyType2').val(), $('#industry').val(), $('#dateSelection2').val(), date)
+    })
+
+    function showFrame2() {
+        var date;
+
+        if ($('#dateSelection2').val() == 1) {
+            date = $('#frame1_page2_input1').val();
+        } else if ($('#dateSelection2').val() == 2) {
+            date = $('#frame1_page2_input2').val();
+        } else {
+            date = $('#frame1_page2_input3').val();
+
+        }
+        getData2($('#energyType2').val(), $('#industry').val(), $('#dateSelection2').val(), date)
+    }
+
+    function getData2(energyType, type, item, date) {
+
+        var params = {
+            "dataCode": energyType,
+            "code": type,
+            "queryType": item,
+            "queryTime": date
+
+        };
+
+        if (!energyType || !type) {
+            return;
+        }
+
+        new yarn({
+            charts: [{
+                el: 'frame1_page2_chart',
+                type: 'line',
+                ti: '#frame1_page2_title1',
+                url: '/energy/consumption/industry/chart/line',
+                h: 340,
+                params: params
+            }]
+        }).init();
+
+        eBase.send({
+            url: '/energy/consumption/industry/chart/table',
+            data: JSON.stringify({
+                params: params
+            }),
+        }, 'post').done(function(resp) {
+            var result = resp.map;
+            $("#frame1_page2_tabel1").html("");
+            $("#frame1_page2_title2").html("");
+            $("#frame1_page2_title3 .text").html("");
+            $("#frame1_page2_title3 .st").html("");
+            $("#frame1_page2_title2").html(result.title);
+            $("#frame1_page2_title3 .text").html(result.title);
+            $("#frame1_page2_title3 .st").html(result.yzTitle);
+            var frame1_page2_tabel1 = $("#frame1_page2_tabel1");
+            var html = '';
+            if (result.total && result.total != 0) {
+                html += '<li><div class="col-lg-6">监测企业</div><div class="col-lg-6">' + result.total + '</div></li>';
+            } else {
+                html += '<li><div class="col-lg-6">监测企业</div><div class="col-lg-6">暂无数据</div></li>';
+            }
+            if (result.energy && result.energy != 0) {
+                html += '<li><div class="col-lg-6">综合能耗总值</div><div class="col-lg-6">' + result.energy + '</div></li>';
+            } else {
+                html += '<li><div class="col-lg-6">综合能耗总值</div><div class="col-lg-6">暂无数据</div></li>';
+            }
+            if (result.annularGrowth) {
+                html += '<li><div class="col-lg-6">环比</div><div class="col-lg-6">' + result.annularGrowth + '</div></li>';
+            } else {
+                html += '<li><div class="col-lg-6">环比</div><div class="col-lg-6">暂无数据</div></li>';
+            }
+
+            frame1_page2_tabel1.append(html);
+        }).fail(function() {
+            console.log('获取数据失败');
+        });
+
+        if ($('#dateSelection2').val() == 1) {
+            new at({
+                queryUrl: "/energy/consumption/industry/chart/table",
+                params: params,
+                view: '#view2',
+                columns: CONSTT.INDUSTRY_MONTH_COLUMNS
+            }).init();
+        } else if ($('#dateSelection2').val() == 2) {
+            new at({
+                queryUrl: "/energy/consumption/industry/chart/table",
+                params: params,
+                view: '#view2',
+                columns: CONSTT.INDUSTRY_YEAR_COLUMNS
+            }).init();
+        } else {
+            new at({
+                queryUrl: "/energy/consumption/industry/chart/table",
+                params: params,
+                view: '#view2',
+                columns: CONSTT.INDUSTRY_DAY_COLUMNS
+            }).init();
+        }
+
+    }
+
+    var __current_company_id = '';
+
+    $('#ser3').click(function() {
+        var date;
+
+        if ($('#dateSelection3').val() == 1) {
+            date = $('#frame3_page1_input1').val();
+        } else if ($('#dateSelection3').val() == 2) {
+            date = $('#frame3_page1_input2').val();
+        } else if ($('#dateSelection3').val() == 0) {
+            date = $('#frame3_page1_input3').val();
+        }
+        getData3($('#energyType3').val(), __current_company_id, $('#dateSelection3').val(), date)
+    })
+
+    function showFrame3() {
+        var date;
+
+        if ($('#dateSelection3').val() == 1) {
+            date = $('#frame3_page1_input1').val();
+        } else if ($('#dateSelection3').val() == 2) {
+            date = $('#frame3_page1_input2').val();
+        } else if ($('#dateSelection3').val() == 0) {
+            date = $('#frame3_page1_input3').val();
+        }
+        showTreeViewByName();
+    }
+
+    function getData3(energyType, enterpriseId, item, date) {
+        var params = {
+            "dataCode": energyType,
+            "enterpriseId": enterpriseId,
+            "queryType": item,
+            "queryTime": date
+
+        };
+
+        if (!energyType || !enterpriseId) {
+            return;
+        }
+
+        new yarn({
+            charts: [{
+                el: 'frame3_page1_chart',
+                type: 'line',
+                ti: '#frame3_page1_title1',
+                url: '/energy/consumption/enterprise/chart/line',
+                h: 340,
+                params: params
+            }]
+        }).init();
+
+        eBase.send({
+            url: '/energy/consumption/enterprise/chart/table',
+            data: JSON.stringify({
+                params: params
+            }),
+        }, 'post').done(function(resp) {
+            var result = resp.map;
+            $("#frame3_page1_tabel1").html("");
+            $("#frame3_page1_title2").html("");
+            $("#frame3_page1_tabelTwo").html("");
+            $("#frame3_page1_title3 .text").html("");
+            $("#frame3_page1_title3 .st").html("");
+            $("#frame3_page1_title2").html(result.title);
+            $("#frame3_page1_title3 .text").html(result.title);
+            $("#frame3_page1_title3 .st").html(result.yzTitle);
+            var frame3_page1_tabel1 = $("#frame3_page1_tabel1");
+            var frame3_page1_tabelTwo = $("#frame3_page1_tabelTwo")
+            var html = '';
+            var htmlTwo = '';
+            // if (result.total && result.total != 0) {
+            //     html += '<li><div class="col-lg-6">监测企业</div><div class="col-lg-6">'+ result.total +'</div></li>';
+            // } else {
+            //     html += '<li><div class="col-lg-6">监测企业</div><div class="col-lg-6">暂无数据</div></li>';
+            // }
+            if (result.energy && result.energy != 0) {
+                html += '<span class="m_value">' + result.energy + '</span>';
+            } else {
+                html += '<span class="m_value">暂无数据</span>';
+            }
+            if (result.annularGrowth) {
+                htmlTwo += '<span class="m_value">' + result.annularGrowth + '</span>';
+            } else {
+                htmlTwo += '<span class="m_value">暂无数据</span>';
+            }
+            frame3_page1_tabelTwo.append(htmlTwo);
+            frame3_page1_tabel1.append(html);
+        }).fail(function() {
+            console.log('获取数据失败');
+        });
+
+        if ($('#dateSelection3').val() == 1) {
+            new at({
+                queryUrl: "/energy/consumption/enterprise/chart/table",
+                params: params,
+                view: '#view3',
+                columns: CONSTT.ENTERPRISE_MONTH_COLUMNS
+            }).init();
+        } else if ($('#dateSelection3').val() == 2) {
+            new at({
+                queryUrl: "/energy/consumption/enterprise/chart/table",
+                params: params,
+                view: '#view3',
+                columns: CONSTT.ENTERPRISE_YEAR_COLUMNS
+            }).init();
+        } else {
+            new at({
+                queryUrl: "/energy/consumption/enterprise/chart/table",
+                params: params,
+                view: '#view3',
+                columns: CONSTT.ENTERPRISE_DAY_COLUMNS
+            }).init();
+        }
+
+    }
+
+    function showTreeViewByName(order, name) {
+        var date;
+
+        if ($('#dateSelection3').val() == 1) {
+            date = $('#frame3_page1_input1').val();
+        } else if ($('#dateSelection3').val() == 2) {
+            date = $('#frame3_page1_input2').val();
+        } else {
+            date = $('#frame3_page1_input3').val();
+        }
+        var params = {
+            orderByName: order
+        };
+        if (name) {
+            params.name = name
+        }
+        order = order || 1;
+        eBase.send({
+            "url": '/energy/companyAnalysis/getEnterpriseList',
+            data: JSON.stringify({
+                pageIndex: 1,
+                pageSize: 25,
+                params: params
+            })
+        }, "post").done(function(resp) {
+            resp = resp.rows.map(function(item) {
+                return {
+                    id: item.id,
+                    text: item.name
+                }
+            }) || [];
+
+
+            $('#tree_box').treeview({
+                showBorder: false,
+                selectedColor: '#1e87f0',
+                selectedBackColor: '#fff',
+                expandIcon: "tree-icon menu-plus",
+                collapseIcon: "tree-icon menu-minus",
+                selectedIcon: "glyphicon pull-right",
+                data: resp
+            }).on('nodeSelected', function(event, data) {
+                __current_company_id = data.id;
+                getData3($('#energyType3').val(), __current_company_id, $('#dateSelection3').val(), date);
+            });;
+            $('#tree_box').treeview('selectNode', [0])
+        }).fail(function(resp) {
+            layer.msg("获取数据失败");
+        });
+
+
+    }
+</script>
+
+</html>

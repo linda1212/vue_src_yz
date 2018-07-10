@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>春节复工分析</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" id='theme' href="css/theme-dark-blue.css" />
+</head>
+
+<body id="springFestivalResumed">
+    <div class="page-container">
+        <a href="# " class="x-navigation-minimize menu_minimalize"><span class="arrow arrow-shrink "></span></a>
+        <div class="page-sidebar page-sidebar-fixed scroll">
+            <ul id='menu' class="x-navigation">
+                <li class="xn-logo">
+                    <a href="index.html"></a>
+                    <a href='#' class="x-navigation-control "></a>
+                </li>
+            </ul>
+        </div>
+        <div class="page-content ">
+            <h3 class="page-title">
+                <ul class="x-navigation x-navigation-horizontal log-out pull-right">
+                    <li class="xn-icon-button last ">
+                        <a href="# "><span class="fa fa-power-off "></span></a>
+                        <ul class="xn-drop-left animated zoomIn ">
+                            <li><a href="# " class="mb-control " data-box="#mb-signout "><span class="fa fa-sign-out "></span> 登出</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                春节复工分析</h3>
+            <div class="page-content-wrap chart_container">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="panel_title">
+                                <div class="col-lg-3">
+                                    <h4 class="static_title"></h4>
+                                </div>
+                                <div class="col-lg-9 clearfix">
+                                    <div class="gap-btn-group pull-right bar-group" role="group">
+                                        <div class="btn-group" role="group">
+                                            <select class="w140 form-control select iselect area">
+                                            </select>
+                                        </div>
+                                        <div class="btn-group" role="group">
+                                            <select class="w140 form-control select iselect industry">
+                                            </select>
+                                        </div>
+                                        <input id="date_input" type="text" name="" class="w140 form-control laydate-icon layer-date" data-bv-date="true">
+                                        <button type="button" title="搜索" class="btn btn-outline btn-primary">
+                                            <span>查询</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="iPanel">
+                                <div class="content">
+                                    <div class="chart-wrap">
+                                        <div id="line_bar"></div>
+                                    </div>
+                                </div>
+                                <div class="content mt40">
+                                    <h4 id="table_title" class="title"><span>2017年春节复工用电量</span><span class="st">单位(万千瓦时)</span></h4>
+                                    <table id="TContact" data-height="425" data-mobile-responsive="true">
+                                        <thead>
+                                            <tr class="hidden-em">
+                                                <th data-field="field0">日期</th>
+                                                <th data-field="field1">1</th>
+                                                <th data-field="field2">2</th>
+                                                <th data-field="field3">3</th>
+                                                <th data-field="field4">4</th>
+                                                <th data-field="field5">5</th>
+                                                <th data-field="field6">6</th>
+                                                <th data-field="field7">7</th>
+                                                <th data-field="field8">8</th>
+                                                <th data-field="field9">9</th>
+                                                <th data-field="field10">10</th>
+                                            </tr>
+                                        </thead>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="message-box animated fadeIn" data-sound="alert " id='mb-signout'>
+        <div class="mb-container ">
+            <div class="mb-middle ">
+                <div class="mb-title"><span class="fa fa-sign-out "></span> Log <strong>Out</strong> ?</div>
+                <div class="mb-content ">
+                    <p>确定登出?</p>
+                    <p>如果您想继续留在此页面，请点击"否"</p>
+                </div>
+                <div class="mb-footer ">
+                    <div class="pull-right ">
+                        <a href="login.html " class="btn btn-success btn-lg ">是</a>
+                        <button class="btn btn-default btn-lg mb-control-close ">否</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type='text/javascript' src="js/import.js"></script>
+<script type='text/javascript' src="js/pages/common.js"></script>
+<script type='text/javascript' src="js/pages/CURDTable.js"></script>
+<script type='text/javascript' src="js/charts/echart_yarn.min.js"></script>
+<script>
+    function initPage() {
+        new cur({
+            t: "#TContact",
+            m: "#modal",
+            footerbar: '#footerbar',
+            showAfterRender: ['#footerbar'],
+            dataSourceType: 'local',
+            queryUrl: "js/charts/demos/springFestivalResumed_table.json",
+            addUrl: "/energy/process/add",
+            editUrl: "/energy/process/update",
+            delUrl: "/energy/process/delByIds"
+        }).init();
+
+        new yarn({
+            charts: [{
+                el: 'line_bar',
+                type: 'line',
+                ti: 'line_title',
+                theme_obj: {
+                    legend: {
+                        left: 86
+                    }
+                },
+                min_height: 300,
+                max_height: 600,
+                url: 'js/charts/demos/springFestivalResumed_line.json',
+                scale: 0.20,
+                params: {
+                    day: getToday()
+                }
+            }]
+        }).init();
+
+        initDateInputForYear('#date_input');
+        $('#date_input').val(getLastYear());
+    }
+
+    initPage();
+</script>
+
+</html>

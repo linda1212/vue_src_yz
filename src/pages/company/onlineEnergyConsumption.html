@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>在线能耗</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" id='theme' href="css/theme-dark-blue.css" />
+</head>
+
+<body>
+    <div class="page-container">
+        <a href="# " class="x-navigation-minimize menu_minimalize"><span class="arrow arrow-shrink "></span></a>
+        <div class="page-sidebar page-sidebar-fixed scroll">
+            <ul id='menu' class="x-navigation">
+                <li class="xn-logo">
+                    <a href="index.html"></a>
+                    <a href='#' class="x-navigation-control "></a>
+                </li>
+            </ul>
+        </div>
+        <div class="page-content ">
+            <h3 class="page-title">
+                <ul class="x-navigation x-navigation-horizontal log-out pull-right">
+                    <li class="xn-icon-button last ">
+                        <a href="# "><span class="fa fa-power-off "></span></a>
+                        <ul class="xn-drop-left animated zoomIn ">
+                            <li><a href="# " class="mb-control " data-box="#mb-signout"><span class="fa fa-sign-out "></span> 登出</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                在线能耗</h3>
+            <ul id="inavigation" class="nav nav-tabs xs-tabs">
+                <li role="presentation" class="active"><a href="javascript:void(0);" data-page='#ipage1'>能耗监测</a></li>
+                <li role="presentation"><a href="javascript:void(0);" data-page='#ipage2'>能耗统计</a></li>
+                <li role="presentation"><a href="javascript:void(0);" data-page='#ipage3'>实时能耗</a></li>
+            </ul>
+            <div id="ipage_content" class="nav-content">
+                <div id="ipage1" class="relative">
+                    <div class="page-content-wrap chart_container">
+                        <div class="container-fluid">
+                            <div id="onlineEnergyMonitor" class="row">
+                                <div class="col-xl-2 col-lg-4 col-md-6 col-sm-6">
+                                    <div class="wigit-title yellow-bg"></div>
+                                    <div class="iPanel wigit-panel">
+                                        <!-- 今日综合能源消费量 -->
+                                        <p class="wigit-text wigit-text1"></p>
+                                        <p class="wigit-value"><span id="el_energy" class="value"></span><span id="el_energy_title"></span></p>
+                                    </div>
+                                </div>
+                                <div class="col-xl-2 col-lg-4 col-md-6 col-sm-6">
+                                    <div class="wigit-title green-bg"></div>
+                                    <div class="iPanel wigit-panel">
+                                        <!-- 今日全市用电总量 -->
+                                        <p class="wigit-text wigit-text2"></p>
+                                        <p class="wigit-value"><span id="el_power" class="value"></span><span id="el_power_title"></span></p>
+                                    </div>
+                                </div>
+                                <div class="col-xl-2 col-lg-4 col-md-6 col-sm-6">
+                                    <div class="wigit-title cyan-bg"></div>
+                                    <div class="iPanel wigit-panel">
+                                        <!-- 今日全市用水总量 -->
+                                        <p class="wigit-text wigit-text3"></p>
+                                        <p class="wigit-value"><span id="el_water" class="value"></span><span id="el_water_title"></span></p>
+                                    </div>
+                                </div>
+                                <div class="col-xl-2 col-lg-4 col-md-6 col-sm-6">
+                                    <div class="wigit-title blue-bg"></div>
+                                    <div class="iPanel wigit-panel">
+                                        <!-- 今日全市蒸汽总量 -->
+                                        <p class="wigit-text wigit-text4"></p>
+                                        <p class="wigit-value"><span id="el_steam" class="value"></span><span id="el_steam_title"></span></p>
+                                    </div>
+                                </div>
+                                <div class="col-xl-2 col-lg-4 col-md-6 col-sm-6">
+                                    <div class="wigit-title purple-bg"></div>
+                                    <div class="iPanel wigit-panel">
+                                        <!-- 今日全市天然气总量 -->
+                                        <p class="wigit-text wigit-text5"></p>
+                                        <p class="wigit-value"><span id="el_gas" class="value"></span><span id="el_gas_title"></span></p>
+                                    </div>
+                                </div>
+                                <div class="col-xl-2 col-lg-4 col-md-6 col-sm-6">
+                                    <div class="wigit-title red-bg"></div>
+                                    <div class="iPanel wigit-panel">
+                                        <!-- 全市接入企业 -->
+                                        <p class="wigit-text wigit-text6"></p>
+                                        <p class="wigit-value"><span id="el_enterpriseSize" class="value"></span><span title="家">家</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="panel_title">
+                                        <div class="col-sm-4">
+                                            <h4>日用能趋势图</h4>
+                                        </div>
+                                        <div class="col-sm-8 clearfix">
+                                            <div class="gap-btn-group pull-right bar-group" role="group">
+                                                <div class="btn-group" role="group">
+                                                    <select id="energyType" class="form-control select iselect w140"></select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="iPanel">
+                                        <div class="content">
+                                            <div class="chart-wrap">
+                                                <div id="line_bar"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="panel_title" style="border-bottom: none;">
+                                        <div class="col-sm-4">
+                                            <h4>日用能详情</h4>
+                                        </div>
+                                    </div>
+                                    <div class="iPanel single_table_panel">
+                                        <div class="content">
+                                            <table id="TContact" data-height="559" data-mobile-responsive="true">
+                                                <thead>
+                                                    <tr class="hidden-em">
+                                                        <th data-formatter="IndexFormatter">序号</th>
+                                                        <th data-field="name">企业名称</th>
+                                                        <th data-field="power_total" data-align="right">用电总量<span class="st">(千瓦时)</span></th>
+                                                        <th data-field="water_total" data-align="right">用水总量<span class="st">(吨)</span></th>
+                                                        <th data-field="gas_total" data-align="right">蒸汽总量<span class="st">(万千焦耳)</span></th>
+                                                        <th data-field="steam_total" data-align="right">天然气总量<span class="st">(立方米)</span></th>
+                                                    </tr>
+                                                </thead>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="ipage2" class="relative hidden-em">
+                    <div class="page-content-wrap chart_container">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="panel_title">
+                                        <div class="col-md-3">
+                                            <h4>能耗统计</h4>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <div class="gap-btn-group pull-right bar-group" role="group">
+                                                <div class="btn-group">
+                                                    <ul class="buttonSet">
+                                                        <li><input type="radio" name="buttons" id="button1" value="area" style="display:none;" checked><label for="button1">区域</label></li>
+                                                        <li><input type="radio" name="buttons" id="button2" value="industry" style="display:none;"><label for="button2">行业</label></li>
+                                                    </ul>
+                                                </div>
+                                                <div id="areaSel" class="btn-group">
+                                                    <select id="area" class="w140 form-control select iselect area">
+                                                    </select>
+                                                </div>
+                                                <div id="industrySel" class="btn-group hidden-em">
+                                                    <select id="industry" class="w140 form-control select iselect industry">
+                                                    </select>
+                                                </div>
+                                                <div class="btn-group">
+                                                    <select id="energyType2" class="w140 form-control select iselect">
+                                                    </select>
+                                                </div>
+                                                <div class="btn-group">
+                                                    <button id="search_btn" class="btn btn-primary">查询</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="page_content" class="nav-content">
+                                        <div id="page2" class="relative">
+                                            <div class="iPanel" style="min-height: 731px;">
+                                                <div class="content">
+                                                    <h4 id="page2_title1" class="title"></h4>
+                                                    <div class="chart-wrap">
+                                                        <div id="chart1"></div>
+                                                    </div>
+                                                </div>
+                                                <div id="view1" class="content mt10"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="ipage3" class="relative hidden-em">
+                    <div class="page-content-wrap chart_container">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4" style="padding-right:0!important;">
+                                    <div class="panel_title" style="height: 56px;">
+                                        <div class="clearfix">
+                                            <div class="gap-btn-group tree-bar" role="group">
+                                                <input id="search_text" type="text" data-field='name' class="form-control" style="width:calc(100% - 93px)" placeholder="请输入单位名称" />
+                                                <div class="btn-group" id="serg1">
+                                                    <button id="ser1" type="button" title="排序" class="btn btn-outline btn-default">
+                                                        <span>排序</span>
+                                                    </button>
+                                                    <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                                        <span class="caret"></span>
+                                                    </button>
+                                                    <ul class="dropdown-menu mw116">
+                                                        <li><a href="javascript:void(0);" id="serName">名称排序<span class="glyphicon glyphicon-arrow-up"></span></a></li>
+                                                        <li><a href="javascript:void(0);" id="serNameD">名称排序<span class="glyphicon glyphicon-arrow-down"></span></a></li>
+                                                        <li><a href="javascript:void(0);" id="serEgy">能耗量排序<span class="glyphicon glyphicon-arrow-up"></span></a></li>
+                                                        <li><a href="javascript:void(0);" id="serEgyD">能耗量排序<span class="glyphicon glyphicon-arrow-down"></span></a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="tree_box" class="tree-panel font14 new_left_tree" style="height:820px;overflow: auto;">
+                                    </div>
+                                </div>
+                                <div class="col-lg-9 col-md-8" style="padding-left:0!important;">
+                                    <div class="panel_title left-border">
+                                        <div class="gap-btn-group pull-right bar-group" role="group">
+                                            <div class="btn-group">
+                                                <select id="energyType3" class="w140 form-control select iselect"></select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="content_box" class="iPanel left-border" style="min-height: 800px;">
+                                        <div class="content">
+                                            <h4 id="page3_title1" class="title"></h4>
+                                            <div class="chart-wrap">
+                                                <div id="page3_chart1"></div>
+                                            </div>
+                                        </div>
+                                        <div id="view" class="content mt40"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="message-box animated fadeIn" data-sound="alert " id='mb-signout'>
+        <div class="mb-container ">
+            <div class="mb-middle ">
+                <div class="mb-title"><span class="fa fa-sign-out "></span> Log <strong>Out</strong> ?</div>
+                <div class="mb-content ">
+                    <p>确定登出?</p>
+                    <p>如果您想继续留在此页面，请点击"否"</p>
+                </div>
+                <div class="mb-footer ">
+                    <div class="pull-right ">
+                        <a href="login.html " class="btn btn-success btn-lg ">是</a>
+                        <button class="btn btn-default btn-lg mb-control-close ">否</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type='text/javascript' src="js/import.js"></script>
+<script type='text/javascript' src="js/pages/common.js "></script>
+<script type='text/javascript' src="js/pages/CURDTable.js "></script>
+<script type='text/javascript' src="js/pages/ALONETable.js "></script>
+<script type='text/javascript' src="js/charts/echart_yarn.min.js "></script>
+<script type="text/javascript">
+    var lock1 = false,
+        lock2 = false,
+        lock3 = false;
+    $('#inavigation').find('li').click(function() {
+        $(this).addClass('active').siblings('li').removeClass('active');
+        var id = $(this).find('a').data('page');
+        $('#ipage_content').find(id).show().siblings().hide();
+        $(window).trigger("panel_resize");
+        switch (id) {
+            case '#ipage2':
+                setTimeout(function() {
+                    if (!lock2) {
+                        showFrame2();
+                        lock2 = true;
+                    }
+                }, 100);
+                break;
+            case '#ipage3':
+                setTimeout(function() {
+                    if (!lock3) {
+                        showFrame3();
+                        lock3 = true;
+                    }
+                }, 100);
+                break;
+            case '#ipage1':
+            default:
+                setTimeout(function() {
+                    if (!lock1) {
+                        showFrame1();
+                        lock1 = true;
+                    }
+                }, 100);
+                break;
+        }
+    });
+
+    function getOverView() {
+        eBase.send({
+            url: '/energy/monitorInfo/general'
+        }, 'get').done(function(resp) {
+            var data = resp.rows;
+
+            if ('0' == resp['code']) {
+                var obj = resp['data'];
+                for (var key in obj) {
+                    $('#el_' + key).text(obj[key]);
+                    $('#el_' + key).attr('title', obj[key]);
+                }
+            }
+
+        }).fail(function() {
+            console.log('获取数据失败');
+        });
+    }
+
+    function getDayLine(type) {
+        new yarn({
+            charts: [{
+                el: 'line_bar',
+                type: 'line',
+                url: '/energy/monitorInfo/hour/online/' + type,
+                theme_obj: {
+                    areaStyle: ['rgba(24, 144, 255, 0.20)', 'rgba(46, 194, 91, 0.20)']
+                },
+                scale: 0.20,
+                min_height: 300,
+                max_height: 600
+            }]
+        }).init();
+    }
+
+    $('#energyType').change(function() {
+        getDayLine($('#energyType').val());
+    });
+
+    function showFrame1() {
+        getOverView();
+        initSelectByUrl('energyType', '/energy/enengyType/getEnergyType?key=energyType', function() {
+            getDayLine($('#energyType').val());
+        });
+
+        new cur({
+            t: "#TContact",
+            m: "#modal",
+            footerbar: '#footerbar',
+            showAfterRender: ['#footerbar'],
+            queryUrl: "/energy/monitorInfo/getEnergyList"
+        }).init();
+    }
+
+    var selVal = 'area';
+
+    $("input[name='buttons']").change(function() {
+        selVal = $(this).val();
+        switch (selVal) {
+            case 'area':
+                $('#areaSel').show();
+                $('#industrySel').hide();
+                break;
+            case 'industry':
+                $('#industrySel').show();
+                $('#areaSel').hide();
+                break;
+            default:
+                $('#areaSel').show();
+                $('#industrySel').hide();
+                break;
+        }
+
+    });
+
+    function showData() {
+        if (selVal == 'area') {
+            initedArea();
+        } else {
+            initedIndustry();
+        }
+    }
+
+    $('#search_btn').click(function() {
+        showData();
+    });
+
+    function initedArea() {
+        showAreaPageForEle(0, $('#energyType2').val(), $('#area').val());
+    }
+
+    function initedIndustry() {
+        showIndustryPageForEle(0, $('#energyType2').val(), $('#industry').val());
+    }
+
+    function showAreaPageForEle(type, powerType, selectArea) {
+
+        if ('' === type || '' === powerType || null == powerType || '' === selectArea || null == selectArea) {
+            return;
+        }
+
+        new at({
+            queryUrl: "/energy/analysis/table/onlineCounty/date/" + powerType,
+            params: {
+                cityId: selectArea,
+                getTime: getToday(),
+                type: type
+            },
+            view: '#view1',
+            columns: CONSTT.NAME_COLUMNS
+        }).init();
+
+        new yarn({
+            charts: [{
+                el: 'chart1',
+                type: 'line',
+                ti: '#page2_title1',
+                url: '/energy/analysis/chart/county/online/' + powerType,
+                scale: 0.20,
+                min_height: 300,
+                max_height: 600,
+                params: {
+                    cityId: selectArea,
+                    getTime: getToday(),
+                    key: '123',
+                    type: type
+                }
+            }]
+        }).init();
+    }
+
+    function showIndustryPageForEle(type, powerType, selectIndustry) {
+
+        if ('' === type || '' === powerType || null == powerType || '' === selectIndustry || null == selectIndustry) {
+            return;
+        }
+
+        new at({
+            queryUrl: "/energy/analysis/table/onlineIndustry/date/" + powerType,
+            params: {
+                cityId: selectIndustry,
+                getTime: getToday(),
+                type: type
+
+            },
+            view: '#view1',
+            columns: CONSTT.NAME_COLUMNS
+        }).init();
+
+        new yarn({
+            charts: [{
+                el: 'chart1',
+                type: 'line',
+                ti: '#page2_title1',
+                url: '/energy/analysis/chart/industry/online/' + powerType,
+                scale: 0.20,
+                min_height: 300,
+                max_height: 600,
+                params: {
+                    parent_code: selectIndustry,
+                    getTime: getToday(),
+                    key: '1234',
+                    type: type
+                }
+            }]
+        }).init();
+    }
+
+    function showFrame2() {
+        initSelectByUrl('energyType2', '/energy/enengyType/getEnergyType?key=energyType2', function() {
+            showData();
+        });
+    }
+
+    var __current_company_id = '';
+    var columns = [];
+
+    function renderTable(id, currentType, columns) {
+        new at({
+            queryUrl: "/energy/companyAnalysis/chart/table/date",
+            params: {
+                key: 1,
+                enterprise_id: id,
+                type: currentType
+            },
+            columns: CONSTT.TIME_COLUMNS
+        }).init();
+    }
+
+    function getChartsByName(id, type) {
+
+        if (id == '' || type == '') return;
+
+        new yarn({
+            charts: [{
+                el: 'page3_chart1',
+                type: 'line',
+                ti: '#page3_title1',
+                theme: 'waring_line',
+                url: '/energy/companyAnalysis/chart/line/date',
+                scale: 0.36,
+                min_height: 300,
+                max_height: 600,
+                theme_obj: {
+                    showWarning: true,
+                    markLine: {
+                        lineStyle: {
+                            color: '#ff0000',
+                            type: 'solid'
+                        }
+                    },
+                    grid: {
+                        top: 50,
+                        left: 0,
+                        right: 40,
+                        bottom: 10,
+                        containLabel: true
+                    }
+                },
+                params: {
+                    key: 1,
+                    type: type,
+                    enterprise_id: id
+                }
+            }]
+        }).init();
+
+        // 设置column
+        if (!columns[0]) {
+            eBase.send({
+                url: "/energy/companyAnalysis/chart/table/date",
+                data: JSON.stringify({
+                    params: {
+                        key: 1,
+                        enterprise_id: 2,
+                        type: type
+                    }
+                })
+            }).done(function(res) {
+                var r = res.rows[0] || {};
+                var tks = Object.keys(r).sort();
+                var reg = /^[a-z]+$/i;
+                var titleMaps = {
+                    unit: '单位',
+                    rangeValue: '范围值'
+                };
+                var ls = tks.reduce(function(total, current, index, arr) {
+                    total[current] = r[current];
+                    return total;
+                }, {});
+                for (var k in ls) {
+                    if (reg.test(k)) {
+                        columns.unshift({
+                            title: titleMaps[k],
+                            field: k,
+                            align: 'left',
+                            valign: 'middle'
+                        });
+                    } else {
+                        columns.push({
+                            title: k,
+                            field: k,
+                            align: 'left',
+                            valign: 'middle'
+                        });
+                    }
+                }
+
+                renderTable(id, type, columns);
+            })
+        } else {
+            renderTable(id, type, columns);
+        }
+    }
+
+    function showTreeViewByEgy(order, currentType) {
+        var params = {
+            orderType: order
+        };
+        if (currentType) {
+            params.code = currentType
+        }
+        params.date = getToday();
+        order = order || 1;
+        eBase.send({
+            "url": '/energy/companyAnalysis/getListOrderByEnergy',
+            data: JSON.stringify({
+                pageIndex: 1,
+                pageSize: 25,
+                params: params
+            })
+        }, "post").done(function(resp) {
+
+            resp = resp.rows.map(function(item) {
+                return {
+                    id: item.id,
+                    text: item.name
+                }
+            }) || [];
+
+            $('#tree_box').treeview({
+                showBorder: false,
+                selectedColor: '#1e87f0',
+                selectedBackColor: '#fff',
+                expandIcon: "tree-icon menu-plus",
+                collapseIcon: "tree-icon menu-minus",
+                selectedIcon: "glyphicon pull-right",
+                data: resp
+            }).on('nodeSelected', function(event, data) {
+                __current_company_id = data.id;
+
+                getChartsByName(__current_company_id, $('#energyType3').val());
+            });
+            $('#tree_box').treeview('selectNode', [0])
+        })
+    }
+
+    function showTreeViewByName(order, name) {
+        var params = {
+            orderByName: order
+        };
+        if (name) {
+            params.name = name
+        }
+        order = order || 1;
+        eBase.send({
+            "url": '/energy/companyAnalysis/getEnterpriseList',
+            data: JSON.stringify({
+                pageIndex: 1,
+                pageSize: 25,
+                params: params
+            })
+        }, "post").done(function(resp) {
+
+            resp = resp.rows.map(function(item) {
+                return {
+                    id: item.id,
+                    text: item.name
+                }
+            }) || [];
+
+            $('#tree_box').treeview({
+                showBorder: false,
+                selectedColor: '#1e87f0',
+                selectedBackColor: '#fff',
+                expandIcon: "tree-icon menu-plus",
+                collapseIcon: "tree-icon menu-minus",
+                selectedIcon: "glyphicon pull-right",
+                data: resp
+            }).on('nodeSelected', function(event, data) {
+                __current_company_id = data.id;
+
+                getChartsByName(__current_company_id, $('#energyType3').val());
+            });
+            $('#tree_box').treeview('selectNode', [0])
+        });
+    }
+
+    function addListener() {
+        $('#energyType3').change(function() {
+            getChartsByName(__current_company_id, $('#energyType3').val());
+        });
+
+        $('#serNameD').click(function() {
+            showTreeViewByName(-1);
+        })
+
+
+        $('#serName').click(function() {
+            showTreeViewByName(1);
+        })
+
+        $('#serEgyD').click(function() {
+            showTreeViewByEgy(-1, $('#energyType3').val());
+        })
+
+        $('#serEgy').click(function() {
+            showTreeViewByEgy(1, $('#energyType3').val());
+        })
+
+        $('#search_text').keyup(function(event) {
+            if (event.keyCode == 13) {
+                var name = $(this).val();
+                showTreeViewByName(null, name);
+            }
+
+        })
+    }
+
+    function showFrame3() {
+        addListener();
+        $('#energyType3').length > 0 && initSelectByUrl('enengyType3', '/energy/enengyType/getEnergyType?key=enengyType3', function() {
+            showTreeViewByName();
+        }, ['#energyType3']);
+        setTimeout(function() {
+            $('#tree_box').css('height', $('#content_box').height() + 38 + 'px');
+        }, 200);
+    }
+
+    function initPage() {
+        showFrame1();
+    }
+
+    initPage();
+</script>
+
+</html>

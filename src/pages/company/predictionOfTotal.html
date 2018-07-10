@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>总量与强度预测</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" id='theme' href="css/theme-dark-blue.css" />
+</head>
+
+<body id="predictionOfTotal">
+    <div class="page-container">
+        <a href="# " class="x-navigation-minimize menu_minimalize"><span class="arrow arrow-shrink "></span></a>
+        <div class="page-sidebar page-sidebar-fixed scroll">
+            <ul id='menu' class="x-navigation">
+                <li class="xn-logo">
+                    <a href="index.html"></a>
+                    <a href='#' class="x-navigation-control "></a>
+                </li>
+            </ul>
+        </div>
+        <div class="page-content ">
+            <h3 class="page-title">
+                <ul class="x-navigation x-navigation-horizontal log-out pull-right">
+                    <li class="xn-icon-button last ">
+                        <a href="# "><span class="fa fa-power-off "></span></a>
+                        <ul class="xn-drop-left animated zoomIn ">
+                            <li><a href="# " class="mb-control " data-box="#mb-signout "><span class="fa fa-sign-out "></span> 登出</a></li>
+                        </ul>
+                    </li>
+                </ul>总量与强度预测</h3>
+            <div class="page-content-wrap chart_container">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div id="m_panel" class="iPanel clearfix pre_main_panel" style="max-height:235px;overflow-x: auto;">
+                                <div class="col-lg-2 m_wigit_panel">
+                                    <p class="m_label static_label1">第一季度能耗总量</p>
+                                    <p class="m_value_box"><span class="m_value">400</span><span class="m_st">吨标准煤</span></p>
+                                </div>
+                                <div class="col-lg-2 m_wigit_panel">
+                                    <p class="m_label static_label2">第一季度能耗强度</p>
+                                    <p class="m_value_box"><span class="m_value">400</span><span class="m_st">吨标准煤/万元</span></p>
+                                </div>
+                                <div class="col-lg-2 m_wigit_panel">
+                                    <p class="m_label static_label3">预计第二季度能耗总量</p>
+                                    <p class="m_value_box"><span class="m_value">400</span><span class="m_st">吨标准煤</span></p>
+                                </div>
+                                <div class="col-lg-2 m_wigit_panel">
+                                    <p class="m_label static_label4">预计第二季度强度总量</p>
+                                    <p class="m_value_box"><span class="m_value">400</span><span class="m_st">吨标准煤/万吨标准煤</span></p>
+                                </div>
+                                <div class="col-lg-2 m_wigit_panel">
+                                    <p class="m_label static_label5">能耗总量 预测同比增加</p>
+                                    <p class="m_value_box"><span class="m_value">15%</span></p>
+                                </div>
+                                <div class="col-lg-2 m_wigit_panel">
+                                    <p class="m_label static_label6">能耗强度 预计同比增加</p>
+                                    <p class="m_value_box"><span class="m_value">15%</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="panel_title">
+                                <div class="col-md-12">
+                                    <h4 id="title1">2018年消耗总量分析</h4>
+                                </div>
+                            </div>
+                            <div id="page_content" class="nav-content">
+                                <div class="iPanel">
+                                    <div class="content">
+                                        <div class="chart-wrap">
+                                            <div id="chart1"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="panel_title">
+                                <div class="col-md-12">
+                                    <h4 id="line_title">2018年消耗总量分析</h4>
+                                </div>
+                            </div>
+                            <div id="page_content" class="nav-content">
+                                <div class="iPanel">
+                                    <div class="content">
+                                        <div class="chart-wrap">
+                                            <div id="line_bar"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="message-box animated fadeIn" data-sound="alert " id='mb-signout'>
+        <div class="mb-container ">
+            <div class="mb-middle ">
+                <div class="mb-title"><span class="fa fa-sign-out "></span> Log <strong>Out</strong> ?</div>
+                <div class="mb-content ">
+                    <p>确定登出?</p>
+                    <p>如果您想继续留在此页面，请点击"否"</p>
+                </div>
+                <div class="mb-footer ">
+                    <div class="pull-right ">
+                        <a href="login.html " class="btn btn-success btn-lg ">是</a>
+                        <button class="btn btn-default btn-lg mb-control-close ">否</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type='text/javascript' src="js/import.js"></script>
+<script type='text/javascript' src="js/pages/common.js"></script>
+<script type='text/javascript' src="js/pages/CURDTable.js"></script>
+<script type='text/javascript' src="js/charts/echart_yarn.min.js"></script>
+<script>
+    function initPage() {
+        renderBar();
+        renderLine();
+    }
+
+    function renderBar() {
+        new yarn({
+            charts: [{
+                el: 'chart1',
+                type: 'bar',
+                theme_obj: {
+                    legend: {
+                        left: 50
+                    }
+                },
+                url: 'js/charts/demos/predictionOfTotal_bar.json',
+                theme_obj: {
+                    barWidth: '30%',
+                    barMaxWidth: '40px',
+                    legend: {
+                        left: 88
+                    }
+                },
+                scale: 0.30,
+                min_height: 300,
+                max_height: 300,
+            }]
+        }).init();
+    }
+
+    function renderLine() {
+        new yarn({
+            charts: [{
+                el: 'line_bar',
+                type: 'line',
+                theme: "green_line",
+                ti: '#line_title',
+                url: 'js/charts/demos/predictionOfTotal_line.json',
+                scale: 0.30,
+                min_height: 300,
+                max_height: 300,
+                theme_obj: {
+                    legend: {
+                        left: 116
+                    }
+                },
+            }]
+        }).init();
+    }
+
+    initPage();
+</script>
+
+</html>

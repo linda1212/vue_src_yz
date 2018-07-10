@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>计量器具管理</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" id='theme' href="css/theme-dark-blue.css" />
+</head>
+
+<body>
+    <div class="page-container">
+        <a href="# " class="x-navigation-minimize menu_minimalize"><span class="arrow arrow-shrink "></span></a>
+        <div class="page-sidebar page-sidebar-fixed scroll">
+            <ul id='menu' class="x-navigation">
+                <li class="xn-logo">
+                    <a href="index.html"></a>
+                    <a href='#' class="x-navigation-control "></a>
+                </li>
+            </ul>
+        </div>
+        <div class="page-content ">
+            <h3 class="page-title">
+                <ul class="x-navigation x-navigation-horizontal log-out pull-right">
+                    <li class="xn-icon-button last ">
+                        <a href="# "><span class="fa fa-power-off "></span></a>
+                        <ul class="xn-drop-left animated zoomIn ">
+                            <li><a href="# " class="mb-control " data-box="#mb-signout "><span class="fa fa-sign-out "></span> 登出</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                计量器具管理</h3>
+            <ul class="breadcrumb ">
+                <li><a href="meteringManager_index.html">计量器具概览</a></li>
+                <li class="active"><a href="meteringManager.html">计量器具管理</a></li>
+            </ul>
+            <div class="page-content-wrap ">
+                <div class="page-content-box gap24">
+                    <div class="clearfix mytbar">
+                        <div id="inputBox" class="gap-btn-group  " role="group">
+                            <button type="button" title="新增客户" class="btn btn-label">
+                                <span>搜索：</span>
+                            </button>
+                            <div id="field_select" class="btn-group compact" role="group">
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    设备编码
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#" data-field='terminal_id' data-placeholder='请输入设备编码'>设备编码</a></li>
+                                    <li><a href="#" data-field='metering_name' data-placeholder='请输入计量器具名称'>设备名称</a></li>
+                                </ul>
+                            </div>
+                            <input id="search_input" type="text" data-field='terminal_id' class="form-control" placeholder="请输入设备编码" />
+                            <button id="ser" type="button" title="搜索" class="btn btn-outline btn-primary">
+                                <span>查询</span>
+                            </button>
+                        </div>
+                        <div class="btn-group   pull-right" role="group">
+                            <button id="add" data-table="TContact" type="button" title="新增客户" class="btn btn-outline btn-primary pull-right">
+                                <span>新增</span>
+                            </button>
+                        </div>
+                    </div>
+                    <table id="TContact" data-height="716" data-mobile-responsive="true">
+                        <thead>
+                            <tr class="hidden-em">
+                                <th data-field="state" data-my="1" data-checkbox="true"></th>
+                                <th data-field="id">id</th>
+                                <th data-field="terminal_id">设备编码</th>
+                                <th data-field="metering_name">名称</th>
+                                <th data-field="metering_type">类型</th>
+                                <th data-field="metering_level">器具等级</th>
+                                <th data-field="metering_parameter">相关参数</th>
+                                <th data-field="data_code">组合编码</th>
+                                <th data-field="data_code_calculate">编码算术关系</th>
+                                <th data-field="data_code_ratio">编码算术系数</th>
+                                <th data-field="manu_facturer">生产厂家</th>
+                                <th data-field="type_specification">型号规格</th>
+                                <th data-field="accuracy_level">精确度等级</th>
+                                <th data-field="measure_range">测量范围</th>
+                                <th data-field="manage_code">管理编号</th>
+                                <th data-field="calibration_state">检定/校准状态</th>
+                                <th data-field="calibration_cycle">检定/校准周期</th>
+                                <th data-field="inspection_organization">检验机构</th>
+                                <th data-field="lately_calibration1" data-formatter="DateFormatter">最近一次检定/校准时间</th>
+                                <th data-field="next_calibration1" data-formatter="DateFormatter">下一次检定/校准时间</th>
+                                <th data-field="not_calibration">未检定/校准原因</th>
+                                <th data-field="install_org">安装方</th>
+                                <th data-field="install_date1" data-formatter="DateFormatter">安装时间</th>
+                                <th data-field="installation_site">安装地点</th>
+                                <th data-field="usr_system">接入系统</th>
+                                <th data-field="measure_state" data-formatter="MFormatter">目前状态</th>
+                                <th data-field="measure_state_date1" data-formatter="DateFormatter">状态发生时间</th>
+                                <th data-field="enterprise_code">企业信用代码</th>
+                                <th data-field="enterprise_id">企业id</th>
+                                <th data-field="operate" data-formatter="OperatingFomatter" data-align="right">操作</th>
+                            </tr>
+                        </thead>
+                    </table>
+                    <div id="footerbar" class="footerbar hidden-em">
+                        <div class="gap-btn-group" role="group">
+                            <button id="checkall" type="button" class="btn btn-outline btn-default" data-cked="unchecked">
+                                <span>全选</span>
+                            </button>
+                            <button id="bedit" type="button" class="btn btn-outline btn-primary">
+                                <span>批量操作</span>
+                            </button>
+                            <button id="bdel" type="button" title="删除客户" class="btn btn-outline btn-primary">
+                                <span>删除</span>
+                            </button>
+                            <button id="endState" type="button" title="删除客户" class="btn btn-outline btn-primary">
+                                <span>完成</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="message-box animated fadeIn" data-sound="alert " id='mb-signout'>
+        <div class="mb-container ">
+            <div class="mb-middle ">
+                <div class="mb-title"><span class="fa fa-sign-out "></span> Log <strong>Out</strong> ?</div>
+                <div class="mb-content ">
+                    <p>确定登出?</p>
+                    <p>如果您想继续留在此页面，请点击"否"</p>
+                </div>
+                <div class="mb-footer ">
+                    <div class="pull-right ">
+                        <a href="login.html " class="btn btn-success btn-lg ">是</a>
+                        <button class="btn btn-default btn-lg mb-control-close ">否</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="modal" class="modal fade">
+        <div class="modal-dialog">
+            <form action="javascript:void(0)" data-bv-message="验证未通过" data-bv-feedbackicons-valid="glyphicon glyphicon-ok" data-bv-feedbackicons-invalid="glyphicon glyphicon-remove" data-bv-feedbackicons-validating="glyphicon glyphicon-refresh">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title"></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group hidden-em">
+                            <label>id</label>
+                            <input type="text" class="form-control" name="id">
+                        </div>
+                        <div class="form-group">
+                            <label><span class="text-red">*</span>设备编码</label>
+                            <input type="text" class="form-control" name="terminal_id" required>
+                        </div>
+                        <div class="form-group">
+                            <label><span class="text-red">*</span>名称</label>
+                            <input type="text" class="form-control" name="metering_name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>类型</label>
+                            <input type="text" class="form-control" name="metering_type">
+                        </div>
+                        <div class="form-group">
+                            <label>器具等级</label>
+                            <input type="text" class="form-control" name="metering_level">
+                        </div>
+                        <div class="form-group">
+                            <label>相关参数</label>
+                            <input type="text" class="form-control" name="metering_parameter">
+                        </div>
+                        <div class="form-group">
+                            <label>组合编码</label>
+                            <input type="text" class="form-control" name="data_code">
+                        </div>
+                        <div class="form-group">
+                            <label>编码算术关系</label>
+                            <input type="text" class="form-control" name="data_code_calculate">
+                        </div>
+                        <div class="form-group">
+                            <label>编码算术系数</label>
+                            <input type="text" class="form-control" name="data_code_ratio">
+                        </div>
+                        <div class="form-group">
+                            <label>生产厂家</label>
+                            <input type="text" class="form-control" name="manu_facturer">
+                        </div>
+                        <div class="form-group">
+                            <label>型号规格</label>
+                            <input type="text" class="form-control" name="type_specification">
+                        </div>
+                        <div class="form-group">
+                            <label>精确度等级</label>
+                            <input type="text" class="form-control" name="accuracy_level">
+                        </div>
+                        <div class="form-group">
+                            <label>测量范围</label>
+                            <input type="text" class="form-control" name="measure_range">
+                        </div>
+                        <div class="form-group">
+                            <label>管理编号</label>
+                            <input type="text" class="form-control" name="manage_code">
+                        </div>
+                        <div class="form-group">
+                            <label>检定/校准状态</label>
+                            <input type="text" class="form-control" name="calibration_state">
+                        </div>
+                        <div class="form-group">
+                            <label>检定/校准周期</label>
+                            <input type="text" class="form-control" name="calibration_cycle">
+                        </div>
+                        <div class="form-group">
+                            <label>检验机构</label>
+                            <input type="text" class="form-control" name="inspection_organization">
+                        </div>
+                        <div class="form-group">
+                            <label>最近一次检定/校准时间</label>
+                            <input id="lately_calibration" type="text" name="lately_calibration1" class="form-control laydate-icon layer-date">
+                        </div>
+                        <div class="form-group">
+                            <label>下一次检定/校准时间</label>
+                            <input id="next_calibration" type="text" name="next_calibration1" class="form-control laydate-icon layer-date">
+                        </div>
+                        <div class="form-group">
+                            <label>未检定/校准原因</label>
+                            <input type="text" class="form-control" name="not_calibration">
+                        </div>
+                        <div class="form-group">
+                            <label>安装方</label>
+                            <input type="text" class="form-control" name="install_org">
+                        </div>
+                        <div class="form-group">
+                            <label>安装时间</label>
+                            <input id="install_date" type="text" name="install_date1" class="form-control laydate-icon layer-date">
+                        </div>
+                        <div class="form-group">
+                            <label>安装地点</label>
+                            <input type="text" class="form-control" name="installation_site">
+                        </div>
+                        <div class="form-group">
+                            <label>接入系统</label>
+                            <input type="text" class="form-control" name="usr_system">
+                        </div>
+                        <div class="form-group">
+                            <label>目前状态</label>
+                            <input type="text" class="form-control" name="measure_state">
+                        </div>
+                        <div class="form-group">
+                            <label>状态发生时间</label>
+                            <input id="measure_state_date" type="text" name="measure_state_date1" class="form-control laydate-icon layer-date">
+                        </div>
+                        <div class="form-group">
+                            <label>企业信用代码</label>
+                            <input type="text" class="form-control" name="enterprise_code">
+                        </div>
+                        <div class="form-group">
+                            <label>企业id</label>
+                            <input type="text" class="form-control" name="enterprise_id">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default cancel" data-dismiss="modal">取&nbsp;&nbsp;消</button>
+                        <button type="button" class="btn btn-primary submit">保&nbsp;&nbsp;存</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id="detail" class="modal fade">
+        <div class="modal-dialog">
+            <form action="javascript:void(0)">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title"></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group hidden-em">
+                            <label>id</label>
+                            <input type="text" class="form-control" name="id">
+                        </div>
+                        <div class="form-group">
+                            <label>设备编码</label>
+                            <input type="text" class="form-control" name="terminal_id" required>
+                        </div>
+                        <div class="form-group">
+                            <label>名称</label>
+                            <input type="text" class="form-control" name="metering_name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>类型</label>
+                            <input type="text" class="form-control" name="metering_type">
+                        </div>
+                        <div class="form-group">
+                            <label>器具等级</label>
+                            <input type="text" class="form-control" name="metering_level">
+                        </div>
+                        <div class="form-group">
+                            <label>相关参数</label>
+                            <input type="text" class="form-control" name="metering_parameter">
+                        </div>
+                        <div class="form-group">
+                            <label>组合编码</label>
+                            <input type="text" class="form-control" name="data_code">
+                        </div>
+                        <div class="form-group">
+                            <label>编码算术关系</label>
+                            <input type="text" class="form-control" name="data_code_calculate">
+                        </div>
+                        <div class="form-group">
+                            <label>编码算术系数</label>
+                            <input type="text" class="form-control" name="data_code_ratio">
+                        </div>
+                        <div class="form-group">
+                            <label>生产厂家</label>
+                            <input type="text" class="form-control" name="manu_facturer">
+                        </div>
+                        <div class="form-group">
+                            <label>型号规格</label>
+                            <input type="text" class="form-control" name="type_specification">
+                        </div>
+                        <div class="form-group">
+                            <label>精确度等级</label>
+                            <input type="text" class="form-control" name="accuracy_level">
+                        </div>
+                        <div class="form-group">
+                            <label>测量范围</label>
+                            <input type="text" class="form-control" name="measure_range">
+                        </div>
+                        <div class="form-group">
+                            <label>管理编号</label>
+                            <input type="text" class="form-control" name="manage_code">
+                        </div>
+                        <div class="form-group">
+                            <label>检定/校准状态</label>
+                            <input type="text" class="form-control" name="calibration_state">
+                        </div>
+                        <div class="form-group">
+                            <label>检定/校准周期</label>
+                            <input type="text" class="form-control" name="calibration_cycle">
+                        </div>
+                        <div class="form-group">
+                            <label>检验机构</label>
+                            <input type="text" class="form-control" name="inspection_organization">
+                        </div>
+                        <div class="form-group">
+                            <label>最近一次检定/校准时间</label>
+                            <input id="lately_calibration" type="text" name="lately_calibration1" class="form-control laydate-icon layer-date">
+                        </div>
+                        <div class="form-group">
+                            <label>下一次检定/校准时间</label>
+                            <input id="next_calibration" type="text" name="next_calibration1" class="form-control laydate-icon layer-date">
+                        </div>
+                        <div class="form-group">
+                            <label>未检定/校准原因</label>
+                            <input type="text" class="form-control" name="not_calibration">
+                        </div>
+                        <div class="form-group">
+                            <label>安装方</label>
+                            <input type="text" class="form-control" name="install_org">
+                        </div>
+                        <div class="form-group">
+                            <label>安装时间</label>
+                            <input id="install_date" type="text" name="install_date1" class="form-control laydate-icon layer-date">
+                        </div>
+                        <div class="form-group">
+                            <label>安装地点</label>
+                            <input type="text" class="form-control" name="installation_site">
+                        </div>
+                        <div class="form-group">
+                            <label>接入系统</label>
+                            <input type="text" class="form-control" name="usr_system">
+                        </div>
+                        <div class="form-group">
+                            <label>目前状态</label>
+                            <input type="text" class="form-control" name="measure_state">
+                        </div>
+                        <div class="form-group">
+                            <label>状态发生时间</label>
+                            <input id="measure_state_date" type="text" name="measure_state_date1" class="form-control laydate-icon layer-date">
+                        </div>
+                        <div class="form-group">
+                            <label>企业信用代码</label>
+                            <input type="text" class="form-control" name="enterprise_code">
+                        </div>
+                        <div class="form-group">
+                            <label>企业id</label>
+                            <input type="text" class="form-control" name="enterprise_id">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn  btn-primary submit" data-dismiss="modal">确&nbsp;&nbsp;认</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+<script type='text/javascript' src="js/import.js"></script>
+<script type='text/javascript' src="js/pages/CURDTable.js"></script>
+<script>
+    var c = new cur({
+        t: "#TContact",
+        m: "#modal",
+        footerbar: '#footerbar',
+        showAfterRender: ['#footerbar'],
+        hideCols: ['id', 'metering_level', 'accuracy_level', 'data_code', 'metering_parameter', 'data_code_calculate', 'data_code_ratio', 'type_specification', 'manage_code', 'calibration_state', 'calibration_cycle', 'inspection_organization', 'lately_calibration', 'next_calibration', 'not_calibration', 'install_org', 'install_date', 'usr_system', 'measure_state_date', 'enterprise_code', 'enterprise_id', 'installation_site'],
+        dataInputs: ["#lately_calibration", "#next_calibration", "#install_date", "#measure_state_date"],
+        search_params: {
+            field_select: '#field_select',
+            field_input: '#search_input'
+        },
+        queryUrl: "/energy/metering/getList",
+        addUrl: "/energy/metering/add",
+        editUrl: "/energy/metering/update",
+        delUrl: "/energy/metering/delByIds"
+    });
+    c.init(c);
+</script>
+
+</html>

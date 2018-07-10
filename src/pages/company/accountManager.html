@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>账号管理</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" id='theme' href="css/theme-dark-blue.css" />
+</head>
+
+<body>
+    <div class="page-container">
+        <a href="# " class="x-navigation-minimize menu_minimalize"><span class="arrow arrow-shrink "></span></a>
+        <div class="page-sidebar page-sidebar-fixed scroll">
+            <ul id='menu' class="x-navigation">
+                <li class="xn-logo">
+                    <a href="index.html"></a>
+                    <a href='#' class="x-navigation-control "></a>
+                </li>
+            </ul>
+        </div>
+        <div class="page-content ">
+            <h3 class="page-title">
+                <ul class="x-navigation x-navigation-horizontal log-out pull-right">
+                    <li class="xn-icon-button last">
+                        <a href="# "><span class="fa fa-power-off "></span></a>
+                        <ul class="xn-drop-left animated zoomIn ">
+                            <li><a href="# " class="mb-control" data-box="#mb-signout"><span class="fa fa-sign-out "></span> 登出</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                账号管理</h3>
+            <ul id="inavigation" class="nav nav-tabs xs-tabs">
+                <li role="presentation" class="active"><a href="javascript:void(0);" data-page='#ipage1'>政府用户</a></li>
+                <li role="presentation"><a href="javascript:void(0);" data-page='#ipage2'>企业用户</a></li>
+            </ul>
+            <div id="ipage_content" class="nav-content">
+                <div id="ipage1" class="relative">
+                    <div class="page-content-wrap">
+                        <div class="page-content-box gap24">
+                            <div class="clearfix mytbar">
+                                <div id="inputBox1" class="gap-btn-group  " role="group">
+                                    <button type="button" title="新增客户" class="btn btn-label">
+                                        <span>账户名称：</span>
+                                    </button>
+                                    <input id="search_input1" type="text" data-field='username' class="form-control" placeholder="账户名称" />
+                                    <button id="ser1" type="button" title="搜索" class="btn btn-outline btn-primary">
+                                        <span>查询</span>
+                                    </button>
+                                </div>
+                                <div class="btn-group  pull-right" role="group">
+                                    <button id="add1" data-table="TContact" type="button" title="新增客户" class="btn btn-outline btn-primary pull-right">
+                                        <span>新增</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <table id="TAccount1" data-height="716" data-mobile-responsive="true">
+                                <thead>
+                                    <tr class="hide">
+                                        <th data-field="state" data-my="1" data-checkbox="true"></th>
+                                        <th data-field="id">id</th>
+                                        <th data-field="username">账户名</th>
+                                        <th data-field="p_name">所属公司</th>
+                                        <th data-field="p_id">所属公司Id</th>
+                                        <th data-field="role_id">角色id</th>
+                                        <th data-field="role_name">角色名称</th>
+                                        <th data-field="b_valid" data-formatter="EFormatter">状态</th>
+                                        <th data-field="operate" data-formatter="OperatingFomatter" data-align="right">操作</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                            <div id="footerbar1" class="footerbar hidden-em">
+                                <div class="gap-btn-group" role="group">
+                                    <button id="checkall1" type="button" class="btn btn-outline btn-default" data-cked="unchecked">
+                                        <span>全选</span>
+                                    </button>
+                                    <button id="bedit1" type="button" class="btn btn-outline btn-primary">
+                                        <span>批量操作</span>
+                                    </button>
+                                    <button id="bdel1" type="button" title="删除客户" class="btn btn-outline btn-primary">
+                                        <span>删除</span>
+                                    </button>
+                                    <button id="endState1" type="button" title="删除客户" class="btn btn-outline btn-primary">
+                                        <span>完成</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="ipage2" class="relative hidden-em">
+                    <div class="page-content-wrap">
+                        <div class="page-content-box gap24">
+                            <div class="clearfix mytbar">
+                                <div id="inputBox2" class="gap-btn-group" role="group">
+                                    <button type="button" title="新增客户" class="btn btn-label">
+                                        <span>账户名称：</span>
+                                    </button>
+                                    <input id="search_input2" type="text" data-field='username' class="form-control" placeholder="账户名称" />
+                                    <button id="ser2" type="button" title="搜索" class="btn btn-outline btn-primary">
+                                        <span>查询</span>
+                                    </button>
+                                </div>
+                                <div class="btn-group  pull-right" role="group">
+                                    <button id="add2" data-table="TContact" type="button" title="新增客户" class="btn btn-outline btn-primary pull-right">
+                                        <span>新增</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <table id="TAccount2" data-height="716" data-mobile-responsive="true">
+                                <thead>
+                                    <tr class="hide">
+                                        <th data-field="state" data-my="1" data-checkbox="true"></th>
+                                        <th data-field="id">id</th>
+                                        <th data-field="username">账户名</th>
+                                        <th data-field="p_name">所属公司</th>
+                                        <th data-field="p_id">所属公司Id</th>
+                                        <th data-field="role_id">角色id</th>
+                                        <th data-field="role_name">角色名称</th>
+                                        <th data-field="b_valid" data-formatter="EFormatter">状态</th>
+                                        <th data-field="operate" data-formatter="OperatingFomatter" data-align="right">操作</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                            <div id="footerbar2" class="footerbar hidden-em">
+                                <div class="gap-btn-group" role="group">
+                                    <button id="checkall2" type="button" class="btn btn-outline btn-default" data-cked="unchecked">
+                                        <span>全选</span>
+                                    </button>
+                                    <button id="bedit2" type="button" class="btn btn-outline btn-primary">
+                                        <span>批量操作</span>
+                                    </button>
+                                    <button id="bdel2" type="button" title="删除客户" class="btn btn-outline btn-primary">
+                                        <span>删除</span>
+                                    </button>
+                                    <button id="endState2" type="button" title="删除客户" class="btn btn-outline btn-primary">
+                                        <span>完成</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="message-box animated fadeIn" data-sound="alert " id='mb-signout'>
+        <div class="mb-container ">
+            <div class="mb-middle ">
+                <div class="mb-title"><span class="fa fa-sign-out "></span> Log <strong>Out</strong> ?</div>
+                <div class="mb-content ">
+                    <p>确定登出?</p>
+                    <p>如果您想继续留在此页面，请点击"否"</p>
+                </div>
+                <div class="mb-footer ">
+                    <div class="pull-right ">
+                        <a href="login.html " class="btn btn-success btn-lg ">是</a>
+                        <button class="btn btn-default btn-lg mb-control-close ">否</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="modal1" class="modal fade">
+        <div class="modal-dialog">
+            <form action="javascript:void(0)" data-bv-message="验证未通过" data-bv-feedbackicons-valid="glyphicon glyphicon-ok" data-bv-feedbackicons-invalid="glyphicon glyphicon-remove" data-bv-feedbackicons-validating="glyphicon glyphicon-refresh">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title"></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group hidden-em">
+                            <label>id</label>
+                            <input type="text" class="form-control" name="id" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label><span class="text-red">*</span>账户名</label>
+                            <input type="text" class="form-control" name="username" placeholder="" required data-bv-notempty-message="名称不能为空">
+                        </div>
+                        <div class="form-group">
+                            <label><span class="text-red">*</span>省</label>
+                            <select id="province" class="form-control" name="province" required></select>
+                        </div>
+                        <div class="form-group hidden-em">
+                            <label>市</label>
+                            <select id="city" class="form-control" name="city"></select>
+                        </div>
+                        <div class="form-group hidden-em">
+                            <label>区</label>
+                            <select id="district" class="form-control" name="district"></select>
+                        </div>
+                        <!--  <div class="form-group">
+                            <label>所属公司</label>
+                            <select class="form-control company_parnet" name="enterprise_id" data-bv-notempty data-bv-notempty-message="请选择所属公司">
+                            </select>
+                        </div> -->
+                        <div class="form-group">
+                            <label>账户角色</label>
+                            <select class="form-control gov_role" name="role_id" data-bv-notempty data-bv-notempty-message="请选择角色">
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>状态</label>
+                            <select class="form-control" name="b_valid" data-bv-notempty data-bv-notempty-message="状态不能为空">
+                                <option value="" style="display: none">--状态--</option>
+                                <option value="0">启用</option>
+                                <option value="1">禁用</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default cancel" data-dismiss="modal">取&nbsp;&nbsp;消</button>
+                        <button type="button" class="btn btn-primary submit">保&nbsp;&nbsp;存</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id="modal2" class="modal fade">
+        <div class="modal-dialog">
+            <form action="javascript:void(0)" data-bv-message="验证未通过" data-bv-feedbackicons-valid="glyphicon glyphicon-ok" data-bv-feedbackicons-invalid="glyphicon glyphicon-remove" data-bv-feedbackicons-validating="glyphicon glyphicon-refresh">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title"></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group hidden-em">
+                            <label>id</label>
+                            <input type="text" class="form-control" name="id" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label><span class="text-red">*</span>账户名</label>
+                            <input type="text" class="form-control" name="username" placeholder="" required data-bv-notempty-message="名称不能为空">
+                        </div>
+                        <div class="form-group">
+                            <label>所属公司</label>
+                            <select class="form-control company_parnet" name="enterprise_id" data-bv-notempty data-bv-notempty-message="请选择所属公司">
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>账户角色</label>
+                            <select class="form-control company_role" name="role_id" data-bv-notempty data-bv-notempty-message="请选择角色">
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>状态</label>
+                            <select class="form-control" name="b_valid" data-bv-notempty data-bv-notempty-message="状态不能为空">
+                                <option value="" style="display: none">--状态--</option>
+                                <option value="0">启用</option>
+                                <option value="1">禁用</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default cancel" data-dismiss="modal">取&nbsp;&nbsp;消</button>
+                        <button type="button" class="btn btn-primary submit">保&nbsp;&nbsp;存</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id="detail1" class="modal fade w_detail">
+        <div class="modal-dialog">
+            <form action="javascript:void(0)">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title"></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group hidden-em">
+                            <label>id</label>
+                            <input type="text" class="form-control" name="id" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label>账户名</label>
+                            <input type="text" class="form-control" name="username">
+                        </div>
+                        <div class="form-group">
+                            <label>省</label>
+                            <select id="province1" class="form-control" name="province" required></select>
+                        </div>
+                        <div class="form-group">
+                            <label>市</label>
+                            <select id="city1" class="form-control" name="city"></select>
+                        </div>
+                        <div class="form-group">
+                            <label>区</label>
+                            <select id="district1" class="form-control" name="district"></select>
+                        </div>
+                        <!--  <div class="form-group">
+                            <label>所属公司</label>
+                            <select class="form-control company_parnet" name="enterprise_id">
+                            </select>
+                        </div> -->
+                        <div class="form-group">
+                            <label>账户角色</label>
+                            <select class="form-control gov_role" name="role_id">
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>状态</label>
+                            <select class="form-control" name="b_valid">
+                                <option value="" style="display: none">--状态--</option>
+                                <option value="0">启用</option>
+                                <option value="1">禁用</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn  btn-primary submit" data-dismiss="modal">确&nbsp;&nbsp;认</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id="detail2" class="modal fade w_detail">
+        <div class="modal-dialog">
+            <form action="javascript:void(0)">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title"></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group hidden-em">
+                            <label>id</label>
+                            <input type="text" class="form-control" name="id" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label>账户名</label>
+                            <input type="text" class="form-control" name="username">
+                        </div>
+                        <div class="form-group">
+                            <label>所属公司</label>
+                            <select class="form-control company_parnet" name="enterprise_id">
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>账户角色</label>
+                            <select class="form-control company_role" name="role_id">
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>状态</label>
+                            <select class="form-control" name="b_valid">
+                                <option value="" style="display: none">--状态--</option>
+                                <option value="0">启用</option>
+                                <option value="1">禁用</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn  btn-primary submit" data-dismiss="modal">确&nbsp;&nbsp;认</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+<script type='text/javascript' src="js/import.js"></script>
+<script type='text/javascript' src="js/pages/CURDTable.js"></script>
+<script>
+var lock1 = false,
+    lock2 = false,
+    lock3 = false;
+$('#inavigation').find('li').click(function() {
+    $(this).addClass('active').siblings('li').removeClass('active');
+    var id = $(this).find('a').data('page');
+    $('#ipage_content').find(id).show().siblings().hide();
+    switch (id) {
+        case '#ipage2':
+            if (!lock2) {
+                showFrameByType(2);
+                lock2 = true;
+            }
+            break;
+        case '#ipage1':
+        default:
+            if (!lock1) {
+                showFrameByType(1);
+                lock1 = true;
+            }
+            break;
+    }
+});
+
+function showFrameByType(type) {
+    var c = new cur({
+        t: "#TAccount" + type,
+        m: "#modal" + type,
+        d: '#detail' + type,
+        uuid: "id",
+        footerbar: '#footerbar' + type,
+        showAfterRender: ['#footerbar' + type],
+        addBtn: "#add" + type,
+        editBtn: "#edit" + type,
+        batchEditBtn: '#bedit' + type,
+        batchDelBtn: "#bdel" + type,
+        checkAllBtn: '#checkall' + type,
+        endStateBtn: '#endState' + type,
+        checkAllBox: '#checkbox' + type,
+        delBtn: "#del" + type,
+        serBtn: "#ser" + type,
+        refBtn: "#ref" + type,
+        inputBar: "#inputBox" + type,
+        search_params: {
+            field_select: '#field_select1' + type,
+            field_input: '#search_input1' + type
+        },
+        hideCols: ["id", "p_id", "role_id"],
+        childSls: {
+            "gov_role": {
+                def: '--请选择所属角色--',
+                url: '/admin/common/role/queryForSelect?name=gov_role&accountType=1',
+                autoRef: 'true',
+                type: 'get',
+                selector: ['.gov_role']
+            },
+            "company_role": {
+                def: '--请选择所属角色--',
+                url: '/admin/common/role/queryForSelect?name=company_role&accountType=2',
+                autoRef: 'true',
+                type: 'get',
+                selector: ['.company_role']
+            },
+            "company_parnet": {
+                def: '--请选择所属公司--',
+                url: '/admin/common/enterprise/queryForSelect?name=company_parnet',
+                autoRef: 'true',
+                type: 'get',
+                selector: ['.company_parnet']
+            },
+            "#province": {
+                def: '--请选择省--',
+                url: '/energy/sys/getAreaList?key=province&code=0',
+                autoRef: 'true',
+                type: 'GET'
+            },
+            "#province1": {
+                def: '--请选择省--',
+                url: '/energy/sys/getAreaList?key=province1',
+                autoRef: 'true',
+                type: 'GET'
+            },
+            "#city1": {
+                def: '--请选择市--',
+                url: '/energy/sys/getAreaList?key=city1',
+                autoRef: 'true',
+                type: 'GET'
+            },
+            "#district1": {
+                def: '--请选择区--',
+                url: '/energy/sys/getAreaList?key=district1',
+                autoRef: 'true',
+                type: 'GET'
+            },
+        },
+        queryUrl: "/admin/account/query",
+        addUrl: "/admin/account/add",
+        editUrl: "/admin/account/update",
+        delUrl: "/admin/account/delete",
+        params: {
+            params: {
+                accountType: type
+            }
+        },
+        extendRows: {
+            accountType: type
+        }
+    });
+    c.init(c);
+}
+
+
+$("#province").change(function() {
+    var provinceCode = $("#province").val();
+    if (provinceCode) {
+        $('#city').parent().show();
+        initOption('city', provinceCode);
+    }
+});
+
+$("#city").change(function() {
+    var cityCode = $("#city").val();
+    if (cityCode) {
+        $('#district').parent().show();
+        initOption('district', cityCode);
+    }
+});
+
+function initOption(e_id, code) {
+    var childSls = {};
+    childSls['#' + e_id] = {
+        url: '/energy/sys/getAreaList?key=' + e_id + '&code=' + code,
+        def: '请选择',
+        type: 'GET'
+    };
+
+    var sc = new cur({
+        childSls: childSls
+    });
+
+    sc.initSelect();
+}
+
+showFrameByType(1);
+
+</script>
+
+</html>

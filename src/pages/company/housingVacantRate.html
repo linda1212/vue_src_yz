@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>住房空置率</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" id='theme' href="css/theme-dark-blue.css" />
+</head>
+
+<body id="housingVacantRate">
+    <div class="page-container">
+        <a href="# " class="x-navigation-minimize menu_minimalize"><span class="arrow arrow-shrink "></span></a>
+        <div class="page-sidebar page-sidebar-fixed scroll">
+            <ul id='menu' class="x-navigation">
+                <li class="xn-logo">
+                    <a href="index.html"></a>
+                    <a href='#' class="x-navigation-control "></a>
+                </li>
+            </ul>
+        </div>
+        <div class="page-content ">
+            <h3 class="page-title">
+                <ul class="x-navigation x-navigation-horizontal log-out pull-right">
+                    <li class="xn-icon-button last ">
+                        <a href="# "><span class="fa fa-power-off "></span></a>
+                        <ul class="xn-drop-left animated zoomIn ">
+                            <li><a href="# " class="mb-control " data-box="#mb-signout "><span class="fa fa-sign-out "></span> 登出</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                住房空置率</h3>
+            <div class="page-content-wrap chart_container">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="panel_title">
+                                <div class="col-xl-8 clearfix">
+                                    <h4><span class="yz"></span>住房空置率<span class="st">（<span class="yz"></span>住房空置率情况:年度平均空置率为:<span class="text-red">3%</span>,年度半空置率为:<span class="text-red">5%</span>，其中节假日为:<span class="text-red">11%</span>，其他情况为:
+                                        <span class="text-red">4%</span>)</span>
+                                    </h4>
+                                </div>
+                                <div class="col-xl-4 clearfix">
+                                    <div class="gap-btn-group pull-right bar-group" role="group">
+                                        <input id="date_input" type="text" name="" class="form-control laydate-icon layer-date" data-bv-date="true">
+                                        <button type="button" title="搜索" class="btn btn-outline btn-primary">
+                                            <span>查询</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="iPanel">
+                                <div class="content">
+                                    <h4 id="line_title" class="title"><span class="yz"></span>住房空置率变化</h4>
+                                    <div class="chart-wrap">
+                                        <div id="line_bar"></div>
+                                    </div>
+                                </div>
+                                <div class="content mt40">
+                                    <h4 id="table_title" class="title">各个地方空置率一览</h4>
+                                    <table id="TContact" data-height="529" data-mobile-responsive="true">
+                                        <thead>
+                                            <tr class="hidden-em">
+                                                <th data-formatter="IndexFormatter">序号</th>
+                                                <th data-field="name">城市</th>
+                                                <th data-field="field1" data-align="right">空置率</th>
+                                                <th data-field="field2" data-align="right">半空置率</th>
+                                                <th data-field="field3" data-align="right">节假日用房</th>
+                                                <th data-field="field4" data-align="right">假期用房</th>
+                                                <th data-field="field5" data-align="right">其他情况</th>
+                                            </tr>
+                                        </thead>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="message-box animated fadeIn" data-sound="alert " id='mb-signout'>
+        <div class="mb-container ">
+            <div class="mb-middle ">
+                <div class="mb-title"><span class="fa fa-sign-out "></span> Log <strong>Out</strong> ?</div>
+                <div class="mb-content ">
+                    <p>确定登出?</p>
+                    <p>如果您想继续留在此页面，请点击"否"</p>
+                </div>
+                <div class="mb-footer ">
+                    <div class="pull-right ">
+                        <a href="login.html " class="btn btn-success btn-lg ">是</a>
+                        <button class="btn btn-default btn-lg mb-control-close ">否</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type='text/javascript' src="js/import.js"></script>
+<script type='text/javascript' src="js/pages/common.js"></script>
+<script type='text/javascript' src="js/pages/CURDTable.js"></script>
+<script type='text/javascript' src="js/charts/echart_yarn.min.js"></script>
+<script>
+    function initPage() {
+        new cur({
+            t: "#TContact",
+            m: "#modal",
+            footerbar: '#footerbar',
+            showAfterRender: ['#footerbar'],
+            dataSourceType: 'local',
+            queryUrl: "js/charts/demos/housingVacantRate_table.json",
+            addUrl: "/energy/process/add",
+            editUrl: "/energy/process/update",
+            delUrl: "/energy/process/delByIds"
+        }).init();
+
+        //
+
+        new yarn({
+            charts: [{
+                el: 'line_bar',
+                type: 'line',
+                theme: "green_line",
+                ti: 'line_title',
+                theme_obj: {
+                    legend: {
+                        left: 45
+                    }
+                },
+                url: 'js/charts/demos/housingVacantRate_line.json',
+                scale: 0.20,
+                params: {
+                    day: getToday()
+                }
+            }]
+        }).init();
+
+        initDateInputForMonth('#date_input');
+        $('#date_input').val(getThisMonth());
+    }
+
+    initPage();
+</script>
+
+</html>
